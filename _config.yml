@@ -23,11 +23,11 @@ title: Uzaemon's Homepage
 description: # >- # this means to ignore newlines until "baseurl:"
   Copyright 2023 "uzaemon@Japan".
   This project is licensed under the MIT License.
-baseurl: "/Uzaemons" # the subpath of your site, e.g. /blog
-url: "https://uzaemon.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/homepage" # the subpath of your site, e.g. /blog
+url: "https://uzaemon.github.io/homepage" # the base hostname & protocol for your site, e.g. http://example.com
 # url: "/GuriPages" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: GuriCatNyan
-github_username:  Uzaemon
+github_username:  uzaemon
 
 # Build settings
 # show_downloads: true
