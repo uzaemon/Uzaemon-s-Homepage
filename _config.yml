@@ -55,7 +55,7 @@ plugins:
 exclude:
 #   - .sass-cache/
   - .jekyll-cache/
-  - README.md
+#   - README.md
 #   - gemfiles/
   - Gemfile
   - Gemfile.lock
