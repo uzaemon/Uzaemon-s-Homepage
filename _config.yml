@@ -19,14 +19,14 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Uzaemon's Homepage
-# email: https://twitter.com/GuriCatNyan
+# email:
 description: # >- # this means to ignore newlines until "baseurl:"
   Copyright 2023 "uzaemon@Japan".
   This project is licensed under the MIT License.
 # baseurl: "" # the subpath of your site, e.g. /blog
 baseurl: "/homepage"
 # url: "https://uzaemon.github.io/homepage" # the base hostname & protocol for your site, e.g. http://example.com
-# twitter_username: GuriCatNyan
+# twitter_username:
 github_username:  uzaemon
 
 # Build settings
