@@ -150,12 +150,12 @@ CRTCSVFに下記機能を追加しました。バージョンは2-14です。
 
 __DDSの定義__
 
-<code>
+```ruby
 0001.00      A          R TEST
 0002.00      A            DATE            L
 0003.00      A            TIME            T
 0004.00      A            TS              Z
-</code>
+```
 
 __変換例__
 
