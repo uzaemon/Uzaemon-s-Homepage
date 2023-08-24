@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00566 : Re: SPL2STMF error in API QwpzHostPrintT</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00566 [Re: SPL2STMF error in API QwpzHostPrintT] </font>(posted by uzaemon)</b><br>
+( 1)   03/02/17 23:34   comment on <a href="00564.html">00564</a>   , # of comment(s) : 1
+<HR>
+
+Jesus,<br>
+<br>
+> Hi Uzaemon, I've used SPL2STMF without any problem since 18 months ago, but recently we upgrade OS from V4R4M0 to V5R1M0 and since then when I convert some spooled files I get the following error:<br>
+<br>
+As you had been able to use SPL2STMF on V4R4M0, I assume that your problem has been caused by version up of OS/400.<br>
+<br>
+> Command failed. reason - API QwpzHostPrintTransform failed : CPF3CF2  hptopt = 30<br>
+<br>
+CPF3CF2 indicates "Error(s) occurred during running of &1 API". If you cannot find additional information in joblog, I have nothing to do because HPT can be fixed only by IBM.<br>
+<br>
+> I will post you the debug print output in a reply to this message.<br>
+<br>
+Unfortunately, the debug output does not show any useful information regarding your problem.<br>
+<br>
+> I thought it was a problem with the user spaces' sizes ...<br>
+<br>
+I'm not sure but maximum size of USRSPC object is 16MB, I think. You can change the size of variables but I don't know if it resolves your problem.<br>
+<br>
+> Can you help me?<br>
+<br>
+As I mentioned earlier, I suspect that your problem is in OS/400(HPT API). I recommend you to consider followings :<br>
+<br>
+- apply latest Cum and HPT-related PTFs.<br>
+- there is no logical reason but just try to recompile SPL2STMF on V5R1 with lower optimization option.<br>
+- if you have an access to another AS/400 or iSeries, run the same thing and see what happens. Or you may ask your business partner or friend to recreate your problem.<br>
+- if the problem occurs only for the specific spooled file, look for the difference.<br>
+- prepare the procedure to recreate your problem using OS/400 functions which use HPT, e.g. RMTOUTQ, LPR, Access for Web, Host on Demand, etc.<br>
+- contact your support channel to ask IBM to investigate (and fix) the problem.<br>
+<br>
+Hope this helps.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

@@ -1,0 +1,1301 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta name="Author" content="Name">
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 7.0.0.0 for Windows">
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>zip_usage</title>
+</head>
+<body>
+<H1>Usage</H1>
+<BLOCKQUOTE>
+<H3><A href="#OS/400 native command interface syntax">OS/400 native command interface syntax</A></H3>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<UL>
+  <LI><A href="#ZIP command interface">ZIP command interface</A>
+  <LI><A href="#UNZIP command interface">UNZIP command interface</A>
+  <LI><A href="#DSPZIP command interface">DSPZIP command interface</A>
+</UL>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<H3><A href="#OS/400 native command interface usage examples">OS/400 native command interface usage examples</A></H3>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<UL>
+  <LI><A href="#ZIP/UNZIP stream files">ZIP/UNZIP stream files</A>
+  <LI><A href="#ZIP/UNZIP DB2/400 database file">ZIP/UNZIP DB2/400 database file</A>
+  <LI><A href="#ZIP/UNZIP online save file">ZIP/UNZIP online save file</A>
+</UL>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<H3><A href="#Qshell interpreter interface syntax">Qshell interpreter interface syntax</A></H3>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<UL>
+  <LI><A href="#minizip usage">minizip usage</A>
+  <LI><A href="#miniunz usage">miniunz usage</A>
+</UL>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<H3><A href="#Qshell interpreter interface usage examples">Qshell interpreter interface usage examples</A></H3>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<H3><A href="#Interoperability with PC-based zip tools (with casual encryption)">Interoperability with PC-based zip tools (with casual encryption)</A></H3>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<UL>
+  <LI><A href="#Zip on OS/400 and extract on PC (DOS/Windows)">Zip on OS/400 and extract on PC (DOS/Windows)</A>
+  <LI><A href="#Zip on PC (DOS/Windows) and extract on OS/400">Zip on PC (DOS/Windows) and extract on OS/400</A>
+</UL>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<H3><A href="#Note">Note</A></H3>
+</BLOCKQUOTE>
+<P><A href="index.html">Home</A></P>
+<HR width="100%">
+<H2><A name="OS/400 native command interface syntax">OS/400 native command interface syntax</A></H2>
+<HR width="70%" align="center">
+<BLOCKQUOTE>
+<H3><A name="ZIP command interface">ZIP command interface</A></H3>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD>
+      <PRE>
+                            Zip (compress) file (ZIP)
+
+ Type choices, press Enter.
+
+ ZIP file name  . . . . . . . . . ZIPFILE        <U>
+                   </U>
+ Files to add ZIP file  . . . . . FILES          <U>
+                   </U>
+                           + for more values
+
+ Overwrite existing ZIP file  . . REPLACE        <U>*REPLACE</U>
+ Compression level  . . . . . . . COMPLVL        <U>*DEFAULT</U>
+
+                            Additional Parameters
+
+ Password for ZIP file  . . . . . PASSWORD       <U>
+ </U>
+                                                                                </PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD>
+      <PRE>
+                    Zip (compress) file (ZIP) - Help
+
+    The ZIP command allows you to compress file(s) to standard ZIP
+    format file. The format is compatible with PKZip 2.04g, WinZip,
+    InfoZip and other popular ZIP utilities.
+
+    Restrictions:
+
+     o  Multi volume ZipFile (span) is not supported.
+
+     o  Old compression used by old PKZip 1.x is not supported.
+
+     o  Wild card (*, ?) and regular expression are not supported.
+
+     o  This code support the &quot;Traditional PKWARE Encryption&quot;.  The new
+        AES encryption added on Zip format by Winzip (see the page
+        http://www.winzip.com/aes_info.htm ) and PKWare PKZip 5.x Strong
+        Encryption is not supported.
+
+     o  Not all errors can be monitored.
+
+        Note:  Do not precede an entry with an asterisk unless that
+        entry is a &quot;special value&quot; that is shown (on the display or in
+        the help information) with an asterisk.
+
+Error messages for ZIP
+
+    <U>*ESCAPE Messages</U>
+    CPF9897     Command failed.
+
+ZIP file (ZIPFILE)
+
+    Specifies ZIP file name.
+
+    This is a required parameter.
+
+Files to add ZIP file (FILES)
+
+    Specifies files to add to ZIP file. Maximum number of file is 20.
+
+    This is a required parameter.
+
+    You can enter multiple values for this parameter. If you are on an
+    entry display and you need additional entry fields to enter these
+    multiple values, type a plus sign (+) in the entry field opposite
+    the phrase &quot;+ for more&quot; and press the Enter key.
+
+Replace or add file to ZIP file (REPLACE)
+
+    Specifies whether to overwrite existing ZIP file.
+
+    The possible values are:
+
+    <U>*REPLACE</U>
+        Replace (overwrite) existing ZIP file.
+
+    *APPEND
+        Add file(s) to existing ZIP file.
+
+    *PROMPT
+        Show prompt for user action.
+
+Compression level (COMPLVL)
+
+    Specifies compression level.
+
+    The possible values are:
+
+    <U>*DEFAULT</U>
+        Equivalent to level 6.
+
+    0 to 9
+        1 gives best speed, 9 gives best compression, 0 gives no
+        compression at all (the input data is simply copied a block at a
+        time.
+
+Password (PASSWORD)
+
+    Specify password for the ZIP file if necessary.
+                                                               </PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<H3><A name="UNZIP command interface">UNZIP command interface</A></H3>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD>
+      <PRE>
+                           Unpack Zipped File (UNZIP)
+
+ Type choices, press Enter.
+
+ ZIP file name  . . . . . . . . . ZIPFILE        <U>
+                   </U>
+ File to extract from ZIP file  . FILE           <U>*ALL
+                   </U>
+ Extract with pathname  . . . . . ADDPATH        <U>*NO </U>
+ Overwrite existing file  . . . . REPLACE        <U>*YES   </U>
+
+                            Additional Parameters
+
+ Password for ZIP file  . . . . . PASSWORD       <U>
+ </U>
+</PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD>
+      <PRE>
+                   Unpack Zipped File (UNZIP) - Help
+
+    The UNZIP command allows you to decompress file(s) from standard ZIP
+    format file. The format is compatible with PKZip 2.04g, WinZip,
+    InfoZip and other popular ZIP utilities.
+
+    Restrictions:
+
+     o  Multi volume ZipFile (span) is not supported.
+
+     o  Old compression used by old PKZip 1.x is not supported.
+
+     o  Wild card (*, ?) and regular expression are not supported.
+
+     o  This code support the &quot;Traditional PKWARE Encryption&quot;.  The new
+        AES encryption added on Zip format by Winzip (see the page
+        http://www.winzip.com/aes_info.htm ) and PKWare PKZip 5.x Strong
+        Encryption is not supported.
+
+     o  Not all errors can be monitored.
+
+        Note:  Do not precede an entry with an asterisk unless that
+        entry is a &quot;special value&quot; that is shown (on the display or in
+        the help information) with an asterisk.
+
+Error messages for UNZIP
+
+    <U>*ESCAPE Messages</U>
+    CPF9897     Command failed.
+
+ZIP file (ZIPFILE)
+
+    Specifies ZIP file name.
+
+    This is a required parameter.
+
+File to extract from ZIP file (FILE)
+
+    Specifies a file to extract from ZIP file.
+
+    The possible values are:
+
+    <U>*ALL</U>
+        Extract all files in the ZIP file.
+
+    single_path_name
+        Extract only specified file.
+
+Extract with pathname (ADDPATH)
+
+    Specifies whether to use path name when ZIP file was created.
+
+    The possible values are:
+
+    <U>*NO</U>
+        Original path is ignored.
+
+    *YES
+        Extract to original path.
+
+Replace existing file (REPLACE)
+
+    Specifies whether to overwrite existing file without prompt, or show
+    prompt to for user intervention.
+
+    The possible values are:
+
+    <U>*YES</U>
+        Overwrite existing file without prompting.
+
+    *PROMPT
+        Show prompt for user action.
+
+Password (PASSWORD)
+
+    Specify password for the ZIP file if necessary.
+                                                                </PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<H3><A name="DSPZIP command interface">DSPZIP command interface</A></H3>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD>
+      <PRE>
+                          Display Zipped File (DSPZIP)
+
+ Type choices, press Enter.
+
+ ZIP file name  . . . . . . . . . ZIPFILE        <U>
+                   </U>
+                                                                                </PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD>
+      <PRE>
+                  Display Zipped File (DSPZIP) - Help
+
+    The DSPZIP command allows you to view contents of standard ZIP
+    format file. The format is compatible with PKZip 2.04g, WinZip,
+    InfoZip and other popular ZIP utilities.
+
+    Sample output
+
+      Length  Method   Size  Ratio   Date    Time   CRC-32     Name
+      ------  ------   ----  -----   ----    ----   ------     ----
+       37272  Defl:N*   6983  18%  09-27-03  13:00  296d360d   /tmp/zip.c
+
+        Length    : uncompressed size.
+        Method    : 'Defl:N' -&gt; normal, 'Defl:X' -&gt; best, 'Defl:F' -&gt; fast
+                    '*' indicates the file is encrypted.
+        Size      : compressed size.
+        Ratio     : compression ratio.
+        Date/Time : file timestamp (MM-DD-YY HH:MM).
+        CRC-32    : 32-bit cyclic redundancy checksum.
+        Name      : file path name.
+
+    Restrictions:
+
+     o  Multi volume ZipFile (span) is not supported.
+
+     o  Old compression used by old PKZip 1.x is not supported.
+
+     o  Wild card (*, ?) and regular expression are not supported.
+
+Error messages for ZIP
+
+    <U>*ESCAPE Messages</U>
+    CPF9897     Command failed.
+
+ZIP file (ZIPFILE)
+
+    Specifies ZIP file name.
+
+    This is a required parameter.
+                                                                      </PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<P><BR>
+</P>
+<H2><A name="OS/400 native command interface usage examples">OS/400 native command interface usage examples</A></H2>
+<HR width="70%" align="center">
+<BLOCKQUOTE>
+<H3><A name="ZIP/UNZIP stream files">ZIP/UNZIP stream files</A></H3>
+</BLOCKQUOTE>
+<BLOCKQUOTE>Operation below zip/unzip stream file &quot;/tmp/a.txt&quot; and &quot;/tmp/b.jpg&quot;.</BLOCKQUOTE>
+<BLOCKQUOTE>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD>
+      <PRE>
+&gt; WRKLNK OBJ('/tmp/*')
+</PRE>
+<BLOCKQUOTE>
+      <TABLE border="1">
+        <TBODY>
+          <TR>
+            <TD>
+            <PRE>
+                             Work with Object Links
+
+ Directory  . . . . :   /tmp
+
+ Type options, press Enter.
+   2=Edit   3=Copy   4=Remove   5=Display   7=Rename   8=Display attributes
+   11=Change current directory ...
+
+ Opt   Object link            Type     Attribute    Text
+       <B>a.txt</B>                  STMF
+       <B>b.jpg</B>                  STMF
+       brms                   DIR
+       s.slapd                SOCKET
+</PRE>
+            </TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+</BLOCKQUOTE>
+      <PRE>&gt; <B>ZIP ZIPFILE('/tmp/zipfile') FILES('/tmp/a.txt' '/tmp/b.jpg')</B>
+  Command completed.
+&gt; <B>DSPZIP ZIPFILE('/tmp/zipfile')               </B>    </PRE>
+      <BLOCKQUOTE>
+      <TABLE border="1">
+        <TBODY>
+          <TR>
+            <TD>
+            <PRE>    Length  Method   Size  Ratio   Date    Time   CRC-32     Name
+    ------  ------   ----  -----   ----    ----   ------     ----
+      4562  Defl:N    2568  56%  02-01-04  01:43  66d9833d   <B>/tmp/a.txt</B>
+    104567  Defl:N  103085  98%  02-01-04  01:43  760a85c3   <B>/tmp/b.jpg</B>
+
+   Press ENTER to end terminal session.      </PRE>
+            </TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+</BLOCKQUOTE>
+      <PRE>&gt; RMVLNK OBJLNK('/tmp/a.txt')
+  Link removed.
+&gt; RMVLNK OBJLNK('/tmp/b.jpg')
+  Link removed.
+&gt; WRKLNK OBJ('/tmp/*')                           </PRE>
+      <BLOCKQUOTE>
+      <TABLE border="1">
+        <TBODY>
+          <TR>
+            <TD>
+            <PRE>                             Work with Object Links
+
+ Directory  . . . . :   /tmp
+
+ Type options, press Enter.
+   2=Edit   3=Copy   4=Remove   5=Display   7=Rename   8=Display attributes
+   11=Change current directory ...
+
+ Opt   Object link            Type     Attribute    Text
+       brms                   DIR
+       s.slapd                SOCKET
+       <B>zipfile.zip</B>            STMF                                       </PRE>
+            </TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+</BLOCKQUOTE>
+      <PRE>&gt; <B>UNZIP ZIPFILE('/tmp/zipfile') ADDPATH(*YES)</B>
+  Command completed.
+&gt; WRKLNK OBJ('/tmp/*')                          </PRE>
+      <BLOCKQUOTE>
+      <TABLE border="1">
+        <TBODY>
+          <TR>
+            <TD>
+            <PRE>                             Work with Object Links
+
+ Directory  . . . . :   /tmp
+
+ Type options, press Enter.
+   2=Edit   3=Copy   4=Remove   5=Display   7=Rename   8=Display attributes
+   11=Change current directory ...
+
+ Opt   Object link            Type     Attribute    Text
+       <B>a.txt</B>                  STMF
+       <B>b.jpg</B>                  STMF
+       brms                   DIR
+       s.slapd                SOCKET
+       zipfile.zip            STMF                                          </PRE>
+            </TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </BLOCKQUOTE>
+      <BR>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>As all files are on the same directory, operation can be simplified by
+preceding &quot;cd&quot; (change directory) command.</BLOCKQUOTE>
+<BLOCKQUOTE>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD>
+      <PRE>
+&gt; WRKLNK OBJ('/tmp/*')</PRE>
+      <BLOCKQUOTE>
+      <TABLE border="1">
+        <TBODY>
+          <TR>
+            <TD>
+            <PRE>                             Work with Object Links
+
+ Directory  . . . . :   /tmp
+
+ Type options, press Enter.
+   2=Edit   3=Copy   4=Remove   5=Display   7=Rename   8=Display attributes
+   11=Change current directory ...
+
+ Opt   Object link            Type     Attribute    Text
+       <B>a.txt</B>                  STMF
+       <B>b.jpg</B>                  STMF
+       brms                   DIR
+       s.slapd                SOCKET                                       </PRE>
+            </TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+</BLOCKQUOTE>
+      <PRE>&gt; CD DIR('/tmp')
+  Current directory changed.
+&gt; <B>ZIP ZIPFILE(zipfile2) FILES(a.txt b.jpg)</B>
+  Command completed.
+&gt; <B>DSPZIP ZIPFILE('zipfile2')               </B></PRE>
+      <BLOCKQUOTE>
+      <TABLE border="1">
+        <TBODY>
+          <TR>
+            <TD>
+            <PRE>    Length  Method   Size  Ratio   Date    Time   CRC-32     Name
+    ------  ------   ----  -----   ----    ----   ------     ----
+      4562  Defl:N    2568  56%  02-01-04  01:43  66d9833d   <B>a.txt</B>
+    104567  Defl:N  103085  98%  02-01-04  01:43  760a85c3   <B>b.jpg</B>
+
+   Press ENTER to end terminal session.                             </PRE>
+            </TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+</BLOCKQUOTE>
+      <PRE>&gt; RMVLNK OBJLNK(a.txt)
+  Link removed.
+&gt; RMVLNK OBJLNK(b.jpg)
+  Link removed.
+&gt; WRKLNK</PRE>
+      <BLOCKQUOTE>
+      <TABLE border="1">
+        <TBODY>
+          <TR>
+            <TD>
+            <PRE>                             Work with Object Links
+
+ Directory  . . . . :   /tmp
+
+ Type options, press Enter.
+   2=Edit   3=Copy   4=Remove   5=Display   7=Rename   8=Display attributes
+   11=Change current directory ...
+
+ Opt   Object link            Type     Attribute    Text
+       brms                   DIR
+       s.slapd                SOCKET
+       <B>zipfile2.zip</B>           STMF                                       </PRE>
+            </TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+</BLOCKQUOTE>
+      <PRE>&gt; <B>UNZIP ZIPFILE(zipfile2)</B>
+  Command completed.
+&gt; WRKLNK                          </PRE>
+      <BLOCKQUOTE>
+      <TABLE border="1">
+        <TBODY>
+          <TR>
+            <TD>
+            <PRE>                             Work with Object Links
+
+ Directory  . . . . :   /tmp
+
+ Type options, press Enter.
+   2=Edit   3=Copy   4=Remove   5=Display   7=Rename   8=Display attributes
+   11=Change current directory ...
+
+ Opt   Object link            Type     Attribute    Text
+       <B>a.txt</B>                  STMF
+       <B>b.jpg</B>                  STMF
+       brms                   DIR
+       s.slapd                SOCKET
+       zipfile2.zip           STMF                                         </PRE>
+            </TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+</BLOCKQUOTE>
+      <PRE>                                                                                     </PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<HR width="70%" align="center">
+<BLOCKQUOTE>
+<H3><A name="ZIP/UNZIP DB2/400 database file">ZIP/UNZIP DB2/400 database file</A></H3>
+</BLOCKQUOTE>
+<BLOCKQUOTE><B>* ATTENTION!</B><BR>
+As this usage depends on POSIX stream I/O function provided by OS/400,
+it might not be possible to zip/unzip DB2/400 file directly on older OS/400.
+If it does not work, try CPYTOSTMF and CPYFRMSTMF command and zip/unzip
+the stream file.</BLOCKQUOTE>
+<BLOCKQUOTE>Following operation compresses &quot;QGPL/ITEM&quot; and uncompress to
+&quot;QTEMP/ITEM&quot;. It is required to use IFS path name to zip/unzip
+DB2/400 database file. </BLOCKQUOTE>
+<BLOCKQUOTE>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD>
+      <PRE>
+&gt; <B>ZIP ZIPFILE(/tmp/item) FILES('/qsys.lib/qgpl.lib/item.file/item.mbr')</B>
+  Command completed.
+&gt; <B>DSPZIP ZIPFILE(/tmp/item)</B></PRE>
+      <BLOCKQUOTE>
+      <TABLE border="1">
+        <TBODY>
+          <TR>
+            <TD>
+            <PRE>    Length  Method   Size  Ratio   Date    Time   CRC-32     Name
+    ------  ------   ----  -----   ----    ----   ------     ----
+     23544  Defl:N    6284  26%  02-01-04  02:14  36822a17   <B>/qsys.lib/qgpl.lib/</B>
+   <B>item.file/item.mbr</B>
+
+   Press ENTER to end terminal session.                                         </PRE>
+            </TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+</BLOCKQUOTE>
+      <PRE>&gt; CRTDUPOBJ OBJ(ITEM) FROMLIB(QGPL) OBJTYPE(*FILE) TOLIB(QTEMP)
+  Object ITEM in QTEMP type *FILE created.
+  1 objects duplicated.
+&gt; CD DIR('<B>/qsys.lib/qtemp.lib/item.file</B>')
+  Current directory changed.
+&gt; <B>UNZIP ZIPFILE('/tmp/item') FILE('/qsys.lib/qgpl.lib/item.file/item.mbr')</B>
+  Command completed.
+&gt; DSPPFM FILE(QTEMP/ITEM)</PRE>
+      <BLOCKQUOTE>
+      <TABLE border="1">
+        <TBODY>
+          <TR>
+            <TD>
+            <PRE>                          Display Physical File Member
+ File . . . . . . :   ITEM                Library  . . . . :   QTEMP
+ Member . . . . . :   ITEM                Record . . . . . :   1
+ Control  . . . . .                       Column . . . . . :   1
+ Find . . . . . . .
+ *...+....1....+....2....+....3....+....4....+....5....+....6....+....7....+...
+ 01000Blank Media         CDR recordable media 80min 10-pk
+ 01010Blank Media         Rewriteable Recordable CD for Digital Audio 10pc for
+ 01020Blank Media         10-Pk Digital Video Tapes/60-Minutes Blank
+ 01030Blank Media         Blank VHS Video Cassettes: T-90
+ 02000Batteries           Digital Camera NiMH Rechargeable Battery Kit
+ 02010Batteries           APS Camera SLR Body: CR2 Long Life Lithium Battery Pa
+ 02020Batteries           AA rechargeable NiMh battery (4 pack)
+ 02030Batteries           Pack of rechargeable batteries with a charger
+ 02040Batteries           Rechargeable Ni-MH Battery Set (4 Pack With Recharger
+ 02050Batteries           Long life lithium-ion battery pack
+ 03000Extension Cords     10' Extension Coil Cord
+ 03010Extension Cords     100' EXTENSION CORD REEL
+ 03020Extension Cords     6 Feet PC Power Extension Cord
+ 04000Fax Machines        Plain Paper Fax Machine
+ 04010Fax Machines        Plain Paper Fax With Digital Answer Machine
+                                                                        More...
+ F3=Exit   F12=Cancel   F19=Left   F20=Right   F24=More keys                    </PRE>
+            </TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+</BLOCKQUOTE>
+      <PRE>                                                                              </PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<HR width="70%" align="center">
+<BLOCKQUOTE>
+<H3><A name="ZIP/UNZIP online save file">ZIP/UNZIP online save file</A></H3>
+</BLOCKQUOTE>
+<BLOCKQUOTE><B>* ATTENTION!</B><BR>
+As this usage depends on POSIX stream I/O function provided by OS/400,
+it might not be possible to zip/unzip DB2/400 file directly on older OS/400.
+If it does not work, try CPYTOSTMF and CPYFRMSTMF command and zip/unzip
+the stream file.</BLOCKQUOTE>
+<BLOCKQUOTE>This demonstrates the following operation:</BLOCKQUOTE>
+<BLOCKQUOTE>
+<OL>
+  <LI>Save source physical file &quot;QGPL/QCLSRC&quot; to online save file &quot;QGPL/SAVF&quot;
+  <LI>Compress &quot;QGPL/SAVF&quot; to zipped file &quot;/tmp/savfzip.zip&quot;.
+  <LI>Create online save file &quot;QTEMP/SAVF&quot;.
+  <LI>Uncompress the zipped file &quot;/tmp/savfzip.zip&quot; to &quot;QTEMP/SAVF&quot;.
+  <LI>Restore source physical file &quot;QCLSRC&quot; to library &quot;QTEMP&quot; from online save file &quot;QTEMP/SAVF&quot;.
+</OL>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD>
+      <PRE>
+&gt; CRTSAVF FILE(QGPL/SAVF)                                                       <B>&lt;- 1</B>
+  File SAVF created in library QGPL.
+&gt; SAVOBJ OBJ(QCLSRC) LIB(QGPL) DEV(*SAVF) SAVF(QGPL/SAVF)
+  1 objects saved from library QGPL.
+&gt; <B>ZIP ZIPFILE('/tmp/savfzip') FILES('/qsys.lib/qgpl.lib/savf.file')</B>     <B>&lt;- 2</B>
+  Command completed.
+&gt; <B>DSPZIP ZIPFILE(/tmp/item)</B></PRE>
+      <BLOCKQUOTE>
+      <TABLE border="1">
+        <TBODY>
+          <TR>
+            <TD>
+            <PRE>
+    Length  Method   Size  Ratio   Date    Time   CRC-32     Name
+    ------  ------   ----  -----   ----    ----   ------     ----
+     12672  Defl:N    1030   8%  02-01-04  02:55  1c2f3914   <B>/qsys.lib/qgpl.lib/</B>
+   <B>savf.file</B>
+
+   Press ENTER to end terminal session.                                         </PRE>
+            </TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+</BLOCKQUOTE>
+      <PRE>&gt; CRTSAVF FILE(QTEMP/SAVF)                                                       <B>&lt;- 3</B>
+  File SAVF created in library QTEMP.
+&gt; CD DIR('/qsys.lib/qtemp.lib')
+  Current directory changed.
+&gt; <B>UNZIP ZIPFILE('/tmp/savfzip') FILE('/qsys.lib/qgpl.lib/savf.file')</B>     <B>&lt;- 4</B>
+  Command completed.
+&gt; DSPSAVF FILE(QTEMP/SAVF)</PRE>
+      <BLOCKQUOTE>
+      <TABLE border="1">
+        <TBODY>
+          <TR>
+            <TD>
+            <PRE>                        Display Saved Objects - Save File
+
+ Library saved  . . . :   QGPL                  Release level  . . . :   V5R2M0
+ ASP  . . . . . . . . :   1                     Data compressed  . . :   No
+ Save file  . . . . . :   SAVF                  Objects displayed  . :   1
+   Library  . . . . . :     QTEMP               Objects saved  . . . :   1
+ Records  . . . . . . :   24                    Access paths . . . . :   0
+ Save command . . . . :   SAVOBJ
+ Save active  . . . . :   *NO
+ Save date/time . . . :   04/02/01   02:55:59
+
+ Type options, press Enter.
+   5=Display saved data base file members
+
+ Opt  Object             Type     Attribute     Owner         Size (K)   Data
+      QCLSRC             *FILE    PF            QPGMR                4   YES
+
+
+
+
+
+
+ F3=Exit        F12=Cancel                                                      </PRE>
+            </TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </BLOCKQUOTE>
+      <PRE>&gt; RSTOBJ OBJ(QCLSRC) SAVLIB(QGPL) DEV(*SAVF) SAVF(QTEMP/SAVF) RSTLIB(QTEMP)      <B>&lt;- 5</B>
+  1 objects restored from QGPL to QTEMP.
+&gt; WRKOBJPDM LIB(QTEMP) OBJ(QCLSRC)     </PRE>
+      <BLOCKQUOTE>
+      <TABLE border="1">
+        <TBODY>
+          <TR>
+            <TD>
+            <PRE>                          Work with Objects Using PDM                  XXXXX
+
+ Library . . . . .   QTEMP            Position to . . . . . . . .
+                                      Position to type  . . . . .
+
+ Type options, press Enter.
+   2=Change       3=Copy        4=Delete      5=Display       7=Rename
+   8=Display description        9=Save       10=Restore      11=Move ...
+
+ Opt  Object      Type        Attribute   Text
+      QCLSRC      *FILE       PF-SRC      DEFAULT SOURCE DATA BASE FILE FOR CL
+
+
+
+
+
+
+
+                                                                         Bottom
+ Parameters or command
+ ===&gt;
+ F3=Exit          F4=Prompt            F5=Refresh           F6=Create
+ F9=Retrieve      F10=Command entry    F23=More options     F24=More keys
+ This is a subsetted list.                                                    + </PRE>
+            </TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </BLOCKQUOTE>
+      <PRE>                                                                              </PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<HR>
+<H2><A name="Qshell interpreter interface syntax">Qshell interpreter interface syntax</A></H2>
+<HR width="70%" align="center">
+<BLOCKQUOTE>
+<H2><A name="minizip usage">minizip usage</A></H2>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<P>Start Qshell interpreter by &quot;QSH&quot; or &quot;STRQSH&quot; command
+without paramter. Calling minizip without parameter shows usage.</P>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD>
+      <PRE>
+                               QSH Command Entry
+
+ &gt; minizip
+   MiniZip 1.00, demo of zLib + Zip package written by Gilles Vollant
+   more info at http://www.winimage.com/zLibDll/unzip.html
+
+   Usage : minizip [-o] [-a] [-0 to -9] [-p password] file.zip [files_to_add]
+
+     -o  Overwrite existing file.zip
+     -a  Append to existing file.zip
+     -0  Store only
+     -1  Compress faster
+     -9  Compress better
+     -p  password
+
+   $
+                                                                                </PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<HR width="70%" align="center">
+<BLOCKQUOTE>
+<H2><A name="miniunz usage">miniunz usage</A></H2>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<P>Start Qshell interpreter by &quot;QSH&quot; or &quot;STRQSH&quot; command
+without paramter. Calling miniunz without parameter shows usage.</P>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD>
+      <PRE>
+                               QSH Command Entry
+
+ &gt; miniunz
+   MiniUnz 1.00, demo of zLib + Unz package written by Gilles Vollant
+   more info at http://www.winimage.com/zLibDll/unzip.html
+
+   Usage : miniunz [-e] [-x] [-v] [-l] [-o] [-p password] file.zip [file_to_extr
+   act.]
+
+     -e  Extract without pathname (junk paths)
+     -x  Extract with pathname
+     -v  list files
+     -l  list files
+     -o  overwrite files without prompting
+     -p  extract crypted file using password
+
+   $
+                                                                                </PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<P><BR>
+</P>
+<H2><A name="Qshell interpreter interface usage examples">Qshell interpreter interface usage examples</A></H2>
+<HR width="70%" align="center">
+<BLOCKQUOTE>
+<H3><A name="ZIP/UNZIP stream files">ZIP/UNZIP stream files</A></H3>
+</BLOCKQUOTE>
+<BLOCKQUOTE>Operation below zip/unzip stream file &quot;/tmp/a.txt&quot; and &quot;/tmp/b.jpg&quot;.</BLOCKQUOTE>
+<BLOCKQUOTE>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD>
+      <PRE>
+&gt; QSH
+
+                               QSH Command Entry
+
+   $
+ &gt; cd /tmp
+   $
+ &gt; ls
+   <B>a.txt</B>   <B>b.jpg</B>   brms    s.slapd
+   $
+ &gt; <B>minizip -e zipfile a.txt b.jpg</B>
+   MiniZip 1.00, demo of zLib + Zip package written by Gilles Vollant
+   more info at http://www.winimage.com/zLibDll/unzip.html
+
+   creating zipfile.zip
+   $
+ &gt; <B>miniunz -l zipfile</B>
+   MiniUnz 1.00, demo of zLib + Unz package written by Gilles Vollant
+   more info at http://www.winimage.com/zLibDll/unzip.html
+
+   zipfile.zip opened
+
+    Length  Method   Size  Ratio   Date    Time   CRC-32     Name
+    ------  ------   ----  -----   ----    ----   ------     ----
+      4562  Defl:N    2568  56%  02-01-04  11:13  66d9833d   <B>a.txt</B>
+    104567  Defl:N  103085  98%  02-01-04  11:13  760a85c3   <B>b.jpg</B>
+
+   $
+ &gt; rm a.txt b.jpg
+   $
+ &gt; ls
+   brms            s.slapd         zipfile.zip
+   $
+ &gt; <B>miniunz -e zipfile</B>
+   MiniUnz 1.00, demo of zLib + Unz package written by Gilles Vollant
+   more info at http://www.winimage.com/zLibDll/unzip.html
+
+   zipfile.zip opened
+    extracting: a.txt
+    extracting: b.jpg
+   $
+ &gt; ls
+   <B>a.txt</B>           brms            zipfile.zip
+   <B>b.jpg</B>           s.slapd
+   $
+</PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<HR width="100%">
+<H2><A name="Interoperability with PC-based zip tools (with casual encryption)">Interoperability with PC-based zip tools (with casual encryption)</A></H2>
+<HR width="70%" align="center">
+<BLOCKQUOTE>
+<H3><A name="Zip on OS/400 and extract on PC (DOS/Windows)">Zip on OS/400 and extract on PC (DOS/Windows)</A></H3>
+</BLOCKQUOTE>
+<BLOCKQUOTE>Create file &quot;/tmp/encrypted.zip&quot; on OS/400. Notice that &quot;*&quot;
+in the DSPZIP output indicated that the file is encrypted.</BLOCKQUOTE>
+<BLOCKQUOTE>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD>
+      <PRE>
+&gt; ADDLIBLE LIB(ZLIB) POSITION(*LAST)
+  Library ZLIB added to library list.
+&gt; CD DIR('/tmp')
+  Current directory changed.
+&gt; <B>ZIP ZIPFILE(encrypted) FILES(a.txt b.jpg) PASSWORD(abc123)</B>   <B>&lt;- Actually, password</B>
+  Command completed.                                                     <B> is not displayed</B>
+&gt; DSPZIP ZIPFILE(encrypted)</PRE>
+      <BLOCKQUOTE>
+      <TABLE border="1">
+        <TBODY>
+          <TR>
+            <TD>
+            <PRE>
+    Length  Method   Size  Ratio   Date    Time   CRC-32     Name
+    ------  ------   ----  -----   ----    ----   ------     ----
+      4562  Defl:N<B>*</B>   2580  56%  02-01-04  18:46  66d9833d   <B>a.txt</B>
+    104567  Defl:N<B>*</B> 103097  98%  02-01-04  18:46  760a85c3   <B>b.jpg</B>
+
+   Press ENTER to end terminal session.
+   </PRE>
+            </TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </BLOCKQUOTE>
+      <PRE>    </PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>Send &quot;/tmp/encrypted.zip&quot; to PC by using FTP (or NetServer, 5250
+file transfer, iSeries Access for Web, etc).</BLOCKQUOTE>
+<BLOCKQUOTE>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD>
+      <PRE>
+Microsoft Windows XP [Version 5.1.2600]
+(C) Copyright 1985-2001 Microsoft Corp.
+
+E:\test&gt;<B>ftp foo.bar.com</B>
+Connected to foo.bar.com.
+220-QTCP AT foo.
+220 CONNECTION WILL CLOSE IF IDLE MORE THAN 5 MINUTES.
+User (foo.bar.com:(none)): <B>(type OS/400 user name</B>)
+331 ENTER PASSWORD.
+Password:<B>(type password for OS/400 user)</B>
+230 XXX LOGGED ON.
+ftp&gt; <B>cd /tmp</B>
+250-NAMEFMT SET TO 1.
+250 &quot;/tmp&quot; IS CURRENT DIRECTORY.
+ftp&gt; <B>bi</B>
+200 REPRESENTATION TYPE IS BINARY IMAGE.
+ftp&gt; <B>get encrypted.zip</B>
+200 PORT SUBCOMMAND REQUEST SUCCESSFUL.
+150 RETRIEVING FILE /tmp/encrypted.zip
+250 FILE TRANSFER COMPLETED SUCCESSFULLY.
+ftp: 105871 bytes received in 0.35Seconds 301.63Kbytes/sec.
+ftp&gt; <B>quit</B>
+221 QUIT SUBCOMMAND RECEIVED.
+             </PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>You can extract encrypted zip file by using WINZIP.</BLOCKQUOTE>
+<BLOCKQUOTE><IMG src="unzip1.png" width="392" height="406" border="0"></BLOCKQUOTE>
+<BLOCKQUOTE><IMG src="unzip2.png" width="505" height="339" border="0"></BLOCKQUOTE>
+<BLOCKQUOTE><IMG src="unzip3.png" width="486" height="246" border="0"></BLOCKQUOTE>
+<BLOCKQUOTE><IMG src="unzip4.png" width="303" height="191" border="0"></BLOCKQUOTE>
+<BLOCKQUOTE><IMG src="unzip5.png" width="392" height="406" border="0"></BLOCKQUOTE>
+<BLOCKQUOTE>It is also possible to extract encrypted zip file in command prompt by
+using PKZIP.</BLOCKQUOTE>
+<BLOCKQUOTE>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD>
+      <PRE>
+E:\test&gt;<B>dir /X</B>
+ Volume in drive E is DATA
+ Volume Serial Number is 7B1B-38DE
+
+ Directory of E:\test
+
+2004/02/01  18:54    &lt;DIR&gt;                       .
+2004/02/01  18:54    &lt;DIR&gt;                       ..
+2004/02/01  19:16           105,871 <B>ENCRYP~1.ZIP</B> encrypted.zip
+               1 File(s)        105,871 bytes
+               2 Dir(s)   4,957,405,184 bytes free
+
+E:\test&gt;<B>pkzip -v encryp~1</B>                 <B>&lt;- PKZIP can handle 8.3 filename</B>
+
+PKZIP (R)   FAST!   Create/Update Utility   Version 2.04g   02-01-93
+Copr. 1989-1993 PKWARE Inc.  All Rights Reserved.  Shareware Version
+PKZIP Reg. U.S. Pat. and Tm. Off.   Patent No. 5,051,745
+
+. 80486 CPU detected.
+. XMS version 2.00 detected.
+. DPMI version 0.90 detected.
+
+Searching ZIP: ENCRYP~1.ZIP
+
+ Length  Method   Size  Ratio   Date    Time    CRC-32  Attr  Name
+ ------  ------   ----- -----   ----    ----   -------- ----  ----
+   4562  DeflatN   2580  44%  04-02-01  18:46  66d9833d --w-* a.txt
+ 104567  DeflatN 103097   2%  04-02-01  18:46  760a85c3 --w-* b.jpg
+ ------          ------  ---                                  -------
+ 109129          105677   4%                                        2
+
+E:\test&gt;<B>pkunzip -e encryp~1</B>                <B>&lt;- fails because no password specified</B>
+
+<I>~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SNIP ~~~~~~~~~~~~~~~~~~~~~~~~~~~~</I>
+Searching ZIP: ENCRYP~1.ZIP
+PKUNZIP: (W12) Warning! Skipping encrypted file: a.txt
+PKUNZIP: (W12) Warning! Skipping encrypted file: b.jpg
+
+PKUNZIP: (E11) No file(s) found.
+
+E:\test&gt;<B>pkunzip -e -sabc123 encryp~1</B>
+
+<I>~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SNIP ~~~~~~~~~~~~~~~~~~~~~~~~~~~~</I>
+Searching ZIP: ENCRYP~1.ZIP
+  Inflating: a.txt
+  Inflating: b.jpg
+
+E:\test&gt;<B>dir</B>
+ Volume in drive E is DATA
+ Volume Serial Number is 7B1B-38DE
+
+ Directory of E:\test
+
+2004/02/01  18:54    &lt;DIR&gt;          .
+2004/02/01  18:54    &lt;DIR&gt;          ..
+2004/02/01  19:16           105,871 encrypted.zip
+2004/02/01  18:46             4,562 <B>A.TXT</B>
+2004/02/01  18:46           104,567 <B>B.JPG</B>
+               3 File(s)        215,000 bytes
+               2 Dir(s)   4,957,265,920 bytes free
+                 </PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<HR width="70%" align="center">
+<BLOCKQUOTE>
+<H3><A name="Zip on PC (DOS/Windows) and extract on OS/400">Zip on PC (DOS/Windows) and extract on OS/400</A></H3>
+</BLOCKQUOTE>
+<BLOCKQUOTE>Create file &quot;zippk.zip&quot; by PKZIP on PC from DOS or command prompt
+of Windows.</BLOCKQUOTE>
+<BLOCKQUOTE>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD>
+      <PRE>
+E:\test&gt;<B>dir /x</B>
+ Volume in drive E is DATA
+ Volume Serial Number is 7B1B-38DE
+
+ Directory of E:\test
+
+2004/02/01  18:54    &lt;DIR&gt;                       .
+2004/02/01  18:54    &lt;DIR&gt;                       ..
+2001/02/12  18:59            11,616              c.tif
+2000/03/20  18:59            10,371 D1BA3~1.HTM  d.html
+               2 File(s)         21,987 bytes
+               2 Dir(s)   4,957,454,336 bytes free
+
+E:\test&gt;<B>pkzip -a -sDOSpass zippk c.tif D1BA3~1.HTM</B>
+
+<I>~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SNIP ~~~~~~~~~~~~~~~~~~~~~~~~~~~~</I>
+Creating ZIP: ZIPPK.ZIP
+  Adding: C.TIF        Deflating (17%), done.
+  Adding: D1BA3~1.HTM  Deflating (61%), done.
+
+E:\test&gt;<B>pkzip -v zippk</B>
+
+<I>~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SNIP ~~~~~~~~~~~~~~~~~~~~~~~~~~~~</I>
+Searching ZIP: ZIPPK.ZIP
+
+ Length  Method   Size  Ratio   Date    Time    CRC-32  Attr  Name
+ ------  ------   ----- -----   ----    ----   -------- ----  ----
+  11616  DeflatN   9708  17%  01-02-12  18:59  31e6a52e --w-* C.TIF
+  10371  DeflatN   4097  61%  00-03-20  18:59  fb04cf09 --w-* D1BA3~1.HTM
+ ------          ------  ---                                  -------
+  21987           13805  38%                                        2
+              </PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>Create file &quot;ZipWin.zip&quot; by WinZip (version 8.0 j (3106)) on
+Windows.</BLOCKQUOTE>
+<BLOCKQUOTE><IMG src="zip1.png" width="574" height="436" border="0"></BLOCKQUOTE>
+<BLOCKQUOTE><IMG src="zip2.png" width="317" height="417" border="0"></BLOCKQUOTE>
+<BLOCKQUOTE><IMG src="zip3.png" width="303" height="191" border="0"></BLOCKQUOTE>
+<BLOCKQUOTE><IMG src="zip4.png" width="505" height="339" border="0"></BLOCKQUOTE>
+<BLOCKQUOTE>Transfer the two zip files to directory &quot;/tmp&quot; on OS/400.</BLOCKQUOTE>
+<BLOCKQUOTE>Unzip the files on OS/400.</BLOCKQUOTE>
+<BLOCKQUOTE>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD>
+      <PRE>
+&gt; CD DIR('/tmp')
+  Current directory changed.
+&gt; WRKLNK </PRE>
+      <BLOCKQUOTE>
+      <TABLE border="1">
+        <TBODY>
+          <TR>
+            <TD>
+            <PRE>                             Work with Object Links
+
+ Directory  . . . . :   /tmp
+
+ Type options, press Enter.
+   2=Edit   3=Copy   4=Remove   5=Display   7=Rename   8=Display attributes
+   11=Change current directory ...
+
+ Opt   Object link            Type     Attribute    Text
+       brms                   DIR
+       s.slapd                SOCKET
+       <B>ZipWin.zip</B>             STMF
+       <B>ZIPPK.ZIP</B>              STMF
+                </PRE>
+            </TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+</BLOCKQUOTE>
+      <PRE>&gt; UNZIP ZIPFILE(zipwin) PASSWORD(<B>winpass</B>)            <B>&lt;- Password is case sensitive</B>
+  zipwin.zip opened.                                  <B>&lt;- See low-level message for error</B>
+   extracting: f.ppt.
+  error -3 with zipfile in unzReadCurrentFile.
+  Command failed. See low-level message for detail.
+&gt; <B>UNZIP ZIPFILE(zipwin) PASSWORD(WINpass)                 </B>
+  zipwin.zip opened.
+   extracting: <B>f.ppt</B>.
+   extracting: <B>zip_install.txt</B>.
+  Command completed.
+&gt; UNZIP ZIPFILE(zippk) PASSWORD(<B>dospass</B>)             <B>&lt;- Password is case sensitive</B>
+  zippk.zip opened.
+   extracting: C.TIF.
+  error -3 with zipfile in unzReadCurrentFile.
+  Command failed. See low-level message for detail.
+&gt; <B>UNZIP ZIPFILE(zippk) PASSWORD(DOSpass)                  </B>
+  zippk.zip opened.
+   extracting: <B>C.TIF</B>.
+   extracting: <B>D1BA3~1.HTM</B>.
+  Command completed.
+&gt; QSH CMD('ls -la /tmp')</PRE>
+      <BLOCKQUOTE>
+      <TABLE border="1">
+        <TBODY>
+          <TR>
+            <TD>
+            <PRE>   total: 1.240 megabytes
+   drwxrwsrwx   3 QSYS     0                 36864 Feb  1 21:49 .
+   drwxrwsrwx  33 QSYS     0                229376 Feb  1 01:54 ..
+   -rwxrwxrwx   1 TCPIP    0                 11616 Feb 12  2001 <B>C.TIF</B>
+   -rwxrwxrwx   1 TCPIP    0                 10371 Mar 20  2000 <B>D1BA3~1.HTM</B>
+   -rwxrwxrwx   1 TCPIP    0                 14011 Feb  1 21:42 ZIPPK.ZIP
+   -rwxrwxrwx   1 TCPIP    0                266018 Feb  1 21:41 ZipWin.zip
+   drwxrwsrwx   2 QBRMS    0                  8192 Oct 11  2002 brms
+   -rwxrwxrwx   1 TCPIP    0                458240 Dec  6 17:02 <B>f.ppt</B>
+   srwxrwxrwx   1 QDIRSRV  0                     0 Jan 31 09:10 s.slapd
+   -rwxrwxrwx   1 TCPIP    0                  2539 Dec  8 16:38 <B>zip_install.txt</B>
+   Press ENTER to end terminal session.                                        </PRE>
+            </TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+</BLOCKQUOTE>
+      <PRE>                                                                                   </PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<HR width="100%">
+<H2><A name="Note">Note</A></H2>
+<ul>
+<li>
+<b>Before you start</b></li>
+</ul>
+<BLOCKQUOTE>Add library &quot;zlib&quot; to job's library list.&nbsp;</BLOCKQUOTE>
+<ul>
+<li><B>Vulnerability of password</B></li>
+</ul>
+<BLOCKQUOTE>The encryption method, &quot;Traditional PKWARE Encryption&quot;, used
+in this package can be deciphered by common cracking tools. If you need
+more robust encryption, you should not use this package. PKWare's &quot;PKZip
+5.x Strong Encryption&quot; and WinZip's &quot;<A href="http://www.winzip.com/aes_info.htm">AES Encryption</A>&quot; are not supported.</BLOCKQUOTE>
+<UL>
+  <li>
+  <p>
+<b>DBCS restrictions</b>
+  </li>
+</UL>
+<BLOCKQUOTE>DBCS file name is _not_ supported.</BLOCKQUOTE>
+<BLOCKQUOTE>In interactive session, lowercase English characters become SBCS katakana.
+In this case, using CHGJOB command to change job ccsid to 65536, or change
+&quot;Character identifier control&quot; (CHRIDCTL) paramter to *DEVD.</BLOCKQUOTE>
+<BLOCKQUOTE>If you use these programs in Japanese environment,
+you should change job CCSID to 5035, or lower
+case English characters may become gabage.
+Also set 5250 emulator codepage to 939 (Japanese
+English lower-case extended). Still you see
+invalid katakana characters instead of '['
+and ']' in some messages. &nbsp;</BLOCKQUOTE>
+<UL>
+  <LI><B>Check <A href="http://www.winimage.com/zLibDll/unzip.html">http://www.winimage.com/zLibDll/unzip.html</A> for up to date info.</B>
+</UL>
+&nbsp;
+<HR width="100%">
+<P>[<A href="index.html">Home</A>]</P>
+</body>
+</html>

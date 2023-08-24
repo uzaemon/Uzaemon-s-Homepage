@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00936 : Re^2: HPT (overlay does not align)</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00936 [Re^2: HPT (overlay does not align)] </font>(posted by alan)</b><br>
+( 1)   05/08/11 23:07   comment on <a href="00935.html">00935</a>   , # of comment(s) : 1
+<HR>
+
+I contacted IBM, they said I should have two print files, 1 for printing and 1 for converting to TIF. This was not the resolution I was looking for. So I decided to keep working at it and after several hours I finally got the text to align with the overlay.  The overlay is defined in my PRTF, so I changed the positioning on the OVERLAY keyword to move the overlay to align with the text.<br>
+<br>
+A  R PRTOVL<br>
+A                OVERLAY(OVLNAME .2 .25)<br>
+<br>
+<br>
+  This allowed the transform to TIF to work correctly without causing the overlay to be misaligned when I printed the spooled file.<br>
+</body></html>

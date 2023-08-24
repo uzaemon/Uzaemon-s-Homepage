@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00737 : Re^4: SNDMとCRTCSVF(添付ファイルの文字・</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00737 [Re^4: SNDMとCRTCSVF(添付ファイルの文字・] </font>(posted by uzaemon)</b><br>
+( 1)   03/11/26 21:01   comment on <a href="00733.html">00733</a>   , # of comment(s) : 1
+<HR>
+
+yyさん、<br>
+<br>
+一般にSBCSとDBCS、65535と他のCCSIDの変換はiconv(文字変換ルーチン)でエラーになります。DBCS間、SBCS間でも制限があります(例えばシフトJIS-932とJIS-5052の変換はサポートされない)。よって、下記の変換はいずれもエラーになるべくしてなっています。<br>
+<br>
+EBCDIC CCSID - 65535 / ASCII CCSID - 00437<br>
+EBCDIC CCSID - 05026 / ASCII CCSID - 00437<br>
+EBCDIC CCSID - 00037 / ASCII CCSID - 00942<br>
+<br>
+詳細は <a href="http://www-1.ibm.com/servers/eserver/iseries/software/globalization/ccsid.html" rel = "nofollow" target = "_blank">http://www-1.ibm.com/servers/eserver/iseries/software/globalization/ccsid.html</a> をご覧ください。<br>
+<br>
+いずれにしても正しいASCII-EBCDICペアのCCSIDを指定すればファイルのCCSIDにかかわらず変換できるはずです。例えば日本語カナのDBなら5026を、出力先のASCII CCSIDには932/942/943のいずれかを明示的に指定します。それでも正常に変換できない場合はCHGJOBでジョブのCCSIDを65535に指定してみてください。<br>
+<br>
+不可解なのはCRTCSVFで37(EBCDIC US English)→437(ASCII US English)に変換しているにもかかわらず、WRKLNKコマンドで漢字が正しく表示されることです。EDTFコマンドでSTMFパラメーターにCSVファイルを指定しても正しく表示されるのでしょうか？ また、例えばFTPでバイナリーモードでPCに転送した場合でも正常に表示されますか？<br>
+<br>
+ご返答をお待ちしています。<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00902 : Re: CRTCSVFの限界レコード数は？</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00902 [Re: CRTCSVFの限界レコード数は？] </font>(posted by uzaemon)</b><br>
+( 1)   05/05/13 21:16   comment on <a href="00901.html">00901</a>   , # of comment(s) : 1
+<HR>
+
+AKIRAさん、<br>
+<br>
+> CRTCSVFを利用させて頂いております。<br>
+> HELPにも記述がないかと思い質問させて頂きます。<br>
+> 件名通りCRTCSVFでの限界レコード数を知りたいのですが、<br>
+> あるだけ全部変換してくれるのでしょうか？<br>
+> ディレクトリの限界に依存するのでしょうかね？<br>
+<br>
+特にプログラム上では何も考えていません。普通のStream file APIを使っていますので、おそらく最大2GB(32bit符号付整数の最大値)になると思います。システム上は2G(V4R2)～1TB(V5R3)までサポートされるようですが、Cのようなlarge file supportマクロが使えませんので、64bit I/Oにするには結構な書き直しが必要です。<br>
+<br>
+なお、バージョンごとのStream fileの最大サイズは <a href="http://publib.boulder.ibm.com/iseries/v5r1/ic2924/tstudio/tech_ref/syslimit/" rel = "nofollow" target = "_blank">http://publib.boulder.ibm.com/iseries/v5r1/ic2924/tstudio/tech_ref/syslimit/</a> (～V5R1), <a href="http://publib-b.boulder.ibm.com/Redbooks.nsf/RedbookAbstracts/redp0204.html?Open" rel = "nofollow" target = "_blank">http://publib-b.boulder.ibm.com/Redbooks.nsf/RedbookAbstracts/redp0204.html?Open</a> (V5R2), <a href="http://publib.boulder.ibm.com/infocenter/iseries/v5r3/ic2924/index.htm?info/rzamp/rzampoverview.htm" rel = "nofollow" target = "_blank">http://publib.boulder.ibm.com/infocenter/iseries/v5r3/ic2924/index.htm?info/rzamp/rzampoverview.htm</a> (V5R3)に記載されています。<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

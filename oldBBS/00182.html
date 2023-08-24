@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00182 : Re: sndm</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00182 [Re: sndm] </font>(posted by uzaemon)</b><br>
+( 1)   01/05/14 22:24   comment on <a href="00180.html">00180</a> 
+<HR>
+
+<br>
+Le Guillou,<br>
+<br>
+> i send you a pdf<br>
+I got your mail and investigated the debug output you sent.<br>
+<br>
+Currently I don't have an access to my AS/400 so I cannot perform thorough test. For tentative solution, please try following patch.<br>
+<br>
+- Open source member SMTP/QRPGLESRC(#INIT)<br>
+- Search string '4446'<br>
+- Change the number to '4546'<br>
+- Recompile the sndm using MAKE procedure<br>
+- Try to send mail<br>
+<br>
+Waiting for your reply.<br>
+<br>
+uzaemon @ Japan<br>
+<br>
+</body></html>

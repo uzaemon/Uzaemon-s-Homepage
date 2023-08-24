@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00543 : Re: ＳＰＬ2ＳＴＭＦ(C drive?)</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00543 [Re: ＳＰＬ2ＳＴＭＦ(C drive?)] </font>(posted by uzaemon)</b><br>
+( 1)   02/12/27 22:15   comment on <a href="00542.html">00542</a> 
+<HR>
+
+<br>
+超超素人さん、<br>
+<br>
+> 但し実行時間が0分0秒です。page=1で一致していますが、ＰＣで内容確認ができません。この意味はｃドライブのＴＥＭフォルダーにあるＰＲＩＮＴ.TXTに書き込みするということだと理解したのですがよろしいのでしょうか？<br>
+<br>
+いいえ、違います。特殊な方法でOS/400のファイルシステムをPCのドライブにマップしていない限り、SPL2STMFが直接PC上のドライブにファイルを作成することはありません。<br>
+<br>
+TOSTMF('/TEM/PRINT.TXT')と指定すると、OS/400のIFS上にストリーム・ファイル'/TEM/PRINT.TXT'が作成されます。IFS(統合ファイルシステム)についてはInformation Centerなどの情報を参照してください。<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

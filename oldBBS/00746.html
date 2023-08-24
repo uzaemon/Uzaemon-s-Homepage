@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00746 : SNDM: Compile Error because of CCSID on</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00746 [SNDM: Compile Error because of CCSID on] </font>(posted by Peter Feickert)</b><br>
+( 1)   03/12/03 16:22
+<HR>
+
+<br>
+Hello Uzaemon!<br>
+<br>
+After the perfect installation and implementation of SNDM on our german machine, I wouldt like to install the tool on our polish machine.<br>
+<br>
+During compilation the following error appears on every source-compilation (with your original source and the modified ones):<br>
+<br>
+------------------------------------------------------------<br>
+ID komunikatu  . . . . :   CPF325F       Wa･noｫ・ . . . . . . . :   40<br>
+Typ komunikatu . . . . :   Wyjｫcia<br>
+Data wysｪania. . . . . :   03/12/03      Godzina wysｪania . . . :   07:51:37<br>
+<br>
+Komunikat . . . :   Conversion of the text failed.<br>
+Cause . . . . . :   The file or member definition for file QRPGLESRC member<br>
+  SNDM in library SMTP was being converted. However, the text for field *N<br>
+  could not be converted into the job default or requested CCSID. The<br>
+  conversion was from CCSID 5035 to CCSID 870.<br>
+Recovery  . . . :   Specify a different CCSID for the job and try the request<br>
+  again. A CCSID of 65535 can be specified if no conversion is desired.<br>
+<br>
+<br>
+------------------------------------------------------------<br>
+<br>
+<br>
+I believe it wont help to change the ccsid to 65535, because then the texconversion in SNDM for the polish chars will not work out because then the emailadresses are not put into "<" and ">" signs. Here is an example from the debug print:<br>
+<br>
+--------------------------------------------------------<br>
+To       : 1 recipient(s)<br>
+            ﾄp.feickert@perschmann.deﾜ ﾄﾜ ﾄ*TO ﾜ<br>
+--------------------------------------------------------<br>
+Could you please give me a hint about this problem, i am not so familiar withe CCSID- and codepage problems.<br>
+<br>
+Thanks<br>
+Peter<br>
+</body></html>

@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00114 : Re^3: Missing body text when attaching a</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00114 [Re^3: Missing body text when attaching a] </font>(posted by John Marshall)</b><br>
+( 1)   01/02/05 15:39   comment on <a href="00063.html">00063</a>   , # of comment(s) : 1
+<HR>
+
+Uzaemon,<br>
+<br>
+I haven't been able to test this for a while. Sorry about that. The change does work. Thanks very much,<br>
+<br>
+John M<br>
+<br>
+> John,<br>
+><br>
+> Thank you for your mail to Deja.<br>
+><br>
+> I put test version of SMTP client program on my server. Please download <a href="http://homepage1.nifty.com/uzaemon/smtp131.exe" rel = "nofollow" target = "_blank">http://homepage1.nifty.com/uzaemon/smtp131.exe</a> and try again.<br>
+><br>
+> Just for your information, I changed boundary (in multipart mail) structure as follows.<br>
+><br>
+> *current sndm<br>
+> |This is a multi-part message in MIME format.<br>
+> |<br>
+> |----=_Next_Part_29_Aug_2000_16.49.06<br>
+> |(Body text)<br>
+><br>
+> *sndm test version 131<br>
+> |This is a multi-part message in MIME format.<br>
+> |<br>
+> |----=_Next_Part_29_Aug_2000_17.04.19<br>
+> |Content-Type: text/plain; charset="US-ASCII"<br>
+> |<br>
+> |(Body text)<br>
+><br>
+> Waiting for your reply.<br>
+><br>
+> uzaemon @ Japan<br>
+<br>
+</body></html>

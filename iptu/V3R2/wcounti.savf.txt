@@ -1,0 +1,131 @@
+                                         Display Saved Objects - Save File                                              Page     1
+5722SS1 V5R2M0  020719                                                                                XXXX      03/21/06  23:40:26
+ System serial number . . . . . . . . :    1038GGM
+ Save release level . . . . . . . . . :   V4R5M0
+ Target release level . . . . . . . . :   V3R2M0
+ Save command . . . . . . . . . . . . :   SAV
+ Save date/time . . . . . . . . . . . :   03/15/06  19:43:14
+ Save changed period:
+   Start date . . . . . . . . . . . . :   *ALL
+   Start time . . . . . . . . . . . . :   *ALL
+   End date . . . . . . . . . . . . . :   *ALL
+   End time . . . . . . . . . . . . . :   *ALL
+ Save while active  . . . . . . . . . :   *NO
+ Data compressed  . . . . . . . . . . :   No
+ Save file  . . . . . . . . . . . . . :   WCOUNTI
+   Library  . . . . . . . . . . . . . :     BACKUP32
+   Records  . . . . . . . . . . . . . :     2185
+ Directory  . . . . . . . . . . . . . . . . . . . :   /wcount
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   Count.html        *STMF       QDFTOWN           131072  Yes        No
+   Count2.5          *DIR        QDFTOWN            45056  Yes        No
+   Count2_5-ex.ht >  *STMF       QDFTOWN            32768  Yes        No
+   Count_Changelo >  *STMF       QDFTOWN            32768  Yes        No
+   Count_FAQ.html    *STMF       QDFTOWN            32768  Yes        No
+   Count_download >  *STMF       QDFTOWN             8192  Yes        No
+   Count_mirrors. >  *STMF       QDFTOWN            32768  Yes        No
+   README            *STMF       QDFTOWN             8192  Yes        No
+   digits            *DIR        QDFTOWN            53248  Yes        No
+   mah.html          *STMF       QDFTOWN             8192  Yes        No
+   mkstrip           *SYMLNK     QDFTOWN             4096  Yes        No
+   Object
+   Count2_5-ex.html
+   Count_Changelog.html
+   Count_download.html
+   Count_mirrors.html
+ Directory  . . . . . . . . . . . . . . . . . . . :   /wcount/Count2.5
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   images            *DIR        QDFTOWN            53248  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /wcount/Count2.5/images
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   Image1.gif        *STMF       QDFTOWN            16384  Yes        No
+   c24latr.gif       *STMF       QDFTOWN             8192  Yes        No
+   c24rel.gif        *STMF       QDFTOWN             8192  Yes        No
+   c24upd.gif        *STMF       QDFTOWN             8192  Yes        No
+   cal.gif           *STMF       QDFTOWN            16384  Yes        No
+                                         Display Saved Objects - Save File                                              Page     2
+5722SS1 V5R2M0  020719                                                                                XXXX      03/21/06  23:40:26
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   count24dst.gif    *STMF       QDFTOWN            16384  Yes        No
+   countdst.fig      *STMF       QDFTOWN            16384  Yes        No
+   initr.gif         *STMF       QDFTOWN             8192  Yes        No
+   latest.gif        *STMF       QDFTOWN             8192  Yes        No
+   latr.gif          *STMF       QDFTOWN             8192  Yes        No
+   new.gif           *STMF       QDFTOWN             8192  Yes        No
+   styleA.gif        *STMF       QDFTOWN             8192  Yes        No
+   styleB.gif        *STMF       QDFTOWN             8192  Yes        No
+   styleC.gif        *STMF       QDFTOWN             8192  Yes        No
+   styleD.gif        *STMF       QDFTOWN             8192  Yes        No
+   styleE.gif        *STMF       QDFTOWN             8192  Yes        No
+   styleET.gif       *STMF       QDFTOWN             8192  Yes        No
+   stylebang.gif     *STMF       QDFTOWN             8192  Yes        No
+   stylecd.gif       *STMF       QDFTOWN             8192  Yes        No
+   stylecdd.gif      *STMF       QDFTOWN             8192  Yes        No
+   stylecdr.gif      *STMF       QDFTOWN             8192  Yes        No
+   transfer.gif      *STMF       QDFTOWN             8192  Yes        No
+   yeehaw.gif        *STMF       QDFTOWN             8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /wcount/digits
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   A                 *DIR        QDFTOWN            45056  Yes        No
+   B                 *DIR        QDFTOWN            45056  Yes        No
+   C                 *DIR        QDFTOWN            45056  Yes        No
+   D                 *DIR        QDFTOWN            45056  Yes        No
+   E                 *DIR        QDFTOWN            45056  Yes        No
+   bang              *DIR        QDFTOWN            45056  Yes        No
+   cd                *DIR        QDFTOWN            45056  Yes        No
+   cdd               *DIR        QDFTOWN            45056  Yes        No
+   cdr               *DIR        QDFTOWN            45056  Yes        No
+   mah               *DIR        QDFTOWN            53248  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /wcount/digits/A
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   peng.gif          *STMF       QDFTOWN            16384  Yes        No
+   strip.gif         *STMF       QDFTOWN             8192  Yes        No
+   yeehaw.gif        *STMF       QDFTOWN             8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /wcount/digits/B
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   strip.gif         *STMF       QDFTOWN             8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /wcount/digits/C
+                                         Display Saved Objects - Save File                                              Page     3
+5722SS1 V5R2M0  020719                                                                                XXXX      03/21/06  23:40:26
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   strip.gif         *STMF       QDFTOWN             8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /wcount/digits/D
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   lenna.gif         *STMF       QDFTOWN            32768  Yes        No
+   strip.gif         *STMF       QDFTOWN             8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /wcount/digits/E
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   foo.gif           *STMF       QDFTOWN             8192  Yes        No
+   strip.gif         *STMF       QDFTOWN             8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /wcount/digits/bang
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   strip.gif         *STMF       QDFTOWN             8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /wcount/digits/cd
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   strip.gif         *STMF       QDFTOWN             8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /wcount/digits/cdd
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   strip.gif         *STMF       QDFTOWN             8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /wcount/digits/cdr
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   strip.gif         *STMF       QDFTOWN             8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /wcount/digits/mah
+                                         Display Saved Objects - Save File                                              Page     4
+5722SS1 V5R2M0  020719                                                                                XXXX      03/21/06  23:40:26
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   MAHJONG.GIF       *STMF       QDFTOWN             8192  Yes        No
+   SIVB9.tmp         *STMF       QDFTOWN             8192  Yes        No
+   eight.gif         *STMF       QDFTOWN             8192  Yes        No
+   five.gif          *STMF       QDFTOWN             8192  Yes        No
+   four.gif          *STMF       QDFTOWN             8192  Yes        No
+   mahjong.zip       *STMF       QDFTOWN            32768  Yes        No
+   nine.gif          *STMF       QDFTOWN             8192  Yes        No
+   one.gif           *STMF       QDFTOWN             8192  Yes        No
+   seven.gif         *STMF       QDFTOWN             8192  Yes        No
+   six.gif           *STMF       QDFTOWN             8192  Yes        No
+   strip.gif         *STMF       QDFTOWN            32768  Yes        No
+   three.gif         *STMF       QDFTOWN             8192  Yes        No
+   two.gif           *STMF       QDFTOWN             8192  Yes        No
+   zero.gif          *STMF       QDFTOWN             8192  Yes        No
+ Number of objects saved  . . . . . . . :   72
+                                        * * * * *   E N D   O F   L I S T I N G   * * * * *

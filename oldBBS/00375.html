@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00375 : Re^2: minizip and path</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00375 [Re^2: minizip and path] </font>(posted by Scott Andrews)</b><br>
+( 1)   02/04/17 01:12   comment on <a href="00349.html">00349</a> 
+<HR>
+
+<br>
+> Scott,<br>
+><br>
+> If you want to create a ZIP file without path information, change current directory and run minizip as follows:<br>
+><br>
+> > addlible zlib<br>
+>   Library ZLIB added to library list.<br>
+> > CD DIR('/tmp')<br>
+>   Current directory changed.<br>
+> > CALL PGM(MINIZIP) PARM(JRN.ZIP JRN.TXT)<br>
+>    creating JRN.ZIP<br>
+><br>
+> The ZIPed file does not have path (directory) information. If you are using WINZIP, open the ZIP file, right-click the compressed file ("Jrn.txt" in this case) and select "File Properties" to confirm that "Path:" field is blank.<br>
+><br>
+> You can unzip to other directory on OS/400 as follows:<br>
+><br>
+> > CD DIR('/QOpenSys/tmp')<br>
+>   Current directory changed.<br>
+> > CALL PGM(MINIUNZ) PARM('/tmp/jrn.zip')<br>
+>    MiniUnz 0.15, demo of zLib + Unz package written by Gilles Vollant<br>
+>    more info at <a href="http://wwww.winimage/zLibDll/unzip.htm" rel = "nofollow" target = "_blank">http://wwww.winimage/zLibDll/unzip.htm</a><br>
+><br>
+>    /tmp/jrn.zip opened<br>
+>     extracting: JRN.TXT<br>
+><br>
+> In above example, JRN.TXT will be stored in directory "/QOpenSys/tmp".<br>
+><br>
+> Is this what you want to do?<br>
+><br>
+> uzaemon@Japan<br>
+<br>
+<br>
+Your idea worked great....<br>
+<br>
+Thanks for taking the time to respond, I really appreciate it.<br>
+<br>
+Scott<br>
+</body></html>

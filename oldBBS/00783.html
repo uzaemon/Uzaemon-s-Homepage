@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00783 : Re: SNDM question for links...</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00783 [Re: SNDM question for links...] </font>(posted by uzaemon)</b><br>
+( 1)   04/04/04 00:42   comment on <a href="00782.html">00782</a> 
+<HR>
+
+<br>
+Nikellis,<br>
+<br>
+Thank you for using SNDM.<br>
+<br>
+There are several ways to accomplish your requirement.<br>
+<br>
+1. Reduce size of CSV file<br>
+<br>
+I don't know what kind of tool you are using to create CSV file but you can reduce file size by following methods.<br>
+<br>
+- If you are using CPYTOIMPF command, try CRTCSVF command (you can find it at my homepage) which generates much smaller CSV file.<br>
+- Use ZIP for OS/400 (also available at my HP) to compress CSV file.<br>
+<br>
+2. Run FTP or HTTP server on your OS/400<br>
+<br>
+If your OS/400 (on which CSV files reside) is accessible from mail users via TCP/IP protocol, configure FTP/HTTP server. For mail users to download CSV file, send link shown below:<br>
+<br>
+- For FTP server, link format to the file will be something like "<a href="ftp://(user):(password)@(FQDN)/(path)" rel = "nofollow" target = "_blank">ftp://(user):(password)@(FQDN)/(path)</a>".<br>
+- For HTTP server, link format to the file will be something like "<a href="http://(FQDN)/(path)" rel = "nofollow" target = "_blank">http://(FQDN)/(path)</a>".<br>
+<br>
+See RFC 1630 and 1738 for more detail. You might able to use "<a href="file:///" rel = "nofollow" target = "_blank">file:///</a>" if you configure NetServer (SMB server) on your OS/400.<br>
+<br>
+3. Others<br>
+<br>
+Investigate "iSeries Access for Web" because it has many nifty functions, e.g. users can create specific SQL request and download data as Excel format.<br>
+<br>
+For better security, you should create CGI program which sends CSV file directly as HTTP response via secure connection (such as https).<br>
+<br>
+I hope this answers to your question.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

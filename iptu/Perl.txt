@@ -1,0 +1,42 @@
+   1 use DBI;
+   2
+   3 print "Content-type: text/html\n\n";
+   4 print "<HTML><HEAD><TITLE>Query Result (Perl CGI)</TITLE></HEAD><BODY>\n";
+   5 print "<CENTER><H1>Query Result (Perl CGI)</H1><HR></CENTER>\n";
+   6
+   7 my $dbh = DBI->connect(eval{require '/iptu/Chapter3/perl/DBI.cfg'})
+   8           or &error("connect() : $DBI::errstr");
+   9 my $sth = $dbh->prepare("SELECT ITNO,ITCAT,ITDESC,ITPRIC,ITDATE " .
+  10                      "FROM IPTULIB.ITEM WHERE ITNO='" .
+  11                      substr($ENV{'QUERY_STRING'}, 4, 5) . "'")
+  12        or &error("prepare() : $DBI::errstr");
+  13 $sth->execute()
+  14        or &error("execute() : $DBI::errstr");
+  15 my ($ITNO,$ITCAT,$ITDESC,$ITPRIC,$ITDATE);
+  16 $sth->bind_columns(undef,\($ITNO,$ITCAT,$ITDESC,$ITPRIC,$ITDATE));
+  17
+  18 if ($sth->fetch()) {
+  19   print "<PRE>\n";
+  20   print "Item Number : $ITNO\n";
+  21   print "Category    : $ITCAT\n";
+  22   print "Description : $ITDESC\n";
+  23   print "Price       : $ITPRIC\n";
+  24   print "Date        : $ITDATE\n";
+  25   print "</PRE>\n";
+  26 } else {
+  27   print "<P><B><I><FONT SIZE=+2>Item not found. (KEY=" .
+  28         substr($ENV{'QUERY_STRING'}, 4, 5) . ")</FONT></I></B></P>\n";
+  29 }
+  30 print "<A HREF=\"/iptu/Chapter3/perl.html\">Return</A>";
+  31 print "</BODY></HTML>";
+  32 $sth->finish;
+  33 $dbh->disconnect;
+  34
+  35 exit;
+  36
+  37 sub error{
+  38   print "<H2>error</H2>\n";
+  39   print "<H3>$_[0]</H3>\n";
+  40   print "</PRE></BODY></HTML>";
+  41   exit (0);
+  42 }

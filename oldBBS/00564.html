@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00564 : SPL2STMF error in API QwpzHostPrintTrans</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00564 [SPL2STMF error in API QwpzHostPrintTrans] </font>(posted by Jesus Olague)</b><br>
+( 1)   03/02/15 03:52
+<HR>
+
+<br>
+Hi Uzaemon, I've used SPL2STMF without any problem since 18 months ago, but recently we upgrade OS from V4R4M0 to V5R1M0 and since then when I convert some spooled files I get the following error:<br>
+<br>
+Command failed. reason - API QwpzHostPrintTransform failed : CPF3CF2  hptopt = 30<br>
+<br>
+I will post you the debug print output in a reply to this message.<br>
+<br>
+What I try to convert is an *SCS spooled file with length of 20 pages and a file size of 180 KB, using 15CPI x 8LPI at 198 COLS and 88 ROWS per page.<br>
+<br>
+I thought it was a problem with the user spaces' sizes and I changed them from 1024 to 2048 for QSPGETSP and 200000 to 400000 for QWPZHPT1, and increased value of hptxbuflen variable in D-spec initialization from 200000 to 400000. After this, the problem remains and most of the tiff files were generated empty.<br>
+<br>
+Can you help me?<br>
+<br>
+Regards.<br>
+<br>
+Jesus<br>
+</body></html>

@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00407 : Re: CRTCSVFのスペックについて</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00407 [Re: CRTCSVFのスペックについて] </font>(posted by uzaemon)</b><br>
+( 1)   02/05/25 00:10   comment on <a href="00401.html">00401</a> 
+<HR>
+
+<br>
+ShiN-ICHIさん、<br>
+<br>
+> マニュアルを見るとレコード長は1000<br>
+> フィールド数は100　複雑な定義はダメとありますが<br>
+> 複雑な定義とはどのような定義なのでしょうか？<br>
+<br>
+ソースに書いてありますが、RPGの作業変数としてそれだけの領域が確保されているという意味です。「複雑な定義」とはファイル情報が32,000byteを超える場合を指します。ファイル情報(フィールド名、属性、COLHDGやその他の情報が含まれます)は可変長であり得るため、厳密にどれだけの定義であれば「複雑」(=32,000byteを超える)であるかは予測できません。<br>
+<br>
+DEBUG(*YES)を指定するとデバッグ印刷出力にデータベースの定義が表示されますが、その中の項目「US_Offset」が32,000を越えていなければ問題ありません。1フィールド当り360byte前後の情報をもっていますので、90フィールド弱まで処理できると思います。フィールド数84は微妙なところですが、制限に達した場合は「File information too large. ??th and later fields are ignored.」という警告メッセージが表示されるはずですのでご確認ください。<br>
+<br>
+> 関数 iconv_open() でエラー<br>
+> EBCDIC CCSID は 00290 / ASCII CCSIDは00932となっています<br>
+> このエラーはスペックなのでしょうか？<br>
+<br>
+CRTCSVFというよりはiconv(OS/400の提供する汎用文字コード変換ルーチン)のスペックに依存します。つまり、290(EBCDIC SBCSカナ)から932(ASCII DBCS[SJIS])へは変換できない(互換性が無い)とiconvがエラーを返しています。元のデータベースがDBCS(漢字)を含むのであれば290ではなく5026を、含まないのであれば932ではなく897を指定してCRTCSVFを実行してください。<br>
+<br>
+上記をお試しの上、結果をお知らせください。<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

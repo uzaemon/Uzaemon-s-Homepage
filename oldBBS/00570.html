@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00570 : SNDM and Groupwise Client</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00570 [SNDM and Groupwise Client] </font>(posted by Susan Andresen)</b><br>
+( 1)   03/02/21 08:04
+<HR>
+
+<br>
+Just to let others know...I had some troubles getting SNDM to work with attachments with Groupwise clients.  I had seen the previous posts reading the boundary= issue but that didn't help with my problem...Groupwise just wasn't seeing the attachments.<br>
+<br>
+What finally worked for me was to add a CRLF at the end of the boundary statement.  So the line in #GEN looked like:<br>
+<br>
+EVAL      tmpfwb = 'Content-Type: multipart/mixed; ' +<br>
+               'boundary="' + boundary + '"' + CRLF<br>
+<br>
+And now it works perfect!!<br>
+</body></html>

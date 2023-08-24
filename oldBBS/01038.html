@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 01038 : Re: SNDM (':' in subject adds extra blan</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>01038 [Re: SNDM (':' in subject adds extra blan] </font>(posted by uzaemon)</b><br>
+( 1)   06/03/25 12:37   comment on <a href="01036.html">01036</a> 
+<HR>
+
+<br>
+Philippe,<br>
+<br>
+> First I would like mention that the tool works great.<br>
+> But I found a small bug. When I use the character ':' in the SUBJECT, a blank is generated at the 42th position in the mail-title.<br>
+<br>
+Thank you for using SNDM and your report.<br>
+<br>
+I tested on my machine (V5R2, SNDM136, JOBCCSID 5035) and counld not recreate your proble.<br>
+<br>
+[CASE-1]<br>
+<br>
+> SNDM FROM(xxxxx@xxxx.xxxxxxx.xxx.com 'Tcpip') TO((MAILUSER1@xxxx.xxxxxxx<br>
+  X.XXX.XXX 'MailUser1')) FILE(QCLSRC) SUBJECT('Colon:test')<br>
+  Mail sent.<br>
+<br>
+(received mail header)<br>
+Subject: =?US-ASCII?Q?Colon=3Atest?=<br>
+<br>
+[CASE-2]<br>
+<br>
+> SNDM FROM(xxxxx@xxxx.xxxxxxx.xxx.com 'Tcpip') TO((MAILUSER1@xxxx.xxxxxxx<br>
+  X.XXX.XXX 'MailUser1')) FILE(QCLSRC) SUBJECT('''Colon:test!"#$%&''()''')<br>
+  Mail sent.<br>
+<br>
+(received mail header)<br>
+Subject: =?US-ASCII?Q?'Colon=3Atest=21=22=23=24%&'=28=29'?=<br>
+<br>
+I don't see any problem here. How can I recreate your problem?<br>
+<br>
+Waiting for your reply.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

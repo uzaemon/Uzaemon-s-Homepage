@@ -1,0 +1,1017 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE></TITLE>
+</HEAD>
+<BODY>
+<HR>
+<P>
+[<B>124</B>] <FONT color=#666666><B>Problem with PDF Tifflib +Hpt</B></FONT>
+Posted by ：<B>ang</B> <SMALL>Date：2007/11/21(Wed) 21:22</SMALL> <BR>
+</P>
+<BLOCKQUOTE>I am trying to convert some spool files with overlay in PDF<BR>by
+the Tifflib + Hpt lib , but when I open the PDF the line <BR>and the column
+relative to the varying data of the PRTF it is<BR>not equal to that of the file
+of spool; es the name of the client is moved of line more in low in comparison
+to the spool which could the problem be?? wscst?? N.B. to tranform the spool in
+PDF i use QWPTIFFG4 and when i print i use a HP4050 customized <BR>
+<BR>Thanks in
+advance <BR>
+<BR>i hope the im been clear</BLOCKQUOTE>
+<P><!-- 212.141.29.218 --><!-- no: -->
+</P>
+<BLOCKQUOTE>[<B>Res: 124</B>] <FONT color=#666666><B>Re: Problem with PDF
+Tifflib +Hpt</B></FONT> Posted by ：<B>uzaemon</B> <SMALL>Date：2007/11/21(Wed)
+23:20</SMALL> <BR>
+<BLOCKQUOTE>ang,<BR>
+<BR>If the generated TIFF file (I suppose you are using
+SPL2STMF command) also looks weird, <BR>please contact your support channel as
+HPT (function of OS/400) problem.<BR>
+<BR>If you need to dig into more detail,
+please provide (at least) following information as noted at headline of this
+BBS.<BR>
+<BR>- Name and version of tool or utility.<BR>- Describe exactly what
+you did.<BR>- Whether the problem is recreatable. <BR>(e.g. Do you see the same
+problem for WRKSYSSTS *PRINT output?)<BR>
+<BR>Waiting for your
+reply.<BR>
+<BR>uzaemon@Japan</BLOCKQUOTE>
+<!-- 203.141.92.14 --><!-- no:125 --></BLOCKQUOTE>
+<BLOCKQUOTE>[<B>Res: 124</B>] <FONT color=#666666><B>Re: Problem with PDF
+Tifflib +Hpt</B></FONT> Posted by ：<B>ang</B> <SMALL>Date：2008/01/23(Wed)
+01:28</SMALL> <BR>
+<BLOCKQUOTE>sorry but only today affront again the problem; also the file. TIF
+is not correct. What do you advise to do?? <BR>Thanks in
+advance<BR>ang.</BLOCKQUOTE>
+<!-- 212.19.97.34 --><!-- no:177 --></BLOCKQUOTE>
+<BLOCKQUOTE>[<B>Res: 124</B>] <FONT color=#666666><B>Re: Problem with PDF
+Tifflib +Hpt</B></FONT> Posted by ：<B>uzaemon</B> <SMALL>Date：2008/01/23(Wed)
+21:07</SMALL> <BR>
+<BLOCKQUOTE>&gt; What do you advise to do??<BR>
+<BR>I've already mentioned what
+to do.<BR>See my previous post and top message of this
+BBS.<BR>
+<BR>uzaemon@Japan</BLOCKQUOTE>
+<!-- 203.179.93.86 --><!-- no:179 --></BLOCKQUOTE>
+<BLOCKQUOTE>[<B>Res: 124</B>] <FONT color=#666666><B>Re: Problem with PDF
+Tifflib +Hpt</B></FONT> Posted by ：<B>ang</B> <SMALL>Date：2008/01/24(Thu)
+02:59</SMALL> <BR>
+<BLOCKQUOTE>sorry for my "what do you adivse to do" but my question is: <BR>if
+the problem is "Host Print Transform (HPT)" do you thing that ibm can resolve
+the problem ???
+<BR>
+</BLOCKQUOTE>
+<!-- 212.141.29.218 --><!-- no:181 --></BLOCKQUOTE>
+<BLOCKQUOTE>[<B>Res: 124</B>] <FONT color=#666666><B>Re: Problem with PDF
+Tifflib +Hpt</B></FONT> Posted by ：<B>uzaemon</B> <SMALL>Date：2008/01/25(Fri)
+10:08</SMALL> <BR>
+<BLOCKQUOTE>If you suspect that your problem is in OS/400(HPT API). I recommend
+you to consider followings :<BR>
+<BR>- apply latest Cum and HPT-related
+PTFs.<BR>- there is no logical reason but just try to recompile SPL2STMF with
+lower optimization option.<BR>- there is no logical reason but just try to
+recompile SPL2STMF with *PRV option.<BR>- if you have an access to another
+AS/400 or iSeries, run the same thing and see what happens. Or you may ask your
+business partner or friend to recreate your problem.<BR>- if the problem occurs
+only for the specific spooled file, look for the difference.<BR>- prepare the
+procedure to recreate your problem using OS/400 functions which use HPT, e.g.
+RMTOUTQ, LPR, Access for Web, Host on Demand, etc.<BR>- contact your support
+channel to ask IBM to investigate (and fix) the problem.<BR>
+<BR>Hope this
+helps.<BR>
+<BR>uzaemon@Japan</BLOCKQUOTE>
+<!-- 203.141.92.14 --><!-- no:183 --></BLOCKQUOTE>
+<HR>
+<P>
+[<B>165</B>] <FONT color=#666666><B>CRTCSVF</B></FONT> Posted by ：<B>jim</B>
+<SMALL>Date：2008/01/18(Fri) 05:27</SMALL> <BR>
+</P>
+<BLOCKQUOTE>looks like date defined fields are not converted correctly. <BR>all
+my date fields in result file always pull the next 2 char. fron the next field.
+here's my example:<BR>"04/27/0004","04/28/00X1","X1234" <BR>should be:
+"04/27/00","04/28/00","X1234"<BR>what am i missing?<BR>thanks for your help ....
+great utility!</BLOCKQUOTE>
+<P><!-- 216.141.245.105 --><!-- no: -->
+</P>
+<BLOCKQUOTE>[<B>Res: 165</B>] <FONT color=#666666><B>Re: CRTCSVF (data field
+problem?)</B></FONT> Posted by ：<B>uzaemon</B> <SMALL>Date：2008/01/20(Sun)
+01:18</SMALL> <BR>
+<BLOCKQUOTE>Jim,<BR>
+<BR>It works fine on my system.<BR>
+<BR>
+<PRE>(DDS)<BR>0001.00                 R RCDFMT<BR>0002.00      A            DATE1           L<BR>0003.00      A            DATE2           L<BR>0004.00      A            CHAR          10<BR><BR>(Output of RUNQEY)<BR>       DATE1       DATE2       CHAR<BR>000001 2008-01-23  2009-12-31  X1234<BR>000002 2010-01-23  2011-12-31  X5678<BR><BR>(Operation)<BR>&gt; CRTCSVF FILE(DATE) TOSTMF('/tmp/date.csv')<BR>  Process completed. Total 2 record(s), 0 error(s).<BR>&gt; EDTF STMF('/tmp/date.csv')<BR><BR>    "2008/01/23","2009/12/31","X1234"<BR>    "2010/01/23","2011/12/31","X5678"<BR></PRE>
+<BR>Version
+of OS/400 is V5R3.<BR>Primary language 2962(Japanese), JOBCCSID 65535,
+DFTJOBCCSID 5026, date format *YMD.<BR>
+<BR>How you have defined the physical
+file?<BR>Are you using "L" type?<BR>
+<BR>Waiting for your
+reply.<BR>
+<BR>uzaemon@Japan</BLOCKQUOTE>
+<!-- 218.217.163.125 --><!-- no:173 --></BLOCKQUOTE>
+<BLOCKQUOTE>[<B>Res: 165</B>] <FONT color=#666666><B>Re: CRTCSVF</B></FONT>
+Posted by ：<B>jim</B> <SMALL>Date：2008/01/21(Mon) 22:56</SMALL> <BR>
+<BLOCKQUOTE>uzaemon,<BR>yes, date fields defined with "L" but the big difference
+is that they are defined with DATFMT(*MDY). here is example: <BR>
+<BR>
+<PRE> A            RGRDD           L         DATFMT(*MDY)               <BR> A                                             COLHDG('Req' 'Delv' 'Date')<BR> A                                             DFT('01/01/40')            <BR> A                                             ALWNULL                    <BR></PRE>
+<BR>it
+appears that the format has an impact on results. <BR>thanks for your help .....
+i hope there is a solution.<BR>jim</BLOCKQUOTE>
+<!-- 216.141.245.105 --><!-- no:175 --></BLOCKQUOTE>
+<BLOCKQUOTE>[<B>Res: 165</B>] <FONT color=#666666><B>Re: CRTCSVF
+(DATEFMT)</B></FONT> Posted by ：<B>uzaemon</B> <SMALL>Date：2008/01/22(Tue)
+20:29</SMALL> <BR>
+<BLOCKQUOTE>JIm,<BR>
+<BR>I identified the problem and here a quick
+solution.<BR>
+<BR>1. Modify source member CSV/SOURCE.CRTCSVFRPG as follows.<BR>
+<PRE><BR>0783.00  *   Date<BR>0784.00 C                   IF        dbfftyp(I) = X'000B'<BR>0784.01  *     *USA(mm/dd/yyyy), *ISO(yyyy-mm-dd), *EUR(dd.mm.yyyy),<BR>0784.02  *     *JIS(yyyy-mm-dd)<BR>0784.03 C                   IF        dbffldb(I) &gt; 8<BR>0785.00 C                   EVAL      date_work = %SUBST(INREC : dbffobo(I) : 10)<BR>0786.00 C     '-':'/'       XLATE     date_work     date_work        10<BR>0786.01 C     '.':'/'       XLATE     date_work     date_work<BR>0787.00 C                   EVAL      %SUBST(ibuf : ibufpos : 12) =<BR>0788.00 C                                 quote + date_work + quote<BR>0789.00 C                   EVAL      ibufpos = ibufpos + 12<BR>0789.01  *     *MDY(mm/dd/yy), *DMY(dd/mm/yy), *YMD(yy/mm/dd), *JUL(yy/ddd)<BR>0789.02 C                   ELSE<BR>0789.03 C                   EVAL      %SUBST(ibuf : ibufpos : dbffldb(I) + 2) =<BR>0789.04 C                                 quote +<BR>0789.05 C                                 %SUBST(INREC : dbffobo(I) : dbffldb(I)) +<BR>0789.06 C                                 quote<BR>0789.07 C                   EVAL      ibufpos = ibufpos + dbffldb(I) + 2<BR>0790.00 C                   ENDIF<BR>0790.01 C                   ENDIF<BR><BR>2. Confirm whether it works.<BR><BR>(DDS)<BR>0000.01      A          R RCDFMT<BR>0001.00      A            USA             L         DATFMT(*USA)<BR>0002.00      A                                      COLHDG('*USA' 'mm/dd/yyyy')<BR>0003.00      A            ISO             L         DATFMT(*ISO)<BR>0004.00      A                                      COLHDG('*ISO' 'yyyy-mm-dd')<BR>0005.00      A            EUR             L         DATFMT(*EUR)<BR>0006.00      A                                      COLHDG('*EUR' 'dd.mm.yyyy')<BR>0007.00      A            JIS             L         DATFMT(*JIS)<BR>0008.00      A                                      COLHDG('*JIS' 'yyyy-mm-dd')<BR>0009.00      A            MDY             L         DATFMT(*MDY)<BR>0010.00      A                                      COLHDG('*MDY' 'mm/dd/yy')<BR>0011.00      A            DMY             L         DATFMT(*DMY)<BR>0012.00      A                                      COLHDG('*DMY' 'dd/mm/yy')<BR>0013.00      A            YMD             L         DATFMT(*YMD)<BR>0014.00      A                                      COLHDG('*YMD' 'yy/mm/dd')<BR>0015.00      A            JUL             L         DATFMT(*JUL)<BR>0016.00      A                                      COLHDG('*JUL' 'yy/ddd')<BR><BR>(runqry *n datefmt)<BR>       *USA        *ISO        *EUR        *JIS        *MDY      *DMY      *YMD      *JUL<BR>       mm/dd/yyyy  yyyy-mm-dd  dd.mm.yyyy  yyyy-mm-dd  mm/dd/yy  dd/mm/yy  yy/mm/dd  yy/ddd<BR>000001 12/31/2007  2007-12-31  31.12.2007  2007-12-31  12/31/07  31/12/07  07/12/31  07/365<BR>000002 02/03/2008  2008-02-03  03.02.2008  2008-02-03  02/03/08  03/02/08  08/02/03  08/034<BR><BR>(CRTCSVF FILE(DATEFMT) TOSTMF('/tmp/datefmt.csv') ADDINF(*COLHDG))<BR>"*USA mm/dd/yyyy","*ISO yyyy-mm-dd","*EUR dd.mm.yyyy","*JIS yyyy-mm-dd","*MDY mm/dd/yy","*DMY dd/mm/yy","*YMD yy/mm/dd","*JUL yyy/ddd"<BR>"12/31/2007","2007/12/31","31/12/2007","2007/12/31","12/31/07","31/12/07","07/12/31","07/365"<BR>"02/03/2008","2008/02/03","03/02/2008","2008/02/03","02/03/08","03/02/08","08/02/03","08/034"<BR></PRE>
+<BR>You
+may need to adjust the cell property for your language to display the date
+correctly. <BR>Similar problem may happen if you specify *USA for time
+field.<BR>
+<BR>Please try and let me know the
+result.<BR>
+<BR>uzaemon@Japan</BLOCKQUOTE>
+<!-- 203.141.92.14 --><!-- no:176 --></BLOCKQUOTE>
+<BLOCKQUOTE>[<B>Res: 165</B>] <FONT color=#666666><B>Re: CRTCSVF</B></FONT>
+Posted by ：<B>jim</B> <SMALL>Date：2008/01/23(Wed) 03:24</SMALL> <BR>
+<BLOCKQUOTE>uzaemon,<BR>looks like this fix works just fine! <BR>dates now look
+great in file and spreadsheet. <BR>again ..... great program! <BR>i will now
+look at your other utilities. <BR>thank you very much for your help and your
+posting of these programs without the need to join anything, pay for anything,
+etc. etc.
+<BR>jim</BLOCKQUOTE>
+<!-- 216.141.245.105 --><!-- no:178 --></BLOCKQUOTE>
+<BLOCKQUOTE>[<B>Res: 165</B>] <FONT color=#666666><B>Re: CRTCSVF (DATF<T(*MDY)<
+b></B></FONT> Posted by ：<B>uzaemon</B> <SMALL>Date：2008/01/23(Wed) 21:12</SMALL>
+<BR>
+<BLOCKQUOTE>Thanks for your feedback.<BR>It's my pleasure that my programs could
+be of any help.<BR>Have a nice day!<BR>
+<BR>uzaemon@Japan</BLOCKQUOTE>
+<!-- 203.179.93.86 --><!-- no:180 --></BLOCKQUOTE>
+<HR>
+<P>
+[<B>148</B>] <FONT color=#666666><B>SNDM and SMTP server
+authentication</B></FONT> Posted by ：<B>Franco Faggian</B>
+<SMALL>Date：2008/01/09(Wed) 00:17</SMALL> <BR>
+</P>
+<BLOCKQUOTE>Hello, it is possibile to use SNDM with SMTP server that
+require<BR>authentication ?.<BR>Thanks.</BLOCKQUOTE>
+<P><!-- 88.32.101.220 --><!-- no: -->
+</P>
+<BLOCKQUOTE>[<B>Res: 148</B>] <FONT color=#666666><B>Re: SNDM and SMTP server
+authentication</B></FONT> Posted by ：<B>uzaemon</B> <SMALL>Date：2008/01/11(Fri)
+20:48</SMALL> <BR>
+<BLOCKQUOTE>Franco,<BR>
+<BR>Thank you for your interest on SNDM.<BR>
+<BR>&gt; it
+is possibile to use SNDM with SMTP server that require authentication
+?.<BR>
+<BR>SNDM does not support authentication and I don't have plan to
+implement SMTP AUTH, because:<BR>
+<BR>- My mail server does not require
+authentication.<BR>- It is not so easy to implement "SMTP Authentication"
+defined by RFC2554 which introduces several auth mechanisms (AUTH-LOGIN, AUTH
+PLAIN, AUTH CRAM-MD5, etc).<BR>- I'm busy on my regular work and private
+things.<BR>
+<BR>As I'm distributing full source code, it is a very good chance
+for you to contribute to the community!<BR>
+<BR>uzaemon@Japan</BLOCKQUOTE>
+<!-- 203.141.92.14 --><!-- no:155 --></BLOCKQUOTE>
+<HR>
+<P>
+[<B>135</B>] <FONT color=#666666><B>CRTCSVF</B></FONT> Posted by ：<B>Ric</B>
+<SMALL>Date：2008/01/02(Wed) 21:21</SMALL> <BR>
+</P>
+<BLOCKQUOTE>I have downloaded and tested your CRTCSVF utility.<BR>Decimal point
+is always (.). I need (,) instead.<BR>Is possible?<BR>Thanks</BLOCKQUOTE>
+<P><!-- 80.207.166.118 --><!-- no: -->
+</P>
+<BLOCKQUOTE>[<B>Res: 135</B>] <FONT color=#666666><B>Re: CRTCSVF (comma for
+decimal point)</B></FONT> Posted by ：<B>uzaemon</B> <SMALL>Date：2008/01/07(Mon)
+19:52</SMALL> <BR>
+<BLOCKQUOTE>Ric,<BR>
+<BR>Yes, it is possible by modifying the source
+code.<BR>
+<BR>There are several ways and below is a quick'n'dirty solution
+:-)<BR>Add a line below to the original source member
+CSV/SOURCE(CRTCSVFRPG).<BR>
+<BR>
+<PRE>0718.01 C     '.':','       XLATE     cw2           cw2</PRE>
+<BR>
+<BR>You
+may use %XLATE built-in function if you are using OS/400 V5R1 or later.<BR>Below
+is a sample operation.<BR>
+<BR>CRTCSVF FILE(QAITMON) TOSTMF('/tmp/qaitmon.txt')
+FLDDLM(X'05')<BR>
+<BR>Note that you need to specify FLDDLM parameter because
+default delimiter is ','.<BR>X'05' is horizontal tab character in
+EBCDIC.<BR>Also, you'd better use ".txt" as an extension of the output file if
+you want to open the file from Excel.<BR>
+<BR>Waiting for your
+feedback.<BR>
+<BR>uzaemon@Japan</BLOCKQUOTE>
+<!-- 203.141.92.14 --><!-- no:145 --></BLOCKQUOTE>
+<BLOCKQUOTE>[<B>Res: 135</B>] <FONT color=#666666><B>Re: CRTCSVF</B></FONT>
+Posted by ：<B>Ric</B> <SMALL>Date：2008/01/09(Wed) 01:47</SMALL> <BR>
+<BLOCKQUOTE>Hi uzaemon<BR>I used your quick'n'dirty solution :-)<BR>
+<BR>It works
+good if the field in not = 0 so I added another line<BR>0688.01 C EVAL
+%SUBST(ibuf : ibufpos : 3) = '0,0'<BR>and now work.<BR>thanks for your
+help</BLOCKQUOTE>
+<!-- 80.207.166.118 --><!-- no:149 --></BLOCKQUOTE>
+<BLOCKQUOTE>[<B>Res: 135</B>] <FONT color=#666666><B>Re: CRTCSVF (comma for
+decimal point)</B></FONT> Posted by ：<B>uzaemon</B> <SMALL>Date：2008/01/10(Thu)
+23:42</SMALL> <BR>
+<BLOCKQUOTE>Ric,<BR>
+<BR>Thank you for your feedback.<BR>Have fun!
+;-)<BR>
+<BR>uzaemon@Japan</BLOCKQUOTE>
+<!-- 218.217.163.245 --><!-- no:154 --></BLOCKQUOTE>
+<HR>
+<P>
+[<B>119</B>] <FONT color=#666666><B>Document size</B></FONT> Posted by
+：<B>Helena Galkin</B> <SMALL>Date：2007/11/21(Wed) 01:11</SMALL> <BR>
+</P>
+<BLOCKQUOTE>Hello,<BR>I'm using SPL2STMF product to convert *IFPDS spool file to
+.tif format. Every thing was great except document size. I can define it as
+length = 11 and with 8.5. It's going automatically on (7.9x10.6). How can I
+change it? <BR>Also I can't find library QFNT61 for coded fonts X0N13N and
+perform my override.<BR>
+<BR>Could you please help me?<BR>
+<BR>Thank you very much
+in advance<BR>Helena</BLOCKQUOTE>
+<P><!-- 207.236.94.34 --><!-- no: -->
+</P>
+<BLOCKQUOTE>[<B>Res: 119</B>] <FONT color=#666666><B>Re: Document size
+(SPL2STMF)</B></FONT> Posted by ：<B>uzaemon</B> <SMALL>Date：2007/11/21(Wed)
+12:30</SMALL> <BR>
+<BLOCKQUOTE>Helena,<BR>
+<BR>SPL2STMF has nothing to do with document size.<BR>It
+just generates image file when QWPTIFFG4 (I guess) is specified.<BR>Size of the
+image is represented by ??? x ??? pixels (dots).<BR>
+<BR>Paper size will be
+determined by how you generate the output.<BR>For example, TIFF2PDF command
+scales the image to fit specified paper size.<BR>
+<BR>&gt; Also I can't find
+library QFNT61 for coded fonts X0N13N and perform my override.<BR>
+<BR>Library
+QFNT61 is Japanese AFP font library.<BR>You may use compatibility font,
+Worldtype font or buy other font from IBM AFP font collection.<BR>
+<BR>Waiting
+for your feedback.<BR>
+<BR>uzaemon@Japan</BLOCKQUOTE>
+<!-- 203.141.92.14 --><!-- no:121 --></BLOCKQUOTE>
+<HR>
+<P>
+[<B>107</B>] <FONT color=#666666><B>read ifs files</B></FONT> Posted by
+：<B>Nour</B> <SMALL>Date：2007/11/17(Sat) 00:54</SMALL> <BR>
+</P>
+<BLOCKQUOTE>hello,<BR>
+<BR>I'm using a program called SpoolOranizer to handel
+spool printing &amp; acrhving. <BR>
+<BR>the program has also an funtion to send
+outputq ( the content ) to IFS directory as PDF. <BR>the result is that all
+spoolfiles in that output are converted and put in IFS dir as pdf.<BR>the stupid
+thing is that files get an new name : 0000001 0000002 ect...<BR>
+<BR>and index is
+alos created in the same dir containing the new names &amp; the old spoolfile
+information : name jobnumber ect...<BR>
+<BR>it possible to create a script to
+read the information from the index file and rename the pdf's.<BR>
+<BR>here: and
+2 records from the index file <BR>
+<BR>/eodreports/bot//PREFIX0000001.PDF AMS_BOT
+IOPERATOR 014307000034BSOBANP 000001000001 A*STD 000006000010000066000066*NO
+5N000132NNNNNNNNNNNNNNNNN0*CPI 0000000BSOBANP QTEMP N N*NONE*RCDFMT *SCS
+BANNER_HDR NO Y N *STD *AUTO 00000000000000*FILEEND 00001*DEVD 01 R071102142805
+*NO 000NNN*NONE *FRONTOVL 00001<BR>/eodreports/bot//PREFIX0000002.PDF AMS_BOT
+IOPERATOR 014307000033BSOBDLSTP 000001000001 A*STD 000006000010000066000060*NO
+5N000132NNNNNNNNNNNNNNNNN0*CPI 0000000BSOBDLSTP QTEMP N N*NONE*RCDFMT *SCS
+BUNDLESTAT NO Y N *STD *AUTO 00000000000000*FILEEND 00001*DEVD 01 R071102142805
+*NO 000NNN*NONE *FRONTOVL 00001</BLOCKQUOTE>
+<P><!-- 213.53.3.29 --><!-- no: -->
+</P>
+<BLOCKQUOTE>[<B>Res: 107</B>] <FONT color=#666666><B>Re: read ifs
+files</B></FONT> Posted by ：<B>Nour</B> <SMALL>Date：2007/11/17(Sat)
+00:56</SMALL> <BR>
+<BLOCKQUOTE>/eodreports/bot//PREFIX0000003.PDF AMS_BOT IOPERATOR
+014307000001P41UUR2 000002000001 A*STD 000006000010000066000060*NO
+5N000132NNNNNNNNNNNNNNNNN0*CPI 0000000EQRPT2 KLIBLIV N N*NONE*FIXED *SCS P41UUR
+NO Y N *STD *AUTO 00000000000000*FILEEND 00132*DEVD 01 R071102142805 *NO
+000NNN*NONE *FRONTOVL 00001<BR>/eodreports/bot//PREFIX0000004.PDF AMS_BOT
+IOPERATOR 014307000002QPQUPRFIL 000001000001 A*STD 000006000015000066000060*NO
+5N000198NNNNNNNNNNNNNNNNN0*CPI 0000000QPQUPRFIL QSYS N N*NONE*RCDFMT *SCS REPMFX
+NO Y N *STD *AUTO 00000000000000*FILEEND 00001*DEVD 01 R071102142805 *NO
+000NNN*NONE *FRONTOVL
+00001</BLOCKQUOTE>
+<!-- 213.53.3.29 --><!-- no:108 --></BLOCKQUOTE>
+<BLOCKQUOTE>[<B>Res: 107</B>] <FONT color=#666666><B>Re: read ifs files
+:-(</B></FONT> Posted by ：<B>uzaemon</B> <SMALL>Date：2007/11/18(Sun)
+02:49</SMALL> <BR>
+<BLOCKQUOTE>Nour,<BR>
+<BR>Please, please read the headline of this BBS (and
+message 91).<BR>
+<BR>You should look for the Web (e.g.
+snippets.dzone.com/posts/show/4315) or InfoCenter
+(publib.boulder.ibm.com/infocenter/iseries/v5r4/topic/rzahz/tutput.htm).<BR>
+<BR>uzaemon@Japan
+</BLOCKQUOTE>
+<!-- 219.116.187.15 --><!-- no:112 --></BLOCKQUOTE>
+<HR>
+<P>
+[<B>92</B>] <FONT color=#666666><B>Error wiht SPL2STMF </B></FONT>Posted by
+：<B>ang </B><SMALL>Date：2007/11/07(Wed) 03:24</SMALL> <BR>
+</P>
+<BLOCKQUOTE>with same spool files i riceive the followinf Error:"Command failed.
+reason - API QwpzHostPrintTransform failed <BR>CPF6DF9 hptopt = 30"<BR>
+<BR>Can
+you help me thanks <BR>
+</BLOCKQUOTE>
+<P><!-- 212.19.97.34 --><!-- no: -->
+</P>
+<BLOCKQUOTE>[<B>Res: 92</B>] <FONT color=#666666><B>Re: Error wiht SPL2STMF
+(CPF6DF9)</B></FONT> Posted by ：<B>uzaemon</B> <SMALL>Date：2007/11/07(Wed)
+18:12</SMALL> <BR>
+<BLOCKQUOTE>ang,<BR>
+<BR>Below is excerpt from old BBS:<BR>
+<BR>| &gt; I get the
+following error when I try the SPL2STMF command:<BR>| &gt; "Fatal error : API
+QwpzHostPrintTransform failed : CPF6DF9 hptopt = 30"<BR>| <BR>| According to
+DSPMSGD command, CPF6DF9 indicates:<BR>| <BR>| Message . . . . : Transformed
+data buffer too small.<BR>| Cause . . . . . : The transformed data buffer of
+&amp;2 bytes <BR>| is too small to hold the &amp;1 bytes of transformed data
+that <BR>| is available. Only &amp;2 bytes of data have been copied to the <BR>|
+transformed data buffer. The remaining transformed data is lost.<BR>| <BR>| That
+means you should increase buffer size (200,000) <BR>| which is defined at line
+57 and 233. You can try DEBUG(*YES) <BR>| to determine the buffer
+size.<BR>
+<BR>Hope this circumvention works as before.<BR>Waiting for your
+feedback.<BR>
+<BR>uzaemon@Japan</BLOCKQUOTE>
+<!-- 203.141.92.14 --><!-- no:93 --></BLOCKQUOTE>
+<BLOCKQUOTE>[<B>Res: 92</B>] <FONT color=#666666><B>Re: Error wiht SPL2STMF
+</B></FONT>Posted by ：<B>ang </B><SMALL>Date：2007/11/09(Fri) 02:59</SMALL> <BR>
+<BLOCKQUOTE>Thanks for your reply; in this days i'm out of office. Next week
+i'll inform you about your solution<BR>
+<BR>By</BLOCKQUOTE>
+<!-- 212.141.29.218 --><!-- no:96 --></BLOCKQUOTE>
+<BLOCKQUOTE>[<B>Res: 92</B>] <FONT color=#666666><B>Re: Error wiht SPL2STMF
+(CPF6DF9)</B></FONT> Posted by ：<B>uzaemon</B> <SMALL>Date：2007/11/11(Sun)
+18:26</SMALL> <BR>
+<BLOCKQUOTE>ang,<BR>
+<BR>No need to hurry.<BR>I'm here for you
+:-)<BR>
+<BR>uzaemon@Japan</BLOCKQUOTE>
+<!-- 203.179.93.86 --><!-- no:100 --></BLOCKQUOTE>
+<BLOCKQUOTE>[<B>Res: 92</B>] <FONT color=#666666><B>Re: Error wiht SPL2STMF
+</B></FONT>Posted by ：<B>ang</B> <SMALL>Date：2007/11/13(Tue) 18:42</SMALL> <BR>
+<BLOCKQUOTE>I have understood the problem, the spool had an overlay that went
+over the size of the sheet and therefore it went to error. excuse if I have made
+you waste time; it was not therefore a problem of size of the spool.
+<BR>
+</BLOCKQUOTE>
+<!-- 212.19.97.34 --><!-- no:101 --></BLOCKQUOTE>
+<BLOCKQUOTE>[<B>Res: 92</B>] <FONT color=#666666><B>Re: Error wiht SPL2STMF
+</B></FONT>Posted by ：<B>uzaemon</B> <SMALL>Date：2007/11/13(Tue) 23:41</SMALL>
+<BR>
+<BLOCKQUOTE>np.<BR>Thanks for your feedback.</BLOCKQUOTE>
+<!-- 218.217.161.73 --><!-- no:102 --></BLOCKQUOTE>
+<HR>
+<P>
+[<B>95</B>] <FONT color=#666666><B>content type html?</B></FONT> Posted by
+：<B>Holger Scherer</B> <SMALL>Date：2007/11/09(Fri) 02:13</SMALL> <BR>
+</P>
+<BLOCKQUOTE>Hi,<BR>would it be a big effort to enable HTML mail in
+SNDM?<BR>
+<BR>best regards,<BR>Holger</BLOCKQUOTE>
+<P><!-- 87.139.13.106 --><!-- no: -->
+</P>
+<BLOCKQUOTE>[<B>Res: 95</B>] <FONT color=#666666><B>Re: content type
+html?</B></FONT> Posted by ：<B>uzaemon</B> <SMALL>Date：2007/11/11(Sun)
+18:23</SMALL> <BR>
+<BLOCKQUOTE>Holger,<BR>
+<BR>Below is excerpt from old BBS:<BR>
+<BR>| &gt; Would it
+be difficult to change the SNDM program to sent a<BR>| HTML-body or does only
+the 'Content-type' parameter need to be <BR>| changed.<BR>|<BR>| As always, it
+depends on your requirement.<BR>|<BR>| If you want to send HTML format mail, you
+have to change the <BR>| header (and may need to use "related" parts). Also, to
+send <BR>| both HTML and TEXT at a time (in the same mail), you may <BR>|
+consider to use "alternative" header.<BR>|<BR>| HTML mail is very effective to
+distribute rich contents. <BR>| On the other hand, lots of people (including me)
+disable HTML <BR>| mail for security reason. To satisfy both requirements, you
+<BR>| should consider to use "Content-Type: multipart/alternative" <BR>|
+implementation. See RFC 1766, 2045, 2046 and other RFCs for <BR>| more
+information.<BR>|<BR>| Hope this helps.<BR>
+<BR>If you just want to use simple
+HTML tags, it should be a little modification. If you need to implement more
+complicated features (e.g. embed inline image using CID), it will be a big
+effort.<BR>
+<BR>Hope this answers to your
+question.<BR>
+<BR>uzaemon@Japan</BLOCKQUOTE>
+<!-- 203.179.93.86 --><!-- no:99 --></BLOCKQUOTE>
+<HR>
+<P>
+[<B>89</B>] <FONT color=#666666><B>MKDIR using a variable</B></FONT> Posted by
+：<B>Nour</B> <SMALL>Date：2007/10/30(Tue) 02:09</SMALL> <BR>
+</P>
+<BLOCKQUOTE>Hello there,<BR>
+<BR>I'm trying to create a CL that:<BR>1. Check if
+directory exists with name "/&amp;date" <BR>2. Creates the directory if doesn't
+exists <BR>3. zips some savefile and to directory "/&amp;date'<BR>
+<BR>PS:
+&amp;date is variable indicate the system date (like 21102007)<BR>
+<BR>Please
+your feedback<BR>
+<BR>zips the savfile and crte <BR>
+</BLOCKQUOTE>
+<P><!-- 213.53.3.29 --><!-- no: -->
+</P>
+<BLOCKQUOTE>[<B>Res: 89</B>] <FONT color=#666666><B>Re: MKDIR using a
+variable</B></FONT> Posted by ：<B>Nour</B> <SMALL>Date：2007/10/30(Tue)
+02:14</SMALL> <BR>
+<BLOCKQUOTE>it seems that :<BR>
+<BR>mkdir /&amp;date <BR>
+<BR>is not a allowed
+<BR>
+</BLOCKQUOTE>
+<!-- 213.53.3.29 --><!-- no:90 --></BLOCKQUOTE>
+<BLOCKQUOTE>[<B>Res: 89</B>] <FONT color=#666666><B>Re: MKDIR using a
+variable</B></FONT> Posted by ：<B>uzaemon</B> <SMALL>Date：2007/10/30(Tue)
+21:13</SMALL> <BR>
+<BLOCKQUOTE>Nour,<BR>
+<BR>Please read the headline of this BBS. <BR>
+<BR>"- Do not
+add messages to this BBS about anything that is not related to utilities at my
+homepage."<BR>
+<BR>This BBS is not for general Q&amp;A. <BR>Having that said, try
+sample CL program below.<BR>
+<BR>0001.00 PGM<BR>0002.00 DCL VAR(&amp;DATE)
+TYPE(*CHAR) LEN(6)<BR>0003.00 DCL VAR(&amp;DIR) TYPE(*CHAR) LEN(128)<BR>0004.00
+RTVJOBA DATE(&amp;DATE)<BR>0005.00 CHGVAR VAR(&amp;DIR) VALUE('/' |&lt;
+&amp;DATE)<BR>0006.00 MKDIR DIR(&amp;DIR)<BR>0007.00 ENDPGM<BR>
+<BR>Value of
+&amp;DATE is something like "211007".<BR>
+<BR>uzaemon@Japan</BLOCKQUOTE>
+<!-- 203.141.92.14 --><!-- no:91 --></BLOCKQUOTE>
+<HR>
+<P>
+[<B>78</B>] <FONT color=#666666><B>compile problem</B></FONT> Posted by
+：<B>Nour</B> <SMALL>Date：2007/10/23(Tue) 00:29</SMALL> <BR>
+</P>
+<BLOCKQUOTE>Hello there I have the follwing when compiling
+:<BR>
+<BR>
+<BR>STRREXPRC SRCMBR(MAKE) SRCFILE(ZLIB/QREXSRC)
+<BR>ZLIB/QCSRC(ADLER32): CZM0188(30) Reserved name __OS400__ cannot be defined
+<BR>as a macro name. <BR>Module ADLER32 is not created because statement errors
+occurred. <BR>The compilation failed. <BR>ZLIB/QCSRC(COMPRESS): CZM0188(30)
+Reserved name __OS400__ cannot be <BR>defined as a macro name. <BR>Module
+COMPRESS is not created because statement errors occurred. <BR>The compilation
+failed. <BR>ZLIB/QCSRC(CRC32): CZM0188(30) Reserved name __OS400__ cannot be
+defined <BR>as a macro name. <BR>ZLIB/QCSRC(CRC32), 37.13: CZM0213(30) Macro
+name BYFOUR cannot be <BR>redefined. <BR>Module CRC32 is not created because
+statement errors occurred. <BR>The compilation failed. <BR>ZLIB/QCSRC(DEFLATE):
+CZM0188(30) Reserved name __OS400__ cannot be defined <BR>as a macro name.
+<BR>Module DEFLATE is not created because statement errors occurred. <BR>The
+compilation failed. <BR>ZLIB/QCSRC(GZIO): CZM0188(30) Reserved name __OS400__
+cannot be defined as <BR>a macro name. <BR>Module GZIO is not created because
+statement errors occurred. <BR>The compilation failed. <BR>ZLIB/QCSRC(INFBACK):
+CZM0188(30) Reserved name __OS400__ cannot be defined <BR>as a macro name.
+<BR>Module INFBACK is not created because statement errors occurred. <BR>The
+compilation failed. <BR>ZLIB/QCSRC(INFFAST): CZM0188(30) Reserved name __OS400__
+cannot be defined <BR>as a macro name. <BR>Module INFFAST is not created because
+statement errors occurred. <BR>The compilation failed. <BR>ZLIB/QCSRC(INFLATE):
+CZM0188(30) Reserved name __OS400__ cannot be defined <BR>as a macro name.
+<BR>Module INFLATE is not created because statement errors occurred. <BR>The
+compilation failed. <BR>ZLIB/QCSRC(INFTREES): CZM0188(30) Reserved name
+__OS400__ cannot be <BR>defined as a macro name. <BR>Module INFTREES is not
+created because statement errors occurred. <BR>The compilation failed.
+<BR>ZLIB/QCSRC(IOAPI): CZM0188(30) Reserved name __OS400__ cannot be defined
+<BR>as a macro name. <BR>Module IOAPI is not created because statement errors
+occurred. <BR>The compilation failed. <BR>ZLIB/QCSRC(TREES): CZM0188(30)
+Reserved name __OS400__ cannot be defined <BR>as a macro name. <BR>Module TREES
+is not created because statement errors occurred. <BR>
+<BR>The compilation
+failed. <BR>ZLIB/QCSRC(UNCOMPR): CZM0188(30) Reserved name __OS400__ cannot be
+defined <BR>as a macro name. <BR>Module UNCOMPR is not created because statement
+errors occurred. <BR>The compilation failed. <BR>ZLIB/QCSRC(ZUTIL): CZM0188(30)
+Reserved name __OS400__ cannot be defined <BR>as a macro name. <BR>Module ZUTIL
+is not created because statement errors occurred. <BR>The compilation failed.
+<BR>No modules found for the specified value of ADLER32 in library QTEMP. <BR>No
+modules found for the specified value of COMPRESS in library QTEMP. <BR>No
+modules found for the specified value of CRC32 in library QTEMP. <BR>No modules
+found for the specified value of DEFLATE in library QTEMP. <BR>No modules found
+for the specified value of GZIO in library QTEMP. <BR>
+<BR>
+<BR>
+<BR>Please
+help:</BLOCKQUOTE>
+<P><!-- 213.53.3.29 --><!-- no: -->
+</P>
+<BLOCKQUOTE>[<B>Res: 78</B>] <FONT color=#666666><B>Re: compile problem
+(ZLIB?)</B></FONT> Posted by ：<B>uzaemon</B> <SMALL>Date：2007/10/23(Tue)
+19:18</SMALL> <BR>
+<BLOCKQUOTE>Nour,<BR>
+<BR>Are you talking about ZLIB?<BR>What version of ZLIB and
+OS/400 are you using?<BR>
+<BR>uzaemon@Japan</BLOCKQUOTE>
+<!-- 203.141.92.14 --><!-- no:79 --></BLOCKQUOTE>
+<BLOCKQUOTE>[<B>Res: 78</B>] <FONT color=#666666><B>Re: compile
+problem</B></FONT> Posted by ：<B>Nour</B> <SMALL>Date：2007/10/23(Tue)
+21:16</SMALL> <BR>
+<BLOCKQUOTE>Yes,<BR>
+<BR>I'm trying to compile Zlib on OS400 Version
+5.4</BLOCKQUOTE>
+<!-- 213.53.3.29 --><!-- no:81 --></BLOCKQUOTE>
+<BLOCKQUOTE>[<B>Res: 78</B>] <FONT color=#666666><B>Re: compile
+problem</B></FONT> Posted by ：<B>Nour</B> <SMALL>Date：2007/10/23(Tue)
+22:28</SMALL> <BR>
+<BLOCKQUOTE>Zlib123</BLOCKQUOTE>
+<!-- 213.53.3.29 --><!-- no:82 --></BLOCKQUOTE>
+<BLOCKQUOTE>[<B>Res: 78</B>] <FONT color=#666666><B>Re: compile
+problem</B></FONT> Posted by ：<B>Nour</B> <SMALL>Date：2007/10/24(Wed)
+16:27</SMALL> <BR>
+<BLOCKQUOTE>Just to be clear:<BR>
+<BR>I have downloaded the Zlib from the website
+.<BR>version 1.2.3<BR>Uploade the savf to AS400,<BR>Retored the Zlib<BR>
+<BR>Run
+the instaaltion script as discribed in procedure.<BR>
+<BR>The OS Version i/OS:
+5.4<BR>I have installed :<BR>5722SS1 13 System Openness Includes <BR>5722JC1
+*BASE IBM Toolbox for Java <BR>5722JV1 *BASE IBM Developer Kit for Java
+<BR>5722JV1 5 Java Developer Kit 1.3 <BR>5722JV1 6 Java Developer Kit 1.4
+<BR>5722WDS 34 RPG/400 <BR>5722WDS 35 ILE RPG *PRV Compiler <BR>5722WDS 45 ILE
+COBOL *PRV Compiler <BR>5722WDS 51 ILE C <BR>5722WDS 52 ILE C++ <BR>5722WDS 56
+IXLC for C/C++ <BR>5722WDS 60 Workstation Tools - Base <BR>
+<BR>Please your
+commants.<BR>
+<BR>
+<BR>many
+thanks</BLOCKQUOTE>
+<!-- 213.53.3.29 --><!-- no:83 --></BLOCKQUOTE>
+<BLOCKQUOTE>[<B>Res: 78</B>] <FONT color=#666666><B>Re: compile problem (ZLIB on
+V5R3/4)</B></FONT> Posted by ：<B>uzaemon</B> <SMALL>Date：2007/10/24(Wed)
+22:31</SMALL> <BR>
+<BLOCKQUOTE>Nour,<BR>
+<BR>
+<BR>You should remove "__OS400__" and "BYFOUR" defs
+from the MAKE procedure to compile zlib on V5R3 or later. I quote a message from
+old BBS for your reference.<BR>
+<BR>Otherwise, edit MAKE procedure as follows. It
+worked on V5R3 machine (not mine).<BR>
+<BR>0019.00 /* TGTRLS = '*CURRENT'
+*/<BR>0020.00 TGTRLS = 'V5R2M0'<BR>
+<BR>I hope IBM could have paid a little more
+attention to release to relase compatibilities...<BR>
+<BR>Hope this
+helps.<BR>
+<BR>uzaemon@Japan<BR>
+<BR>-----------------<BR>
+<BR>00904/00904 AAA00000
+Karl zlib121 <BR>( 1) 05/06/09 11:47<BR>
+<BR>I have installed zlib121 on an i5 at
+V5R3. To be able to do the MAKE in QREXSRC I had to change __OS400__ to
+__iseries__. Actually it can be anything else since __OS400__ is a reserved
+name. I also had to rename BYFOUR to something like BY4.<BR>Also I had to
+comment out the second WRITEBUFFERSIZE in MINIZIP of H.<BR>Once all that was
+done, everything 'compiled' fine and everything ran
+well.<BR>Thanks<BR>Karl</BLOCKQUOTE>
+<!-- 203.141.92.14 --><!-- no:84 --></BLOCKQUOTE>
+<BLOCKQUOTE>[<B>Res: 78</B>] <FONT color=#666666><B>Re: compile
+problem</B></FONT> Posted by ：<B>Nour</B> <SMALL>Date：2007/10/25(Thu)
+00:10</SMALL> <BR>
+<BLOCKQUOTE>Hi there,<BR>
+<BR>I have changed : __OS400__ to __iseries__
+<BR>
+<BR>and BYFOUR to BY4<BR>
+<BR>it wroked fine.<BR>
+<BR>many thanks,<BR>
+<BR>it's
+running on 5.4
+<BR>
+<BR>Great.</BLOCKQUOTE>
+<!-- 213.53.3.29 --><!-- no:86 --></BLOCKQUOTE>
+<BLOCKQUOTE>[<B>Res: 78</B>] <FONT color=#666666><B>Re: compile problem (ZLIB
+works on V5R4)</B></FONT> Posted by ：<B>uzaemon</B> <SMALL>Date：2007/10/25(Thu)
+12:04</SMALL> <BR>
+<BLOCKQUOTE>Nour,<BR>
+<BR>Thank you for your feedback.<BR>Have
+fun!<BR>
+<BR>uzaemon@Japan</BLOCKQUOTE>
+<!-- 203.141.92.14 --><!-- no:87 --></BLOCKQUOTE>
+<HR>
+<P>
+[<B>69</B>] <FONT color=#666666><B>SNDM and Minimum Configuration in TCP/IP
+setting</B></FONT> Posted by ：<B>Nicolas Machado</B> <SMALL>Date：2007/10/09(Tue)
+22:31</SMALL> <BR>
+</P>
+<BLOCKQUOTE>Hi, I have a college that is using SNDM, and when he run the command
+, gets "failed to retrieve local domain name ('.' missing. localhost
+=)".<BR>Where is the local domain name configured in AS/400 ?<BR>
+<BR>Best
+Regards.<BR>Nicolas</BLOCKQUOTE>
+<P><!-- 190.30.154.111 --><!-- no: -->
+</P>
+<BLOCKQUOTE>[<B>Res: 69</B>] <FONT color=#666666><B>Re: SNDM and Minimum
+Configuration in TCP/IP setting</B></FONT> Posted by ：<B>uzaemon</B>
+<SMALL>Date：2007/10/09(Tue) 23:25</SMALL> <BR>
+<BLOCKQUOTE>Nicolas,<BR>
+<BR>Run CFGTCP command and select option 12 to specify
+domain name and host name of your AS/400.
+<BR>
+<BR>Enjoy!<BR>
+<BR>uzaemon@Japan</BLOCKQUOTE>
+<!-- 218.217.161.48 --><!-- no:70 --></BLOCKQUOTE>
+<HR>
+<P>
+[<B>66</B>] <FONT color=#666666><B>crtcsvf</B></FONT> Posted by ：<B>Cindy</B>
+<SMALL>Date：2007/10/05(Fri) 03:17</SMALL> <BR>
+</P>
+<BLOCKQUOTE>I am trying to take a physical file and create a .csv file out of
+it. The fields in the file are:<BR>43 14 06 BOURNE JUSTIN M JBOURNE7359
+JB8637<BR>
+<BR>Here is how I am filling out the command:<BR>===&gt; CRTCSVF
+FILE(MAD/S_MADSC) TOSTMF('/tmp/s_madsc.csv') MBR(S_MADSC) DBFCCSID(37)
+RCDERR(*IGNORE) <BR>
+<BR>First, when I used the crtcsvf command it will not allow
+CCSID 65535 - why? This is our system value for QCCSID.<BR>
+<BR>I am unsure what
+to use in its place. I have tried 37 and 1140; however, it cuts off the last two
+columns on my data then.<BR>
+<BR>Any suggestions would be very appreciated. Thank
+you.</BLOCKQUOTE>
+<P><!-- 216.11.139.175 --><!-- no: -->
+</P>
+<BLOCKQUOTE>[<B>Res: 66</B>] <FONT color=#666666><B>Re: crtcsvf (file CCSID,
+field number)</B></FONT> Posted by ：<B>uzaemon</B> <SMALL>Date：2007/10/05(Fri)
+20:43</SMALL> <BR>
+<BLOCKQUOTE>Cindy,<BR>
+<BR>&gt; First, when I used the crtcsvf command it will
+not allow CCSID 65535 - why?<BR>
+<BR>Because CRTCSVF cannot determine EBCDIC
+CCSID. CCSID 65535 indicates "no conversion".<BR>
+<BR>&gt; I am unsure what to
+use in its place. I have tried 37 and 1140; however, it cuts off the last two
+columns on my data then.<BR>
+<BR>If MAD/S_MADSC is used under US-English
+environment, CCSID 37 is OK. <BR>
+<BR>There is a limitation for the number of
+columns. Below is quote from command help (use F1 key).<BR>
+<BR>&gt; 1. If the
+database file contains more than 100 fields, only first<BR>&gt; 100 fields are
+converted. If the database file contains<BR>&gt; fields with complex definition,
+less than 100 fields may be<BR>&gt; converted.<BR>
+<BR>See messages below to
+extend the number of fields. (copied from old BBS)<BR>
+<BR>Waiting for your
+reply.<BR>
+<BR>uzaemon@Japan<BR>
+<BR>-------------------<BR>
+<BR>00900/00900
+AAA00000 uzaemon Re: CRTCSVF (limitations) <BR>( 1) 05/05/05 08:27
+00899へのコメント<BR>
+<BR>Debra,<BR>
+<BR>&gt; I have downloaded and tested your CRTCSVF
+utility and found it to be exactly what I need ... with two exceptions. <BR>&gt;
+1. I have a file that is 105 fields and you state that your utility will only
+work with 100 field.<BR>&gt; 2. Your utility will not add to a stream file, only
+replace.<BR>&gt; <BR>&gt; I am writing to confirm that these two points are
+still correct and have not been changed. <BR>
+<BR>Yes, you are
+correct.<BR>
+<BR>For limitation 1 (100 fields), it can be doubled by increasing
+buffer size from 32767 to 65535. For limitation 2, you may use QSHELL cat
+command to concat stream files, for example,<BR>
+<BR>~~~~~~~~~~~~~~ (SNIP)
+~~~~~~~~~~~~~~~~~~<BR>
+<BR>uzaemon@Japan<BR>
+<BR>-------------------<BR>
+<BR>00959/00959
+AAA00000 John Buying Re^2: CRTCSVF (limitations) <BR>( 1) 05/09/22 02:44
+00900へのコメント コメント数：2<BR>Greetings,<BR>Which field(s) should be changed from 32767
+to 65535 so that the buffer would be doubled? These are all the references to
+32767 that I found.<BR>
+<BR>-------------------<BR>
+<BR>00960/00960 AAA00000
+uzaemon Re^3: CRTCSVF (limitations) <BR>( 1) 05/09/26 21:25 00959へのコメント
+コメント数：1<BR>John,<BR>
+<BR>&gt; Which field(s) should be changed from 32767 to
+65535 so that the buffer would be doubled? These are all the references to 32767
+that I found.<BR>
+<BR>I made simple modification and
+homepage1.nifty.com/uzaemon/CRTCSVF_65535.txt is output from CMPPFM command. I
+confirmed it to work until 178th field under V5R3. If you need more, use user
+space instead of char variable.<BR>
+<BR>Hope this
+helps.<BR>
+<BR>uzaemon@Japan<BR>
+<BR>-------------------<BR>
+<BR>00961/00961
+AAA00000 uzaemon Re^4: CRTCSVF (limitations) <BR>( 1) 05/09/27 19:30
+00960へのコメント<BR>
+<BR>I forgot to mention that this modification works on V4R5 or
+later. See "ILE RPG for AS/400 Reference" -&gt; "Appendix A. RPG IV
+Restrictions" -&gt; "Character field
+length".<BR>
+<BR>uzaemon@Japan<BR>
+<BR>-------------------</BLOCKQUOTE>
+<!-- 203.141.92.14 --><!-- no:67 --></BLOCKQUOTE>
+<HR>
+<P>
+[<B>59</B>] <FONT color=#666666><B>'Body' file for SNDM</B></FONT> Posted by
+：<B>George Bergeson </B><SMALL>Date：2007/09/20(Thu) 00:25</SMALL> <BR>
+</P>
+<BLOCKQUOTE>I have tried to create a phy file for the body using SQL however I
+get the error....Command failed. reason -104 file type must be source or program
+described <BR>(FILE-QTEMP/EMBODY, PF/LF-*PF, TYPE-*DATA, DESCRIBE-*EXT) <BR>Am I
+correct in assuming that "create table" can not be used to create this file? ...
+or is there a solution? <BR>
+<BR>File Description
+.................&gt;&gt;&gt;&gt;&gt;&gt;<BR>Display File Description <BR>DSPFD
+Command Input <BR>File . . . . . . . . . . . . . . . . . . . : FILE EMBODY
+<BR>Library . . . . . . . . . . . . . . . . . : QTEMP <BR>Type of information .
+. . . . . . . . . . . : TYPE *ALL <BR>File attributes . . . . . . . . . . . . .
+. : FILEATR *ALL <BR>System . . . . . . . . . . . . . . . . . . : SYSTEM *LCL
+<BR>File Description Header <BR>File . . . . . . . . . . . . . . . . . . . :
+FILE EMBODY <BR>Library . . . . . . . . . . . . . . . . . . : QTEMP <BR>Type of
+file . . . . . . . . . . . . . . . : Physical <BR>File type . . . . . . . . . .
+. . . . . . . : FILETYPE *DATA <BR>Auxiliary storage pool ID . . . . . . . . . :
+00001 <BR>Data Base File Attributes <BR>Externally described file . . . . . . .
+. . : Yes <BR>SQL file type . . . . . . . . . . . . . . . : TABLE
+<BR>
+<BR>
+</BLOCKQUOTE>
+<P><!-- 131.204.137.10 --><!-- no: -->
+</P>
+<BLOCKQUOTE>[<B>Res: 59</B>] <FONT color=#666666><B>Re: 'Body' file for
+SNDM</B></FONT> Posted by ：<B>uzaemon</B> <SMALL>Date：2007/09/22(Sat)
+22:26</SMALL> <BR>
+<BLOCKQUOTE>George,<BR>
+<BR>You are correct, you cannot specify PF for body
+text.<BR>
+<BR>&gt; ... or is there a solution?<BR>
+<BR>I'm not sure what you want
+to do.<BR>Do you want to send OS/400 object to another OS/400 by
+mail?<BR>
+<BR>uzaemon@Japan</BLOCKQUOTE>
+<!-- 218.217.161.139 --><!-- no:61 --></BLOCKQUOTE>
+<BLOCKQUOTE>[<B>Res: 59</B>] <FONT color=#666666><B>Re: 'Body' file for
+SNDM</B></FONT> Posted by ：<B>George Bergeson </B><SMALL>Date：2007/09/27(Thu)
+01:12</SMALL> <BR>
+<BLOCKQUOTE>I ended up creating a source PF file with qcmdexe and loading it
+with n</BLOCKQUOTE>
+<!-- 131.204.137.10 --><!-- no:63 --></BLOCKQUOTE>
+<BLOCKQUOTE>[<B>Res: 59</B>] <FONT color=#666666><B>Re: 'Body' file for
+SNDM</B></FONT> Posted by ：<B>George Bergeson </B><SMALL>Date：2007/09/27(Thu)
+01:31</SMALL> <BR>
+<BLOCKQUOTE>As I was saying before the reply suddenly submitted....<BR>I solved
+the problem and everything seems to be working fine withthe SNDM command. Thanks
+for the
+reply.<BR>Regards</BLOCKQUOTE>
+<!-- 131.204.137.10 --><!-- no:64 --></BLOCKQUOTE>
+<HR>
+<P>
+[<B>41</B>] <FONT color=#666666><B>Unzip</B></FONT> Posted by ：<B>Ken Kirk</B>
+<SMALL>Date：2007/08/21(Tue) 03:13</SMALL> <BR>
+</P>
+<BLOCKQUOTE>I am trying to run the unzip on the as400 command line and it works
+correctly but the resulting files CCSID is incorrect. The original zip file
+CCSID is 1252 and the resulting unzipped file is 37 which is not a supported
+CCSID for a subsequent CPYFRMIMPF and when I try to display the file, the 400
+tells me it is an invalid CCSID for the file and tells me to change it to 819.
+How can I get the unzipped file CCSID to be the same as the zip
+file?</BLOCKQUOTE>
+<P><!-- 66.153.96.116 --><!-- no: -->
+</P>
+<BLOCKQUOTE>[<B>Res: 41</B>] <FONT color=#666666><B>Re: Unzip (CCSID of
+extracted files)</B></FONT> Posted by ：<B>uzaemon</B>
+<SMALL>Date：2007/08/22(Wed) 22:31</SMALL> <BR>
+<BLOCKQUOTE>Ken,<BR>
+<BR>CCSID attribute is OS/400 unique feature and original
+ZIP/UNZIP utilities do not cope with it.<BR>
+<BR>Fortunately, there are a few
+ways to change CCSID of stream file on IFS.<BR>
+<BR>- CHGATR command specifying
+*CCSID.<BR>- CPY command can be used to create new stream file with different
+CCSID.<BR>- touch (-C option) and cp qshell commands.<BR>
+<BR>Try whichever you
+like and let me know result.<BR>
+<BR>uzaemon@Japan</BLOCKQUOTE>
+<!-- 218.217.29.148 --><!-- no:43 --></BLOCKQUOTE>
+<BLOCKQUOTE>[<B>Res: 41</B>] <FONT color=#666666><B>Re: Unzip</B></FONT> Posted
+by ：<B>Ken</B> <SMALL>Date：2007/09/20(Thu) 05:22</SMALL> <BR>
+<BLOCKQUOTE>I used the CHGATR command after the unzip to change the CCSID and it
+works good. I was just hoping that your unzip program could make the CCSID of
+the resulting unzipped file to be the same as the zip
+file.<BR>
+<BR>Thanks!</BLOCKQUOTE>
+<!-- 66.153.96.116 --><!-- no:60 --></BLOCKQUOTE>
+<BLOCKQUOTE>[<B>Res: 41</B>] <FONT color=#666666><B>Re: CCSID for Unzipped
+files</B></FONT> Posted by ：<B>uzaemon</B> <SMALL>Date：2007/09/22(Sat)
+22:42</SMALL> <BR>
+<BLOCKQUOTE>Ken,<BR>
+<BR>Thank you for your feedback.<BR>
+<BR>&gt; I was just
+hoping that your unzip program could make the CCSID of the resulting unzipped
+file to be the same as the zip file.<BR>
+<BR>CCSID is OS/400 unique feature. I
+don't know how to assign appropriate CCSID for unzipped files... <BR>
+<BR>- How
+can I determine ASCII CCSID? It is especially annoying in multilingual
+environment.<BR>- Is it possible to distinguish binary and text? For binary
+files (such as "*.exe", "*.jpg", "*.dll"), CCSID should be set to
+65535.<BR>
+<BR>IMHO, it's safer to set CCSID by
+yourself.<BR>
+<BR>uzaemon@Japan</BLOCKQUOTE>
+<!-- 218.217.161.139 --><!-- no:62 --></BLOCKQUOTE>
+<HR>
+<P>
+[<B>46</B>] <FONT color=#666666><B>Comma instead of dots in PDF</B></FONT>
+Posted by ：<B>Wyssling Wolfgang</B> <SMALL>Date：2007/08/29(Wed) 23:01</SMALL>
+<BR>
+</P>
+<BLOCKQUOTE>Hello<BR>
+<BR>I moved HPT and TIFFLIB from a 170 with V5R3 to 515
+with V5R4. I deleted all objects and recompiled HPT and TIFFLIB.<BR>
+<BR>Now,
+when a PDF is created, it cannot be opened with the Acrobat Reader. The message
+is: unknown token 793,600037. This token is at the bottom of the PDF and looks
+like<BR>
+<BR>stream <BR>q <BR>793,600037 0 0 550,200012 22,727566 28,067783 cm
+/Im1 Do <BR>Q <BR>endstream<BR>
+<BR>Those values all have commas instead of dots.
+When I replace the commas with dots, the PDF could be opened correctly with the
+Acrobat Reader.<BR>
+<BR>So, what could be wrong with the new 515 machine? Thank
+you for a answer or any ideas.<BR>
+<BR>Btw, the old BBS isn't working. Perhaps my
+question is already answered there but i can't look up!</BLOCKQUOTE>
+<P><!-- 62.2.206.42 --><!-- no: -->
+</P>
+<BLOCKQUOTE>[<B>Res: 46</B>] <FONT color=#666666><B>Re: Comma instead of dots in
+PDF</B></FONT> Posted by ：<B>Wyssling Wolfgang</B> <SMALL>Date：2007/08/31(Fri)
+17:06</SMALL> <BR>
+<BLOCKQUOTE>So, after 2 days of intensiv search I have found the solution. The
+SysVal QLOCALE had a wrong value in it. On old system the value was *NONE. After
+putting *NONE in the new System everything was fine.<BR>
+<BR>Sry for disturbing.
+<BR>
+</BLOCKQUOTE>
+<!-- 62.2.206.42 --><!-- no:48 --></BLOCKQUOTE>
+<BLOCKQUOTE>[<B>Res: 46</B>] <FONT color=#666666><B>Re: Comma instead of dots in
+PDF</B></FONT> Posted by ：<B>uzaemon</B> <SMALL>Date：2007/08/31(Fri)
+22:57</SMALL> <BR>
+<BLOCKQUOTE>Wolfgang,<BR>
+<BR>Sorry for late reply.<BR>You are absolutely right.
+I copied a message from old
+BBS.<BR>
+<BR>uzaemon@Japan<BR>
+<BR>----<BR>
+<BR>04565/04565 Re: Problem on V5R4
+TIFF2PDF <BR>
+<BR>&gt; Dear Uzaemon, recently i passed my Iseries on V5R4 release
+and from that moment your utility don't run correctly. The PDF files generated
+results damaged.<BR>&gt; I read the post 1658 and seems to be the same problem
+but i don't understand the solution.<BR>
+<BR>ennio,<BR>
+<BR>IBM has changed the
+default behavior of C runtime functions. For detail, see "Memo to users"
+(publib.boulder.ibm.com/infocenter/iseries/v5r4/topic/rzaq9/rzaq9.pdf), Page 12,
+"QLOCALE system value set to default locale during installation" and page 534 of
+"WebSphere Development Studio: ILE C/C++ Programmer's Guide"
+(publib.boulder.ibm.com/infocenter/iseries/v5r4/topic/books/sc092712.pdf). As a
+result, period is translated to comma in some circumstances as follows
+:<BR>
+<BR>(*LIBL/QCSRC.LOCALE)<BR>#include &lt;stdio.h&gt;<BR>char
+buffer[10];<BR>
+<BR>int main(void)<BR>{<BR>sprintf(buffer, "%f\n",
+123.45678);<BR>printf("value = %s\n", buffer);<BR>}<BR>
+<BR>&gt; CRTBNDC
+PGM(LOCALE)<BR>&gt; CHGUSRPRF USRPRF(A)
+LOCALE('/qsys.lib/fr_fr.locale')<BR>
+<BR>Open another 5250 session and sign-on as
+user A.<BR>
+<BR>&gt; call locale<BR>
+<BR>value =
+123,456780<BR>
+<BR>----------<BR>
+<BR>Having that said, there are several ways to
+fix this problem.<BR>
+<BR>1) Compile the C modules specifying
+LOCALETYPE(*CLD).<BR>
+<BR>2) Specify other locale for USRPRF, e.g., exec
+CHGUSRPRF USRPRF(A) LOCALE(*C). Other locales such as POSIX, EN_US, *NONE may
+also work.<BR>
+<BR>3) Set locale explicitly in C program.<BR>
+<BR>Add a few lines
+to main().<BR>
+<BR>(*LIBL/QCSRC.LOCALE2)<BR>#include &lt;locale.h&gt; ////
+Add<BR>#include &lt;stdio.h&gt;<BR>char buffer[10];<BR>
+<BR>int
+main(void)<BR>{<BR>setlocale(LC_ALL, "C"); //// Add<BR>sprintf(buffer, "%f\n",
+123.45678);<BR>printf("value = %s\n", buffer);<BR>}<BR>
+<BR>&gt; CRTBNDC
+PGM(LOCALE2)<BR>
+<BR>For more information of the setlocale(), check out page 322
+of "ILE C/C++ Run-Time Library Functions"
+(publib.boulder.ibm.com/infocenter/iseries/v5r4/topic/books/sc415607.pdf).<BR>
+<BR>There
+are other ways :<BR>- Change system value QLOCALE<BR>- Control the locale using
+environment variables<BR>- Compile TIFF2PDF on V4R5 and earlier<BR>
+<BR>Try
+whichever you like and let me know the result.<BR>Waiting for your
+feedback.<BR>
+<BR>.</BLOCKQUOTE>
+<!-- 219.116.189.55 --><!-- no:50 --></BLOCKQUOTE>
+<HR>
+<P>
+[<B>39</B>] <FONT color=#666666><B>SPL2STMF</B></FONT> Posted by ：<B>Jaco</B>
+<SMALL>Date：2007/08/20(Mon) 19:18</SMALL> <BR>
+</P>
+<BLOCKQUOTE>Hi,<BR>
+<BR>I try to download hpt.exe but there's an
+error...</BLOCKQUOTE>
+<P><!-- 83.219.127.29 --><!-- no: -->
+</P>
+<BLOCKQUOTE>[<B>Res: 39</B>] <FONT color=#666666><B>Re: SPL2STMF (download
+error?)</B></FONT> Posted by ：<B>uzaemon</B> <SMALL>Date：2007/08/20(Mon)
+23:09</SMALL> <BR>
+<BLOCKQUOTE>Jaco,<BR>
+<BR>Can you explain more detail?<BR>What kind of error do
+you
+see?<BR>
+<BR>uzaemon@Japan</BLOCKQUOTE>
+<!-- 218.217.163.63 --><!-- no:40 --></BLOCKQUOTE>
+<HR>
+<P>
+[<B>6</B>] <FONT color=#666666><B>This is a test message.</B></FONT> Posted by
+：<B>uzaemon</B> <SMALL>Date：2007/05/06(Sun) 00:31</SMALL> <BR>
+</P>
+<BLOCKQUOTE>This is a test message.</BLOCKQUOTE>
+<P><!-- 203.179.93.86 --><!-- no: -->
+</P>
+<BLOCKQUOTE>[<B>Res: 6</B>] <FONT color=#666666><B>Re: This is a test
+message.</B></FONT> Posted by ：<B>uzaemon</B> <SMALL>Date：2007/05/06(Sun)
+00:33</SMALL> <BR>
+<BLOCKQUOTE>日本語で入れてもOKです。</BLOCKQUOTE>
+<!-- 203.179.93.86 --><!-- no:7 --></BLOCKQUOTE>
+<HR>
+<P>
+[<B>12</B>] <FONT color=#666666><B>TIFF2PDF</B></FONT> Posted by ：<B>Sherry
+Ausen</B> <SMALL>Date：2007/06/06(Wed) 01:06</SMALL> <BR>
+</P>
+<BLOCKQUOTE>Hello,<BR>I am using the TIFF2PDF tool on the iSeries, V5R3. During
+the conversion I am receiving
+message:<BR>/QOPT/ISC001/ISCA0001/SUBDIREC.002/B04043AA.AAO: Warning, unknown
+field with <BR>tag 33000 (0x80e8) ignored. <BR>I am able to open the pdf with
+Adobe but receive message about document damaged. I would appreciate any help on
+what may be causing this error. <BR>Thanks Sherry</BLOCKQUOTE>
+<P><!-- 206.225.145.34 --><!-- no: -->
+</P>
+<BLOCKQUOTE>[<B>Res: 12</B>] <FONT color=#666666><B>Re: TIFF2PDF (unknown field
+with tag 33000 (0x80e8) ignored)</B></FONT> Posted by ：<B>uzaemon</B>
+<SMALL>Date：2007/06/11(Mon) 20:48</SMALL> <BR>
+<BLOCKQUOTE>Sherry,<BR>
+<BR>&gt; I am using the TIFF2PDF tool on the iSeries,
+V5R3. During the conversion I am receiving message:<BR>&gt;
+/QOPT/ISC001/ISCA0001/SUBDIREC.002/B04043AA.AAO: Warning, unknown field with
+<BR>&gt; tag 33000 (0x80e8) ignored. <BR>&gt; I am able to open the pdf with
+Adobe but receive message about document damaged. I would appreciate any help on
+what may be causing this error. <BR>
+<BR>I have a few questions.<BR>
+<BR>- How did
+you create the TIFF file?<BR>- Can you open the TIFF file by using PC
+software?<BR>- If you create a TIFF file using SPL2STMF command from simple
+spool file (WRKACTJOB OUTPUT(*PRINT), for example) and convert it by TIFF2PDF
+command, do you encounter the same problem?<BR>
+<BR>Waiting for your
+reply.<BR>
+<BR>uzaemon@Japan</BLOCKQUOTE>
+<!-- 60.39.131.137 --><!-- no:13 --></BLOCKQUOTE>
+<HR>
+<P>
+[<B>9</B>] <FONT color=#666666><B>SNDM</B></FONT> Posted by ：<B>yata</B>
+<SMALL>Date：2007/05/24(Thu) 17:21</SMALL> <BR>
+</P>
+<BLOCKQUOTE>SNDMで半角カナ英字が文字化けしますが、対応策を教えてください。</BLOCKQUOTE>
+<P><!-- 221.244.244.130 --><!-- no: -->
+</P>
+<BLOCKQUOTE>[<B>Res: 9</B>] <FONT color=#666666><B>Re: SNDM (SBCS
+garbage)</B></FONT> Posted by ：<B>uzaemon</B> <SMALL>Date：2007/05/26(Sat)
+18:59</SMALL> <BR>
+<BLOCKQUOTE>yataさん、こんにちは。<BR>
+<BR>どの部分が文字化けするのでしょうか?<BR>
+<BR>本文とSubjectでは内部的に扱いが異なりますが、<BR>デフォルトではいずれもDFTJOBCCSIDを元に変換しています。<BR>
+<BR>化ける場所に応じてHDRCCSID、DBFCCSIDパラメーターを調整してください。うまく行かない場合は化ける場所と関連のCCSID値をお知らせください。<BR>
+<BR>uzaemon@Japan</BLOCKQUOTE>
+<!-- 218.217.163.190 --><!-- no:11 --></BLOCKQUOTE>
+<HR>
+</BODY>
+</HTML>

@@ -1,0 +1,26 @@
+ 5722SS1 V5R2M0  020719                 Saved Object Information - Save File                     2/26/06 23:20:10        Page    1
+ Library saved  . . . :   ANALOG                Release level  . . . :   V5R2M0
+ ASP  . . . . . . . . :   1                     Data compressed  . . :   No
+ Save file  . . . . . :   ANALOG                Objects saved  . . . :   11
+   Library  . . . . . :     BACKUP              Access paths . . . . :   0
+ Records  . . . . . . :   20536
+ Save command . . . . :   SAVLIB
+ Save active  . . . . :   *NO
+ Save date/time . . . :   03/19/06   21:55:10
+ Object             Type     Attribute     Owner         Size (K)  Data   Member      Member      Member      Member      Member
+ ANALOG             *LIB     TEST          TCPIP               72  Yes
+ ANACGI             *PGM     CLP           TCPIP               40  Yes
+ ANALOG             *PGM     CLE           TCPIP             5792  Yes
+ MKTABLE            *PGM     CLE           TCPIP               80  Yes
+ H                  *FILE    PF            TCPIP              616  Yes    ANLGHEAD    ANLGHEA2    ANLGHEA3    ANLGHEA4    PCRE
+                                                                          PCRECHAR    PCREINTL
+ LICENCE            *FILE    PF            TCPIP               28  Yes    LICENCE
+ PARMS              *FILE    PF            TCPIP               20  Yes    PARMS
+ QCLSRC             *FILE    PF            TCPIP               20  Yes    ANACGI
+ QCSRC              *FILE    PF            TCPIP             3904  Yes    ALIAS       ANALOG      CACHE       DATES       GLOBALS
+                                                                          HASH        INIT        INIT2       INPUT       OUTPUT
+                                                                          OUTPUT2     PCRE        PROCESS     SETTINGS    SORT
+                                                                          TREE        UTILS
+ QREXSRC            *FILE    PF            TCPIP               28  Yes    MAKE
+ REPORT             *FILE    PF            TCPIP                4  Yes
+                           * * * * *   E N D   O F   L I S T I N G   * * * * *

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00754 : Re^2: problema con SPL2STMF</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00754 [Re^2: problema con SPL2STMF] </font>(posted by uzaemon)</b><br>
+( 1)   03/12/12 12:31   comment on <a href="00753.html">00753</a>   , # of comment(s) : 5
+<HR>
+
+Trevor,<br>
+<br>
+> Same thing for me. We're at V5R2 and the HPT appears to fail when hptopt = 20<br>
+> Spool number has changed from 4 digits to six; but that doesn't seem to be the problem.<br>
+<br>
+It works fine on my system (V5R2, TL02211).<br>
+<br>
+> CHGJOB CCSID(37)<br>
+> WRKSYSSTS OUTPUT(*PRINT)<br>
+> ADDLIBLE LIB(HPT)<br>
+  Library HPT added to library list.<br>
+> SPL2STMF FILE(QPDSPSTS) TOSTMF('/tmp/wrksyssts.tif') WSCST(QWPTIFFPB)<br>
+  Stream file generated. execution time 0 min 2 sec, total pages = 1<br>
+<br>
+To determine your problem, see "708. Re^5: SPL2STMF gives error CPF24B4" (<a href="http://hpmboard1.nifty.com/cgi-bin/thread.cgi?user_id=MXA02134&disp_no=708&log_no=708&msg_per_page=50&def=10" rel = "nofollow" target = "_blank">http://hpmboard1.nifty.com/cgi-bin/thread.cgi?user_id=MXA02134&disp_no=708&log_no=708&msg_per_page=50&def=10</a>). Also confirm that you have installed AFP font.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

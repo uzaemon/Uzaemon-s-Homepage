@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00057 : Re^4: sndm: @ character in FROM string i</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00057 [Re^4: sndm: @ character in FROM string i] </font>(posted by uzaemon)</b><br>
+( 1)   00/08/21 18:06   comment on <a href="00053.html">00053</a>   , # of comment(s) : 2
+<HR>
+
+Fabian,<br>
+<br>
+Thanks for your posts. I determined the problem (I hope...) and put test version of SMTP client program on my server. Please download <a href="http://homepage1.nifty.com/uzaemon/smtp130.exe" rel = "nofollow" target = "_blank">http://homepage1.nifty.com/uzaemon/smtp130.exe</a> and try again.<br>
+<br>
+Just for your information, as I don't have pure German environment, I tested under following settings to emulate German environment as much as possible:<br>
+- AS/400 primary language 2962(Japanese), secondary 2924(US English)<br>
+- Specify 273 as codepage of Client Access terminal session and select German keyboard<br>
+- Create new subsystem description and specify QSYS2924<br>
+- Exec 'CHGJOB CCSID(273)' before run sndm.<br>
+Under this environment, sndm works fine with '@' character and some German characters in from/to/subject/body.<br>
+<br>
+I appreciate your time and waiting for your reply.<br>
+<br>
+uzaemon @ Japan<br>
+<br>
+</body></html>

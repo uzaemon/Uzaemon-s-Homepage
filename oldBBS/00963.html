@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00963 : Re: CRTCSVF (yet another CCSID question)</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00963 [Re: CRTCSVF (yet another CCSID question)] </font>(posted by uzaemon)</b><br>
+( 1)   05/10/09 19:42   comment on <a href="00962.html">00962</a> 
+<HR>
+
+<br>
+Jake,<br>
+<br>
+> I tried to run CRTCSVF on an AS/400 External file (V5.3) & received an error, but I can not use CSSID 65535. Please Help.<br>
+> Message ID . . . . . . :   CPF9897<br>
+> Message . . . . :   Program aborted. 0/51330 records processed, 0 error(s)<br>
+>   found. reason - iconv_open failed. EBCDIC CCSID - 65535 / ASCII CCSID -<br>
+>   00437 - 3021 : The value specified for the argument is not correct.<br>
+<br>
+You cannot use CSSID 65535. If you are using US-English characters for DB2/400, specify 37 for DBFCCSID parameter.<br>
+Also, see message "938. Re: CSV (What codes should I use for AS400 and ASCII?)" in this BBS.<br>
+<br>
+Waiting for your reply.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

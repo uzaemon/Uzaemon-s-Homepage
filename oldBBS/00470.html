@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00470 : Re^2: CRTCSVFのソースについて</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00470 [Re^2: CRTCSVFのソースについて] </font>(posted by Masafumi Kiuchi()</b><br>
+( 1)   02/08/21 22:37   comment on <a href="00467.html">00467</a> 
+<HR>
+
+<br>
+uzaemon@Japan様<br>
+<br>
+> なお、こちらのBBSではプログラミングのQ&Aはしていませんが、日本語でSTMFを扱う場合はいくつか考慮すべき点があるので十分配慮/テストすることをお勧めします。(例えばSTMF生成時のCHRID(V5R1から?はCCSID)の設定、テキストモードでのread/writeの制限、EBCDIC<->ASCII変換時の文字列長の変化など...)<br>
+><br>
+<br>
+お陰様で何とかできるようになりました。<br>
+今回の対象ファイルは、１レコード２４０バイトで大体１００レコード程度のものです。<br>
+今回の目的は固定長テキストのファイルをＩＦＳへ作成することでした。CPYTOPCDなどの既存のコマンドでは固定長指定すると改行コードが入らず、改行コードを指定するとフランクを詰めてしまったりと用件にどうしてもあいませんでした。<br>
+エミュレータのデータ転送ではなくIFSにこだわったのはSNDDSTコマンドを使用してＡＳのみで添付ファイルのメール送信を行いたかったからです。今秋にもV5R1へのバージョンアップが控えていますので注意して望みたいと思います。<br>
+どうもありがとうございました。<br>
+<br>
+<br>
+</body></html>

@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00874 : Re: SNDM: HTML Body</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00874 [Re: SNDM: HTML Body] </font>(posted by uzaemon)</b><br>
+( 1)   05/01/24 22:31   comment on <a href="00871.html">00871</a> 
+<HR>
+
+<br>
+Aad,<br>
+<br>
+> Would it be difficult to change the SNDM program to sent a HTML-body or does only the 輟ntent-type' parameter need to be changed.<br>
+<br>
+As always, it depends on your requirement.<br>
+<br>
+If you want to send HTML format mail, you have to change the header (and may need to use "related" parts). Also, to send both HTML and TEXT at a time (in the same mail), you may consider to use "alternative" header.<br>
+<br>
+HTML mail is very effective to distribute rich contents. On the other hand, lots of people (including me) disable HTML mail for security reason. To satisfy both requirements, you should consider to use "Content-Type: multipart/alternative" implementation. See RFC 1766, 2045, 2046 and other RFCs for more information.<br>
+<br>
+Hope this helps.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

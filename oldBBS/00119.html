@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00119 : Re: Selecting certain pages to convert t</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00119 [Re: Selecting certain pages to convert t] </font>(posted by uzaemon)</b><br>
+( 1)   01/02/07 12:30   comment on <a href="00116.html">00116</a> 
+<HR>
+
+<br>
+CANADA,<br>
+<br>
+> I was wondering if there was any way when using SPL2STMF to create just certain pages or 1 page as a tiff instead of the whole spool file to TIFF.<br>
+<br>
+I think there are several ways to do this:<br>
+<br>
+<br>
+1) Extract page(s) during host-print-transform<br>
+<br>
+You need to modify ILE-RPG program 'SPL2STMFPR'. I'm not sure how to do that...<br>
+<br>
+2) Sprit TIFF<br>
+<br>
+TIFFLIB contains a small sample utility called 'TIFFSPRIT'.<br>
+TIFFSPRIT divides multi-page TIFF to single TIFFs.<br>
+<br>
+Compile the program as follows:<br>
+<br>
+> CRTCMOD MODULE(QTEMP/TIFFSPRIT) SRCFILE(TIFFLIB/TOOLS) OUTPUT(*PRINT)<br>
+> CRTPGM PGM(QTEMP/TIFFSPRIT) BNDSRVPGM(TIFFLIB/TIFFLIB)<br>
+<br>
+Then you can sprit the TIFF:<br>
+<br>
+> OVRPRTF FILE(QPDSPAJB) DEVTYPE(*AFPDS) CDEFNT(*FNTCHRSET)<br>
+> WRKACTJOB OUTPUT(*PRINT)<br>
+> SPL2STMF FILE(QPDSPAJB) TOSTMF('/tmp/ajb.tif') WSCST(QWPTIFFG4)<br>
+  Stream file generated. execution time 0 min 0 sec, total pages = 4<br>
+> CALL PGM(QTEMP/TIFFSPRIT) PARM('/tmp/ajb.tif' SPRIT)<br>
+<br>
+Above operation converts one multi-page TIFF (four pages TIFF) to four files (SPRITaa.tif, SPRITab.tif, SPRITac.tif, SPRITad.tif).<br>
+<br>
+If you want to extruct certain range of pages, you need to modify the program.<br>
+<br>
+3) Extract page(s) during TIFF->PDF conversion<br>
+<br>
+Modify TIFF2PDFC so that the program converts specific range of pages. Perhaps you need to edit main loop counter around line 192.<br>
+<br>
+| for ( obj_nr=img_nr=1 ;  img_nr < dircount ; obj_nr+=4, img_nr++ )<br>
+<br>
+4) Split the PDF file<br>
+<br>
+Search the Internet (such as <a href="http://www.pdfzone.com/index.asp" rel = "nofollow" target = "_blank">http://www.pdfzone.com/index.asp</a>) to find the software which splits the PDF to smaller pieces.<br>
+<br>
+<br>
+Hope this helps.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

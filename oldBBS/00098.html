@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00098 : Re^3: TIFF2PDFでの変換後Paper Size</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00098 [Re^3: TIFF2PDFでの変換後Paper Size] </font>(posted by uzaemon)</b><br>
+( 1)   00/11/07 18:42   comment on <a href="00097.html">00097</a> 
+<HR>
+
+<br>
+Miyasakaさん、<br>
+<br>
+> SPL2STMFで AS/400のSPOOL->TIFFと変換した時点で、<br>
+> 元より文字が小さくなってしまいます。<br>
+> 文字を大きくする方法がありましたら教えていただけないでしょうか？<br>
+<br>
+AFP印刷出力の場合、通常の文字の大きさは使用するフォントによって決まります。例えば<a href="http://homepage1.nifty.com/uzaemon/hpt_usage.html" rel = "nofollow" target = "_blank">http://homepage1.nifty.com/uzaemon/hpt_usage.html</a>で使用例を示しているように、ソースファイルの印刷出力をAFPにする場合はOVRPRFコマンドでフォントを指定します。<br>
+<br>
+例) OVRPRTF FILE(QPSUPRTF) DEVTYPE(*AFPDS) CDEFNT(QFNT61/X0N13N) IGCCDEFNT(QFNT61/X0M26F)<br>
+<br>
+文字を大きくしたい場合は24ドットフォント(QFNT61/X0N13NとQFNT61/X0M26F)ではなく32ドット(QFNT61/X0N18NとQFNT61/X0M36F)などにします。<br>
+<br>
+なお、TIFF2PDFではさらに元のTIFFファイルが用紙に収まるようにスケーリングしているようですので、あまり大きなフォントと用紙サイズを指定しても実際にPDFとして閲覧する際に縮小表示されてしまいます。この辺りは試行錯誤が必要でしょう。<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

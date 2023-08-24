@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00015 : Re: Zlib for AS/400 does not work here!!</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00015 [Re: Zlib for AS/400 does not work here!!] </font>(posted by uzaemon)</b><br>
+( 1)   00/05/09 11:27   comment on <a href="00014.html">00014</a> 
+<HR>
+
+<br>
+Hello Peter,<br>
+<br>
+> I compiled Zlib for AS/400 under OS/400 V3R2M0 and encountered<br>
+> problems:<br>
+<br>
+I'm not sure if my utils works on CISC AS/400. I edit/compile/test them only on RISC(V4R4) machines.<br>
+<br>
+> Problem 1:the following command doesn't work and complains<br>
+> "cannot open /close /qsys.lib/qgpl.lib/testpf.file/testys.mbr"<br>
+------------------------(SNIP)---------------------------<br>
+<br>
+Specify ZIP file to 'root' file system (stream file) as follows.<br>
+<br>
+| > CALL PGM(MINIZIP) PARM('-o' '/tmp/testys.zip'<br>
+|   '/qsys.lib/qgpl.lib/testpf.file/testys.mbr')<br>
+<br>
+> Where can I find detailed Zlib usage manual?<br>
+<br>
+Just run minizip/miniunz without parameters, or look into source code.<br>
+<br>
+> Could minizip compress files into a physical file member?<br>
+> Could minunx decompress PF from a compressed PF ?<br>
+<br>
+It depends on IFS function of OS/400 and C-runtime service program, but I don't think it's possible or necessary. If you really want to put ZIP file into PF by some reason, try CPYFRM(TO)STMF command.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

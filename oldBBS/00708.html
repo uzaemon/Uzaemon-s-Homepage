@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00708 : Re^5: SPL2STMF gives error CPF24B4</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00708 [Re^5: SPL2STMF gives error CPF24B4] </font>(posted by uzaemon)</b><br>
+( 1)   03/10/21 21:45   comment on <a href="00707.html">00707</a> 
+<HR>
+
+<br>
+Bob,<br>
+<br>
+> with 300.000 same problem appears to me: CPF24B4<br>
+<br>
+CPF24B4 indicates "Severe error while addressing parameter list." I suspect that your problem is in OS/400(HPT API). I recommend you to consider followings :<br>
+<br>
+- apply latest Cum and HPT-related PTFs.<br>
+- there is no logical reason but just try to recompile SPL2STMF with lower optimization option.<br>
+- if you have an access to another AS/400 or iSeries, run the same thing and see what happens. Or you may ask your business partner or friend to recreate your problem.<br>
+- if the problem occurs only for the specific spooled file, look for the difference.<br>
+- prepare the procedure to recreate your problem using OS/400 functions which use HPT, e.g. RMTOUTQ, LPR, Access for Web, Host on Demand, etc.<br>
+- contact your support channel to ask IBM to investigate (and fix) the problem.<br>
+<br>
+Hope this helps.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

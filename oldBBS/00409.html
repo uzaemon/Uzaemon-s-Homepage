@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00409 : Re: SNDM: Garbage in subject</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00409 [Re: SNDM: Garbage in subject] </font>(posted by uzaemon)</b><br>
+( 1)   02/06/09 16:55   comment on <a href="00408.html">00408</a>   , # of comment(s) : 1
+<HR>
+
+Bernd,<br>
+<br>
+SNDM is working as designed.<br>
+<br>
+> "Subject: =?US-ASCII?Q?SystemX__nicht_erreichbar_=21=21_=28AS=2F4?=<br>
+>  =?US-ASCII?Q?00=29?="<br>
+<br>
+The "Subject" can be interpreted as "SystemX  nicht erreichbar !! (AS/400)"<br>
+<br>
+If you use non-ASCII (or non-safe-ASCII) character set, SNMD encodes the field by "Q" encoding scheme. As I states in "SNDM ISO-8859-1 support" (<a href="http://homepage1.nifty.com/uzaemon/iso8859.html" rel = "nofollow" target = "_blank">http://homepage1.nifty.com/uzaemon/iso8859.html</a>), EBCDIC CCSID 273 is converted to ASCII CCSID 819.  If you use 8 bit ASCII character in formatted fields such as "Subject", SNMD always use "Q" encoding. See related RFCs for more detail.<br>
+<br>
+> Any suggestions how this can be fixed. Mind you, this is only happening when sending with SMS. Normal email is perfect.<br>
+<br>
+As you have complete source code, you can modify the program as you like, e.g., you can comment out character code check routine though it leads to violation of Internet mail standard.<br>
+<br>
+I recommend you to look for other mobile systems which better comply Internet mail standard.<br>
+<br>
+Hope this helps.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

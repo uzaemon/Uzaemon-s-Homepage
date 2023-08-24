@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00047 : Re^2: Wcount problem</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00047 [Re^2: Wcount problem] </font>(posted by Doug)</b><br>
+( 1)   00/08/02 22:05   comment on <a href="00046.html">00046</a> 
+<HR>
+
+<br>
+<br>
+All the code settings look OK.  Not sure what is wrong.<br>
+I will have to get back to this at a later date.<br>
+<br>
+Thank you<br>
+<br>
+> Doug,<br>
+><br>
+> > Is this refering to the http config file?<br>
+><br>
+> No, the message implies something wrong with wcount configuration (database physical) file 'WCOUNT/CONFIG', member 'COUNT.CFG'. Please check followings:<br>
+><br>
+> - the library/file/member exists.<br>
+> - the file is program-described file and the CCSID is tagged to 65535.<br>
+> - invalid characters are not included in the file. First character of each line should be ' ' or '#' or ';' or '['. See count documentation for details.<br>
+> - header file correctly points to the configuration file. Count configuration is defined in WCOUNT/H.CONFIG as follows:<br>
+><br>
+> 0020.00 #define CONFIG_DIR "/QSYS.LIB/WCOUNT.LIB/CONFIG.FILE"<br>
+> 0021.00 #define CONFIG_FILE "COUNT.CFG.MBR"<br>
+><br>
+><br>
+> If you can debug the program, set break point to module MCFG line 326 and examine why function Parse() returns -1.<br>
+><br>
+> Function paramProcess() returns '-3' if Parse() fails, then wcount send message "parse error in config file" to browser.<br>
+><br>
+> uzaemon @ Japan<br>
+<br>
+</body></html>

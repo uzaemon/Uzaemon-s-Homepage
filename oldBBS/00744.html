@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00744 : Re^4: Qty Attachments in SNDM and a BIG</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00744 [Re^4: Qty Attachments in SNDM and a BIG] </font>(posted by Peter Feickert)</b><br>
+( 1)   03/11/27 18:54   comment on <a href="00742.html">00742</a> 
+<HR>
+
+<br>
+> Peter,<br>
+><br>
+> > Curently we are developing further and want to crate a simple email with delivery notifications. For some reasons we want to send a printerfile as mailbody. Do do this efectively we need to use longer textlines in the mail body than 80.<br>
+> > I have bben searching the source code - but i cant find the trick to get longer textlines. Could you please give me a hint in which module i haver to do some changes.<br>
+><br>
+> I don't recommend the modification because if the recipient forward the mail, body text may be wrapped unexpectedly.<br>
+><br>
+> Still, if you need to do that, you may check out following source members:<br>
+><br>
+> - line 443 of member #GEN -> read from body file<br>
+> - line 202 of member #INIT -> check text length<br>
+> - several lines of member SNDM -> receive buffer definitions<br>
+><br>
+> Hope this helps.<br>
+><br>
+> uzaemon@Japan<br>
+<br>
+<br>
+Thank you very much for your help!<br>
+Everything is now up and running. Our emails are created correctly.<br>
+You are absolutely right with the problem of the line wrap but this sould be a quick solution for special needs.<br>
+<br>
+BTW: In your hints you have forgotten, that the member #PROC must be changed also because of the variable "ebcdic", which must be enlarged also.<br>
+<br>
+<br>
+Thanks for your quick response.<br>
+<br>
+Peter<br>
+</body></html>

@@ -1,0 +1,59 @@
+0001.00 #include <stdio.h>
+0002.00 #include <stdlib.h>
+0003.00
+0004.00 #include <decimal.h>
+0005.00 #include <recio.h>
+0006.00 #pragma mapinc("item","IPTULIB/ITEM(ITEMR)","input key","d",,"item")
+0007.00 #include "item"
+0008.00
+0009.00 void main()
+0010.00 {
+0011.00   item_ITEMR_i_t rec[sizeof(item_ITEMR_i_t)];
+0012.00   _RFILE   *fp;
+0013.00   _RIOFB_T *fb;
+0014.00   char *query_string;
+0015.00
+0016.00   /* Send HTTP/HTML header */
+0017.00   printf("Content-type: text/html\n");
+0018.00   printf("\n");
+0019.00   printf("<HTML><HEAD><TITLE>Query Result (C CGI)</TITLE></HEAD><BODY>\n");
+0020.00   printf("<CENTER><H1>Query Result (C CGI)</H1><HR></CENTER>\n");
+0021.00
+0022.00   /* Read the Environment variable, QUERY_STRING */
+0023.00   if ( (query_string = strchr(getenv("QUERY_STRING"), '=')) == NULL ) {
+0024.00     printf("<P><B><I><FONT SIZE=+2>");
+0025.00     printf("Failed to get envvar.</FONT></I></B></P>\n");
+0026.00   }
+0027.00   else {
+0028.00     query_string++;
+0029.00     if ( (fp = _Ropen("IPTULIB/ITEM", "rr arrseq=N")) == NULL ) {
+0030.00       printf("<P><B><I><FONT SIZE=+2>");
+0031.00       printf("Failed to open database file.</FONT></I></B></P>\n");
+0032.00     }
+0033.00     else {
+0034.00       /* Search database using key value */
+0035.00       fb = _Rreadk(fp, &rec, sizeof(rec), __KEY_EQ, query_string, 5);
+0036.00       /* Key not found */
+0037.00       if (fb->num_bytes == 0) {
+0038.00         printf("<P><B><I><FONT SIZE=+2>Item not found. ");
+0039.00         printf("(KEY=%s)</FONT></I></B></P>\n",query_string);
+0040.00       }
+0041.00       /* Display search result */
+0042.00       else {
+0043.00         printf("<PRE>\n");
+0044.00         printf("Item number  : %5.5s\n",rec->ITNO);
+0045.00         printf("category     : %20.20s\n",rec->ITCAT);
+0046.00         printf("descritption : %64.64s\n",rec->ITDESC);
+0047.00         printf("unit price   : %D(9,2)\n",rec->ITPRIC);
+0048.00         printf("date         : %10.10s\n",rec->ITDATE);
+0049.00         printf("</PRE>\n");
+0050.00       }
+0051.00       _Rclose(fp);
+0052.00     }
+0053.00   }
+0054.00   /* HTML trailer */
+0055.00   printf("<A HREF=\"/iptu/chapter2/simplequery.html\">Return</A>\n");
+0056.00   printf("</BODY></HTML>\n");
+0057.00   fflush(stdout);
+0058.00   return;
+0059.00 }

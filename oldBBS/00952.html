@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00952 : Re: CRTCSVF (using CL var)</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00952 [Re: CRTCSVF (using CL var)] </font>(posted by uzaemon)</b><br>
+( 1)   05/08/31 00:42   comment on <a href="00949.html">00949</a> 
+<HR>
+
+<br>
+Robert,<br>
+<br>
+> Does this utility allow substitution parameters for file names? Example:<br>
+><br>
+> CRTCSVF FILE(&FILENAME) +<br>
+> TOSTMF('/QDLS/TEMP/&FILENAME.CSV') +<br>
+> DBFCCSID(*FILE) ADDINF(*COLHDG)<br>
+<br>
+If you are going to use CRTCSVF in CL program, you can use normal formula, e.g.<br>
+<br>
+PGM<br>
+DCL VAR(&STMF) TYPE(*CHAR) LEN(8) VALUE('test')<br>
+CRTCSVF FILE(TOKMSP) TOSTMF('/qdls/temp/' |< &STMF |< '.csv')<br>
+ENDPGM<br>
+<br>
+Hope this helps.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

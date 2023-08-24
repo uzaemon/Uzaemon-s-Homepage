@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 01585 : Re: SNDM (skip negative response)</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>01585 [Re: SNDM (skip negative response)] </font>(posted by uzaemon)</b><br>
+( 1)   06/12/03 01:37   comment on <a href="01551.html">01551</a> 
+<HR>
+
+<br>
+Peter,<br>
+<br>
+> We use the SNDM command a lot. It does what we need. Now we see some Internet providers act different if a email address does not exist. There is 1 provider that accepts all email requests and if an email address does not exist it sends back the failing email with a note that the<br>
+> address does not exist.<br>
+> Another provider that gets a request to send an email checks the domainname interactively and let the command SNDM fail if a domainname does not exist.<br>
+><br>
+> How do we catch a "301 negative response from SMTP server" during transmission of an email so it does not abord.<br>
+><br>
+> Thanks, Peter<br>
+<br>
+<br>
+Please look into line 188 - 197 of SMTP/QRPGLESRC(#SEND) and modify according to your requirement. This part checks "SMTP negative response (other than 2xx, 3xx)".<br>
+<br>
+Hope this helps.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

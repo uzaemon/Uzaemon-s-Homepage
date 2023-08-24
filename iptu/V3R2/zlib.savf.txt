@@ -1,0 +1,38 @@
+ 5722SS1 V5R2M0  020719                 Saved Object Information - Save File                     2/26/06 23:40:27        Page    1
+ Library saved  . . . :   ZLIB                  Release level  . . . :   V3R2M0
+ ASP  . . . . . . . . :   1                     Data compressed  . . :   No
+ Save file  . . . . . :   ZLIB                  Objects saved  . . . :   20
+   Library  . . . . . :     BACKUP32            Access paths . . . . :   0
+ Records  . . . . . . :   17705
+ Save command . . . . :   SAVLIB
+ Save active  . . . . :   *NO
+ Save date/time . . . :   03/15/06   19:43:09
+ Object             Type     Attribute     Owner         Size (K)  Data   Member      Member      Member      Member      Member
+ ZLIB               *LIB     TEST          QDFTOWN             88  Yes
+ DSPZIPCLP          *PGM     CLLE          QDFTOWN             96  Yes
+ MINIUNZ            *PGM     CLE           QDFTOWN            516  Yes
+ MINIUNZ400         *PGM     CLE           QDFTOWN            528  Yes
+ MINIZIP            *PGM     CLE           QDFTOWN            444  Yes
+ MINIZIP400         *PGM     CLE           QDFTOWN            460  Yes
+ UNZIPCLP           *PGM     CLLE          QDFTOWN            124  Yes
+ ZIPCLP             *PGM     CLLE          QDFTOWN            132  Yes
+ ZLIB               *SRVPGM  CLE           QDFTOWN           2192  Yes
+ DSPZIP             *CMD                   QDFTOWN              4  Yes
+ UNZIP              *CMD                   QDFTOWN              4  Yes
+ ZIP                *CMD                   QDFTOWN              4  Yes
+ DSPZIPHLP          *PNLGRP                QDFTOWN              4  Yes
+ UNZIPHLP           *PNLGRP                QDFTOWN              8  Yes
+ ZIPHLP             *PNLGRP                QDFTOWN              8  Yes
+ H                  *FILE    PF            QDFTOWN           1032  Yes    CRC32       CRYPT       DEFLATE     INFFAST     INFFIXED
+                                                                          INFLATE     INFTREES    IOAPI       TREES       UNZIP
+                                                                          ZCONF       ZCONF.IN    ZIP         ZLIB        ZUTIL
+ QCLSRC             *FILE    PF            QDFTOWN             68  Yes    DSPZIPCLP   UNZIPCLP    ZIPCLP
+ QCMDSRC            *FILE    PF            QDFTOWN            112  Yes    DSPZIP      DSPZIPHLP   UNZIP       UNZIPHLP    ZIP
+                                                                          ZIPHLP
+ QCSRC              *FILE    PF            QDFTOWN           3152  Yes    ADLER32     CHANGELOG   CHANGELOGM  COMPRESS    CRC32
+                                                                          DEFLATE     EBCDIC      EXAMPLE     FAQ         GZIO
+                                                                          INDEX       INFBACK     INFFAST     INFLATE     INFTREES
+                                                                          IOAPI       MINIUNZ     MINIZIP     README      TREES
+                                                                          UNCOMPR     UNZIP       ZIP         ZUTIL
+ QREXSRC            *FILE    PF            QDFTOWN             36  Yes    MAKE
+                           * * * * *   E N D   O F   L I S T I N G   * * * * *

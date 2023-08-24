@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 01154 : Re^4: SNDM - Account authentication?</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>01154 [Re^4: SNDM - Account authentication?] </font>(posted by Boris)</b><br>
+( 1)   06/06/15 05:41   comment on <a href="01153.html">01153</a>   , # of comment(s) : 5
+<HR>
+
+uzaemon,<br>
+my environment is i5 os/400 version 5.3 and native SMTP server.<br>
+When I run SNDM I get the following message:<br>
+Message ID . . . . . . :   CPF9897<br>
+Date sent  . . . . . . :   06/14/06      Time sent  . . . . . . :   23:24:35<br>
+<br>
+Message . . . . :   Command failed. reason -301 negative response from SMTP<br>
+  server ( RSP[553 Relaying blocked at this site.｢｣] REQ[RCPT<br>
+  TO:<somename@someserver.COM>｢｣])<br>
+<br>
+Cause . . . . . :   No additional online help information is available.<br>
+<br>
+It only works if I change:<br>
+CHGSMTPA ALWRLY(*ALL)<br>
+<br>
+<br>
+<br>
+</body></html>

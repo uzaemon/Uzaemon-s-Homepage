@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00481 : Re: spl2stmf (Pointer not set for ...)</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00481 [Re: spl2stmf (Pointer not set for ...)] </font>(posted by uzaemon)</b><br>
+( 1)   02/09/24 21:16   comment on <a href="00480.html">00480</a> 
+<HR>
+
+<br>
+Bresciani,<br>
+<br>
+> This is the error log:<br>
+> -Stream file /tmp/spl2stmfrp.tif removed.<br>
+> -Pointer not set for reference position.<br>
+> -Error log updated.<br>
+> -Printer PRT01 not found. the out queue has been changed to QPRINT in QGPL library.<br>
+> -Out queue QSCAPAROQ already exist in QSC6633703 library.<br>
+> -File QAPDFCDP already exist in QSC6633703 library.<br>
+> -File QAPDFCDP has not been created in QSC6633703 library.<br>
+> -Command failed. reason - API QwpzHostPrintTransform failed : CPF3CF2<br>
+> hptopt = 30<br>
+<br>
+Please provide more information.<br>
+<br>
+- What is the version of your OS/400?<br>
+- What version of SPL2STMF are you using?<br>
+- Did you modify the source code?<br>
+- Did you MAKE the utility by yourself?<br>
+- If you have another AS/400, can you try to recreate your problem?<br>
+- Does the problem occur to all (SCS and AFPDS) spooled files or only specific spooled file?<br>
+- What happens if you use other IBM supplied WSCSTs?<br>
+- What happens if you convert simple spooled file, say, created by "WRKSYSSTS *PRINT" command?<br>
+- What do you see in the last part of debug print output of SPL2STMF command (specify DEBUG(*YES))?<br>
+- Can you configure and use LPR or RMTOUTQ (specifying problematic spooled file and QWPTIFFG4) to invoke HPT?<br>
+<br>
+Waiting for your reply.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00904 : zlib121</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00904 [zlib121] </font>(posted by Karl)</b><br>
+( 1)   05/06/09 11:47
+<HR>
+
+<br>
+I have installed zlib121 on an i5 at V5R3. To be able to do the MAKE in QREXSRC I had to change __OS400__ to __iseries__. Actually it can be anything else since __OS400__ is a reserved name. I also had to rename BYFOUR to something like BY4.<br>
+Also I had to comment out the second WRITEBUFFERSIZE in MINIZIP of H.<br>
+Once all that was done, everything 'compiled' fine and everything ran well.<br>
+Thanks<br>
+Karl<br>
+</body></html>

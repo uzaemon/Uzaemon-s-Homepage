@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00497 : Re^7: Sndm speed</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00497 [Re^7: Sndm speed] </font>(posted by uzaemon)</b><br>
+( 1)   02/10/31 22:45   comment on <a href="00496.html">00496</a>   , # of comment(s) : 3
+<HR>
+
+Tam疽,<br>
+<br>
+> I think they are correct. But I have a question. If I use AS/400 as SMTP gateway (no mail server, only gateway to route an e-mail to mail server) is the same that AS/400 is the local SMTP server? Maybe I use SndM wrongly?<br>
+<br>
+INHO, SMTP "gateway" is actually normal SMTP server. SMTP server simply forwards (relays) mail to upper SMTP server if the mail recipient's domain is not the same.<br>
+<br>
+> > - What is the version and PTF level of your OS/400?<br>
+> V4R5M0 MF27767<br>
+<br>
+MF27767 is dated 02/06/24 so it is not so obsolete.<br>
+<br>
+> A question: why I don't compile source with ccsid(870). Before compiling, I need change job ccsid to 65535.<br>
+<br>
+I18N of OS/400 sometimes causes annoying side-effect. Some special characters such as "[" might have been unexpectedly translated.<br>
+<br>
+> I sent logs.<br>
+<br>
+Thank you, and I confirmed that the slow-down always occurs at exactly the same point, where waiting response to "MAIL FROM:" and "RCPT TO:" SMTP commands...<br>
+<br>
+OK... one more question. Do you have ILE-C compiler?<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

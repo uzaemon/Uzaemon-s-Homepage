@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00781 : Re^3: SNDM ask confirmation</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00781 [Re^3: SNDM ask confirmation] </font>(posted by uzaemon)</b><br>
+( 1)   04/04/01 21:22   comment on <a href="00780.html">00780</a> 
+<HR>
+
+<br>
+Jesus,<br>
+<br>
+> > What do you mean by "confirmation status"? Do you want to know whether the mail is opend by recipient, or want to confirm the mail has been successfully deliverd to the recipient?<br>
+><br>
+> Well... The second one will fit, but being able to choose either one will be great!   O:-)<br>
+<br>
+First, you can request to send "message opened" mail to recipient by using "Disposition-Notification-To" header. For example, Outlook Express (5.5 or later, I guess) uses this field if the recipient has checked "Tool" -> "Option" -> "Receipts" tab -> "Request read receipt for all sent messages" checkbox. I suppose most users set this option to OFF to prevent sending unexpected mail (to spammers).<br>
+<br>
+Second. Normally, MTA (mail server) returns delivery failure message when it fails to send a mail to recipient. It is also possible to set a header to confirm delivery.<br>
+<br>
+Be warned that there is no reliable mechanism for Internet mail to confirm it to be delivered and opened.<br>
+<br>
+See RFC2298 (<a href="ftp://ftp.rfc-editor.org/in-notes/rfc2298.txt" rel = "nofollow" target = "_blank">ftp://ftp.rfc-editor.org/in-notes/rfc2298.txt</a>), "2. Requesting Message Disposition Notifications" and RFC2821 (<a href="ftp://ftp.rfc-editor.org/in-notes/rfc2821.txt" rel = "nofollow" target = "_blank">ftp://ftp.rfc-editor.org/in-notes/rfc2821.txt</a>), "4.4 Trace Information" for detail.<br>
+<br>
+Hope this helps.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

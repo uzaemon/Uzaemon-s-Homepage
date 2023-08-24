@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00493 : Re^3: Sndm speed</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00493 [Re^3: Sndm speed] </font>(posted by uzaemon)</b><br>
+( 1)   02/10/25 20:11   comment on <a href="00492.html">00492</a>   , # of comment(s) : 7
+<HR>
+
+Tam疽,<br>
+<br>
+> > - Are you using local SMTP server or remote SMTP server?<br>
+> I'm using local SMTP server.<br>
+> > - Do other mail clients run faster than SNDM with the same SMTP server?<br>
+> Yes, they run faster.<br>
+><br>
+> There are some rows from debug log where the program runs very slow.<br>
+><br>
+> 15:54:15.864|S->[MAIL FROM:<VENUS@EBH.HU>肛]<br>
+> 15:54:15.865|  wrote 26 bytes.<br>
+> 15:54:44.081|R<-[250 OK.肛]<br>
+><br>
+> and the other part<br>
+><br>
+> 15:54:44.082|S->[RCPT TO:<ENDREYT@ERSTEBANK.COM>肛]<br>
+> 15:54:44.082|  wrote 33 bytes.<br>
+> 15:55:12.288|R<-[250 OK.肛]<br>
+<br>
+I don't know why but it looks like socket read() operation is taking time. Can you try two more tests?<br>
+<br>
+- Send a mail from the same AS/400 using SNDDST command.<br>
+- Send a mail specifying other SMTP server (not your local mail server) using SNDM command.<br>
+<br>
+Waiting for your reply.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

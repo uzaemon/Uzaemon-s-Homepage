@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00179 : Re^3: SPL2STMF bad carracters</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00179 [Re^3: SPL2STMF bad carracters] </font>(posted by uzaemon)</b><br>
+( 1)   01/05/11 20:17   comment on <a href="00178.html">00178</a> 
+<HR>
+
+<br>
+Le Guillou,<br>
+<br>
+> - I convert afp to tiff<br>
+> - I use WSCST(QWPTIFFG4)<br>
+> - My CCSID is 65535<br>
+> - The version OS/400 is V4R4M0 or V4R5M0<br>
+<br>
+Run "CHGJOB CCSID(297)" before create your spool file. If it doesn't work, exec "OVRPRTF FILE(QSYSPRT) DEVTYPE(*AFPDS) CHRID(*JOBCCSID)" also.<br>
+<br>
+I don't have French environment but I changed CCSID of the job to 297 in reference to "10.13.1.18 French Settings for Client Access" at <a href="http://publib.boulder.ibm.com/cgi-bin/bookmgr/BOOKS/QB3AWC01/CCONTENTS" rel = "nofollow" target = "_blank">http://publib.boulder.ibm.com/cgi-bin/bookmgr/BOOKS/QB3AWC01/CCONTENTS</a> . See <a href="http://homepage1.nifty.com/uzaemon/French.gif" rel = "nofollow" target = "_blank">http://homepage1.nifty.com/uzaemon/French.gif</a> for the result of my testing.<br>
+<br>
+Let me know the result of your investigation.<br>
+<br>
+uzaemon @ Japan<br>
+<br>
+</body></html>

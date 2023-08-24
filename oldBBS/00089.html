@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00089 : Re: SPL2STMF</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00089 [Re: SPL2STMF] </font>(posted by uzaemon)</b><br>
+( 1)   00/11/03 23:26   comment on <a href="00087.html">00087</a>   , # of comment(s) : 3
+<HR>
+
+Chris,<br>
+<br>
+> I get the following error when I try the SPL2STMF command:<br>
+> "Fatal error : API QwpzHostPrintTransform failed : CPF6DF9 hptopt = 30"<br>
+<br>
+According to DSPMSGD command, CPF6DF9 indicates:<br>
+<br>
+Message . . . . :   Transformed data buffer too small.<br>
+Cause . . . . . :   The transformed data buffer of &2 bytes is too small to hold the &1 bytes of transformed data that is available.  Only &2 bytes of data have been copied to the transformed data buffer.  The remaining transformed data is lost.<br>
+<br>
+That means you should increase buffer size (200,000) which is defined at line 57 and 233. You can try DEBUG(*YES) to determine the buffer size.<br>
+<br>
+Hope this helps and waiting for your report.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

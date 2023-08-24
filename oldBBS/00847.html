@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00847 : Re^3: unzip extracts gabage?</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00847 [Re^3: unzip extracts gabage?] </font>(posted by Mike Manas)</b><br>
+( 1)   04/09/29 05:40   comment on <a href="00845.html">00845</a> 
+<HR>
+
+<br>
+> Mike,<br>
+><br>
+> > > > Everything is working fine on the as400 able to (zip and unzip) but having trouble extracting on pc using winzip and or pkunzip. Getting nothing but: '@@@@@@@@@@G・瑪@+・・獰z@===ｷ(=@'<br>
+> > > > Winzip recognizes the file and displays correct information about it but it extracts garbage.<br>
+> > ><br>
+> > > Can you show step-by-step operation to recreate your problem?<br>
+> > ><br>
+> > > uzaemon@Japn<br>
+> ><br>
+> > First: I'm using cpysplf command to create a file. It is a simple text file, no control characters.<br>
+> ><br>
+> > second i'm using zip command to create a compressed file. this file appears to be OK because I can then extract the file back to it's original. I've also used MINIZIP in QShell interpretor and get the same results.<br>
+> ><br>
+> > Third I'm using FTP command on my PC, Binary Transfer, to get the file. I recieve the file ok, Winzip recoginizes the file and the file information displayed is correct.<br>
+> > I use winzip 'TEST FILE' option and comes back 'FILE OK'.<br>
+> ><br>
+> > Fourth I attempt to unzip the file and that works, however the information is jibberish, nothing is recognizable from the original document.<br>
+> ><br>
+> > I can FTP the original file prior to compression and that file is OK. I don't use Binary Transfer for that however.<br>
+><br>
+> Do you want to see EBCDIC data on your PC? Please describe exactly what you did on your AS/400 (in command level).<br>
+><br>
+> Waiting for your reply.<br>
+><br>
+> uzaemon@Japan<br>
+<br>
+ZIP        +<br>
+             ZIPFILE('/QSYS.LIB/MMANAS.LIB/INVOICE.FILE/+<br>
+             ZIP.MBR') +<br>
+             FILES('/QSYS.LIB/MMANAS.LIB/INVOICE98.FILE/+<br>
+             INVOICE98.MBR') REPLACE(*REPLACE) COMPLVL(6)<br>
+CONTINUED..<br>
+<br>
+<br>
+</body></html>

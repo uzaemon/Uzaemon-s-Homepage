@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00655 : Re^6: RCVM  -Rcvmail message (java.lang.</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00655 [Re^6: RCVM  -Rcvmail message (java.lang.] </font>(posted by Maurizio)</b><br>
+( 1)   03/06/23 23:52   comment on <a href="00653.html">00653</a>   , # of comment(s) : 1
+<HR>
+
+Hello,<br>
+<br>
+I launched the program with a command line  exactly as you have described correctly.<br>
+ I didn't make a drag&drop copy of the command and when I retyped the line I missed some parameters in my post.<br>
+In the copy I have substituted also the ip address of the gateway with the word "mailgateway".<br>
+Is it correct to use the ip address for the parameter Pop3<br>
+server name?<br>
+<br>
+Thx<br>
+maurizio<br>
+<br>
+<br>
+> Maurizio,<br>
+><br>
+> > "C:\Programmi\ibm\client access\jre\bin\java" -cp .mail.jar;activation;jt400.jar Rcvmail stucchi xyz mailgateway . false true file rcvlogfile.txt xx xx xx both rcvmdebug.txt<br>
+><br>
+> Assuming that you put "Rcvmail.class", "mail.jar", "activation.jar" and "jt400.jar" on the same directory, your should run the command as follows :<br>
+><br>
+> > "C:\Programmi\ibm\client access\jre\bin\java" -cp .;mail.jar;activation.jar;jt400.jar Rcvmail stucchi xyz mailgateway 10 . false true file rcvlogfile.txt xx xx xx both rcvmdebug.txt<br>
+><br>
+> Notice that :<br>
+> - you are missing ".;" in your classpath.<br>
+> - you should specify as "activation.jar".<br>
+> - you missed timeout parameter.<br>
+><br>
+> And I'm wondering if "mailgateway" is valid POP3 server name...<br>
+><br>
+> Try again and let me know the result.<br>
+><br>
+> uzaemon@Japan<br>
+<br>
+</body></html>

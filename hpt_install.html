@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+<HEAD>
+<META name="GENERATOR" content="IBM HomePage Builder 2000 V4.0.5  for Windows">
+</HEAD>
+<BODY>
+<H2>Installation</H2>
+<OL>
+  <LI>Download <A href="hpt.exe">hpt.exe</A> and execute it on Windows95/98/NT to extract
+  hpt.savf.
+  <LI>Create save-file on your AS/400.
+  <LI>Connect to the AS/400 using any FTP client
+  software.
+  <LI>Put the distribution (hpt.savf) to the save-file
+  in binary mode.
+  <LI>Restore objects from the save-file using
+  RSTOBJ command.
+</OL>
+<H2>Sample instruction</H2>
+<P>
+Create save-file on the target AS/400:</P>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD width="512">
+      <PRE>&gt; CRTSAVF FILE(QGPL/HPT)<BR>  File HPT created in library QGPL.</PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<P>Send save-file from Windows95/98/NT/2000
+command prompt:</P>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD width="512">
+      <PRE>E:\&gt;<I>ftp </I><I>your_as400_hostname</I><BR>Connected to ????.<BR>220-QTCP AT ????.<BR>220 CONNECTION WILL CLOSE IF IDLE MORE THAN 5 MINUTES.<BR>User (????:(none)): <I>as400_user_id</I><BR>331 ENTER PASSWORD.<BR>Password:<I>enter_password_for_the_user_id</I><BR>230 ???? LOGGED ON.<BR>ftp&gt; <I>bi</I><BR>200 REPRESENTATION TYPE IS BINARY IMAGE.<BR>ftp&gt; <I>put hpt.savf qgpl/hpt (replace</I><BR>200 PORT SUBCOMMAND REQUEST SUCCESSFUL.<BR>150 SENDING FILE TO MEMBER HPT IN FILE HPT IN LIBRARY QGPL.<BR>250 FILE TRANSFER COMPLETED SUCCESSFULLY.<BR>287232 bytes sent in 1.10 seconds (260.88 Kbytes/sec)<BR>ftp&gt; <I>quit</I><BR>221 QUIT SUBCOMMAND RECEIVED.</PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<P>Go back to the 5250 session:</P>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD width="512">
+      <PRE>&gt; DSPSAVF FILE(QGPL/HPT)<BR>&gt; CRTLIB LIB(HPT)<BR>  Library HPT created.<BR>&gt; RSTOBJ OBJ(*ALL) SAVLIB(HPT) DEV(*SAVF) SAVF(QGPL/HPT)<BR>  2 objects restored from HPT to HPT.<BR>&gt; STRREXPRC SRCMBR(MAKE) SRCFILE(HPT/SOURCE)</PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<P> </P>
+<HR width="100%">
+<P>
+[<A href="index.html">Home</A>]</P>
+</BODY>
+</HTML>

@@ -1,0 +1,372 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>&quot;Examples and Utilities&quot; CD-ROM</TITLE>
+</HEAD>
+<BODY>
+<H3 align="center">Internet Programming, Tools and Utilities <BR>
+for AS/400, iSeries, and System i</H3>
+<H2 align="center"><FONT size="+4"><B>&quot;Examples and Utilities&quot; CD-ROM</B></FONT></H2>
+<HR>
+<BLOCKQUOTE><B><FONT size="+1">THE SOFTWARE IS PROVIDED &quot;AS-IS&quot; AND WITHOUT WARRANTY OF ANY
+KIND, EXPRESS, IMPLIED OR OTHERWISE, INCLUDING WITHOUT LIMITATION, ANY
+WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.</FONT></B></BLOCKQUOTE>
+<BLOCKQUOTE>
+<H2><FONT color="#ff0000">! Read before you start !</FONT></H2>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<UL>
+  <LI>Examples in library &quot;IPTULIB&quot; and directory &quot;/iptu&quot;
+  are protected by copyright. <B>You need written permission to redistribute them.</B> <BR>
+  <BR>
+  <LI>You may redistribute &quot;Utilities&quot; under the terms and conditions
+  included in the each distribution.<BR>
+  <BR>
+  <LI>All examples and utilities should run fine on OS/400 <B>V5R2</B>, which had been a main test bed.<BR>
+  <BR>
+  <UL>
+    <LI>Though this CD-ROM contains executables partially, <B>you should compile (make) executables by yourself</B>. Obviously, you need ILE or Java compiler to use the utilities. In addition,
+    IBM supplied library <B>QSYSINC</B> is required in many cases.
+    <LI>As for version compatibility of examples in IPTULIB, read corresponding
+    part of the book. Basically, you should be able to run <B>most</B> examples on V4R3 and later with Original HTTP Server, and V4R5 and later
+    with Apache HTTP Server (assuming that appropriate level of PTFs are applied).
+    <LI>Most examples and utilities will <B>not run on V3R2</B> and earlier (A.K.A. CISC machines). The V3R2 save files are provided mainly
+    for V3R7/V4R1/V4R2 users.
+    <LI>Analog and wcount <B>may</B> work on V4R2 or later. The zlib, TIFF2PDF, SPL2STMF, SNDM and CRTCSVF
+    <B>may</B> work on V3R7 and later.
+    <LI>RCVM <B>may</B> work with JVM 1.1.8 or later if you don't use UTF-16LE. JVM 1.3 and OS/400
+    V5R1 and later are recommended.
+  </UL>
+  <BR>
+  <LI>For updates of the book, access to &quot;<A href="http://homepage1.nifty.com/uzaemon/iptu/index.html">Internet Programming, Tools, and Utilities</A>&quot; page.
+</UL>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<H2>Examples</H2>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<TABLE border="1" cellpadding="0" cellspacing="0">
+  <TBODY>
+    <TR>
+      <TD bgcolor="#00cccc" rowspan="2" align="center"><B>Examples</B></TD>
+      <TD bgcolor="#00cccc" rowspan="2" align="center"><B>description</B></TD>
+      <TD bgcolor="#00cccc" rowspan="2" align="center"><B>object</B></TD>
+      <TD bgcolor="#00cccc" colspan="3" align="center"><B>distribution</B></TD>
+    </TR>
+    <TR>
+      <TD bgcolor="#00cccc" align="center"><B>TGTRLS</B></TD>
+      <TD bgcolor="#00cccc" align="center"><B>SAVF/stmf</B></TD>
+      <TD bgcolor="#00cccc" align="center"><B>contents</B></TD>
+    </TR>
+    <TR>
+      <TD rowspan="6">IPTU</TD>
+      <TD rowspan="6">Examples and tools in the book.</TD>
+      <TD rowspan="3">IPTULIB</TD>
+      <TD align="center">V3R2</TD>
+      <TD align="center">iptulib.savf</TD>
+      <TD align="center"><A href="V3R2/iptulib.savf.txt">iptulib.savf.txt</A></TD>
+    </TR>
+    <TR>
+      <TD align="center">V4R3</TD>
+      <TD align="center">iptulib.savf</TD>
+      <TD align="center"><A href="V4R3/iptulib.savf.txt">iptulib.savf.txt</A></TD>
+    </TR>
+    <TR>
+      <TD align="center">V5R2</TD>
+      <TD align="center">iptulib.savf</TD>
+      <TD align="center"><A href="V5R2/iptulib.savf.txt">iptulib.savf.txt</A></TD>
+    </TR>
+    <TR>
+      <TD rowspan="3">/iptu</TD>
+      <TD align="center">V3R2</TD>
+      <TD align="center">iptuifs.savf</TD>
+      <TD align="center"><A href="V3R2/iptuifs.savf.txt">iptuifs.savf.txt</A></TD>
+    </TR>
+    <TR>
+      <TD align="center">V4R3</TD>
+      <TD align="center">iptuifs.savf</TD>
+      <TD align="center"><A href="V4R3/iptuifs.savf.txt">iptuifs.savf.txt</A></TD>
+    </TR>
+    <TR>
+      <TD align="center">V5R2</TD>
+      <TD align="center">iptuifs.savf</TD>
+      <TD align="center"><A href="V5R2/iptuifs.savf.txt">iptuifs.savf.txt</A></TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<H2>Utilities</H2>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<TABLE border="1" cellpadding="0" cellspacing="0">
+  <TBODY>
+    <TR>
+      <TD bgcolor="#00cc00" rowspan="2" align="center"><B>Utility</B></TD>
+      <TD bgcolor="#00cc00" rowspan="2" align="center"><B>description</B></TD>
+      <TD bgcolor="#00cc00" rowspan="2" align="center"><B>language</B></TD>
+      <TD bgcolor="#00cc00" rowspan="2" align="center"><B>object</B></TD>
+      <TD rowspan="2" bgcolor="#00cc00" align="center"><B>ver</B><BR>
+      (*1)</TD>
+      <TD bgcolor="#00cc00" colspan="4" align="center"><B>distribution</B></TD>
+      <TD bgcolor="#00cc00" rowspan="2" align="center"><B>link to homepage</B></TD>
+    </TR>
+    <TR>
+      <TD bgcolor="#00cc00" align="center"><B>TGTRLS</B></TD>
+      <TD bgcolor="#00cc00" align="center"><B>packed</B></TD>
+      <TD bgcolor="#00cc00" align="center"><B>unpacked</B><BR>
+      <B>(SAVF/stmf)</B></TD>
+      <TD bgcolor="#00cc00" align="center"><B>contents</B></TD>
+    </TR>
+    <TR>
+      <TD rowspan="6">Analog</TD>
+      <TD rowspan="6">World's most popular HTTP access log analysis tool.</TD>
+      <TD rowspan="6">ILE-C/<BR>
+      CL/<BR>
+      Perl (required for FORM interface)</TD>
+      <TD rowspan="3">ANALOG</TD>
+      <TD rowspan="6" align="center">4.11</TD>
+      <TD align="center">V3R2</TD>
+      <TD align="center">analog411.exe</TD>
+      <TD align="center">analog.savf</TD>
+      <TD align="center"><A href="V3R2/analog.savf.txt">analog.savf.txt</A></TD>
+      <TD rowspan="6"><A href="http://www.analog.cx/">Analog: WWW logfile analysis</A></TD>
+    </TR>
+    <TR>
+      <TD align="center">V4R3</TD>
+      <TD align="center">analog411.exe</TD>
+      <TD align="center">analog.savf</TD>
+      <TD align="center"><A href="V4R3/analog.savf.txt">analog.savf.txt</A></TD>
+    </TR>
+    <TR>
+      <TD align="center">V5R2</TD>
+      <TD align="center">analog411.exe</TD>
+      <TD align="center">analog.savf</TD>
+      <TD align="center"><A href="V5R2/analog.savf.txt">analog.savf.txt</A></TD>
+    </TR>
+    <TR>
+      <TD rowspan="3">/Analog</TD>
+      <TD align="center">V3R2</TD>
+      <TD rowspan="3" align="center">(contained in above &quot;.exe&quot; files)</TD>
+      <TD align="center">analogi.savf</TD>
+      <TD align="center"><A href="V3R2/analogi.savf.txt">analogi.savf.txt</A></TD>
+    </TR>
+    <TR>
+      <TD align="center">V4R3</TD>
+      <TD align="center">analogi.savf</TD>
+      <TD align="center"><A href="V4R3/analogi.savf.txt">analogi.savf.txt</A></TD>
+    </TR>
+    <TR>
+      <TD align="center">V5R2</TD>
+      <TD align="center">analogi.savf</TD>
+      <TD align="center"><A href="V5R2/analogi.savf.txt">analogi.savf.txt</A></TD>
+    </TR>
+    <TR>
+      <TD rowspan="6">wcount</TD>
+      <TD rowspan="6">Web graphical access counter and clock.</TD>
+      <TD rowspan="6">ILE-C</TD>
+      <TD rowspan="3">WCOUNT</TD>
+      <TD rowspan="6" align="center">2.5</TD>
+      <TD align="center">V3R2</TD>
+      <TD align="center">wcount25.exe</TD>
+      <TD align="center">wcount.savf</TD>
+      <TD align="center"><A href="V3R2/wcount.savf.txt">wcount.savf.txt</A></TD>
+      <TD rowspan="6"><A href="http://www.muquit.com/muquit/software/Count/Count.html">WWW Homepage Access Counter and Clock</A></TD>
+    </TR>
+    <TR>
+      <TD align="center">V4R3</TD>
+      <TD align="center">wcount25.exe</TD>
+      <TD align="center">wcount.savf</TD>
+      <TD align="center"><A href="V4R3/wcount.savf.txt">wcount.savf.txt</A></TD>
+    </TR>
+    <TR>
+      <TD align="center">V5R2</TD>
+      <TD align="center">wcount25.exe</TD>
+      <TD align="center">wcount.savf</TD>
+      <TD align="center"><A href="V5R2/wcount.savf.txt">wcount.savf.txt</A></TD>
+    </TR>
+    <TR>
+      <TD rowspan="3">/wcount</TD>
+      <TD align="center">V3R2</TD>
+      <TD rowspan="3" align="center">(contained in above &quot;.exe&quot; files)</TD>
+      <TD align="center">wcounti.savf</TD>
+      <TD align="center"><A href="V3R2/wcounti.savf.txt">wcounti.savf.txt</A></TD>
+    </TR>
+    <TR>
+      <TD align="center">V4R3</TD>
+      <TD align="center">wcounti.savf</TD>
+      <TD align="center"><A href="V4R3/wcounti.savf.txt">wcounti.savf.txt</A></TD>
+    </TR>
+    <TR>
+      <TD align="center">V5R2</TD>
+      <TD align="center">wcounti.savf</TD>
+      <TD align="center"><A href="V5R2/wcounti.savf.txt">wcounti.savf.txt</A></TD>
+    </TR>
+    <TR>
+      <TD rowspan="3">zlib</TD>
+      <TD rowspan="3">Command line zip/unzip utility for OS/400.</TD>
+      <TD rowspan="3">ILE-C/<BR>
+      CL</TD>
+      <TD rowspan="3">ZLIB</TD>
+      <TD rowspan="3" align="center">1.2.3</TD>
+      <TD align="center">V3R2</TD>
+      <TD align="center">zlib123.exe</TD>
+      <TD align="center">zlib.savf</TD>
+      <TD align="center"><A href="V3R2/zlib.savf.txt">zlib.savf.txt</A></TD>
+      <TD rowspan="3"><A href="http://www.zlib.net/">zlib Home Site</A> and <A href="http://www.winimage.com/zLibDll/minizip.html">Minizip </A></TD>
+    </TR>
+    <TR>
+      <TD align="center">V4R3</TD>
+      <TD align="center">zlib123.exe</TD>
+      <TD align="center">zlib.savf</TD>
+      <TD align="center"><A href="V4R3/zlib.savf.txt">zlib.savf.txt</A></TD>
+    </TR>
+    <TR>
+      <TD align="center">V5R2</TD>
+      <TD align="center">zlib123.exe</TD>
+      <TD align="center">zlib.savf</TD>
+      <TD align="center"><A href="V5R2/zlib.savf.txt">zlib.savf.txt</A></TD>
+    </TR>
+    <TR>
+      <TD rowspan="3">libtiff (and TIFF2PDF)</TD>
+      <TD rowspan="3">Converts TIFF image file to Adobe PDF(Acrobat).</TD>
+      <TD rowspan="3">ILE-C</TD>
+      <TD rowspan="3">TIFFLIB</TD>
+      <TD rowspan="3" align="center">3.4</TD>
+      <TD align="center">V3R2</TD>
+      <TD align="center">tifflib.exe</TD>
+      <TD align="center">tifflib.savf</TD>
+      <TD align="center"><A href="V3R2/tifflib.savf.txt">tifflib.savf.txt</A></TD>
+      <TD rowspan="3"><A href="http://www.libtiff.org/">TIFF Software</A>, (*2)</TD>
+    </TR>
+    <TR>
+      <TD align="center">V4R3</TD>
+      <TD align="center">tifflib.exe</TD>
+      <TD align="center">tifflib.savf</TD>
+      <TD align="center"><A href="V4R3/tifflib.savf.txt">tifflib.savf.txt</A></TD>
+    </TR>
+    <TR>
+      <TD align="center">V5R2</TD>
+      <TD align="center">tifflib.exe</TD>
+      <TD align="center">tifflib.savf</TD>
+      <TD align="center"><A href="V5R2/tifflib.savf.txt">tifflib.savf.txt</A></TD>
+    </TR>
+    <TR>
+      <TD rowspan="3">SPL2STMF</TD>
+      <TD rowspan="3">Converts OS/400 spooled file (SCS/AFP) to stream file (text/PCL/TIFF/etc.).</TD>
+      <TD rowspan="3">ILE-RPG</TD>
+      <TD rowspan="3">HPT</TD>
+      <TD rowspan="2" align="center">0.03a</TD>
+      <TD align="center">V3R2</TD>
+      <TD align="center">hpt_510.exe</TD>
+      <TD align="center">hpt.savf</TD>
+      <TD align="center"><A href="V3R2/hpt.savf.txt">hpt.savf.txt</A></TD>
+      <TD rowspan="13"><A href="http://homepage1.nifty.com/uzaemon/">UZAEMON's Homepage</A></TD>
+    </TR>
+    <TR>
+      <TD align="center">V4R3</TD>
+      <TD align="center">hpt_510.exe</TD>
+      <TD align="center">hpt.savf</TD>
+      <TD align="center"><A href="V4R3/hpt.savf.txt">hpt.savf.txt</A></TD>
+    </TR>
+    <TR>
+      <TD align="center">0.04a</TD>
+      <TD align="center">V5R2</TD>
+      <TD align="center">hpt_520.exe</TD>
+      <TD align="center">hpt.savf</TD>
+      <TD align="center"><A href="V5R2/hpt.savf.txt">hpt.savf.txt</A></TD>
+    </TR>
+    <TR>
+      <TD rowspan="3">SNDM</TD>
+      <TD rowspan="3">Sends Internet mail from OS/400 command line.</TD>
+      <TD rowspan="3">ILE-RPG</TD>
+      <TD rowspan="3">SMTP</TD>
+      <TD rowspan="3" align="center">1.36a</TD>
+      <TD align="center">V3R2</TD>
+      <TD align="center">smtp136.exe</TD>
+      <TD align="center">smtp.savf</TD>
+      <TD align="center"><A href="V3R2/smtp.savf.txt">smtp.savf.txt</A></TD>
+    </TR>
+    <TR>
+      <TD align="center">V4R3</TD>
+      <TD align="center">smtp136.exe</TD>
+      <TD align="center">smtp.savf</TD>
+      <TD align="center"><A href="V4R3/smtp.savf.txt">smtp.savf.txt</A></TD>
+    </TR>
+    <TR>
+      <TD align="center">V5R2</TD>
+      <TD align="center">smtp136.exe</TD>
+      <TD align="center">smtp.savf</TD>
+      <TD align="center"><A href="V5R2/smtp.savf.txt">smtp.savf.txt</A></TD>
+    </TR>
+    <TR>
+      <TD rowspan="4">RCVM</TD>
+      <TD rowspan="4">Receives Internet mail from POP3 server. Based on JavaMail API. May runs
+      on OS/400, Windows and other JVMs.</TD>
+      <TD rowspan="4">ILE-CL/<BR>
+      Java</TD>
+      <TD rowspan="3">POP3</TD>
+      <TD rowspan="4" align="center">0.6a</TD>
+      <TD align="center">V3R2</TD>
+      <TD align="center">pop3.exe</TD>
+      <TD align="center">pop3.savf</TD>
+      <TD align="center"><A href="V3R2/pop3.savf.txt">pop3.savf.txt</A></TD>
+    </TR>
+    <TR>
+      <TD align="center">V4R3</TD>
+      <TD align="center">pop3.exe</TD>
+      <TD align="center">pop3.savf</TD>
+      <TD align="center"><A href="V4R3/pop3.savf.txt">pop3.savf.txt</A></TD>
+    </TR>
+    <TR>
+      <TD align="center">V5R2</TD>
+      <TD align="center">pop3.exe</TD>
+      <TD align="center">pop3.savf</TD>
+      <TD align="center"><A href="V5R2/pop3.savf.txt">pop3.savf.txt</A></TD>
+    </TR>
+    <TR>
+      <TD>(Java source)</TD>
+      <TD align="center">(PC text)</TD>
+      <TD align="center">(contained in above &quot;.exe&quot; files)</TD>
+      <TD align="center">Rcvmail.java<BR>
+      Charsetconv.java</TD>
+      <TD align="center">(N/A)</TD>
+    </TR>
+    <TR>
+      <TD rowspan="3">CRTCSVF</TD>
+      <TD rowspan="3">Converts DB2/400 to CSV format PC stream file.</TD>
+      <TD rowspan="3">ILE-RPG/<BR>
+      CL</TD>
+      <TD rowspan="3">CSV</TD>
+      <TD rowspan="3" align="center">2.14a</TD>
+      <TD align="center">V3R2</TD>
+      <TD align="center">csv.exe</TD>
+      <TD align="center">csv.savf</TD>
+      <TD align="center"><A href="V3R2/csv.savf.txt">csv.savf.txt</A></TD>
+    </TR>
+    <TR>
+      <TD align="center">V4R3</TD>
+      <TD align="center">csv.exe</TD>
+      <TD align="center">csv.savf</TD>
+      <TD align="center"><A href="V4R3/csv.savf.txt">csv.savf.txt</A></TD>
+    </TR>
+    <TR>
+      <TD align="center">V5R2</TD>
+      <TD align="center">csv.exe</TD>
+      <TD align="center">csv.savf</TD>
+      <TD align="center"><A href="V5R2/csv.savf.txt">csv.savf.txt</A></TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<BR>
+<P>*1 Character &quot;a&quot; after version number indicates that license
+for respective distribution has been changed from the corresponding version.<BR>
+*2 Original TIFF2PDF.C (different from TIFF2PDF included in the latest
+libtiff package) is no longer available on the Web.</P>
+</BLOCKQUOTE>
+<HR>
+Copyright (c) 1996 - 2006 Guild Companies, Inc. All Rights Reserved. <BR>
+Guild Companies, Inc., 50 Park Terrace East, Suite 8F, New York, NY 10034</BODY>
+</HTML>

@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00923 : Re: SPLTOPDF CPF3CF2 hptopt = 30</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00923 [Re: SPLTOPDF CPF3CF2 hptopt = 30] </font>(posted by Stijn Theunis)</b><br>
+( 1)   05/07/26 21:39   comment on <a href="00920.html">00920</a> 
+<HR>
+
+<br>
+Possible solution:<br>
+added code:<br>
+C                   Eval      QSPLPC  = 'Y'<br>
+in subroutine: #HPT<br>
+Between line 361 and line 362<br>
+<br>
+Now it doesn't crash anymore<br>
+and the results looks OK<br>
+<br>
+But I'm of course not sure of it's allright what I'm doing now<br>
+</body></html>

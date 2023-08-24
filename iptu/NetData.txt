@@ -1,0 +1,33 @@
+  1 %DEFINE DTW_EDIT_CODES = "***N*"
+  2
+  3 %FUNCTION(DTW_SQL) QRY() {
+  4   SELECT ITNO, ITCAT, ITDESC, ITPRIC, ITDATE
+  5   FROM IPTULIB.ITEM
+  6   WHERE ITNO = '$(KEY)'
+  7   %MESSAGE {
+  8     100      : {<P><B><I><FONT SIZE=+2>Item not found.
+  9                (KEY=$(KEY))</FONT></I></B></P> %}
+ 10              : CONTINUE
+ 11     +DEFAULT : {<P><B><I><FONT SIZE=+2>SQL exception.
+ 12                </FONT></I></B></P> %}
+ 13              : CONTINUE
+ 14   %}
+ 15   %REPORT {
+ 16      %ROW {
+ 17 <PRE>
+ 18 Item number  : $(V1)
+ 19 category     : $(V2)
+ 20 description  : $(V3)
+ 21 unit price   : $(V4)
+ 22 date         : $(V5)
+ 23 </PRE>
+ 24      %}
+ 25    %}
+ 26 %}
+ 27
+ 28 %HTML(REPORT) {
+ 29 <HTML><HEAD><TITLE>Query Result (Net.Data)</TITLE></HEAD><BODY>
+ 30 <CENTER><H1>Query Result (Net.Data)</H1><HR></CENTER>
+ 31 @QRY()
+ 32 </BODY></HTML>
+ 33 %}

@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 01041 : Re: SNDM Content-Type of attachments</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>01041 [Re: SNDM Content-Type of attachments] </font>(posted by uzaemon)</b><br>
+( 1)   06/03/29 20:24   comment on <a href="01040.html">01040</a>   , # of comment(s) : 1
+<HR>
+
+FT,<br>
+<br>
+> Anyway, I wish to know if it is possible to send out attachment other than in:<br>
+><br>
+> "Content-Type: application/octet-stream"<br>
+><br>
+> type.<br>
+><br>
+> because unfortunately this creates problem with some EDI procedures that doesn't automatically recognize the proper format and I really do not want to leave SNDM tool only for such a little problem.<br>
+><br>
+> Maybe is the only fast and viable solution is to recompile all - forcing in the rpg source "text/plain" instead of "application/octet-stream"? Maybe creating two command sndm ( your default ) and sndmp ( for plain text attachments )?<br>
+><br>
+> Do I need to change only the sndm rpg source relaunching the whole compiling procedure?<br>
+><br>
+> thanks you much for your support, let me know if this is possible and any advices for recompilation.<br>
+<br>
+Thank you for using SNDM.<br>
+<br>
+As there are so many "Content Types and Subtypes" (see <a href="http://www.iana.org/assignments/media-types/index.html" rel = "nofollow" target = "_blank">http://www.iana.org/assignments/media-types/index.html</a>), I decided to use "application/octet-stream".<br>
+<br>
+You may hard-code your specific Content-Type, or add new parameter to specify Content-Type for each attachement. Just run REXX procedure to recompile the distribution.<br>
+<br>
+Hope this helps.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00938 : Re: CSV (What codes should I use for AS4</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00938 [Re: CSV (What codes should I use for AS4] </font>(posted by uzaemon)</b><br>
+( 1)   05/08/17 21:00   comment on <a href="00937.html">00937</a>   , # of comment(s) : 1
+<HR>
+
+John,<br>
+<br>
+> If I try to use 65535 I do indeed get an error and it will not process.  What codes should I use for AS400 and ASCII?<br>
+<br>
+I believe default setting works for most cases (DBFCCSID for DB2/400 and STMFCODPAG for STMF).<br>
+<br>
+For DB2/400, use DSPFD command to determine CCSID of the file. For CSV file, it depends. See "iSeries Globalization" page (<a href="http://www-1.ibm.com/servers/eserver/iseries/software/globalization/ccsid.html" rel = "nofollow" target = "_blank">http://www-1.ibm.com/servers/eserver/iseries/software/globalization/ccsid.html</a>) and try 819 (International Latin-1) or 437 (US-PC) or 1208 (UTF-8) if you are using US-English environment.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00590 : Re^2: MIME Encoding Problem with SNDM</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00590 [Re^2: MIME Encoding Problem with SNDM] </font>(posted by uzaemon)</b><br>
+( 1)   03/04/02 20:44   comment on <a href="00589.html">00589</a> 
+<HR>
+
+<br>
+Tony,<br>
+<br>
+SNDM works without problem on my machine (V5R2) and<br>
+I believe that other people use SNDM without such problem.<br>
+<br>
+Here is what I did to recreate your problem though it worked as designed.<br>
+<br>
+> addlible smtp<br>
+  Library SMTP added to library list.<br>
+> SNDM FROM(FOO@BAR) TO((USER1@XXXXX.XXXXXXXX.XXX.COM)) FILE(QTXTSRC) SUBJE<br>
+  CT(TEST) ATTACHMENT('/tmp/wrkactjob.pdf') DEBUG(*YES)<br>
+  Mail sent.<br>
+<br>
+As I specified DEBUG(*YES), SNDM records what it sent in<br>
+temporary directory. The file name will be something like<br>
+"SNDM_79048-XXXXX-QPADEV0005_2003-04-02-20.21.37.128.TXT".<br>
+<br>
+I examined the file and it certainly complies MIME format<br>
+as far as I know:<br>
+<br>
+Mail starts here - - - - - - - - - - - - - - - - - - - - - -<br>
+<br>
+From: <FOO@BAR><br>
+To: <USER1@XXXXX.XXXXXXXX.XXX.COM><br>
+Subject: TEST<br>
+Date: Wed, 2 Apr 2003 21:21:37 +0900<br>
+MIME-Version: 1.0<br>
+Content-Type: multipart/mixed; boundary="--=_Next_Part_02_Apr_2003_20.21.37"<br>
+X-Mailer: SMTP Client for IBM AS400  version 1-35 2002-05-06<br>
+<br>
+This is a multi-part message in MIME format.<br>
+<br>
+----=_Next_Part_02_Apr_2003_20.21.37<br>
+Content-Type: text/plain; charset="US-ASCII"<br>
+<br>
+:WSCST DEVCLASS=TRANSFORM.<br>
+<br>
+~~~~~~~~~~~~~~~~~~~~~~~~(SNIP)~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br>
+:EWSCST.<br>
+<br>
+----=_Next_Part_02_Apr_2003_21.21.37<br>
+Content-Type: application/octet-stream; name="wrkactjob.pdf"<br>
+Content-Transfer-Encoding: base64<br>
+<br>
+JVBERi0xLjEKJeLjz9MKMSAwIG9iago8PAovVHlwZSAvWE9iamVjdCAvU3VidHlwZSAvSW1hZ2Ug<br>
+L05hbWUgL0ltMQovRmlsdGVyIFsgL0FTQ0lJODVEZWNvZGUgL0NDSVRURmF4RGVjb2RlIF0gL1dp<br>
+~~~~~~~~~~~~~~~~~~~~~~~~(SNIP)~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br>
+IAp0cmFpbGVyCjw8Ci9TaXplIDI1Ci9Sb290IDIyIDAgUgovSW5mbyAyNCAwIFIKPj4Kc3RhcnR4<br>
+cmVmCjM4MTYxOQolJUVPRgo=<br>
+<br>
+----=_Next_Part_02_Apr_2003_20.21.37--<br>
+<br>
+Mail ends here - - - - - - - - - - - - - - - - - - - - - - -<br>
+<br>
+<br>
+Please consider to do below to solve your problem.<br>
+<br>
+- Try to send a mail without IronMail gateway for the purpose<br>
+of problem determination.<br>
+<br>
+- Ask CipherTrust that exactly what's wrong with the above<br>
+ (or your) mail. I don't know what they mean by "no footer".<br>
+<br>
+Waiting for your reply.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

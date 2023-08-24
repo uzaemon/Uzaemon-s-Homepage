@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 01044 : Re^5: SPLTOPDF CPF3CF2 hptopt = 30</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>01044 [Re^5: SPLTOPDF CPF3CF2 hptopt = 30] </font>(posted by uzaemon)</b><br>
+( 1)   06/04/06 19:09   comment on <a href="01043.html">01043</a> 
+<HR>
+
+<br>
+Philippa,<br>
+<br>
+> I have encountered the same problem.  I tried the fix that was suggested but it still does not work.  The document that is failing is only 16 pages yet other (much larger) splfs convert to TIF just fine.  Any other suggestions?<br>
+<br>
+Message CPF3CF2 indicates:<br>
+<br>
+Message . . . . :   Error(s) occurred during running of &1 API.<br>
+Cause . . . . . :   Call your service organization and report the problem.<br>
+  Materials to accompany the problem are:<br>
+    -- Job log of the failing API.<br>
+    -- Actual parameters specified on the API.<br>
+<br>
+This phenomenon is caused by various reasons, for example, when you are using old SPL2STMF on V5R2 (or later) and so on.<br>
+<br>
+I suspect that your problem is in OS/400(HPT API). I recommend you to consider followings :<br>
+<br>
+- apply latest Cum and HPT-related PTFs.<br>
+- there is no logical reason but just try to recompile SPL2STMF with lower optimization option.<br>
+- if you have an access to another AS/400 or iSeries or i5, run the same thing and see what happens. Or you may ask your business partner or friend to recreate your problem.<br>
+- if the problem occurs only for the specific spooled file, look for the difference.<br>
+- prepare the procedure to recreate your problem using OS/400 functions which use HPT, e.g. RMTOUTQ, LPR, Access for Web, Host on Demand, etc.<br>
+- contact your support channel to ask IBM to investigate (and fix) the problem.<br>
+<br>
+Hope this helps.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

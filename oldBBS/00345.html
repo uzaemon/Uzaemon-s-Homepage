@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00345 : Re^2: SNDM attachment not readable</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00345 [Re^2: SNDM attachment not readable] </font>(posted by David Mount)</b><br>
+( 1)   02/03/09 00:03   comment on <a href="00344.html">00344</a>   , # of comment(s) : 2
+<HR>
+
+I'm sure this has to do with my inexperience with IFS.<br>
+<br>
+I am using outlook express as a client. Documents created on my PC and uploaded to IFS vis FTP work OK.<br>
+<br>
+I create the attachment by copying the file to IFS with CPYTOSTMF command. I can view the file with an FTP Client and it looks fine. In fact, if I cut and paste it from the VIEW feature of the FTP client and paste it into a a new document on my PC and upload that document to the IFS, that new document works.<br>
+<br>
+I must be doing something wrong with the CPYTOSTMF. For it I use:<br>
+CPYTOSTMF FROMMBR('qsys.lib/mylib.lib/myfile.file/txt.mbr')<br>
+ TOSTMF('/eml/abc.txt')<br>
+ STMFOPT(*REPLACE) CVTDTA(*NONE)<br>
+<br>
+I have also tried CVTDTA(*AUTO)<br>
+<br>
+I don't know if it is important to note but I am using:<br>
+<br>
+Datebase file CCSID  . . . . . . > *DFTJOBCCSID<br>
+<br>
+as an option with SNDM.<br>
+<br>
+Thanks for your help.<br>
+<br>
+<br>
+</body></html>

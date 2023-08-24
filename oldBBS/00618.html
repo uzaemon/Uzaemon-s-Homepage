@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00618 : Re^7: SNDMで送信されるメールが文字化け・</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00618 [Re^7: SNDMで送信されるメールが文字化け・] </font>(posted by uzaemon)</b><br>
+( 1)   03/05/27 20:30   comment on <a href="00614.html">00614</a> 
+<HR>
+
+<br>
+yyさん、<br>
+<br>
+> > SNDM内での不変文字セット(invariant character set)の処理が特殊な文字セットである日本語290(≦5026)を考慮していないための副作用と思われます。<br>
+> ><br>
+> 内部的なことがよくわかっていないので、この意味が分かりません。<br>
+> よろしければもう少し詳しく教えて下さい。<br>
+<br>
+「Invariant Character Set」についてはIBMのマニュアル(<a href="http://publib.boulder.ibm.com/cgi-bin/bookmgr/BOOKS/QB3AWC01/2.1.11?SHELF=QB3AYC02&DT=19971120215738" rel = "nofollow" target = "_blank">http://publib.boulder.ibm.com/cgi-bin/bookmgr/BOOKS/QB3AWC01/2.1.11?SHELF=QB3AYC02&DT=19971120215738</a> など)に説明があります。<br>
+<br>
+290は他の言語では英小文字にあたる部分に(いわゆる)半角カタカナを割り振った特殊なコードであり、SNDMでは内部でハードコードしている部分がこれに特別な対応をしていないという意味です。これ以上の詳細にご関心があるようでしたらソースコードを読んでみて下さい。<br>
+<br>
+なお、日本語(DBCS)対応一般については「137. Re: Conversion of RPG code to Japanese」でも紹介している <a href="http://www-919.ibm.com/servers/eserver/iseries/developer/dbcs/guide.html" rel = "nofollow" target = "_blank">http://www-919.ibm.com/servers/eserver/iseries/developer/dbcs/guide.html</a> をご覧ください。<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

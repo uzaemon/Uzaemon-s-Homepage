@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00054 : Re^3: sndm: @ character in FROM string i</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00054 [Re^3: sndm: @ character in FROM string i] </font>(posted by Fabian Emmes)</b><br>
+( 1)   00/08/21 15:42   comment on <a href="00052.html">00052</a> 
+<HR>
+
+<br>
+after this i tried to send with "chgjob ccsid(37)"<br>
+   > chgjob ccsid(37)<br>
+   > SNDM FROM('fab@orlen.de' 'Fabian Emmes') TO(('fab@baumarktforschung.com')<br>
+      ('Fabian Emmes')) FILE(SMTP/H) SUBJECT('blabla') SMTPHOST('localhost') D<br>
+      EBUG(*YES)<br>
+      Command failed. reason -301 negative response from SMTP server ( RSPｬ501<br>
+        Syntax error.  Special characters only permitted with escape<br>
+        character.璢| REQｬMAIL FROM:<fab@orlen.de>璢|)<br>
+<br>
+and then recompiled SNDM<br>
+   > chgjob ccsid(37)<br>
+   > STRREXPRC SRCMBR(MAKE)<br>
+   > sndm from('fab@orlen.de') to('fab@pc42.bfd.de') file(smtp/h) subject('bla<br>
+     bla') smtphost('localhost') debug(*yes)<br>
+     Command failed. reason -301 negative response from SMTP server ( RSPｬ501<br>
+       Syntax error.  Special characters only permitted with escape<br>
+       character.璢| REQｬMAIL FROM:<fab@orlen.de>璢|)<br>
+<br>
+</body></html>

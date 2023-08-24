@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00929 : Re^4: Compile Error (zlib V5R2->V4R5)</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00929 [Re^4: Compile Error (zlib V5R2->V4R5)] </font>(posted by uzaemon)</b><br>
+( 1)   05/08/02 20:40   comment on <a href="00928.html">00928</a>   , # of comment(s) : 2
+<HR>
+
+Ladoさん、<br>
+<br>
+> HTTPサーバー(5722DG1)を導入してからすべて正常にできました。ありがとうございます。ついでに会社のもう一台As400（V4R5M0）でもzlibを使いたいと思いまして、ZLIB/QREXSRC(MAKE)のTGTRLS='V4R5M0'にしてCompile（V5R2M0で）したところいくつのオブジェクトができませんでした。<br>
+><br>
+> Start creating modules for ZLIB...<br>
+>    creating module adler32...<br>
+> から<br>
+> creating module zutil...<br>
+> まで<br>
+> result-> CZM0613<br>
+><br>
+>  Creating service program ZLIB...<br>
+>    result-> CPF5D05<br>
+> 他はresult-> 0でした。<br>
+><br>
+> いろいろ調べまして、 5722SS1のオプション9を導入しました。<br>
+> V4R5M0のマシンではCコンパイラーの環境を導入することができないようになっていますのでV5R2M0でV4R5M0用にコンパイルしたいと思っていますが、何か足りない手順がありますでしょうか？<br>
+<br>
+こちらのV5R2で試してみました。下記手順で試してみてください。<br>
+<br>
+ソースファイルZLIB/QREXSRCのメンバーMAKEを下記のように<br>
+変更してから実行してください。<br>
+<br>
+(変更前)<br>
+<br>
+ 0020.00 TGTRLS = '*CURRENT'<br>
+ ～～～～～～～～～～～～～～<br>
+ 0026.00 D4 = '__OS400__'<br>
+<br>
+(変更後)<br>
+<br>
+ 0020.00 TGTRLS = 'V4R5M0'<br>
+ ～～～～～～～～～～～～～～<br>
+ 0026.00 /* D4 = '__OS400__' */<br>
+<br>
+コンパイルが正常に終了したらV4R5用に保管します。<br>
+<br>
+> SAVLIB LIB(ZLIB) DEV(*SAVF) SAVF(QTEMP/SAVF) TGTRLS(V4R5M0)<br>
+  21 objects saved from library ZLIB; 0 objects not included.<br>
+<br>
+> UzaemonさんはV5R2M0以前では動作が分かりませんとはっきり書いてありましたが何かのヒントをいただけないでしょうと思って。。。宜しくお願いします。<br>
+<br>
+こちらにV4R5のiSeriesが無いため復元および稼動確認までは<br>
+できません。結果のご連絡をお待ちしています。<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

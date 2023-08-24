@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00229 : Re^3: *Userascii AS/400 spools.</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00229 [Re^3: *Userascii AS/400 spools.] </font>(posted by uzaemon)</b><br>
+( 1)   01/08/30 21:58   comment on <a href="00228.html">00228</a>   , # of comment(s) : 2
+<HR>
+
+Jordi,<br>
+<br>
+Unfortunately, I still don't understand exactly what you *want* to do and I need more information.<br>
+<br>
+> I make a spool file with AS/400 command:<br>
+>         OVRPRTF QSYSPRT DEVTYPE(*USERASCII)<br>
+<br>
+Why do you specify *USERASCII to transform "Printscreen" to PCL? I think QWPEPLPCL5 should be used to transform *SCS or *AFPDS to PCL.<br>
+<br>
+> An other option for make a *Userascii spool into the AS/400 is by LPR command from MSDOS/Windows PC. The object generated is an *Userascii spool (print to Document with bitmaps, etc) in one AS/400 OUTQ.<br>
+<br>
+This is completely different story. You don't need to transform (execute SPL2STMF) the spooled file because the contents has been already generated as PC data (PCL, Postscript or any other data stream for specific printer device).<br>
+<br>
+Are you trying to make a stream file from spooled file which is sent from PC via LPR?<br>
+<br>
+Waiting for your reply.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

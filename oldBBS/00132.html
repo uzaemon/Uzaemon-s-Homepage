@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00132 : Re: Using ZLIB with *SAVF</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00132 [Re: Using ZLIB with *SAVF] </font>(posted by uzaemon)</b><br>
+( 1)   01/02/28 22:23   comment on <a href="00131.html">00131</a> 
+<HR>
+
+<br>
+Al,<br>
+<br>
+Here's the sample operation.<br>
+<br>
+* * ZIP * * * * * * * * * * * * * * *<br>
+> CRTLIB LIB(LIB)<br>
+  Library LIB created.<br>
+> CRTSRCPF FILE(LIB/QXXXSRC)<br>
+  File QXXXSRC created in library LIB.<br>
+> CRTSAVF FILE(QGPL/TEST)<br>
+  File TEST created in library QGPL.<br>
+> SAVLIB LIB(LIB) DEV(*SAVF) SAVF(QGPL/TEST) DTACPR(*YES)<br>
+  2 objects saved from library LIB.<br>
+> CPYTOSTMF FROMMBR('/qsys.lib/qgpl.lib/test.file') TOSTMF('/tmp/test.savf'<br>
+  ) STMFOPT(*REPLACE)<br>
+  Object copied.<br>
+> CALL PGM(ZLIB/MINIZIP) PARM('-o' '/tmp/test.zip' '/tmp/test.savf')<br>
+  creating /tmp/test.zip<br>
+  Press ENTER to end terminal session.<br>
+> DLTLIB LIB(LIB)<br>
+  Library LIB deleted.<br>
+> DLTF FILE(QGPL/TEST)<br>
+  Object TEST in QGPL type *FILE deleted.<br>
+> DEL OBJLNK('/tmp/test.savf')<br>
+  Link removed.<br>
+<br>
+* * UNZIP * * * * * * * * * * * * * *<br>
+> CALL PGM(ZLIB/MINIUNZ) PARM('-x' '/tmp/test.zip')<br>
+  MiniUnz 0.15, demo of zLib + Unz package written by Gilles Vollant<br>
+  more info at <a href="http://wwww.winimage/zLibDll/unzip.htm" rel = "nofollow" target = "_blank">http://wwww.winimage/zLibDll/unzip.htm</a><br>
+<br>
+  /tmp/test.zip opened<br>
+   extracting: /tmp/test.savf<br>
+  Press ENTER to end terminal session.<br>
+> CRTSAVF FILE(QGPL/TEST2)<br>
+  File TEST2 created in library QGPL.<br>
+> CPYFRMSTMF FROMSTMF('/tmp/test.savf') TOMBR('/qsys.lib/qgpl.lib/test2.fil<br>
+  e') MBROPT(*REPLACE)<br>
+  Stream file copied to object.<br>
+> RSTLIB SAVLIB(LIB) DEV(*SAVF) SAVF(QGPL/TEST2)<br>
+  2 objects restored from LIB to LIB.<br>
+> DEL OBJLNK('/tmp/test.savf')<br>
+  Link removed.<br>
+> DEL OBJLNK('/tmp/test.zip')<br>
+  Link removed.<br>
+<br>
+Have fun!<br>
+<br>
+uzaemon@Japan<br>
+<br>
+<br>
+</body></html>

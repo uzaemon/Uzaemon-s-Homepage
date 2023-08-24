@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00748 : Re^2: SNDM: Compile Error because of CCS</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00748 [Re^2: SNDM: Compile Error because of CCS] </font>(posted by Peter Feickert)</b><br>
+( 1)   03/12/03 22:51   comment on <a href="00747.html">00747</a>   , # of comment(s) : 1
+<HR>
+
+<br>
+> I don't think of why you see CCSID 5035 which is "Japanese Latin Extended", because I packaged SNDM using CCSID 37, "US English". What CCSID does your QRPGLESRC have? Is the source file original, or did you created the source file with CCSID 5035 by some reason?<br>
+><br>
+> uzaemon@Japan<br>
+<br>
+Uzaemon!<br>
+<br>
+Thank you for your quick reply!<br>
+<br>
+You gave me a hint. I have checked the filedescription of the file QRPGLESRC in the delivered SMTP lib.<br>
+<br>
+There is something wrong ・here is a printout of a part of the dspffd command:<br>
+<br>
+   Max % deleted records allowed . . . . . . . : DLTPCT     *NONE<br>
+   Coded character set identifier  . . . . . . : CCSID         37<br>
+   Allow read operation  . . . . . . . . . . . :            Yes<br>
+   Allow write operation . . . . . . . . . . . :            Yes<br>
+   Allow update operation  . . . . . . . . . . : ALWUPD     *YES<br>
+   Allow delete operation  . . . . . . . . . . : ALWDLT     *YES<br>
+   Record format level check . . . . . . . . . : LVLCHK     *NO<br>
+   Access path . . . . . . . . . . . . . . . . :            Arrival<br>
+   Maximum record length . . . . . . . . . . . :               92<br>
+   File is currently journaled . . . . . . . . :            No<br>
+ Access Path Description<br>
+   Access path . . . . . . . . . . . . . . . . :            Arrival<br>
+   Sort Sequence . . . . . . . . . . . . . . . : SRTSEQ     *HEX<br>
+   Language identifier . . . . . . . . . . . . : LANGID     JPN<br>
+<br>
+As you can see, there is the language id set to JPN. As soon as I am able I will change this to US (or something similar). Maybe this will solve the problem.<br>
+<br>
+I send you an answer if this works out.<br>
+<br>
+Peter<br>
+<br>
+</body></html>

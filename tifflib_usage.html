@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta name="Author" content="Name">
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 7.0.0.0 for Windows">
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>TIFFLIB_usage</title>
+</head>
+<body>
+
+<h2>Usage</h2>
+<HR width="100%">
+<P>(See <A href="hpt_usage.html">SPL2STMF - usage</A> also.)</P>
+<HR width="100%">
+<PRE>                          Convert TIFF to PDF (TIFF2PDF)
+
+ Type choices, press Enter.
+
+ TIFF path name . . . . . . . . . TIFF         &gt; <U>
+                    </U>
+ PDF path name  . . . . . . . . . PDF          &gt; <U>
+                    </U>
+ Standard paper size  . . . . . . PAPERSIZE      <U>*A4    </U>
+ Paper orientation  . . . . . . . ORIENTAT       <U>*H</U>
+ Print margin (mm)  . . . . . . . MARGIN         <U>10     </U>
+</PRE>
+<HR width="100%">
+<PRE>                 Convert TIFF to PDF (TIFF2PDF) - Help
+
+    The TIFF2PDF command allows you to convert TIFF (Tagged Information
+    File Format) to PDF (Portable Document Format). TIFF image is
+    automatically scaled to fit to the paper size.
+
+    Restrictions:
+
+     O  Supports CCITT G4 compressed TIFF file only.
+
+     O  Only one TIFF file can be specified. To cope with multiple page
+        document, use &quot;multi-page&quot; TIFF.
+
+     O  Page size is not accurete because of conversion between unit
+        systems.  (mm, inch, point, dpi...)
+
+    Specification:
+
+
+    This command supports paper size below:
+
+       Name    Size(mm)  Size(inch)
+      ------ ----------- ----------
+      A3      297 x 420
+      A4      210 x 297
+      A5      148 x 210
+      B4      250 x 353
+      B4JIS   257 x 364
+      B5      176 x 250
+      B5JIS   182 x 257
+      LETTER              8.5 x 11
+      LEGAL               8.5 x 14
+      LEDGER             11.0 x 17
+      user defined (mm) -&gt; (28 to 841) x (40 to 1189)
+      margin (mm) -&gt; 0 to 1000
+
+        Note :  Do not precede an entry with an asterisk unless that
+        entry is a &quot;special value&quot; that is shown (on the display or in
+        the help information) with an asterisk.
+
+Error messages for TIFF2PDF
+
+    <U>*ESCAPE Messages</U>
+    CPF9897     Command failed.
+
+TIFF file (TIFF)
+
+    Specifies input TIFF file (path) name.
+
+    This is a required parameter.
+
+PDF file (PDF)
+
+    Specifies output PDF file (path) name.
+
+    This is a required parameter.
+
+Paper size of output PDF file (PAPERSIZE)
+
+    <U>*A4</U>
+        Output paper size is A4.
+
+    *A3
+        Output paper size is A3.
+
+    *A5
+        Output paper size is A5.
+
+    *B4
+        Output paper size is B4.
+
+    *B4JIS
+        Output paper size is B4(Japanese standard size).
+
+    *B5
+        Output paper size is B5.
+
+    *B5JIS
+        Output paper size is B5(Japanese standard size).
+
+    *LETTER
+        Output paper size is LETTER, Traditional paper size used in
+        North America.
+
+    *LEGAL
+        Output paper size is LEGAL, Traditional paper size used in North
+        America.
+
+    *LEDGER
+        Output paper size is LEDGER, Traditional paper size used in
+        North America.
+
+    *USRDFN
+        Output paper size can be specified by &quot;USRSIZE&quot; parameter.
+
+User defined paper size (USRSIZE)
+
+    Specifies paper size in mm(milimeter).
+
+    <U>184</U>
+        Default value of width (shorter side, in vertical view) is 184mm
+        (approximately 7.25inch), can be used as &quot;Executive&quot; paper.
+
+    value_in_mm
+        Specifies paper size in mm(milimeter).
+
+    <U>267</U>
+        Default value of height (longer side, in vertical view) is 267mm
+        (approximately 10.5inch), can be used as &quot;Executive&quot; paper.
+
+    value_in_mm
+        Specifies paper size in mm(milimeter).
+
+Paper orientation (ORIENTAT)
+
+    Specifies orientation of output.
+
+    The possible values are:
+
+    <U>*H</U>
+        Horizontal (landscape) view.
+
+    *V
+        Vertical (portrait) view.
+
+Print margin (MARGIN)
+
+    Specifies the margin of the origin from the edge on the front side
+    of the paper.
+ </PRE>
+<HR width="100%">
+<P>[<A href="index.html">Home</A>]</P>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00682 : Re: RCVM problem compiling rcvmail.java</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00682 [Re: RCVM problem compiling rcvmail.java] </font>(posted by uzaemon)</b><br>
+( 1)   03/08/01 14:06   comment on <a href="00681.html">00681</a> 
+<HR>
+
+<br>
+Dave,<br>
+<br>
+> > javac -classpath .:./mail.jar:./mailapi.jar:./activation.jar:./jt400.jar:/QIBM/ProdData/Java400/jdk118/lib/classes.zip -deprecati<br>
+>   on rcvmail.java<br>
+>   rcvmail.java:8: Public class Rcvmail must be defined in a file called "Rcvmail.java".<br>
+>   public class Rcvmail<br>
+>   1 error<br>
+>   $<br>
+<br>
+Replace "rcvmail.java" with "Rcvmail.java". Here's my test on V4R5 (Japanese) machine.<br>
+<br>
+> cd /JavaMail<br>
+  $<br>
+> ls<br>
+  Charsetconv.class       Rcvmail.java              mail.jar<br>
+  Charsetconv.java       activation.jar<br>
+  Rcvmail.class              jt400.jar<br>
+  $<br>
+> rm Rcvmail.class<br>
+  $<br>
+> javac -classpath .:./mail.jar:./mailapi.jar:./activation.jar:./jt400.jar:/QIB<br>
+  M/ProdData/Java400/jdk118/lib/classes.zip -deprecation rcvmail.java<br>
+  rcvmail.java:8: Public class Rcvmail must be defined in a file called "Rcvmai<br>
+  l.java".<br>
+  public class Rcvmail {<br>
+               ^<br>
+  1 error<br>
+  $<br>
+> javac -classpath .:./mail.jar:./mailapi.jar:./activation.jar:./jt400.jar:/QIB<br>
+  M/ProdData/Java400/jdk118/lib/classes.zip -deprecation Rcvmail.java<br>
+  Rcvmail.java:57: Note: The constructor java.io.PrintStream(java.io.OutputStre<br>
+  am) has been deprecated.<br>
+          PrintStream consoleout = new PrintStream(new FileOutputStream(debugfi<br>
+  le, true));<br>
+                                   ^<br>
+  Note: Rcvmail.java uses a deprecated API.  Please consult the documentation f<br>
+  or a better alternative.<br>
+  2 warnings<br>
+<br>
+  $<br>
+> ls<br>
+  Charsetconv.class       Rcvmail.java              mail.jar<br>
+  Charsetconv.java       activation.jar<br>
+  Rcvmail.class              jt400.jar<br>
+  $<br>
+<br>
+<br>
+When I wrote the instruction, there were no ploblem so you may need Java PTF for your V4R5 machine. On V5R2, the same operation works just fine. Anyway, I'll correct the instruction for V4R5 JDK 1.1.8 in future.<br>
+<br>
+Try again and let me know the result.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

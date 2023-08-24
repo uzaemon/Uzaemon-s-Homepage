@@ -1,0 +1,219 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<TITLE>Installation</TITLE>
+</head>
+<body>
+
+<h2>
+Installation</h2>
+
+<ol>
+<li>
+Download <A href="zlib123.exe">zlib123.exe</A> and execute it on Windows95/98/NT to extract zlib.savf.</li>
+<li>
+Create save-file on your AS/400.</li>
+
+<li>
+Connect to the AS/400 using any FTP client software.</li>
+
+<li>
+Put the distribution (zlib.savf) to the save-file
+by binary mode.</li>
+
+<li>
+Restore library 'zlib ' from the save-file using RSTLIB command.</li>
+</ol>
+
+<h2>
+You should recompile the distribution!</h2>
+Library 'zlib' is modified and tested on V5R2. Just for your convenience,
+the distribution TGTRLS has been converted from V5R2 -&gt; V4R5-&gt; V3R2
+though I don't know if it works on V5R1 and earlier. To recompile the package,
+edit ZLIB/QREXSRC(MAKE) as you like.
+<blockquote><tt>0006.00 SAY &quot;    * * * * * * * * * * * * * * * * * * * * * * &quot;<BR>
+0007.00 SAY &quot; &quot;<BR>
+0008.00 /* SAY &quot;Input object library name.&quot;    */<BR>
+0009.00 /* PULL OLIB                           */<BR>
+0010.00 OLIB = 'ZLIB'<BR>
+0011.00 SAY &quot; &quot;<BR>
+0012.00 OUTPUT = '*PRINT'<BR>
+0013.00 /* OPTIMIZE = '10' */<BR>
+0014.00 OPTIMIZE = '<FONT color="#0000ff">40</FONT>'<BR>
+0015.00 /*DEBUG = '*ALL' */<BR>
+0016.00 DEBUG = '<FONT color="#0000ff">*NONE</FONT>'<BR>
+0017.00 SYSIFCOPT = '*IFSIO' <BR>
+0018.00 /* TGTRLS = 'V4R5M0' */<BR>
+0019.00 TGTRLS = '<FONT color="#0000ff">*CURRENT</FONT>'    <BR>
+</tt></blockquote>
+Run the rexx procedure to recompile modules, service programs and ILE-C
+programs.
+<blockquote><tt>&gt; CHGCURLIB CURLIB(ZLIB)<BR>
+&nbsp  Current library changed to ZLIB.<BR>
+&gt; STRREXPRC SRCMBR(MAKE) SRCFILE(ZLIB/QREXSRC)<BR>
+<BR>
+<BR>Start ZLIB compilation.<BR>
+ You must have authority to exec CRTCMOD and CRTPGM. <BR>
+<BR>
+&nbsp    * * * * * * * * * * * * * * * * * * * * * *<BR>
+<BR>
+<BR>
+Change JOBCCSID to 37 temporarily.<BR>
+Remember to set correct JOBCCSID after compilation if necessary.<BR>
+<BR>
+Start creating modules for ZLIB...<BR>
+&nbsp  creating module adler32...<BR>
+&nbsp  result-&gt; 0<BR>
+&nbsp  creating module compress...<BR>
+&nbsp  result-&gt; 0<BR>
+&nbsp  creating module crc32...<BR>
+&nbsp  result-&gt; 0<BR>
+<BR>
+<I>~~~~~~~~~~~~~~~~~~~~~~~ SNIP ~~~~~~~~~~~~~~~~~~~~~~~~~~~~</I><BR>
+creating CL module ZIPCLP...<BR>
+&nbsp  result-&gt; 0<BR>
+&nbsp  creating CL program ZIPCLP...<BR>
+&nbsp  result-&gt; 0<BR>
+&nbsp  creating PLNGRP for ZIP...<BR>
+&nbsp  result-&gt; 0<BR>
+&nbsp  creating OS/400 CMD for ZIP...<BR>
+&nbsp  result-&gt; 0<BR>
+<BR>
+Compile finished. Confirm error(s) if exists.<BR>
+<BR>
+Press ENTER to end terminal session.<BR>
+</tt>&nbsp;</blockquote>
+<h2>Object description.</h2>
+<BLOCKQUOTE>
+<H3>Objects for Qshell environment</H3>
+<TABLE border="1" cellspacing="0">
+  <TBODY>
+    <TR>
+      <TD bgcolor="#00cccc"><B>Object</B></TD>
+      <TD bgcolor="#00cccc"><B>Type</B></TD>
+      <TD bgcolor="#00cccc"><B>Attribute</B></TD>
+      <TD bgcolor="#00cccc"><B>Text</B></TD>
+    </TR>
+    <TR>
+      <TD>MINIUNZ</TD>
+      <TD>*PGM</TD>
+      <TD>CLE</TD>
+      <TD>miniunz for Qshell</TD>
+    </TR>
+    <TR>
+      <TD>MINIZIP</TD>
+      <TD>*PGM</TD>
+      <TD>CLE</TD>
+      <TD>minizip for Qshell</TD>
+    </TR>
+    <TR>
+      <TD>ZLIB</TD>
+      <TD>*SRVPGM</TD>
+      <TD>CLE</TD>
+      <TD>zlib 1.2.3 *SRVPGM for OS/400</TD>
+    </TR>
+    <TR>
+      <TD>/usr/bin/miniunz</TD>
+      <TD>*PGM</TD>
+      <TD>(symbolic link)</TD>
+      <TD>Object link to /qsys.lib/zlib.lib/miniunz.pgm</TD>
+    </TR>
+    <TR>
+      <TD>/usr/bin/minizip</TD>
+      <TD>*PGM</TD>
+      <TD>(symbolic link)</TD>
+      <TD>Object link to /qsys.lib/zlib.lib/minizip.pgm</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<H3>Objects for OS/400 environment</H3>
+<TABLE border="1" cellspacing="0">
+  <TBODY>
+    <TR>
+      <TD bgcolor="#00cccc"><B>Object</B></TD>
+      <TD bgcolor="#00cccc"><B>Type</B></TD>
+      <TD bgcolor="#00cccc"><B>Attribute</B></TD>
+      <TD bgcolor="#00cccc"><B>Text</B></TD>
+    </TR>
+    <TR>
+      <TD>MINIUNZ400</TD>
+      <TD>*PGM</TD>
+      <TD>CLE</TD>
+      <TD>miniunz for OS/400</TD>
+    </TR>
+    <TR>
+      <TD>MINIZIP400</TD>
+      <TD>*PGM</TD>
+      <TD>CLE</TD>
+      <TD>minizip for OS/400</TD>
+    </TR>
+    <TR>
+      <TD>ZLIB</TD>
+      <TD>*SRVPGM</TD>
+      <TD>CLE</TD>
+      <TD>zlib 1.2.3 *SRVPGM for OS/400</TD>
+    </TR>
+    <TR>
+      <TD>DSPZIPCLP</TD>
+      <TD>*PGM</TD>
+      <TD>CLLE</TD>
+      <TD>Front end to MiniUnz (list only) utility</TD>
+    </TR>
+    <TR>
+      <TD>UNZIPCLP</TD>
+      <TD>*PGM</TD>
+      <TD>CLLE</TD>
+      <TD>Front end to MiniZip (compress) utility</TD>
+    </TR>
+    <TR>
+      <TD>ZIPCLP</TD>
+      <TD>*PGM</TD>
+      <TD>CLLE</TD>
+      <TD>Front end to MiniUnz (decompress) utility</TD>
+    </TR>
+    <TR>
+      <TD>DSPZIP</TD>
+      <TD>*CMD</TD>
+      <TD>(N/A)</TD>
+      <TD>DSPZIP command</TD>
+    </TR>
+    <TR>
+      <TD>UNZIP</TD>
+      <TD>*CMD</TD>
+      <TD>(N/A)</TD>
+      <TD>UNZIP command</TD>
+    </TR>
+    <TR>
+      <TD>ZIP</TD>
+      <TD>*CMD</TD>
+      <TD>(N/A)</TD>
+      <TD>ZIP command</TD>
+    </TR>
+    <TR>
+      <TD>DSPZIPHLP</TD>
+      <TD>*PNLGRP</TD>
+      <TD>(N/A)</TD>
+      <TD>DSPZIP command help panel</TD>
+    </TR>
+    <TR>
+      <TD>UNZIPHLP</TD>
+      <TD>*PNLGRP</TD>
+      <TD>(N/A)</TD>
+      <TD>UNZIP command help panel</TD>
+    </TR>
+    <TR>
+      <TD>ZIPHLP</TD>
+      <TD>*PNLGRP</TD>
+      <TD>(N/A)</TD>
+      <TD>ZIP command help panel</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<P></P>
+<HR width="100%">
+<P>[<A href="index.html">Home</A>]</P>
+</body>
+</html>

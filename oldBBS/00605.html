@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00605 : Re: リストアするライブラリ名について</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00605 [Re: リストアするライブラリ名について] </font>(posted by uzaemon)</b><br>
+( 1)   03/05/21 21:59   comment on <a href="00602.html">00602</a> 
+<HR>
+
+<br>
+yyさん、<br>
+<br>
+> CRTCSVFのリストア先ライブラリはCSV、SNDMはSMTPとなっていますが、別の名前のライブラリにリストア(または上記ライブラリにリストア後にライブラリ名を変更)しても問題ないのでしょうか？<br>
+<br>
+REXXプロシージャー、"MAKE"でどのように指定しているかを見れば問題があるかないか判断できます。<br>
+<br>
+例えばSNDMコマンドは「コマンドを処理するプログラム」が*LIBL/SNDM で「ヘルプ・パネル・グループ」がSMTP/SNDM となっています。つまり、例えばライブラリー名を変えるとプログラムは(*LIBLにSNDMプログラムがあれば)動きますが、ヘルプが表示されなくなります(CSVも同様)。<br>
+<br>
+"MAKE"プロシージャーを編集するか、自分でコンパイルするか、あるいはCHGCMDでヘルプ・パネル・グループのライブラリーを変更すれば、普通のOS/400のプログラム同様に任意の名前のライブラリーに置くことは当然可能です。<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

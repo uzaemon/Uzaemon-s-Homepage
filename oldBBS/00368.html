@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00368 : AOL and Novell Clients</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00368 [AOL and Novell Clients] </font>(posted by Tim Swearingen)</b><br>
+( 1)   02/04/05 22:57
+<HR>
+
+<br>
+Uzaemon,<br>
+<br>
+I have found and fixed the problem w/ AOL clients not being able to download attachments.  I have also tested this w/ Novell clients as well.<br>
+<br>
+The problem is in the #GEN section where the "boundary" is built.  The string should have no spaces  ie..<br>
+<br>
+Current version outputs like this  boundary = '--Next_Part'<br>
+<br>
+It should be   boundary='--Next_Part'<br>
+<br>
+I have changed my version and it works quite well.<br>
+<br>
+Regards,<br>
+Tim Swearingen<br>
+</body></html>

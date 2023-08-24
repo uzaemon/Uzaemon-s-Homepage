@@ -1,0 +1,14 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00550 : Re: ZLib</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00550 [Re: ZLib] </font>(posted by Jaffa)</b><br>
+( 1)   03/01/08 22:35   comment on <a href="00549.html">00549</a> 
+<HR>
+
+<br>
+I've now been able to recompile with a new function that passes a negative windowBits (-15). But I'm still not able to produce a flate stream that works in PDF. The PDF works fine uncompressed. When compressing, I'm using a modified compress2 function that passes -15 to windowBits in deflateInit2 (other parameters set to default). I compress everything between stream and endstream, /Filter /FlateDecode is added and /Length is set to the length of compressed data between stream and endstream. Does anyone have an idea about what might be wrong? any help appriciated :)<br>
+</body></html>

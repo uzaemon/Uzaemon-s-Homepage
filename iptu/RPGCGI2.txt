@@ -1,0 +1,78 @@
+0001.00 FITEM      IF   E           K DISK
+0002.00  *
+0003.00 Dout              PR
+0004.00 D                              256    VALUE
+0005.00  * Prototype for getenv() API
+0006.00 Dgetenv           PR              *   EXTPROC('Qp0zGetEnvCCSID')
+0007.00 D                                 *   VALUE
+0008.00 D                                 *   VALUE
+0009.00  * Variables for getenv() API
+0010.00 Denvname          S             32
+0011.00 Denvccsid         S             10I 0
+0012.00 Dquery_string     S             10
+0013.00 Denv_p            S               *
+0014.00  * Prototype for fflush() API
+0015.00 Dfflush           PR            10I 0 EXTPROC('fflush')
+0016.00 D                                 *   VALUE
+0017.00  * Return code for APIs
+0018.00 Drc               S             10I 0
+0019.00  *
+0020.00 Dnl               C                   X'15'
+0021.00 Dnull             C                   X'00'
+0022.00  /EJECT
+0023.00  * Send HTTP/HTML header
+0024.00 C                   CALLP     out('Content-type: text/html' + nl + nl +
+0025.00 C                             '<HTML><HEAD><TITLE>Query Result ' +
+0026.00 C                             '(ILE-RPG CGI using C runtime)' +
+0027.00 C                             '</TITLE></HEAD><BODY>' + nl +
+0028.00 C                             '<CENTER><H1>Query Result<BR>(ILE-RPG CGI ' +
+0029.00 C                             'using C runtime)</H1><HR></CENTER>' + null)
+0030.00  * Read the Environment variable, QUERY_STRING
+0031.00 C                   EVAL      envname = 'QUERY_STRING' + null
+0032.00 C                   EVAL      env_p = getenv(%ADDR(envname) :
+0033.00 C                                            %ADDR(envccsid))
+0034.00  * Display error if QUERY_STRING is null
+0035.00 C                   IF        env_p = *NULL
+0036.00 C                   CALLP     out('<P><B><I><FONT SIZE=+2>Failed to get' +
+0037.00 C                                 ' envvar.</FONT></I></B></P>' + null)
+0038.00  * Extract key value
+0039.00 C                   ELSE
+0040.00 C                   EVAL      query_string = %STR(env_p)
+0041.00 C                   EVAL      ITNO = %SUBST(query_string : 5)
+0042.00  * Search database using key value
+0043.00 C     ITNO          CHAIN     ITEMR                              90
+0044.00  * Key not found
+0045.00 C                   IF        *IN90 = *ON
+0046.00 C                   CALLP     out('<P><B><I><FONT SIZE=+2>Item not' +
+0047.00 C                                 ' found. (KEY=' + %TRIMR(ITNO) +
+0048.00 C                                 ')</FONT></I></B></P>' + null)
+0049.00 C                   ELSE
+0050.00  * Display search result
+0051.00 C                   MOVE      ITDATE        datec            10
+0052.00 C                   CALLP     out('<PRE>'                   + nl +
+0053.00 C                             'Item number  : ' + ITNO      + nl +
+0054.00 C                             'category     : ' + ITCAT     + nl +
+0055.00 C                             'description  : ' + ITDESC    + nl +
+0056.00 C                             'unit price   : ' +
+0057.00 C                                       %TRIML(%EDITC(ITPRIC:'N')) + nl +
+0058.00 C                             'date         : ' + datec     + nl +
+0059.00 C                             '</PRE>' + null)
+0060.00 C                   ENDIF
+0061.00 C                   ENDIF
+0062.00  * HTML trailer
+0063.00 C                   CALLP     out('<A HREF="/iptu/chapter4/rpgcgi2.html"' +
+0064.00 C                             '>Return</A>' + nl + '</BODY></HTML>' + null)
+0065.00  *
+0066.00 C                   EVAL      rc = fflush(*NULL)
+0067.00 C                   SETON                                        LR
+0068.00  /EJECT
+0069.00 Pout              B
+0070.00 Dout              PI
+0071.00 D str                          256    VALUE
+0072.00  * Prototype for puts() API
+0073.00 Dputs             PR            10I 0 EXTPROC('puts')
+0074.00 D                                 *   VALUE
+0075.00  *
+0076.00 C                   EVAL      rc = puts(%ADDR(str))
+0077.00 C                   RETURN
+0078.00 Pout              E

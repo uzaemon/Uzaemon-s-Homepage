@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00379 : Re^3: How can i be sure that the email w</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00379 [Re^3: How can i be sure that the email w] </font>(posted by uzaemon)</b><br>
+( 1)   02/04/23 22:20   comment on <a href="00378.html">00378</a> 
+<HR>
+
+<br>
+Heni,<br>
+<br>
+> yes, the first thing. I use SNDM in a CL, an i want be sure that the email has been sent with no error.<br>
+<br>
+OK, below is a code snippet I'm using.<br>
+<br>
+-------------------------------------<br>
+/* Send mail */<br>
+SNDM       FROM('webmaster@somewhere' 'from AS400') +<br>
+             TO((&TOADDR)) FILE(&OBJLIB/&FILE) +<br>
+             MBR(&MAILBODY) SUBJECT(&SUBJECT) +<br>
+             ATTACHMENT(&PATH) SMTPHOST(&SMTPHOST)<br>
+MONMSG     MSGID(CPF9800) EXEC(GOTO CMDLBL(ERROR))<br>
+CHGVAR     VAR(&PSTR) VALUE(&HEADER |< '<BR><H2>Mail +<br>
+             sent.</H2>' |< &NULL)<br>
+CALLPRC    PRC('puts') PARM(&PSTR)<br>
+DEL        OBJLNK(&PATH)<br>
+GOTO       CMDLBL(EXIT)<br>
+<br>
+ERROR:<br>
+RCVMSG     MSGTYPE(*EXCP) MSG(&SNDM_MSG)<br>
+CHGVAR     VAR(&PSTR) VALUE(&HEADER |< '<H1>Failed to +<br>
+             send mail.</H1>message : ' || &SNDM_MSG +<br>
+             || &TRAILER)<br>
+CALLPRC    PRC('puts') PARM(&PSTR)<br>
+GOTO       CMDLBL(EXIT)<br>
+<br>
+EXIT:<br>
+-------------------------------------<br>
+<br>
+Hope this helps.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

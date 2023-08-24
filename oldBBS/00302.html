@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00302 : Re^5: SPL2STMF (AFP to PCL/TIFF?)</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00302 [Re^5: SPL2STMF (AFP to PCL/TIFF?)] </font>(posted by uzaemon)</b><br>
+( 1)   01/11/30 22:05   comment on <a href="00301.html">00301</a> 
+<HR>
+
+<br>
+Jesus,<br>
+<br>
+> In fact, I think these aren't PCL WSCSTs, they're HPT WSCSTs.<br>
+<br>
+There are WSCSTs which convert SCS/AFPDS to PCL. Run "WRKOBJPDM LIB(QSYS) OBJ(QWPHP*) OBJTYPE(*WSCST)" and you can find more than 10 WSCST which support HP printers.<br>
+<br>
+If you are still not sure, try followings and open the output file with any PCL viewer.<br>
+<br>
+| > WRKACTJOB OUTPUT(*PRINT)<br>
+| > ADDLIBLE LIB(HPT)<br>
+|   Library HPT added to library list.<br>
+| > SPL2STMF FILE(QPDSPAJB) TOSTMF('/tmp/qpdspajb.pcl') WSCST(QWPHPLSR2)<br>
+|   Stream file generated. execution time 0 min 0 sec, total pages = 6<br>
+<br>
+> I retrieved the sources for these WSCSTs using:<br>
+<br>
+You can find a line similar to "DATASTREAM = HPPCL5" in your source.<br>
+<br>
+>   Then I appended a translation table for EBCDIC (CP=37) to ASCII (CP=437), in order to convert some not commonlly used character (ｬ) to <esc> (1B HEX). This way the printer knows the following report's data is PCL code, i.e.: ｬ&l2a1o1e88f0Lｬ*p0x0Yｬ&l1e8Dｬ(12Uｬ(s0p20h6v0s1b6Tｬ&k6Hｬ&l6.4C<br>
+<br>
+Those strings are simply translated from EBCDIC to ASCII by your WSCST and sent to HP printers. Only HP (or PCL-capable) printers can interpret the string as meaningful data.<br>
+<br>
+> I tried SPL2STMF using my WSCSTs and both QWPTIFFxx and the result is allways the same, I can read the escape codes as text, overlapped with report's data and overlay.<br>
+<br>
+Yes, of course. QWPTIFFxx is designed to convert SCS/AFPDS to TIFF (I assume). Your "escape codes" are neither of them so should be interpreted as plain text.<br>
+<br>
+Please read documents at <a href="http://publib.boulder.ibm.com/html/as400/v5r1/ic2924/info/rzahgicprinting.htm" rel = "nofollow" target = "_blank">http://publib.boulder.ibm.com/html/as400/v5r1/ic2924/info/rzahgicprinting.htm</a> to understand how HPT and WSCST works.  Also, see "296. Re^3: SPL2STMF (AFP to PCL/TIFF?)" again and take appropriate solution for you.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+<br>
+<br>
+</body></html>

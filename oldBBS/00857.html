@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00857 : Re^3: RCVM: What does RTNCDE = 8 mean?</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00857 [Re^3: RCVM: What does RTNCDE = 8 mean?] </font>(posted by uzaemon)</b><br>
+( 1)   04/11/22 14:06   comment on <a href="00855.html">00855</a>   , # of comment(s) : 1
+<HR>
+
+Fred,<br>
+<br>
+> Thanks, that did help some. I had the developer get rid of special symbols in the attachment name and it is working now.<br>
+<br>
+Thank you for your feedback. Name of attachment-file is defined by following RFCs.<br>
+<br>
+- RFC 2183 (Content-Dispositon field)<br>
+- RFC 2045 (definition of parameter, value)<br>
+- RFC 2231 (non-ASCII, parameter longer or equal than 78 byte)<br>
+<br>
+In reality, few MUA (Mail client software) supports RFC 2231, instead, they use other encodings (ex. MIME or clear text). So I have not determined RCVM should implement this.<br>
+<br>
+For now, it is safe to use only ASCII characters as attachment-file name.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

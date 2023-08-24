@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00959 : Re^2: CRTCSVF (limitations)</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00959 [Re^2: CRTCSVF (limitations)] </font>(posted by John Buying)</b><br>
+( 1)   05/09/22 02:44   comment on <a href="00900.html">00900</a>   , # of comment(s) : 2
+<HR>
+
+Greetings,<br>
+Which field(s) should be changed from 32767 to 65535 so that the buffer would be doubled?  These are all the references to 32767 that I found.<br>
+<br>
+Dibuf             S          32767<br>
+Dobuf             S          32767<br>
+Drtvbuf           S          32767    BASED(spc_ptr)<br>
+C                   PARM      32767         spc_size<br>
+<br>
+tia,<br>
+<br>
+<br>
+<br>
+> Debra,<br>
+><br>
+> > I have downloaded and tested your CRTCSVF utility and found it to be exactly what I need ... with two exceptions.<br>
+> > 1.  I have a file that is 105 fields and you state that your utility will only work with 100 field.<br>
+> > 2.  Your utility will not add to a stream file, only replace.<br>
+> ><br>
+> > I am writing to confirm that these two points are still correct and have not been changed.<br>
+><br>
+> Yes, you are correct.<br>
+><br>
+> For limitation 1 (100 fields), it can be doubled by increasing buffer size from 32767 to 65535. For limitation 2, you may use QSHELL cat command to concat stream files, for example,<br>
+><br>
+> > cat /tmp/a.csv<br>
+>   1st a.csv<br>
+>   2nd b.csv<br>
+>   $<br>
+> > cat /tmp/b.csv<br>
+>   3rd b.csv<br>
+>   4th b.csv<br>
+>   $<br>
+> > touch -C 819 /tmp/c.csv<br>
+>   $<br>
+> > cat /tmp/a.csv /tmp/b.csv > /tmp/c.csv<br>
+>   $<br>
+> > cat /tmp/c.csv<br>
+>   1st a.csv<br>
+>   2nd b.csv<br>
+>   3rd b.csv<br>
+>   4th b.csv<br>
+>   $<br>
+><br>
+> Hope this helps.<br>
+><br>
+> uzaemon@Japan<br>
+<br>
+</body></html>

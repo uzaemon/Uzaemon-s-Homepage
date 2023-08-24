@@ -1,0 +1,79 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=x-sjis">
+<meta name="Author" content="Name">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>analog_usage</title>
+</head>
+
+<body>
+
+<h2>Using Analog-4.11 on your AS/400</h2>
+
+<hr>
+
+<h3>Running Analog as standalone program</h3>
+
+<p>You can call program 'ANALOG' directly with configuration
+commands('+C???'), for example;</p>
+
+<blockquote>
+    <pre>&gt; CALL PGM(ANALOG/ANALOG) PARM('+COUTPUT ASCII' '+COUTFILE /qsys.lib/analog
+  .lib/report.file/report2.mbr')</pre>
+</blockquote>
+
+<p>will write ASCII access report to source physical file
+'ANALOG/REPORT(REPORT2)'.</p>
+
+<hr>
+
+<h3>Running Analog from browser (form interface)</h3>
+
+<p>To use Analog form interface, you have to install 'Perl for
+AS/400'. Click <a href="perl_install.html">here</a> for perl
+install instruction.</p>
+
+<p>Confirm that your HTTP configuration has following directives
+using WRKHTTPCFG command or browser configuration:</p>
+
+<blockquote>
+    <p><font size="2" face="‚l‚r ƒSƒVƒbƒN">Enable POST<br>
+    Exec /ana/* /QSYS.LIB/ANALOG.LIB/* %%EBCDIC%%<br>
+    Pass /analog/*<br>
+    AccessLog /analog/logs/ACCESSLOG.log 100000</font></p>
+</blockquote>
+
+<p>Access to Analog form interface page at 'http://<i>(your_server_name)(:port_number)</i>/analog/anlgform.html'.
+</p>
+
+<hr>
+
+<h2>Note</h2>
+
+<ul>
+    <li><b>Know problems/limitations</b></li>
+</ul>
+
+<blockquote>
+    <p>You cannot use non ISO-8859-1(codepage 819) languages for
+    'LANGUAGE' command. If you specify DBCS language (such as
+    Japanese), you'll see gabage.<br>
+    <br>
+    I've not tested all functionalities of Analog. See readme
+    file at http://<i>(your_server_name)(:port_number)</i>/analog/docs/readme.html</p>
+</blockquote>
+
+<ul>
+    <li><b>Check out </b><a href="http://www.analog.cx/"><b>Official
+        Analog Home Page</b></a><b> for up to date info.</b> </li>
+</ul>
+
+<p>&nbsp; </p>
+
+<hr>
+
+<p>[<a href="index.html">Home</a>]</p>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00743 : Re^3: SNDMのSubject (64→128byteに)</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00743 [Re^3: SNDMのSubject (64→128byteに)] </font>(posted by uzaemon)</b><br>
+( 1)   03/11/27 16:59   comment on <a href="00741.html">00741</a>   , # of comment(s) : 1
+<HR>
+
+pecoさん、<br>
+<br>
+> Bエンコードによるメールヘッダーの文字列長の増加に配慮の部分がよく分かりません。<br>
+> QRPGSRCのメンバーSNDMのD仕様書に「'B' encode for DBCS mail header」と記述されている部分があったので、ascii。newbufの桁数を変更してみましたが、リコンパイル後、実行するとうまくうごきませんでした。<br>
+> 'B' encodeのロジック(?)がメンバー#PROCの中にもあったので、sndmと同様の長さに変更してみても変わりませんした。<br>
+<br>
+メールヘッダーのBエンコードはRFC2047等を参照してください。例えば「これは長いメールヘッダーです。 test 送信されます。 2003/11/27」というテキストは下記の様に変換されます。<br>
+<br>
+=?ISO-2022-JP?B?GyRCJDMkbCRPRDkkJCVhITwlayVYJUMlQCE8JEckOSEjGyhK?=<br>
+ =?ISO-2022-JP?B?dGVzdBskQkF3Py4kNSRsJF4kOSEjGyhKMjAwMy8xMS8yNxsoQg==?=<br>
+<br>
+この様に元の文字列に対して変換後の文字列ははるかに長くなりますので、充分なバッファー長を取っておく必要があります。どう「うまくうご」かないのか記載されていませんが、Bエンコードの部分は複雑な処理をしていますので、最初は触らない方が良いでしょう。まずは単純にBエンコード前のメール・ヘッダーの長さ部分のみを長くして試してみてはいかがでしょうか。<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

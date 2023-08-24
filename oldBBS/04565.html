@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 04565 : Re: Problem on  V5R4 TIFF2PDF</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>04565 [Re: Problem on  V5R4 TIFF2PDF] </font>(posted by uzaemon)</b><br>
+( 1)   07/04/17 22:18   comment on <a href="04494.html">04494</a> 
+<HR>
+
+<br>
+> Dear Uzaemon, recently i passed my Iseries on V5R4 release and from that moment your utility don't run correctly. The PDF files generated results damaged.<br>
+> I read the post 1658 and seems to be the same problem but i don't understand the solution.<br>
+<br>
+ennio,<br>
+<br>
+IBM has changed the default behavior of C runtime functions. For detail, see "Memo to users" (<a href="http://publib.boulder.ibm.com/infocenter/iseries/v5r4/topic/rzaq9/rzaq9.pdf" rel = "nofollow" target = "_blank">http://publib.boulder.ibm.com/infocenter/iseries/v5r4/topic/rzaq9/rzaq9.pdf</a>), Page 12, "QLOCALE system value set to default locale during installation" and page 534 of "WebSphere Development Studio: ILE C/C++ Programmer's Guide" (<a href="http://publib.boulder.ibm.com/infocenter/iseries/v5r4/topic/books/sc092712.pdf" rel = "nofollow" target = "_blank">http://publib.boulder.ibm.com/infocenter/iseries/v5r4/topic/books/sc092712.pdf</a>). As a result, period is translated to comma in some circumstances as follows :<br>
+<br>
+(*LIBL/QCSRC.LOCALE)<br>
+#include <stdio.h><br>
+char buffer[10];<br>
+<br>
+int main(void)<br>
+{<br>
+  sprintf(buffer, "%f\n", 123.45678);<br>
+  printf("value = %s\n", buffer);<br>
+}<br>
+<br>
+> CRTBNDC PGM(LOCALE)<br>
+> CHGUSRPRF USRPRF(A) LOCALE('/qsys.lib/fr_fr.locale')<br>
+<br>
+Open another 5250 session and sign-on as user A.<br>
+<br>
+> call locale<br>
+<br>
+ value = 123,456780<br>
+<br>
+----------<br>
+<br>
+Having that said, there are several ways to fix this problem.<br>
+<br>
+1) Compile the C modules specifying LOCALETYPE(*CLD).<br>
+<br>
+2) Specify other locale for USRPRF, e.g., exec CHGUSRPRF USRPRF(A) LOCALE(*C). Other locales such as POSIX, EN_US, *NONE may also work.<br>
+<br>
+3) Set locale explicitly in C program.<br>
+<br>
+Add a few lines to main().<br>
+<br>
+(*LIBL/QCSRC.LOCALE2)<br>
+#include <locale.h> //// Add<br>
+#include <stdio.h><br>
+char buffer[10];<br>
+<br>
+int main(void)<br>
+{<br>
+  setlocale(LC_ALL, "C"); //// Add<br>
+  sprintf(buffer, "%f\n", 123.45678);<br>
+  printf("value = %s\n", buffer);<br>
+}<br>
+<br>
+> CRTBNDC PGM(LOCALE2)<br>
+<br>
+For more information of the setlocale(), check out page 322 of "ILE C/C++ Run-Time Library Functions" (<a href="http://publib.boulder.ibm.com/infocenter/iseries/v5r4/topic/books/sc415607.pdf" rel = "nofollow" target = "_blank">http://publib.boulder.ibm.com/infocenter/iseries/v5r4/topic/books/sc415607.pdf</a>).<br>
+<br>
+There are other ways :<br>
+- Change system value QLOCALE<br>
+- Control the locale using environment variables<br>
+- Compile TIFF2PDF on V4R5 and earlier<br>
+<br>
+Try whichever you like and let me know the result.<br>
+Waiting for your feedback.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

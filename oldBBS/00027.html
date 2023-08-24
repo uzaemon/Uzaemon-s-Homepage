@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00027 : Re^3: tiff2pdf problem</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00027 [Re^3: tiff2pdf problem] </font>(posted by uzaemon)</b><br>
+( 1)   00/07/07 18:14   comment on <a href="00025.html">00025</a>   , # of comment(s) : 8
+<HR>
+
+<br>
+perel,<br>
+<br>
+>> 1. Is the TIFF file generated properly? Use Microsoft Imaging or any other image tool to check the TIFF image.<br>
+> I've check the image and the size is normal(A4).<br>
+<br>
+So doesn't the image shrink to small portion in bottom left corner when you display full image?<br>
+<br>
+>> 2. What version of OS/400 are you using? Older OS/400 (say, V4R2 or before) has may PTFs for HPT(Host Print Transform).<br>
+> I'm using V4R3. Do I need to apply some PTFs ??<br>
+<br>
+If the TIFF image is normal, no, you don't need PTF.<br>
+<br>
+>> 3. Does this happen to all AFP spool files? If you convert, for example WRKSYSSTS *PRINT, do you still see the same problem?<br>
+>  I test the *SCS spool file and it also fail. and the spool file just the compile list of the source code.<br>
+<br>
+I don't think you can convert *SCS to TIFF. First you need to exec 'OVRPRTF FILE(---) DEVTYPE(*AFPDS)' then produce AFP spool file (run compile, call print program, etc). Use WRKSPLF option-8 to confirm the spooled file has devtype-*AFPDS.<br>
+<br>
+>> 4. Did you specify WSCST(QWPTIFFG4) at SPL2STMF command? TIFF2PDF supports only TIFF-G4 format.<br>
+>  Yes. I convert the spool file to Tiff by wscst(QWPTIFFG4). But when I convert the .tiff file to .pdf, it shrink... What can I do then ??<br>
+<br>
+If you display/print the spool file from AFP viewer (shipped with CA Express) or AFP printer, do you see correct output?<br>
+<br>
+If above doesn't work, let me know exact procedure you are doing. I'll try the same thing using my AS/400.<br>
+<br>
+uzaemon @ Japan<br>
+<br>
+<br>
+</body></html>

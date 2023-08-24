@@ -1,0 +1,38 @@
+ 5722SS1 V5R2M0  020719                 Saved Object Information - Save File                     2/26/06 23:17:12        Page    1
+ Library saved  . . . :   ZLIB                  Release level  . . . :   V5R2M0
+ ASP  . . . . . . . . :   1                     Data compressed  . . :   No
+ Save file  . . . . . :   ZLIB                  Objects saved  . . . :   20
+   Library  . . . . . :     BACKUP              Access paths . . . . :   0
+ Records  . . . . . . :   18264
+ Save command . . . . :   SAVLIB
+ Save active  . . . . :   *NO
+ Save date/time . . . :   03/19/06   22:12:06
+ Object             Type     Attribute     Owner         Size (K)  Data   Member      Member      Member      Member      Member
+ ZLIB               *LIB     TEST          TCPIP               88  Yes
+ DSPZIPCLP          *PGM     CLLE          TCPIP              112  Yes
+ MINIUNZ            *PGM     CLE           TCPIP              572  Yes
+ MINIUNZ400         *PGM     CLE           TCPIP              580  Yes
+ MINIZIP            *PGM     CLE           TCPIP              500  Yes
+ MINIZIP400         *PGM     CLE           TCPIP              516  Yes
+ UNZIPCLP           *PGM     CLLE          TCPIP              140  Yes
+ ZIPCLP             *PGM     CLLE          TCPIP              148  Yes
+ ZLIB               *SRVPGM  CLE           TCPIP             2192  Yes
+ DSPZIP             *CMD                   TCPIP                8  Yes
+ UNZIP              *CMD                   TCPIP                8  Yes
+ ZIP                *CMD                   TCPIP                8  Yes
+ DSPZIPHLP          *PNLGRP                TCPIP                4  Yes
+ UNZIPHLP           *PNLGRP                TCPIP                8  Yes
+ ZIPHLP             *PNLGRP                TCPIP                8  Yes
+ H                  *FILE    PF            TCPIP             1092  Yes    CRC32       CRYPT       DEFLATE     INFFAST     INFFIXED
+                                                                          INFLATE     INFTREES    IOAPI       TREES       UNZIP
+                                                                          ZCONF       ZCONF.IN    ZIP         ZLIB        ZUTIL
+ QCLSRC             *FILE    PF            TCPIP               80  Yes    DSPZIPCLP   UNZIPCLP    ZIPCLP
+ QCMDSRC            *FILE    PF            TCPIP              136  Yes    DSPZIP      DSPZIPHLP   UNZIP       UNZIPHLP    ZIP
+                                                                          ZIPHLP
+ QCSRC              *FILE    PF            TCPIP             3252  Yes    ADLER32     CHANGELOG   CHANGELOGM  COMPRESS    CRC32
+                                                                          DEFLATE     EBCDIC      EXAMPLE     FAQ         GZIO
+                                                                          INDEX       INFBACK     INFFAST     INFLATE     INFTREES
+                                                                          IOAPI       MINIUNZ     MINIZIP     README      TREES
+                                                                          UNCOMPR     UNZIP       ZIP         ZUTIL
+ QREXSRC            *FILE    PF            TCPIP               40  Yes    MAKE
+                           * * * * *   E N D   O F   L I S T I N G   * * * * *

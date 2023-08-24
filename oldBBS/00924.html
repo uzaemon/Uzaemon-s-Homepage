@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00924 : Re^3: SPLTOPDF CPF3CF2 hptopt = 30</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00924 [Re^3: SPLTOPDF CPF3CF2 hptopt = 30] </font>(posted by Stijn Theunis)</b><br>
+( 1)   05/07/26 21:47   comment on <a href="00922.html">00922</a> 
+<HR>
+
+<br>
+Hello uzaemon<br>
+<br>
+Thanks for the quick Replay<br>
+<br>
+It's indeed a user defined WSCST.<br>
+1) Indeed SCS to PCL5<br>
+2) Yes (tested it with QWPDEFAULT)<br>
+3) No surely not on all spoolfiles ... for now, only on this example (a spoolfile of 767 pages)<br>
+<br>
+But I've changed now the program (see also other message I send:<br>
+<br>
+Possible solution:<br>
+added code:<br>
+C Eval QSPLPC = 'Y'<br>
+in subroutine: #HPT<br>
+Between line 361 and line 362<br>
+<br>
+Now it doesn't crash anymore<br>
+and the results looks OK<br>
+<br>
+But I'm of course not sure of it's allright what I'm doing now.<br>
+<br>
+Kind Regards,<br>
+Stijn<br>
+<br>
+<br>
+<br>
+> Stijn,<br>
+><br>
+> I have some questions.<br>
+><br>
+> 1. What is "LEXOPTRAN"? Is this a WSCST you created? If so, how do you want to convert? (e.g. SCS to PCL)<br>
+> 2. Does this problem happen with IBM supplied WSCSTs?<br>
+> 3. Does this problem happen on any spooled files? (Try to convert WRKACTJOB *PRINT, for example.)<br>
+><br>
+> Message CPF3CF2 means:<br>
+><br>
+> Message . . . . :   Error(s) occurred during running of &1 API.<br>
+> Cause . . . . . :   Call your service organization and report the problem.<br>
+>   Materials to accompany the problem are:<br>
+>     -- Job log of the failing API.<br>
+>     -- Actual parameters specified on the API.<br>
+><br>
+> As user-defined WSCST is not supported by IBM, you'd better try other WSCSTs in QSYS.<br>
+><br>
+> Waiting for your reply.<br>
+><br>
+> uzaemon@Japan<br>
+<br>
+</body></html>

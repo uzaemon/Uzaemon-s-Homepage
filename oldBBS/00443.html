@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00443 : Re: minizip in batch mode</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00443 [Re: minizip in batch mode] </font>(posted by uzaemon)</b><br>
+( 1)   02/07/27 01:42   comment on <a href="00440.html">00440</a>   , # of comment(s) : 4
+<HR>
+
+Rod,<br>
+<br>
+> I have been doing some testing of how minizip behaves in batch mode and it seems to cause a few problems.<br>
+> 1. no return code/message mechanism<br>
+> 2. uses fprint when in batch mode (ends up in qprint)<br>
+> 3. may use scanf for prompt input in batch mode (this actually causes big problems by filling up the spool file)<br>
+><br>
+> So, my question is do you have any suggestions for running this in batch mode? Maybe some of the other readers have got around this (made modifications etc)?<br>
+<br>
+You may create a small CL program which override STDOUT to (temporary) physical file before run MINIZIP. The PF will contain output from MINIZIP and you may examine the PF to check if the command was successful. Also specify '-o' option if you want to avoid file overwrite message.<br>
+<br>
+Of course you can modify the MINIZIP and create frontend CL program and command definition like TIFF2PDF.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+<br>
+<br>
+</body></html>

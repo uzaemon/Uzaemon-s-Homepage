@@ -1,0 +1,20 @@
+ 5722SS1 V5R2M0  020719                 Saved Object Information - Save File                     2/26/06 23:40:25        Page    1
+ Library saved  . . . :   SMTP                  Release level  . . . :   V3R2M0
+ ASP  . . . . . . . . :   1                     Data compressed  . . :   No
+ Save file  . . . . . :   SMTP                  Objects saved  . . . :   7
+   Library  . . . . . :     BACKUP32            Access paths . . . . :   0
+ Records  . . . . . . :   1369
+ Save command . . . . :   SAVLIB
+ Save active  . . . . :   *NO
+ Save date/time . . . :   03/15/06   19:43:06
+ Object             Type     Attribute     Owner         Size (K)  Data   Member      Member      Member      Member      Member
+ SMTP               *LIB     PROD          QDFTOWN             72  Yes
+ H                  *FILE    PF            QDFTOWN             72  Yes    UNIX        USER
+ LICENSE            *FILE    PF            QDFTOWN             48  Yes    COPYING     LICENSE
+ QCMDSRC            *FILE    PF            QDFTOWN             68  Yes    SNDM        SNDMHLP
+ QCSRC              *FILE    PF            QDFTOWN             36  Yes    TESTSMTP
+ QREXSRC            *FILE    PF            QDFTOWN             28  Yes    MAKE
+ QRPGLESRC          *FILE    PF            QDFTOWN            468  Yes    #CTDATA     #GEN        #INIT       #PROC       #SEND
+                                                                          CDATE       FD_         GETERRINFO  GETFILENAM  GETJOBINFO
+                                                                          GETPFINFO   PREPAREUS   SNDM        SNDPM
+                           * * * * *   E N D   O F   L I S T I N G   * * * * *

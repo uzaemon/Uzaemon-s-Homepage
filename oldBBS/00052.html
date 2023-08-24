@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00052 : Re^2: sndm: @ character in FROM string i</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00052 [Re^2: sndm: @ character in FROM string i] </font>(posted by uzaemon)</b><br>
+( 1)   00/08/18 10:58   comment on <a href="00051.html">00051</a>   , # of comment(s) : 6
+<HR>
+
+Fabian,<br>
+<br>
+Thank you for your mail to Deja.<br>
+<br>
+>the debug file is attached. it looks alright<br>
+>and the @ characters in it are ok, but are transfered<br>
+>as ｵ instead. (i use qmail as the smtp server)<br>
+<br>
+I see no poroblem in the log file. I tried same thing with CHGJOB CCSID(273) but everything worked fine.<br>
+<br>
+Please try followings and let me know the result.<br>
+<br>
+1. Take TCP/IP trace and confirm that '@' is sent as it is. Trace procedure is shown below.<br>
+<br>
+> STRCMNTRC CFGOBJ(EZTR1) CFGTYPE(*LIN) TEXT('SNDM trace 1')<br>
+> SNDM FROM('foo@nowhere' 'nobody') TO(('xxx@xxx.yyy.zzz' 'somebody')) FILE(SMTP/H) SUBJECT('Hello nobody') SMTPHOST(aaa.bbb.ccc) DEBUG(*YES)<br>
+> ENDCMNTRC CFGOBJ(EZTR1) CFGTYPE(*LIN)<br>
+> PRTCMNTRC CFGOBJ(EZTR1) CFGTYPE(*LIN) CODE(*ASCII) FMTTCP(*YES) TCPIPADR('server_IP_addr' 'client_IP_addr')<br>
+> DLTCMNTRC CFGOBJ(EZTR1) CFGTYPE(*LIN)<br>
+(check spooled file 'QPCSMPRT')<br>
+<br>
+2. If you have any other mail server, try it instead of qmail server.<br>
+<br>
+3. Exec CHGJOB CCSID(37) and run SNDM.<br>
+<br>
+4. Exec CHGJOB CCSID(37) and run make again, then send mail using SNDM.<br>
+<br>
+5. Are all '@' characters (From/to/body text) changed to 'mu'? Did you find any other character that had been changed?<br>
+<br>
+6. Can you send me a mail to mxa02134@nifty.ne.jp using SNDM?<br>
+<br>
+Waiting for your response.<br>
+<br>
+uzaemon @ Japan<br>
+<br>
+</body></html>

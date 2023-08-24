@@ -1,0 +1,98 @@
+ 5722SS1 V5R2M0  020719                 Saved Object Information - Save File                     2/26/06 23:26:05        Page    1
+ Library saved  . . . :   IPTULIB               Release level  . . . :   V5R2M0
+ ASP  . . . . . . . . :   1                     Data compressed  . . :   No
+ Save file  . . . . . :   IPTULIB               Objects saved  . . . :   63
+   Library  . . . . . :     BACKUP              Access paths . . . . :   0
+ Records  . . . . . . :   19544
+ Save command . . . . :   SAVLIB
+ Save active  . . . . :   *NO
+ Save date/time . . . :   03/05/06   17:28:07
+ Object             Type     Attribute     Owner         Size (K)  Data   Member      Member      Member      Member      Member
+ IPTULIB            *LIB     TEST          TCPIP              120  Yes
+ AFPPRT             *PGM     RPGLE         TCPIP              372  Yes
+ CBLCGI             *PGM     CBLLE         TCPIP              120  Yes
+ CCGI               *PGM     CLE           TCPIP               88  Yes
+ CGIDEV2            *PGM     RPGLE         TCPIP              240  Yes
+ COMPLEX_A          *PGM     RPGLE         TCPIP              352  Yes
+ COMPLEX_B          *PGM     RPGLE         TCPIP              332  Yes
+ COMPLEX_C          *PGM     RPGLE         TCPIP              328  Yes
+ COUNTPGM           *PGM     RPGLE         TCPIP              140  Yes
+ ENDHTTPA           *PGM     CLP           TCPIP               40  Yes
+ ENDHTTPO           *PGM     CLP           TCPIP               40  Yes
+ EXECPERL           *PGM     CLLE          TCPIP              108  Yes
+ GENXML             *PGM     RPGLE         TCPIP              256  Yes
+ GETCOOKIE          *PGM     RPGLE         TCPIP              132  Yes
+ ICONVTEST          *PGM     RPGLE         TCPIP              172  Yes
+ ITEMLIST           *PGM     RPGLE         TCPIP              144  Yes
+ LOGCONV            *PGM     RPGLE         TCPIP              204  Yes
+ OCCURR_A           *PGM     RPGLE         TCPIP              276  Yes
+ OCCURR_B           *PGM     RPGLE         TCPIP              248  Yes
+ OCCURR_C           *PGM     RPGLE         TCPIP              252  Yes
+ PATCHDBI           *PGM     CLP           TCPIP               40  Yes
+ QRYDST1            *PGM     CLLE          TCPIP               72  Yes
+ QRYDST2            *PGM     CLLE          TCPIP              104  Yes
+ RETRIEVAL          *PGM     CLLE          TCPIP              764  Yes
+ RPGCGI             *PGM     RPGLE         TCPIP              148  Yes
+ RPGCGI2            *PGM     RPGLE         TCPIP              152  Yes
+ SAVIPTU            *PGM     CLP           TCPIP               44  Yes
+ SETCOOKIE          *PGM     RPGLE         TCPIP              112  Yes
+ SMTPALIAS          *PGM     RPGLE         TCPIP              108  Yes
+ SOCKET_C           *PGM     RPGLE         TCPIP              196  Yes
+ SOCKET_S           *PGM     RPGLE         TCPIP              224  Yes
+ SRC2STMF           *PGM     RPGLE         TCPIP              128  Yes
+ STRHTTPA           *PGM     CLP           TCPIP               44  Yes
+ STRHTTPO           *PGM     CLP           TCPIP               40  Yes
+ WEB2MAIL1          *PGM     CLLE          TCPIP              168  Yes
+ WEB2MAIL2          *PGM     CLLE          TCPIP               96  Yes
+ WT                 *PGM     RPGLE         TCPIP              176  Yes
+ XML2DB             *PGM     RPGLE         TCPIP              732  Yes
+ AFPPRTF            *FILE    PRTF          TCPIP               12  Yes
+ TTPRTF             *FILE    PRTF          TCPIP                4  Yes
+ QR_ITEM            *QRYDFN  QRY           TCPIP               12  Yes
+ PSEG               *PAGSEG                TCPIP               40  Yes
+ QM_ITEM            *QMQRY   SQL           TCPIP                4  Yes
+ QF_ITEM            *QMFORM  QUERY MGR     TCPIP                4  Yes
+ TEXT               *WSCST                 TCPIP                4  Yes
+ CHAPTER1           *FILE    PF            TCPIP               20  Yes    TEST
+ CHAPTER2           *FILE    PF            TCPIP              276  Yes    CBLCGI      CCGI        CGIDEV2     CGII0100    CGII0200
+ 5722SS1 V5R2M0  020719                 Saved Object Information - Save File                     2/26/06 23:26:05        Page    2
+ Library saved  . . . :   IPTULIB               Release level  . . . :   V5R2M0
+ ASP  . . . . . . . . :   1                     Data compressed  . . :   No
+ Save file  . . . . . :   IPTULIB               Objects saved  . . . :   63
+   Library  . . . . . :     BACKUP              Access paths . . . . :   0
+ Records  . . . . . . :   19544
+ Save command . . . . :   SAVLIB
+ Save active  . . . . :   *NO
+ Save date/time . . . :   03/05/06   17:28:07
+ Object             Type     Attribute     Owner         Size (K)  Data   Member      Member      Member      Member      Member
+                                                                          COMPLEX     MAKECGI     MAKEOCC     OCCURR      PROTOTYPE
+                                                                          RPGCGI      UNQRYSTR
+ CHAPTER3           *FILE    PF            TCPIP               60  Yes    EXECPERL    HELLOWORLD  MAKEPERL
+ CHAPTER4           *FILE    PF            TCPIP              408  Yes    CMPAPIPFR   GENXML      ICONVPROTO  ICONVSUB    ICONVTEST
+                                                                          IFSPROTO    MAKECGI2    MAKECMPAPI  MAKESOCKET  MAKEXML
+                                                                          RPGCGI2     SOCKET      SOCKET_C    SOCKET_S    SRC2STMF
+                                                                          USER        USER2       XML2DB
+ CHAPTER5           *FILE    PF            TCPIP              140  Yes    LOGCONV     MAKEWT      MKTABLE     TEXT        TTPRTF
+                                                                          UNI         WT
+ CHAPTER6           *FILE    PF            TCPIP              200  Yes    CGIPARSE    ITEMLIST    MAKEROBOT   MAKEWEB2M   QRYDST1
+                                                                          QRYDST2     SMTPALIAS   WEB2MAILTX  WEB2MAIL1   WEB2MAIL2
+ CHAPTER7           *FILE    PF            TCPIP              400  Yes    AFPPROCS    AFPPROTO    AFPPRT      AFPPRTF     CATRPG
+                                                                          CHKDBRCD    COOKIE      COUNTPGM    GETCOOKIE   MAKEAFPRPT
+                                                                          MAKECOOKIE  MAKECOUNT   MAKERETR    QF_ITEM     QM_ITEM
+                                                                          QM_ITEM_AD  RETRIEVAL   SETCOOKIE   UNQNAM
+ HTMLSRC            *FILE    PF            TCPIP               28  Yes    CGIDEV2OUT
+ INI                *FILE    PF            TCPIP               20  Yes    DB2WWW
+ ITEM               *FILE    PF            TCPIP               76  Yes    ITEM
+ PERLDBI            *FILE    PF            TCPIP              332  Yes    DBDIMP.C    PATCHDBI
+ PSEGTFR            *FILE    PF            TCPIP              176  Yes    S
+ QATMHINSTC         *FILE    PF            TCPIP              312  Yes    IPTU_A1     IPTU_A2     IPTU_A21    IPTU_A31    IPTU_A32
+                                                                          IPTU_A33    IPTU_A4     IPTU_A5     IPTU_A6     IPTU_A7
+                                                                          IPTU_C1     IPTU_C2     IPTU_C21    IPTU_C32    IPTU_C33
+                                                                          IPTU_C4     IPTU_C5     IPTU_C6     IPTU_C7
+ QATMHTTPC          *FILE    PF            TCPIP              192  Yes    IPTU_C1     IPTU_C2     IPTU_C21    IPTU_C32    IPTU_C33
+                                                                          IPTU_C4     IPTU_C5     IPTU_C6     IPTU_C7
+ QCLSRC             *FILE    PF            TCPIP               88  Yes    ENDHTTPA    ENDHTTPO    SAVIPTU     STRHTTPA    STRHTTPO
+ QDDSSRC            *FILE    PF            TCPIP               20  Yes    ITEM
+ QTXTSRC            *FILE    PF            TCPIP               56  Yes    HOMEPAGE1   HOMEPAGE2   TEST
+ UNI                *FILE    PF            TCPIP               20  Yes    UNI
+                           * * * * *   E N D   O F   L I S T I N G   * * * * *

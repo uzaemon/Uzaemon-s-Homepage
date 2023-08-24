@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00156 : Re: FYI</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00156 [Re: FYI] </font>(posted by uzaemon)</b><br>
+( 1)   01/04/09 18:17   comment on <a href="00151.html">00151</a> 
+<HR>
+
+<br>
+Traceroute now works on my V4R5. I tried older version (<a href="http://www.ediconsulting.com/download.html" rel = "nofollow" target = "_blank">http://www.ediconsulting.com/download.html</a>) / newer version (<a href="http://www.unitessile.it/ced400/tracertu.zip" rel = "nofollow" target = "_blank">http://www.unitessile.it/ced400/tracertu.zip</a>) and both worked fine.<br>
+<br>
+If you encounter the same problem, you need to apply the following PTF.<br>
+<br>
+- V4R4M0 : MF23973<br>
+- V4R5M0 : MF25278<br>
+<br>
+I found this information at "NEWS/400" web site.<br>
+> <a href="http://www.as400network.com/" rel = "nofollow" target = "_blank">http://www.as400network.com/</a>  -> click "Tech Resources" button at upper right.<br>
+> <a href="http://www.as400network.com/resources/" rel = "nofollow" target = "_blank">http://www.as400network.com/resources/</a> -> click "Tips/Tech Community" at left pane.<br>
+> <a href="http://www.as400network.com/Resources/ClubTech/TNT400/" rel = "nofollow" target = "_blank">http://www.as400network.com/Resources/ClubTech/TNT400/</a> -> look for "Networking (TCP/IP and network security)" and click the link.<br>
+> <a href="http://www.as400network.com/Forums/Index.cfm?cfapp=57" rel = "nofollow" target = "_blank">http://www.as400network.com/Forums/Index.cfm?cfapp=57</a> -> click "Search" at the top.<br>
+> Query: [traceroute] and press search button<br>
+> You'll find some messages regarding traceroute.<br>
+<br>
+For detail PTF description, access <a href="http://as400service.ibm.com/" rel = "nofollow" target = "_blank">http://as400service.ibm.com/</a> and follow the links.<br>
+> PTF Cover Letters Database<br>
+> V4R5 PTF Cover Letters<br>
+> Search<br>
+> Search for the following word(s): [traceroute]<br>
+> You'll find "MF25278 V4R5M0   LIC-COMM-TCPIP RAW SOCKETS IP PROTOCOL 0 INSTEAD OF UDP" (<a href="http://as400service.ibm.com/a_dir/as4ptf.nsf/c986a4d27be19c048625690d0045408a/bc33c781c7834a098625697a00476ef0?OpenDocument&Highlight=2,MF25278" rel = "nofollow" target = "_blank">http://as400service.ibm.com/a_dir/as4ptf.nsf/c986a4d27be19c048625690d0045408a/bc33c781c7834a098625697a00476ef0?OpenDocument&Highlight=2,MF25278</a>)<br>
+<br>
+| DESCRIPTION OF PROBLEM FIXED FOR APAR MA21503 :<br>
+| -----------------------------------------------<br>
+|   Customer has traceroute application that runs fine on V4R3. He<br>
+|   upgraded to V4R4 and recompiled the program. now traceroute<br>
+|   application does not work.<br>
+|   Commtrace for V4R3 shows packet being sent out with IP protocol<br>
+|   field of 17 for UDP. Commtrace for V4R4 shows packet being sent<br>
+|   out with IP protocol field of 0. The formatted part of trace<br>
+|   shows protocol field  'Reserved'.<br>
+|<br>
+| CORRECTION FOR APAR MA21503 :<br>
+| -----------------------------<br>
+|   v4r4 raw code does not initialize values for header options.<br>
+|   Raw applications that don't complete IP header won't work<br>
+<br>
+uzaemon @ Japan<br>
+<br>
+</body></html>

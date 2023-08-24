@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00221 : Re^5: output file with CRTCSVF</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00221 [Re^5: output file with CRTCSVF] </font>(posted by uzaemon)</b><br>
+( 1)   01/08/23 13:14   comment on <a href="00220.html">00220</a> 
+<HR>
+
+<br>
+Mike,<br>
+<br>
+> - This caracter ";" is use in french literatur not in database.<br>
+<br>
+Do you mean french people cannot input ';' from their 5250 terminal (codepage 297, I assume)?<br>
+<br>
+> How I can disable the option doublequote to have the same format as above.<br>
+> edede;frfr;frfr;eded;1212;1212<br>
+<br>
+Double quote is necessary to canonical CSV file (IMHO) so I don't have a plan to add a function to "disable the option doublequote" for now. However you can create your own CRTCSVF by yourself as I stated in previous message "217. Re: output file with CRTCSVF".<br>
+<br>
+For example, you may change the default value of  variable "quote" in line 182 of CSV/SOURCE(CRTCSVF) to space (X'40'). Or change to control character (such as X'01') and remove the character before write to output stream file. Remember to comment out line 760 ~ 773 to avoid side effect.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

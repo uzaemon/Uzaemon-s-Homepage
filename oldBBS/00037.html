@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00037 : Re^8: works fine in my AS/400...</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00037 [Re^8: works fine in my AS/400...] </font>(posted by uzaemon)</b><br>
+( 1)   00/07/16 14:04   comment on <a href="00032.html">00032</a> 
+<HR>
+
+<br>
+perel,<br>
+<br>
+Thanks for sending me a mail and files.<br>
+<br>
+First, I see no problem with your TIFF file, WRKSTS.TIFF (though lines are folded to the same line because page width of printer file had not been set to enough size, I guess).<br>
+<br>
+Second, I loaded your PDF file (WRKSTS.PDF) and only see blank page on my Acrobat reader (Acrobat Exchange 3.01J). Appearently something wrong with the PDF file.<br>
+<br>
+Thirdly, I ran TIFF2PDF and create WRKSTS2.PDF on my AS/400(V4R4,Cum-TL00049) from WRKSTS.TIFF and it worked just fine. You can see my PDF at <a href="http://homepage1.nifty.com/uzaemon/wrksts2.pdf" rel = "nofollow" target = "_blank">http://homepage1.nifty.com/uzaemon/wrksts2.pdf</a><br>
+<br>
+Then I took 'diff' between WRKSTS.PDF(yours) and WRKSTS2.PDF(mine). There are about 10 differences but the essential difference is here.<br>
+<br>
+******** C:\My Documents\wrksts2.pdf 113<br>
+/Count 1 /Type /Pages /MediaBox [ 0 0 595 842 ]<br>
+<br>
+-------- C:\My Documents\wrksts.pdf 113<br>
+/Count 1 /Type /Pages /MediaBox [ 0 0 -889710572 1096098590 ]<br>
+<br>
+In source code (TIFFLIB/TIFF2PDF.TIFF2PDFC), the line is described as follows.<br>
+<br>
+0528.00 j = sprintf(wbuf, " ] \n/Count %d /Type /Pages /MediaBox [ 0 0 %d %d ]\n>>\nendobj\n",<br>
+0529.00 dircount - 1, (int)A4W, (int)A4H ) ;<br>
+<br>
+'A4W' and 'A4H' are just constants and should be set as they are. I can not think of anything why they can be changed to abnormal value.<br>
+<br>
+0107.00 #define A4W 595.0<br>
+0108.00 #define A4H 842.0<br>
+<br>
+Please check followings:<br>
+<br>
+- If you have modified the source code, discard all changes and try again.<br>
+- If you have not, apply latest Cum-PTF to your AS/400.<br>
+- If you are not on V4R4, plan to install V4R4 (same as my test environment), or I cannot pursue this issue.<br>
+<br>
+Hope this helps.<br>
+<br>
+Uzeamon @ Japan<br>
+<br>
+<br>
+<br>
+<br>
+</body></html>

@@ -1,0 +1,19 @@
+ 5722SS1 V5R2M0  020719                 Saved Object Information - Save File                     2/26/06 23:17:07        Page    1
+ Library saved  . . . :   HPT                   Release level  . . . :   V5R2M0
+ ASP  . . . . . . . . :   1                     Data compressed  . . :   No
+ Save file  . . . . . :   HPT                   Objects saved  . . . :   8
+   Library  . . . . . :     BACKUP              Access paths . . . . :   0
+ Records  . . . . . . :   1768
+ Save command . . . . :   SAVLIB
+ Save active  . . . . :   *NO
+ Save date/time . . . :   03/19/06   22:12:05
+ Object             Type     Attribute     Owner         Size (K)  Data   Member      Member      Member      Member      Member
+ HPT                *LIB     TEST          TCPIP               72  Yes
+ SPL2STMFRP         *PGM     RPGLE         TCPIP              612  Yes
+ SPL2STMF           *CMD                   TCPIP                8  Yes
+ SPL2STMFHL         *PNLGRP                TCPIP               12  Yes
+ TEXT               *WSCST                 TCPIP                4  Yes
+ LICENSE            *FILE    PF            TCPIP               56  Yes    COPYING     LICENSE
+ SOURCE             *FILE    PF            TCPIP              156  Yes    MAKE        SPL2STMF    SPL2STMFHL  SPL2STMFRP
+ WSCST              *FILE    PF            TCPIP               40  Yes    TEXT        TIFF_G4
+                           * * * * *   E N D   O F   L I S T I N G   * * * * *

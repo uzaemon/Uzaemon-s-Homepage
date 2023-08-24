@@ -1,0 +1,19 @@
+ 5722SS1 V5R2M0  020719                 Saved Object Information - Save File                     2/26/06 23:17:07        Page    1
+ Library saved  . . . :   CSV                   Release level  . . . :   V5R2M0
+ ASP  . . . . . . . . :   1                     Data compressed  . . :   No
+ Save file  . . . . . :   CSV                   Objects saved  . . . :   7
+   Library  . . . . . :     BACKUP              Access paths . . . . :   0
+ Records  . . . . . . :   1832
+ Save command . . . . :   SAVLIB
+ Save active  . . . . :   *NO
+ Save date/time . . . :   03/19/06   22:12:04
+ Object             Type     Attribute     Owner         Size (K)  Data   Member      Member      Member      Member      Member
+ CSV                *LIB     PROD          TCPIP               72  Yes
+ CRTCSVFCLP         *PGM     CLP           TCPIP               48  Yes
+ CRTCSVFRPG         *PGM     RPGLE         TCPIP              540  Yes
+ CRTCSVF            *CMD                   TCPIP                4  Yes
+ CRTCSVFHLP         *PNLGRP                TCPIP               20  Yes
+ LICENSE            *FILE    PF            TCPIP               56  Yes    COPYING     LICENSE
+ SOURCE             *FILE    PF            TCPIP              248  Yes    BENCH       CRTCSVF     CRTCSVFCLP  CRTCSVFHLP  CRTCSVFRPG
+                                                                          MAKE
+                           * * * * *   E N D   O F   L I S T I N G   * * * * *

@@ -1,0 +1,50 @@
+ 5722SS1 V5R2M0  020719                 Saved Object Information - Save File                     2/26/06 23:34:17        Page    1
+ Library saved  . . . :   IPTULIB               Release level  . . . :   V4R3M0
+ ASP  . . . . . . . . :   1                     Data compressed  . . :   No
+ Save file  . . . . . :   IPTULIB               Objects saved  . . . :   25
+   Library  . . . . . :     BACKUP43            Access paths . . . . :   0
+ Records  . . . . . . :   4784
+ Save command . . . . :   SAVLIB
+ Save active  . . . . :   *NO
+ Save date/time . . . :   03/15/06   19:16:55
+ Object             Type     Attribute     Owner         Size (K)  Data   Member      Member      Member      Member      Member
+ IPTULIB            *LIB     TEST          QDFTOWN             88  Yes
+ AFPPRTF            *FILE    PRTF          QDFTOWN             12  Yes
+ QR_ITEM            *QRYDFN  QRY           QDFTOWN             12  Yes
+ PSEG               *PAGSEG                QDFTOWN             40  Yes
+ QM_ITEM            *QMQRY   SQL           QDFTOWN              4  Yes
+ QF_ITEM            *QMFORM  QUERY MGR     QDFTOWN              4  Yes
+ TEXT               *WSCST                 QDFTOWN              4  Yes
+ CHAPTER1           *FILE    PF            QDFTOWN             16  Yes    TEST
+ CHAPTER2           *FILE    PF            QDFTOWN            232  Yes    CBLCGI      CCGI        CGIDEV2     CGII0100    CGII0200
+                                                                          COMPLEX     MAKECGI     MAKEOCC     OCCURR      PROTOTYPE
+                                                                          RPGCGI      UNQRYSTR
+ CHAPTER3           *FILE    PF            QDFTOWN             52  Yes    EXECPERL    HELLOWORLD  MAKEPERL
+ CHAPTER4           *FILE    PF            QDFTOWN            352  Yes    CMPAPIPFR   GENXML      ICONVPROTO  ICONVSUB    ICONVTEST
+                                                                          IFSPROTO    MAKECGI2    MAKECMPAPI  MAKESOCKET  MAKEXML
+                                                                          RPGCGI2     SOCKET      SOCKET_C    SOCKET_S    SRC2STMF
+                                                                          USER        USER2       XML2DB
+ CHAPTER5           *FILE    PF            QDFTOWN            116  Yes    LOGCONV     MAKEWT      MKTABLE     TEXT        TTPRTF
+                                                                          UNI         WT
+ CHAPTER6           *FILE    PF            QDFTOWN            164  Yes    CGIPARSE    ITEMLIST    MAKEROBOT   MAKEWEB2M   QRYDST1
+                                                                          QRYDST2     SMTPALIAS   WEB2MAILTX  WEB2MAIL1   WEB2MAIL2
+ CHAPTER7           *FILE    PF            QDFTOWN            336  Yes    AFPPROCS    AFPPROTO    AFPPRT      AFPPRTF     CATRPG
+                                                                          CHKDBRCD    COOKIE      COUNTPGM    GETCOOKIE   MAKEAFPRPT
+                                                                          MAKECOOKIE  MAKECOUNT   MAKERETR    QF_ITEM     QM_ITEM
+                                                                          QM_ITEM_AD  RETRIEVAL   SETCOOKIE   UNQNAM
+ HTMLSRC            *FILE    PF            QDFTOWN             24  Yes    CGIDEV2OUT
+ INI                *FILE    PF            QDFTOWN             16  Yes    DB2WWW
+ ITEM               *FILE    PF            QDFTOWN             76  Yes    ITEM
+ PERLDBI            *FILE    PF            QDFTOWN            324  Yes    DBDIMP.C    PATCHDBI
+ PSEGTFR            *FILE    PF            QDFTOWN            172  Yes    S
+ QATMHINSTC         *FILE    PF            QDFTOWN            236  Yes    IPTU_A1     IPTU_A2     IPTU_A21    IPTU_A31    IPTU_A32
+                                                                          IPTU_A33    IPTU_A4     IPTU_A5     IPTU_A6     IPTU_A7
+                                                                          IPTU_C1     IPTU_C2     IPTU_C21    IPTU_C32    IPTU_C33
+                                                                          IPTU_C4     IPTU_C5     IPTU_C6     IPTU_C7
+ QATMHTTPC          *FILE    PF            QDFTOWN            156  Yes    IPTU_C1     IPTU_C2     IPTU_C21    IPTU_C32    IPTU_C33
+                                                                          IPTU_C4     IPTU_C5     IPTU_C6     IPTU_C7
+ QCLSRC             *FILE    PF            QDFTOWN             68  Yes    ENDHTTPA    ENDHTTPO    SAVIPTU     STRHTTPA    STRHTTPO
+ QDDSSRC            *FILE    PF            QDFTOWN             16  Yes    ITEM
+ QTXTSRC            *FILE    PF            QDFTOWN             44  Yes    HOMEPAGE1   HOMEPAGE2   TEST
+ UNI                *FILE    PF            QDFTOWN             16  Yes    UNI
+                           * * * * *   E N D   O F   L I S T I N G   * * * * *

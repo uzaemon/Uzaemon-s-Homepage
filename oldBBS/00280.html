@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00280 : Re: sndm (Another "failed to initialize</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00280 [Re: sndm (Another "failed to initialize] </font>(posted by uzaemon)</b><br>
+( 1)   01/10/31 15:35   comment on <a href="00279.html">00279</a> 
+<HR>
+
+<br>
+Christian,<br>
+<br>
+> We use V4R4M0. We get the following Message:<br>
+> Command failed. reason -111 failed to initialize code conversion APi (CCSID 0000J->00819, 3021: The Argument for the value is not correct. We have CCSID 65535 and in the body_file information there is an Entry : File CCSID: -1<br>
+> The next Entry is File CCSID -1 may not valid, trying anyway.<br>
+> In Germany we have CCSID 65535.<br>
+<br>
+CCSID 65535 indicates the contents is not tagged to any language thus no conversion will take place.<br>
+<br>
+Have you read a message "272.  Re^3: SNDM: failed to initialize code conversion"? If so, you should know that there are circumventions.<br>
+<br>
+1. Specify DBFCCSID(*DFTJOBCCSID) or DBFCCSID(valid EBCDIC CCSID).<br>
+2. Create source physical file with vaild CCSID (not 65535) and specify the file for FILE parameter.<br>
+<br>
+In German, I assume that you are using 273 as default job CCSID.<br>
+<br>
+Try them and let me know the result.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

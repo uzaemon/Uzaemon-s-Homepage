@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00396 : Re: Analog ("OUTPUT COMPUTER")</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00396 [Re: Analog ("OUTPUT COMPUTER")] </font>(posted by uzaemon)</b><br>
+( 1)   02/05/16 21:37   comment on <a href="00393.html">00393</a>   , # of comment(s) : 1
+<HR>
+
+mike,<br>
+<br>
+> have you used Report Magic with Analog?<br>
+<br>
+No, I don't know anything about "Report Magic".<br>
+<br>
+> how do i get the AS/400 version to use the OUTPUT COMPUTER, so Report Magic can read it?<br>
+<br>
+See message "321. Re: Analog Output" in this BBS. Below is sample operation.<br>
+<br>
+> ADDLIBLE LIB(ANALOG)<br>
+  Library ANALOG added to library list.<br>
+> QSH CMD('touch -C 819 /tmp/computer.dat')<br>
+  Command ended normally with exit status 0.<br>
+> CALL PGM(ANALOG) PARM('+COUTPUT COMPUTER' '+COUTFILE /tmp/computer.dat')<br>
+> EDTF STMF('/tmp/computer.dat')<br>
+<br>
+CMD ....+....1....+....2....+....3....+....4....+<br>
+___  ************Beginning of data**************<br>
+___ x VE analog 4.11(modified)<br>
+___ x HN AS/400 system<br>
+___ x PS 2002 05 16 21 29<br>
+___ x FR 2000 06 14 11 26<br>
+___ x LR 2002 05 16 19 10<br>
+___ x E7 2002 05 16 21 29<br>
+___ x SR 130297<br>
+___ x S7 3232<br>
+___ x PR 2048<br>
+___ x P7 60<br>
+___ x FL 8976<br>
+~~~~~~SNIP~~~~~~<br>
+<br>
+Please let me know if it works well.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

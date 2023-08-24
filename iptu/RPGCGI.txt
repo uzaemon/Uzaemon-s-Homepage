@@ -1,0 +1,66 @@
+0001.00 FITEM      IF   E           K DISK
+0002.00  * Parameters for API 'QtmhGetEnv'
+0003.00 Denbuff           S           2048A   INZ
+0004.00 Denbuffln         S              9B 0 INZ(2048)
+0005.00 Denactln          S              9B 0 INZ
+0006.00 Denvarname        S             20A   INZ('QUERY_STRING')
+0007.00 Denvarln          S              9B 0 INZ(12)
+0008.00  * Parameters for API 'QtmhWrStout'
+0009.00 Dout              S           2048A   INZ
+0010.00 Doutln            S              9B 0 INZ(2048)
+0011.00  * EBCDIC New Line
+0012.00 Dnl               C                   X'15'
+0013.00  * User space error code
+0014.00  /COPY QSYSINC/QRPGLESRC,QUSEC
+0015.00  /EJECT
+0016.00  * Compose HTTP/html header
+0017.00 C                   EVAL      out = 'Content-type: text/html' + nl + nl +
+0018.00 C                              '<HTML><HEAD><TITLE>Query Result (RPG ' +
+0019.00 C                              'CGI)</TITLE></HEAD><BODY>' + nl +
+0020.00 C                              '<CENTER><H1>Query Result (RPG CGI)</H1>' +
+0021.00 C                              '<HR></CENTER>' + nl
+0022.00  * Read the Environment variable, QUERY_STRING
+0023.00 C                   CALLB     'QtmhGetEnv'
+0024.00 C                   PARM                    enbuff
+0025.00 C                   PARM                    enbuffln
+0026.00 C                   PARM                    enactln
+0027.00 C                   PARM                    envarname
+0028.00 C                   PARM                    envarln
+0029.00 C                   PARM                    QUSEC
+0030.00  *
+0031.00 C                   MOVE      '00000'       key               5
+0032.00 C                   EVAL      key = %SUBST(enbuff:5:5)
+0033.00  * Search database using key value
+0034.00 C     key           CHAIN     ITEMR                              90
+0035.00  * Key not found
+0036.00 C     *IN90         IFEQ      '1'
+0037.00 C                   EVAL      out = %TRIMR(out) + '<P><B><I>' +
+0038.00 C                              '<FONT SIZE=+2>Item not found. (KEY=' +
+0039.00 C                              key + ')' + '</FONT></I></B></P>' + nl
+0040.00  * Display search result
+0041.00 C                   ELSE
+0042.00 C                   MOVE      ITDATE        datec            10
+0043.00 C                   EVAL      out = %TRIMR(out) +
+0044.00 C                             '<PRE>'                       + nl +
+0045.00 C                             'Item number  : ' + ITNO      + nl +
+0046.00 C                             'category     : ' + ITCAT     + nl +
+0047.00 C                             'description  : ' + ITDESC    + nl +
+0048.00 C                             'unit price   : ' +
+0049.00 C                                       %TRIML(%EDITC(ITPRIC:'N')) + nl +
+0050.00 C                             'date         : ' + datec     + nl +
+0051.00 C                             '</PRE>'                      + nl
+0052.00 C                   ENDIF
+0053.00  * html trailer
+0054.00 C                   EVAL      out = %TRIMR(out) +
+0055.00 C                              '<A HREF="/iptu/chapter2/simplequery.html">'
+0056.00 C                              + 'Return</a>' + nl + '</BODY></html>' + nl
+0057.00  * write to stdout
+0058.00 C     ' '           CHECKR    out           outln
+0059.00  *
+0060.00 C                   CALLB     'QtmhWrStout'
+0061.00 C                   PARM                    out
+0062.00 C                   PARM                    outln
+0063.00 C                   PARM                    QUSEC
+0064.00  *
+0065.00 C                   SETON                                        LR
+0066.00 C                   RETURN

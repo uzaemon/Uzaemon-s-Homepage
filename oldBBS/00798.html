@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00798 : Re: SPL2STMF recieves CPF333B</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00798 [Re: SPL2STMF recieves CPF333B] </font>(posted by uzaemon)</b><br>
+( 1)   04/05/20 00:57   comment on <a href="00796.html">00796</a>   , # of comment(s) : 1
+<HR>
+
+Tim,<br>
+<br>
+> I'm having a little trouble getting your SPL2STMF command to work on my system.  The CPF333B error "Job system name is not valid." comes up but I'm not sure how to resolve it.  I've read the BBS entries from Trevor, and it appeared that you changed the SPL2STMF tool to handle V5R2 but it still doesn't work properly on my machine.  Can you point me in the right direction?<br>
+><br>
+> Thanks in advance,<br>
+> Tim<br>
+><br>
+><br>
+> SPL2STMF FILE(CR0310P2) TOSTMF('\home\spl2stmf') WSCST(QSYS/QWPDEFAULT) JOB(824886/TIMH/QPADEV0049) SPLNBR(2) DEBUG(*YES)<br>
+><br>
+> Stream file \home\spl2stmf removed.<br>
+> Job system name is not valid.<br>
+> Command failed. reason - API QwpzHostPrintTransform failed : CPF3CF2 hptopt = 20<br>
+><br>
+> I'm on a V5R2 system with up-to-date PTFs.<br>
+<br>
+It looks like IBM has added a few new "required" fields to HPT interface (See iSeries information center). I gonna take a look when I have time, but it will take some time because I'm currently so busy for my regular job.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

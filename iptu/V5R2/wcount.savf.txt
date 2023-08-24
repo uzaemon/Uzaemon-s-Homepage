@@ -1,0 +1,35 @@
+ 5722SS1 V5R2M0  020719                 Saved Object Information - Save File                     2/26/06 23:17:11        Page    1
+ Library saved  . . . :   WCOUNT                Release level  . . . :   V5R2M0
+ ASP  . . . . . . . . :   1                     Data compressed  . . :   No
+ Save file  . . . . . :   WCOUNT                Objects saved  . . . :   16
+   Library  . . . . . :     BACKUP              Access paths . . . . :   0
+ Records  . . . . . . :   22544
+ Save command . . . . :   SAVLIB
+ Save active  . . . . :   *NO
+ Save date/time . . . :   03/19/06   22:12:07
+ Object             Type     Attribute     Owner         Size (K)  Data   Member      Member      Member      Member      Member
+ WCOUNT             *LIB     TEST          TCPIP               88  Yes
+ COUNT              *PGM     CLE           TCPIP             3480  Yes
+ MKSTRIP            *PGM     CLE           TCPIP             3376  Yes
+ BIGPLUS            *FILE    PF            TCPIP               92  Yes    BIGPLUS
+ COMBINE            *FILE    PF            TCPIP             2148  Yes    ALLOCIM     ALPHAIM     COMPCMAP    COMPIMG     CRBASEI
+                                                                          CROPIM      DSTRAIMG    DUPLICIM    FLATTEN     FRAMEIM
+                                                                          GDFONTS     GETFINFO    GETSIZE     IMGSTR      LSBFWRS
+                                                                          LZWDEC      LZWENC      MODULATE    NEGATE      OPAQIM
+                                                                          QUANTIZE    RDDATA      READBLK     READGIF     READIM
+                                                                          RGBTRAN     ROTATE      SETPIXEL    SIGNATURE   SYNCIMG
+                                                                          TRANRGB     UNCMPIMG    UTILS_      WRITEGIF
+ CONFIG             *FILE    PF            TCPIP               28  Yes    COUNT.CFG
+ CONFIG_BAK         *FILE    PF            TCPIP               56  Yes    COUNT.CFG   COUNT.CFG2
+ DATA               *FILE    PF            TCPIP               40  Yes    EX.DAT      SAMPLE.DAT
+ H                  *FILE    PF            TCPIP              460  Yes    BIGPLUS     CDEBUG      COMBINE     CONFIG      COUNT
+                                                                          DEFINES     ERRCDS      GDFONTS     MCFG        NUMBER
+ LICENSE            *FILE    PF            TCPIP               40  Yes    COPYRIGHT   LICENSE
+ LOGS               *FILE    PF            TCPIP               20  Yes    LOG
+ MCFG               *FILE    PF            TCPIP              164  Yes    MCFG
+ QCLSRC             *FILE    PF            TCPIP               20  Yes    DEBUG
+ QREXSRC            *FILE    PF            TCPIP               64  Yes    MAKE        STRDUP
+ RGB                *FILE    PF            TCPIP               56  Yes    RGB
+ WCOUNT             *FILE    PF            TCPIP             1604  Yes    CFG         IMAGE       LLIST       MAIN        MKSTRIP
+                                                                          PARSE       RWDATA      SETGET      UTILS
+                           * * * * *   E N D   O F   L I S T I N G   * * * * *

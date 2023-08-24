@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00623 : Re^2: Supporting Cirilic...</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00623 [Re^2: Supporting Cirilic...] </font>(posted by Nicolas Machado)</b><br>
+( 1)   03/06/02 06:15   comment on <a href="00622.html">00622</a>   , # of comment(s) : 1
+<HR>
+
+Uzaemon,<br>
+> Nicolas,<br>
+><br>
+> > Hy I'm trying to change your source for supporting cirilic, all the secret is to translate from ccsid 1025 Or Job Ccsid, to the CCSID 1251.<br>
+> > The question is : can i use iconv_index ?? I think you use it for handle many iconv() instances, because of the Open, convert,close sequence of this treatment.<br>
+><br>
+> Just try. If iconv() does not support 1025 to 1251 conversion, SNDM (iconv_open()) will report error.<br>
+It works. I make some changes in the program, and It support 1025 to 1251.<br>
+<br>
+><br>
+> > Another procedure that I must read carefully is QEncode, I think that I can use it without any change, I only need that the source string be a 1025 CCSID hexas stream.<br>
+><br>
+> I don't know if Q-encoding is appropriate for Cirilic because it depends on language you use, in other words, common sense works here.<br>
+><br>
+> To handle Japanese (DBCS), B-encoding is used for header, and ISO-2022-JP charset without special encoding is used for body part. To handle ASCII and ISO-8859-1 languages (SBCS), Q-encoding is used for header, and quoted-printable is used for body part when necessary.<br>
+<br>
+><br>
+> > i'm mistaking something??<br>
+><br>
+> One suggestion. You should investigate and change header >information from "ISO-8859-1" to another charset which >supports Cirilic.<br>
+<br>
+Yes, I'm reading, RFC1345, and I believe that I must Use ISO-8859-5 to handle Cyrillic, but how did you code Qencode for translating un asterisc (*) into =2A ??.<br>
+In the RFC the Character table said that:<br>
+*      002a    ASTERISK<br>
+<br>
+and that:<br>
+E!     00c8    LATIN CAPITAL LETTER E WITH GRAVE<br>
+<br>
+And that exactly what I see, but what do I have to do if I need:<br>
+A=     0410    CYRILLIC CAPITAL LETTER A<br>
+<br>
+What must be write to the mime file, " =A= " ??<br>
+<br>
+<br>
+<br>
+><br>
+> Hope this helps.<br>
+><br>
+> uzaemon@Japan<br>
+<br>
+Best Regards.<br>
+Nicolas<br>
+</body></html>

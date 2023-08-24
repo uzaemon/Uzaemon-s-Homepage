@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00192 : Re: TIFFOpen: smtf.tif: Cannot open.</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00192 [Re: TIFFOpen: smtf.tif: Cannot open.] </font>(posted by uzaemon)</b><br>
+( 1)   01/05/30 11:00   comment on <a href="00191.html">00191</a>   , # of comment(s) : 1
+<HR>
+
+Eduardo,<br>
+<br>
+> When I execute the TIFF2PDF utility I receive the message " TIFFOpen: smtf.tif: Cannot open.". Why is the cause of the message?<br>
+<br>
+The message is sent from TIFFLIB/QCSRC(UNIX) line 148. It indicates open() at line 145 returned error.<br>
+<br>
+| 0145.00 fd = open(name, m, 0666);<br>
+<br>
+> May it be a problem with the CCSID?<br>
+<br>
+I don't think so, because TIFF is a binary format and CCSID has nothing to do with it. Still you can use CPY command to change the CCSID of the stream file.<br>
+<br>
+Please try to open the TIFF file using PC graphic tools, such as "Imaging for Windows" or PaintShop Pro. Also please confirm that you have enough authority to open the TIFF and are specifying correct path name.<br>
+<br>
+Let me know the result of your investigation.<br>
+<br>
+uzaemon @ Japan<br>
+<br>
+</body></html>

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 01003 : Re^3: problem with TIFF2PDF - CPF9897</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>01003 [Re^3: problem with TIFF2PDF - CPF9897] </font>(posted by giancarlo sartor)</b><br>
+( 1)   06/01/25 19:48   comment on <a href="01001.html">01001</a>   , # of comment(s) : 3
+<HR>
+
+> One question.<br>
+><br>
+> > Stream file generated. execution time 0 min 0 sec, total pages = 14<br>
+><br>
+> I think "0 min 0 sec" to create TIFF file is too fast. Was the TIFF file created successfully? Try to open the file using Windows graphics software.<br>
+><br>
+> If the TIFF file is broken by some reason, create new WSCST for TIFF-G4 from source shown below:<br>
+><br>
+> 0001.00       :WSCST DEVCLASS=TRANSFORM.<br>
+> 0002.00                 :TRNSFRMTBL.<br>
+> 0003.00                 :PRTDTASTRM<br>
+> 0004.00                 DATASTREAM=TIFF_G4.<br>
+> 0005.00                 :INITPRT<br>
+> 0006.00                 DATA ='4D4D002A'X.<br>
+> 0007.00                 :RESETPRT<br>
+> 0008.00                 DATA ='00000000'X.<br>
+> 0009.00                 :EWSCST.<br>
+><br>
+> uzaemon@Japan<br>
+Hi uzaemon,<br>
+I recompiled the distribution as QSECOFR and  I confirmed the autority:<br>
+/tmp/spl2stmfrp.tif<br>
+QSECOFR     *RWX          X         X         X       X<br>
+/tmp<br>
+QSECOFR     *RWX          X         X         X       X<br>
+It's impossible to open spl2stmfrp.tif with Microsoft Office Document Imaging because file TIF is corrupted.<br>
+TIFF2PDF say me :<br>
+"/tmp/spl2stmfrp.tif: Can not read TIFF directory count."<br>
+I suppose for the same reason. Also, I created WSCST TIFF_G4 from your source  but spl2stmfrp.tif is  yet corrupted.<br>
+My default job ccsid is 280.<br>
+Thanks.<br>
+Giancarlo<br>
+<br>
+</body></html>

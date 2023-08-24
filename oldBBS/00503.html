@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00503 : Re: Question about Header character prob</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00503 [Re: Question about Header character prob] </font>(posted by uzaemon)</b><br>
+( 1)   02/11/10 00:03   comment on <a href="00501.html">00501</a>   , # of comment(s) : 1
+<HR>
+
+Nicolas,<br>
+<br>
+> Hello, I want to know where I can find information abou some Constants that SNDM uses, a_s_c , a_c , especials.<br>
+<br>
+Those constants are defined at file SMTP/H. Use option 25 of PDM to find the string.<br>
+<br>
+> Because I want to know why I can't use "(" , "," in the header of the mail.<br>
+<br>
+Which header? Latest SNDM (1.35) should allow those characters (especials、( ) < > @ , ; : " / [ ] ? . = ). I could use them as follows.<br>
+<br>
+> SNDM FROM(AAA.BBB@NOWHERE.COM '(UZAEMON,NAME@JAPAN.COM)') TO((CCC.DDD@ANYW<br>
+  HERE.COM '(SOMEBODY,ELSE@US.COM)')) FILE(QDDSSRC) SUBJECT('(This is a test<br>
+  ,,,,.)') DEBUG(*YES)<br>
+  Mail sent.<br>
+<br>
+(Debug output, "￡" is CRLF)<br>
+<br>
+S->[From: "=?US-ASCII?Q?=28UZAEMON=2CNAME=40JAPAN=2ECOM=29?=" <AAA.BBB@NOWHERE.COM>￡To: "=?US-ASCII?Q?=]<br>
+   [28SOMEBODY=2CELSE=40US=2ECOM=29?=" <CCC.DDD@ANYWHERE.COM>￡Subject: =?US-ASCII?Q?=28This_is_a_test=2]<br>
+   [C=2C=2C=2C=2E=29?=￡Date: Sat, 9 Nov 2002 23:34:23 +0900 ￡MIME-Version: 1.0￡Content-Type: text/pla]<br>
+   [in; charset="ISO-2022-JP"￡X-Mailer: SMTP Client for IBM AS400  version 1-35 2002-05-06￡￡\(J     A]<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

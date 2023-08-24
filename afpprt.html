@@ -1,0 +1,621 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+<HEAD>
+<META name="GENERATOR" content="IBM HomePage Builder 2000 V4.0.5  for Windows">
+</HEAD>
+<BODY>
+<H2>AFP application example</H2>
+<HR>
+<H3>Note</H3>
+<UL>
+  <LI>プログラムAFPPRTにはパラメーターとしてバーコードタイプ(10桁の文字)を渡します。
+  <LI>JPBC(日本郵便番号バーコード)を印刷するには別途郵便番号AFPフォントを用意する必要があります。
+  <LI>プログラムをCALLする前にCHGJOB SWS(10000000)を実行しておくと通常のリストではなくAFPキーワードや指定座標などを含むデバッグ出力が得られます。
+  <LI>OS/400 V4R4でのみ動作を確認しています。
+  <LI>出力の確認
+  <UL>
+    <LI>AFPプリンターがあれば実際に印刷するのがBESTです。
+    <LI>DSPSPLFコマンドで表示することはできますが、漢字や特殊機能(罫線/バーコードなど)は表示されません。
+    <LI>Client Access Express添付のAFPビューアー(オペレーションズ・ナビゲーターより起動)でAFP印刷出力を閲覧できます。ただし私の環境ではバーコードは表示されませんでした。
+    <LI>SPL2STMFコマンドでTIFF形式に変換することができます。TIFFイメージはWindows付属のImagingなどの画像閲覧ソフトで表示したり、TIFF2PDFコマンドでPDFに変換することができます。SPL2STMFコマンドを使用する場合はHPT(Host
+  print transform)機能関連の最新PTFを適用してください。
+  </UL>
+
+  </UL>
+<H3>Sample output (PDF)</H3>
+<BLOCKQUOTE>[<A href="afp1.pdf">code3of9</A>] [<A href="afp2.pdf">EAN-8</A>] [<A href="afp3.pdf">industrial2of5</A>] [<A href="afp4.pdf">interleaved2of5</A>] [<A href="afp5.pdf">デバッグ出力</A>]</BLOCKQUOTE>
+<HR>
+<H3>Physical file 'TOKMSP'</H3>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD width="512">
+      <PRE>     A          R TOKMSR
+     A            TKBANG         5A         COLHDG('得意先 番号')
+     A            TKNAKN        20A         COLHDG('得意先 仮名')
+     A            TKNAKJ        20O         COLHDG('得意先 漢字')
+     A            TKADR1        20O         COLHDG('住所１       ')
+     A            TKADR2        20O         COLHDG('住所２       ')
+     A            TKTIKU         2A         COLHDG('地区 コード')
+     A            TKPOST         6A         COLHDG('郵便番号     ')
+     A            TKTELE        13A         COLHDG('電話番号     ')
+     A            TKGURI         9P 0       COLHDG('当月 売上高')
+     A            TKNURI         9P 0       COLHDG('当年 売上高')
+     A            TKZURI         9P 0       COLHDG('前年 売上高')
+     A            TKUZAN         9P 0       COLHDG('売掛金 残高')
+     A            TKGEND         9P 0       COLHDG('信用 限度額')
+     A            TKNYUK          L         COLHDG('最終 入金日')
+     A            TKSIME         1A         COLHDG('締め日 コード')
+     A          K TKBANG</PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<H3>Printer file 'AFPPRTF'</H3>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD width="512">
+      <PRE>      *
+     A          R BAR01
+     A            EAN8           7S 0       BARCODE(EAN8 2 *HRI)
+     A                                      POSITION(&amp;BY &amp;BX)
+     A            BY             5S 3P
+     A            BX             5S 3P
+      *
+     A          R D_BAR01
+     A                                     1'BAR1(ENA8)   Y='
+     A            BY             5S 3     +0EDTCDE(J)
+     A                                    +2'X='
+     A            BX             5S 3     +0EDTCDE(J)
+     A                                    +2'DATA='
+     A            EAN8           7S 0     +2
+     A                                      SPACEA(1)
+      *
+     A          R BAR02
+     A            CODE3OF9       5          BARCODE(CODE3OF9 *AST *HRI)
+     A                                      POSITION(&amp;BY &amp;BX)
+     A            BY             5S 3P
+     A            BX             5S 3P
+      *
+     A          R D_BAR02
+     A                                     1'BAR2(CODE3OF9)   Y='
+     A            BY             5S 3     +0EDTCDE(J)
+     A                                    +2'X='
+     A            BX             5S 3     +0EDTCDE(J)
+     A                                    +2'DATA='
+     A            CODE3OF9       5        +2
+     A                                      SPACEA(1)
+      *
+     A          R BAR03
+     A            INTERL2OF5     5S 0       BARCODE(INTERL2OF5 *HRI)
+     A                                      POSITION(&amp;BY &amp;BX)
+     A            BY             5S 3P
+     A            BX             5S 3P
+      *
+     A          R D_BAR03
+     A                                     1'BAR3(INTERL2OF5)   Y='
+     A            BY             5S 3     +0EDTCDE(J)
+     A                                    +2'X='
+     A            BX             5S 3     +0EDTCDE(J)
+     A                                    +2'DATA='
+     A            INTERL2OF5     5S 0     +2
+     A                                      SPACEA(1)
+      *
+     A          R BAR04
+     A            INDUST2OF5     5S 0       BARCODE(INDUST2OF5 *HRI)
+     A                                      POSITION(&amp;BY &amp;BX)
+     A            BY             5S 3P
+     A            BX             5S 3P
+      *
+     A          R D_BAR04
+     A                                     1'BAR4(INDUST2OF5)   Y='
+     A            BY             5S 3     +0EDTCDE(J)
+     A                                    +2'X='
+     A            BX             5S 3     +0EDTCDE(J)
+     A                                    +2'DATA='
+     A            INDUST2OF5     5S 0     +2
+     A                                      SPACEA(1)
+      *
+     A          R BAR05
+     A            JPBC          10          BARCODE(JPBC *HRI)
+     A                                      POSITION(&amp;BY &amp;BX)
+     A            BY             5S 3P
+     A            BX             5S 3P
+      *
+     A          R D_BAR05
+     A                                     1'BAR5(JPBC)   Y='
+     A            BY             5S 3     +0EDTCDE(J)
+     A                                    +2'X='
+     A            BX             5S 3     +0EDTCDE(J)
+     A                                    +2'DATA='
+     A            JPBC          10        +2
+     A                                      SPACEA(1)
+      *
+     A          R STR01
+     A
+     A            S01           80          FNTCHRSET(C0D0GT10 T1V10500)
+     A                                      POSITION(&amp;SY &amp;SX)
+     A            SY             5S 3P
+     A            SX             5S 3P
+      *
+     A          R D_STR01
+     A                                     1'STR01  Y='
+     A            SY             5S 3     +0EDTCDE(J)
+     A                                    +2'X='
+     A            SX             5S 3     +0EDTCDE(J)
+     A                                    +2'DATA='
+     A            S01           80        +2
+     A                                      SPACEA(1)
+      *
+     A          R STR02
+     A            S02           80          FNTCHRSET(C0S0PR10 T1V10500)
+     A                                      POSITION(&amp;SY &amp;SX)
+     A            SY             5S 3P
+     A            SX             5S 3P
+      *
+     A          R D_STR02
+     A                                     1'STR02  Y='
+     A            SY             5S 3     +0EDTCDE(J)
+     A                                    +2'X='
+     A            SX             5S 3     +0EDTCDE(J)
+     A                                    +2'DATA='
+     A            S02           80        +2
+     A                                      SPACEA(1)
+      *
+     A          R STR24
+     A
+     A            S24           80O         CDEFNT(QFNT61/X0N12N)
+     A                                      IGCCDEFNT(QFNT61/X0M24F)
+     A                                      POSITION(&amp;SY &amp;SX)
+     A            SY             5S 3P
+     A            SX             5S 3P
+      *
+     A          R D_STR24
+     A                                     1'STR24  Y='
+     A            SY             5S 3     +0EDTCDE(J)
+     A                                    +2'X='
+     A            SX             5S 3     +0EDTCDE(J)
+     A                                    +2'DATA='
+     A            S24           80O       +2
+     A                                      SPACEA(1)
+      *
+     A          R STR32
+     A            S32           80O         CDEFNT(QFNT61/X0N16N)
+     A                                      IGCCDEFNT(QFNT61/X0M32F)
+     A                                      POSITION(&amp;SY &amp;SX)
+     A            SY             5S 3P
+     A            SX             5S 3P
+      *
+     A          R D_STR32
+     A                                     1'STR32  Y='
+     A            SY             5S 3     +0EDTCDE(J)
+     A                                    +2'X='
+     A            SX             5S 3     +0EDTCDE(J)
+     A                                    +2'DATA='
+     A            S32           80O       +2
+     A                                      SPACEA(1)
+      *
+     A          R STR40
+     A            S40           80O         CDEFNT(QFNT61/X0H20N)
+     A                                      IGCCDEFNT(QFNT61/X0G40F)
+     A                                      POSITION(&amp;SY &amp;SX)
+     A            SY             5S 3P
+     A            SX             5S 3P
+      *
+     A          R D_STR40
+     A                                     1'STR40  Y='
+     A            SY             5S 3     +0EDTCDE(J)
+     A                                    +2'X='
+     A            SX             5S 3     +0EDTCDE(J)
+     A                                    +2'DATA='
+     A            S40           80O       +2
+     A                                      SPACEA(1)
+      *
+     A          R STR64
+     A            S64           80O         CDEFNT(QFNT61/X0H32N)
+     A                                      IGCCDEFNT(QFNT61/X0G64F)
+     A                                      POSITION(&amp;SY &amp;SX)
+     A            SY             5S 3P
+     A            SX             5S 3P
+      *
+     A          R D_STR64
+     A                                     1'STR64  Y='
+     A            SY             5S 3     +0EDTCDE(J)
+     A                                    +2'X='
+     A            SX             5S 3     +0EDTCDE(J)
+     A                                    +2'DATA='
+     A            S64           80O       +2
+     A                                      SPACEA(1)
+      *
+     A          R BOX
+     A                                      BOX(&amp;BY1 &amp;BX1 &amp;BY2 &amp;BX2 &amp;BLW)
+     A            BY1            5S 3P
+     A            BX1            5S 3P
+     A            BY2            5S 3P
+     A            BX2            5S 3P
+     A            BLW            5S 3P
+      *
+     A          R D_BOX
+     A                                     1'BOX    Y1='
+     A            BY1            5S 3     +0EDTCDE(J)
+     A                                    +2'X1='
+     A            BX1            5S 3     +0EDTCDE(J)
+     A                                    +2'Y2='
+     A            BY2            5S 3     +0EDTCDE(J)
+     A                                    +2'X2='
+     A            BX2            5S 3     +0EDTCDE(J)
+     A                                    +2'WIDTH='
+     A            BLW            5S 3     +0EDTCDE(J)
+     A                                      SPACEA(1)
+      *
+     A          R HLINE
+     A                                      LINE(&amp;HLY &amp;HLX &amp;HLL *HRZ &amp;HLW)
+     A            HLY            5S 3P
+     A            HLX            5S 3P
+     A            HLL            5S 3P
+     A            HLW            5S 3P
+      *
+     A          R D_HLINE
+     A                                     1'HLINE  Y='
+     A            HLY            5S 3     +0EDTCDE(J)
+     A                                    +2'X='
+     A            HLX            5S 3     +0EDTCDE(J)
+     A                                    +2'LENGTH='
+     A            HLL            5S 3     +0EDTCDE(J)
+     A                                    +2'WIDTH='
+     A            HLW            5S 3     +0EDTCDE(J)
+     A                                      SPACEA(1)
+      *
+     A          R VLINE
+     A                                      LINE(&amp;VLY &amp;VLX &amp;VLL *VRT &amp;VLW)
+     A            VLY            5S 3P
+     A            VLX            5S 3P
+     A            VLL            5S 3P
+     A            VLW            5S 3P
+      *
+     A          R D_VLINE
+     A                                     1'VLINE  Y='
+     A            VLY            5S 3     +0EDTCDE(J)
+     A                                    +2'X='
+     A            VLX            5S 3     +0EDTCDE(J)
+     A                                    +2'LENGTH='
+     A            VLL            5S 3     +0EDTCDE(J)
+     A                                    +2'WIDTH='
+     A            VLW            5S 3     +0EDTCDE(J)
+     A                                      SPACEA(1)
+      *
+     A          R EOP                       ENDPAGE
+      *
+     A          R D_EOP
+     A                                     1'EOP'
+     A                                      SPACEA(1)
+</PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<H3>ILE-RPG program 'AFPPRT'</H3>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD width="512">
+      <PRE>     FTOKMSP    IF   E             DISK
+     FAFPPRTF   O    E             PRINTER
+      *
+     DIPOS             PR             5S 3
+     D  POS                           3  0 VALUE
+     D  CLPI                          3  1 VALUE
+      *
+     DWBAR             PR
+     D  ROW                           3  0 VALUE
+     D  COL                           3  0 VALUE
+     D  CPI                           3  1 VALUE
+     D  LPI                           3  1 VALUE
+     D  STR                          50    VALUE
+     D  BAR                          10    VALUE
+      *
+     DWSTR             PR
+     D  ROW                           3  0 VALUE
+     D  COL                           3  0 VALUE
+     D  CPI                           3  1 VALUE
+     D  LPI                           3  1 VALUE
+     D  FONT                          3  0 VALUE
+     D  STR                          80    VALUE
+      *
+     DIPOSL            PR             5S 3
+     D  POS                           3  0 VALUE
+     D  CLPI                          3  1 VALUE
+      *
+     DWBOX             PR
+     D  ROW1                          3  0 VALUE
+     D  COL1                          3  0 VALUE
+     D  ROW2                          3  0 VALUE
+     D  COL2                          3  0 VALUE
+     D  CPI                           3  1 VALUE
+     D  LPI                           3  1 VALUE
+     D  WIDTH                         5S 3 VALUE
+      *
+     DWHLINE           PR
+     D  ROW1                          3  0 VALUE
+     D  COL1                          3  0 VALUE
+     D  COL2                          3  0 VALUE
+     D  CPI                           3  1 VALUE
+     D  LPI                           3  1 VALUE
+     D  WIDTH                         5S 3 VALUE
+      *
+     DWVLINE           PR
+     D  ROW1                          3  0 VALUE
+     D  COL1                          3  0 VALUE
+     D  ROW2                          3  0 VALUE
+     D  CPI                           3  1 VALUE
+     D  LPI                           3  1 VALUE
+     D  WIDTH                         5S 3 VALUE
+      *
+     DD_LC             PR
+      *
+     DCPI              C                   10
+     DLPI              C                   6
+     DYD               C                   3
+     DEL               C                   9
+     DYP               S              3  0
+     DLC               S              3  0
+     DITEMS            C                   6
+      *
+     C     *ENTRY        PLIST
+     C                   PARM                    bar              10
+      *
+     C                   DO        *HIVAL
+     C                   READ      TOKMSR                                 90
+     C   90              LEAVE
+     C                   ADD       1             RECNO             7 0
+     C     RECNO         DIV       ITEMS         QUOTIENT          7 0
+     C                   MVR                     REM               7 0
+     C                   IF        REM = 1
+     C                   EXSR      #HEADER
+     C                   ENDIF
+     C                   EXSR      #DETAIL
+     C                   IF        REM = 0
+     C                   EXSR      #TRAILER
+     C                   ENDIF
+     C                   ENDDO
+     C                   IF        (REM &lt;&gt; 0) AND (RECNO &gt; 0)
+     C                   EXSR      #TRAILER
+     C                   ENDIF
+     C                   SETON                                        LR
+      *
+     C     #HEADER       BEGSR
+     C                   CALLP     WSTR(2:22:CPI:LPI:64:
+     C                                  '得意先一覧（バーコード付）')
+     C                   CALLP     WSTR(1:68:CPI:LPI:0:%EDITC(*DATE:'Y'))
+     C                   TIME                    HHMMSS            6 0
+     C                   CALLP     WSTR(1:74:CPI:LPI:0:
+     C                                  %EDITW(HHMMSS:'0 :  :  '))
+     C                   ENDSR
+      *
+     C     #DETAIL       BEGSR
+     C                   IF        REM = 0
+     C                   EVAL      YP = YD+(ITEMS-1)*EL
+     C                   ELSE
+     C                   EVAL      YP = YD+(REM-1)*EL
+     C                   ENDIF
+     C                   CALLP     WBOX(1+YP:2:10+YP:78:CPI:LPI:0.025)
+     C                   CALLP     WHLINE(4+YP:2:78:CPI:LPI:0.01)
+     C                   CALLP     WHLINE(6+YP:2:78:CPI:LPI:0.02)
+     C                   CALLP     WHLINE(8+YP:2:78:CPI:LPI:0.01)
+     C                   CALLP     WVLINE(1+YP:40:4+YP:CPI:LPI:0.01)
+     C                   CALLP     WVLINE(1+YP:50:4+YP:CPI:LPI:0.01)
+     C                   CALLP     WVLINE(1+YP:15:6+YP:CPI:LPI:0.01)
+     C                   CALLP     WVLINE(6+YP:21:10+YP:CPI:LPI:0.01)
+     C                   CALLP     WVLINE(6+YP:40:10+YP:CPI:LPI:0.01)
+     C                   CALLP     WVLINE(6+YP:59:10+YP:CPI:LPI:0.01)
+      *
+     C                   CALLP     WSTR(2+YP:3:CPI:LPI:40:'得意先コード')
+     C                   CALLP     WSTR(2+YP:42:CPI:LPI:32:'得意先名')
+     C                   CALLP     WSTR(2+YP:53:CPI:LPI:32:TKNAKN)
+     C                   CALLP     WSTR(3+YP:52:CPI:LPI:32:TKNAKJ)
+     C                   CALLP     WSTR(5+YP:4:CPI:LPI:32:'住所')
+     C                   CALLP     WSTR(5+YP:17:CPI:LPI:32:TKADR1+TKADR2)
+     C                   CALLP     WSTR(7+YP:9:CPI:LPI:32:'当月売上高')
+     C                   CALLP     WSTR(9+YP:7:CPI:LPI:1:%EDITC(TKGURI:'J'))
+     C                   CALLP     WSTR(7+YP:27:CPI:LPI:32:'売掛金残高')
+     C                   CALLP     WSTR(9+YP:25:CPI:LPI:1:%EDITC(TKUZAN:'J'))
+     C                   CALLP     WSTR(7+YP:46:CPI:LPI:32:'信用限度額')
+     C                   CALLP     WSTR(9+YP:44:CPI:LPI:1:%EDITC(TKGEND:'J'))
+     C                   CALLP     WSTR(7+YP:65:CPI:LPI:32:'最終入金日')
+     C                   MOVE      TKNYUK        TKNYUKC          10
+     C                   CALLP     WSTR(9+YP:65:CPI:LPI:1:TKNYUKC)
+      *
+     C                   CALLP     WBAR(2+YP:18:CPI:LPI:TKBANG:BAR)
+      *
+     C                   ENDSR
+      *
+     C     #TRAILER      BEGSR
+     C                   CALLP     WSTR(60:42:CPI:LPI:2:
+     C                                  'This output was produced by AS/400.')
+     C                   CALLP     WSTR(61:50:CPI:LPI:2:
+     C                                  'BARCODE type is ' + BAR)
+     C  NU1              WRITE     EOP
+     C   U1              WRITE     D_EOP
+     C                   ENDSR
+      *
+     PIPOS             B
+     DIPOS             PI             5S 3
+     D  POS                           3  0 VALUE
+     D  CLPI                          3  1 VALUE
+     C                   RETURN    (POS-1)*(1/CLPI)
+     PIPOS             E
+      *
+     PWBAR             B
+     DWBAR             PI
+     D  ROW                           3  0 VALUE
+     D  COL                           3  0 VALUE
+     D  CPI                           3  1 VALUE
+     D  LPI                           3  1 VALUE
+     D  STR                          50    VALUE
+     D  BAR                          10    VALUE
+      *
+     D  ZONE           S              5S 0
+      *
+     C                   EVAL      BY = IPOS(ROW:LPI)
+     C                   EVAL      BX = IPOS(COL:CPI)
+     C                   MOVEL     STR           ZONE
+     C                   SELECT
+     C                   WHEN      BAR = 'EAN8'
+     C                   Z-ADD     ZONE          EAN8
+     C  NU1              WRITE     BAR01
+     C   U1              WRITE     D_BAR01
+     C                   WHEN      BAR = 'CODE3OF9'
+     C                   MOVEL     STR           CODE3OF9
+     C  NU1              WRITE     BAR02
+     C   U1              WRITE     D_BAR02
+     C                   WHEN      BAR = 'INTERL2OF5'
+     C                   Z-ADD     ZONE          INTERL2OF5
+     C  NU1              WRITE     BAR03
+     C   U1              WRITE     D_BAR03
+     C                   WHEN      BAR = 'INDUST2OF5'
+     C                   Z-ADD     ZONE          INDUST2OF5
+     C  NU1              WRITE     BAR04
+     C   U1              WRITE     D_BAR04
+     C                   WHEN      BAR = 'JPBC'
+     C                   MOVEL     STR           JPBC
+     C  NU1              WRITE     BAR05
+     C   U1              WRITE     D_BAR05
+     C                   ENDSL
+      *
+     C   U1              CALLP     D_LC
+     PWBAR             E
+      *
+     PWSTR             B
+     DWSTR             PI
+     D  ROW                           3  0 VALUE
+     D  COL                           3  0 VALUE
+     D  CPI                           3  1 VALUE
+     D  LPI                           3  1 VALUE
+     D  FONT                          3  0 VALUE
+     D  STR                          80    VALUE
+      *
+     C                   EVAL      SY = IPOS(ROW+1:LPI)
+     C                   EVAL      SX = IPOS(COL:CPI)
+     C                   SELECT
+     C                   WHEN      FONT = 1
+     C                   EVAL      S01 = STR
+     C  NU1              WRITE     STR01
+     C   U1              WRITE     D_STR01
+     C                   WHEN      FONT = 2
+     C                   EVAL      S02 = STR
+     C  NU1              WRITE     STR02
+     C   U1              WRITE     D_STR02
+     C                   WHEN      FONT = 32
+     C                   EVAL      S32 = STR
+     C  NU1              WRITE     STR32
+     C   U1              WRITE     D_STR32
+     C                   WHEN      FONT = 40
+     C                   EVAL      S40 = STR
+     C  NU1              WRITE     STR40
+     C   U1              WRITE     D_STR40
+     C                   WHEN      FONT = 64
+     C                   EVAL      S64 = STR
+     C  NU1              WRITE     STR64
+     C   U1              WRITE     D_STR64
+     C                   OTHER
+     C                   EVAL      S24 = STR
+     C  NU1              WRITE     STR24
+     C   U1              WRITE     D_STR24
+     C                   ENDSL
+     C   U1              CALLP     D_LC
+     PWSTR             E
+      *
+     PIPOSL            B
+     DIPOSL            PI             5S 3
+     D  POS                           3  0 VALUE
+     D  CLPI                          3  1 VALUE
+     C                   RETURN    (POS-1)*(1/CLPI) + (1/(CLPI*2))
+     PIPOSL            E
+      *
+     PWBOX             B
+     DWBOX             PI
+     D  ROW1                          3  0 VALUE
+     D  COL1                          3  0 VALUE
+     D  ROW2                          3  0 VALUE
+     D  COL2                          3  0 VALUE
+     D  CPI                           3  1 VALUE
+     D  LPI                           3  1 VALUE
+     D  WIDTH                         5S 3 VALUE
+      *
+     C                   EVAL      BY1 = IPOSL(ROW1:LPI)-WIDTH/2
+     C                   EVAL      BX1 = IPOSL(COL1:CPI)-WIDTH/2
+     C                   EVAL      BY2 = IPOSL(ROW2:LPI)+WIDTH/2
+     C                   EVAL      BX2 = IPOSL(COL2:CPI)+WIDTH/2
+     C                   EVAL      BLW = WIDTH
+     C  NU1              WRITE     BOX
+     C   U1              WRITE     D_BOX
+     C   U1              CALLP     D_LC
+     PWBOX             E
+      *
+     PWHLINE           B
+     DWHLINE           PI
+     D  ROW1                          3  0 VALUE
+     D  COL1                          3  0 VALUE
+     D  COL2                          3  0 VALUE
+     D  CPI                           3  1 VALUE
+     D  LPI                           3  1 VALUE
+     D  WIDTH                         5S 3 VALUE
+     C                   EVAL      HLY = IPOSL(ROW1:LPI)-WIDTH/2
+     C                   EVAL      HLX = IPOSL(COL1:CPI)
+     C                   EVAL      HLL = (COL2-COL1)*(1/CPI)
+     C                   EVAL      HLW = WIDTH
+     C  NU1              WRITE     HLINE
+     C   U1              WRITE     D_HLINE
+     C   U1              CALLP     D_LC
+     PWHLINE           E
+      *
+     PWVLINE           B
+     DWVLINE           PI
+     D  ROW1                          3  0 VALUE
+     D  COL1                          3  0 VALUE
+     D  ROW2                          3  0 VALUE
+     D  CPI                           3  1 VALUE
+     D  LPI                           3  1 VALUE
+     D  WIDTH                         5S 3 VALUE
+     C                   EVAL      VLY = IPOSL(ROW1:LPI)
+     C                   EVAL      VLX = IPOSL(COL1:CPI)-WIDTH/2
+     C                   EVAL      VLL = (ROW2-ROW1)*(1/LPI)
+     C                   EVAL      VLW = WIDTH
+     C  NU1              WRITE     VLINE
+     C   U1              WRITE     D_VLINE
+     C   U1              CALLP     D_LC
+     PWVLINE           E
+      *
+     PD_LC             B
+     DD_LC             PI
+     C                   ADD       1             LC
+     C                   IF        LC &gt; 56
+     C                   WRITE     EOP
+     C                   Z-ADD     0             LC
+     C                   ENDIF
+     PD_LC             E</PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<HR>
+<H3>Compilation</H3>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD width="512">
+      <PRE>CRTPRTF FILE(<I>your_library</I>/AFPPRTF) SRCFILE(<I>your_sourcefile</I>) DEVTYPE(*AFPDS) +
+        PAGESIZE(11 8 *UOM) UOM(*INCH) +
+        CDEFNT(QFNT61/X0N13N) IGCCDEFNT(QFNT61/X0M26F)
+CRTBNDRPG PGM(<I>your_library</I>/AFPPRT) SRCFILE(<I>your_sourcefile</I>) DBGVIEW(*ALL)
+        DFTACTGRP(*NO)</PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<HR width="100%">
+<P>
+[<A href="index.html">Home</A>]</P>
+</BODY>
+</HTML>

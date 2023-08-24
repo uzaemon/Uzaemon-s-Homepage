@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00755 : SPL2STMF</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00755 [SPL2STMF] </font>(posted by Uday)</b><br>
+( 1)   03/12/13 04:53
+<HR>
+
+<br>
+Hi,<br>
+I downloaded the SPL2STMF utility. When I tried to use the command:<br>
+<br>
+SPL2STMF FILE(SPL2STMF) TOSTMF(test) WSCST(QWPCPQPM20) JOB(172309/USHANKA/QPADEV000R), it failed with the following error,<br>
+Command failed. reason - API QwpzHostPrintTransform failed : CPF3CF2  hptopt = 20.<br>
+When I checked QUSEC in debug, it had the following values:<br>
+<br>
+QUSBPRV OF QUSEC = 000000016.<br>
+QUSBAVL OF QUSEC = 000000027.<br>
+QUSEI OF QUSEC = 'CPF3CF2'<br>
+QUSERVED OF QUSEC = '0'<br>
+<br>
+Is there anything I am missing? The reason why I tried to use this utility is that when I am sending a spool file via email, the page breaks and any control characters are missing. Alternately, is there any other way I could avoid the problem I am facing? Please advise.<br>
+<br>
+Thanks,<br>
+Uday<br>
+<br>
+<br>
+</body></html>

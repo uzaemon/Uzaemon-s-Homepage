@@ -1,0 +1,264 @@
+                                         Display Saved Objects - Save File                                              Page     1
+5722SS1 V5R2M0  020719                                                                                XXXX      03/21/06  23:17:07
+ System serial number . . . . . . . . :    65A949B
+ Save release level . . . . . . . . . :   V5R2M0
+ Target release level . . . . . . . . :   V5R2M0
+ Save command . . . . . . . . . . . . :   SAV
+ Save date/time . . . . . . . . . . . :   03/19/06  22:12:10
+ Save changed period:
+   Start date . . . . . . . . . . . . :   *ALL
+   Start time . . . . . . . . . . . . :   *ALL
+   End date . . . . . . . . . . . . . :   *ALL
+   End time . . . . . . . . . . . . . :   *ALL
+ Save while active  . . . . . . . . . :   *NO
+ Data compressed  . . . . . . . . . . :   No
+ Save file  . . . . . . . . . . . . . :   ANALOGI
+   Library  . . . . . . . . . . . . . :     BACKUP
+   Records  . . . . . . . . . . . . . :     9336
+ Directory  . . . . . . . . . . . . . . . . . . . :   /Analog
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   analog            *SYMLNK     TCPIP               4096  Yes        No
+   analog.cfg        *STMF       TCPIP               8192  Yes        No
+   anlgform.html     *STMF       TCPIP              16384  Yes        No
+   anlgform.html. >  *STMF       TCPIP              16384  Yes        No
+   anlgform.pl       *STMF       TCPIP              16384  Yes        No
+   anlgform.pl.or >  *STMF       TCPIP              16384  Yes        No
+   docs              *DIR        TCPIP              40960  Yes        No
+   images            *DIR        TCPIP              40960  Yes        No
+   lang              *DIR        TCPIP              57344  Yes        No
+   Object
+   anlgform.html.org
+   anlgform.pl.org
+ Directory  . . . . . . . . . . . . . . . . . . . :   /Analog/docs
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   Licence.txt       *STMF       TCPIP              16384  Yes        No
+   Readme.html       *STMF       TCPIP               8192  Yes        No
+   acknow.html       *STMF       TCPIP              16384  Yes        No
+   alias.html        *STMF       TCPIP              16384  Yes        No
+   args.html         *STMF       TCPIP              16384  Yes        No
+   bara8.gif         *STMF       TCPIP               8192  Yes        No
+   barb1.gif         *STMF       TCPIP               8192  Yes        No
+   barb32.gif        *STMF       TCPIP               8192  Yes        No
+   barb8.gif         *STMF       TCPIP               8192  Yes        No
+   barc8.gif         *STMF       TCPIP               8192  Yes        No
+   bard8.gif         *STMF       TCPIP               8192  Yes        No
+   bare8.gif         *STMF       TCPIP               8192  Yes        No
+   barf8.gif         *STMF       TCPIP               8192  Yes        No
+   barg8.gif         *STMF       TCPIP               8192  Yes        No
+   barh8.gif         *STMF       TCPIP               8192  Yes        No
+   basiccmd.html     *STMF       TCPIP              16384  Yes        No
+                                         Display Saved Objects - Save File                                              Page     2
+5722SS1 V5R2M0  020719                                                                                XXXX      03/21/06  23:17:07
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   cache.html        *STMF       TCPIP              16384  Yes        No
+   compout.html      *STMF       TCPIP              16384  Yes        No
+   custom.html       *STMF       TCPIP               8192  Yes        No
+   debug.html        *STMF       TCPIP              16384  Yes        No
+   defns.html        *STMF       TCPIP              16384  Yes        No
+   dns.html          *STMF       TCPIP              16384  Yes        No
+   domfile.html      *STMF       TCPIP               8192  Yes        No
+   errors.html       *STMF       TCPIP              32768  Yes        No
+   faq.html          *STMF       TCPIP              65536  Yes        No
+   form.html         *STMF       TCPIP              32768  Yes        No
+   helpers.html      *STMF       TCPIP               8192  Yes        No
+   hierreps.html     *STMF       TCPIP              16384  Yes        No
+   include.html      *STMF       TCPIP              16384  Yes        No
+   indx.html         *STMF       TCPIP              65536  Yes        No
+   logfile.html      *STMF       TCPIP              32768  Yes        No
+   logfmt.html       *STMF       TCPIP              32768  Yes        No
+   lowmem.html       *STMF       TCPIP               8192  Yes        No
+   mailing.html      *STMF       TCPIP              16384  Yes        No
+   map.html          *STMF       TCPIP               8192  Yes        No
+   meaning.html      *STMF       TCPIP               8192  Yes        No
+   othreps.html      *STMF       TCPIP              16384  Yes        No
+   output.html       *STMF       TCPIP              32768  Yes        No
+   quickref.html     *STMF       TCPIP              65536  Yes        No
+   reports.html      *STMF       TCPIP              32768  Yes        No
+   start.html        *STMF       TCPIP               8192  Yes        No
+   startmac.html     *STMF       TCPIP               8192  Yes        No
+   startpc.html      *STMF       TCPIP               8192  Yes        No
+   startux.html      *STMF       TCPIP              16384  Yes        No
+   syntax.html       *STMF       TCPIP              16384  Yes        No
+   timereps.html     *STMF       TCPIP              16384  Yes        No
+   update.html       *STMF       TCPIP              32768  Yes        No
+   wasnew1.html      *STMF       TCPIP              16384  Yes        No
+   wasnew2.html      *STMF       TCPIP              16384  Yes        No
+   wasnew3.html      *STMF       TCPIP              32768  Yes        No
+   webworks.html     *STMF       TCPIP              16384  Yes        No
+   whatsnew.html     *STMF       TCPIP              16384  Yes        No
+   whole.html        *STMF       TCPIP             393216  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /Analog/images
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   analogo.gif       *STMF       TCPIP               8192  Yes        No
+   bara1.gif         *STMF       TCPIP               8192  Yes        No
+   bara16.gif        *STMF       TCPIP               8192  Yes        No
+   bara2.gif         *STMF       TCPIP               8192  Yes        No
+   bara32.gif        *STMF       TCPIP               8192  Yes        No
+   bara4.gif         *STMF       TCPIP               8192  Yes        No
+   bara8.gif         *STMF       TCPIP               8192  Yes        No
+   barb1.gif         *STMF       TCPIP               8192  Yes        No
+   barb16.gif        *STMF       TCPIP               8192  Yes        No
+   barb2.gif         *STMF       TCPIP               8192  Yes        No
+   barb32.gif        *STMF       TCPIP               8192  Yes        No
+   barb4.gif         *STMF       TCPIP               8192  Yes        No
+                                         Display Saved Objects - Save File                                              Page     3
+5722SS1 V5R2M0  020719                                                                                XXXX      03/21/06  23:17:07
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   barb8.gif         *STMF       TCPIP               8192  Yes        No
+   barc1.gif         *STMF       TCPIP               8192  Yes        No
+   barc16.gif        *STMF       TCPIP               8192  Yes        No
+   barc2.gif         *STMF       TCPIP               8192  Yes        No
+   barc32.gif        *STMF       TCPIP               8192  Yes        No
+   barc4.gif         *STMF       TCPIP               8192  Yes        No
+   barc8.gif         *STMF       TCPIP               8192  Yes        No
+   bard1.gif         *STMF       TCPIP               8192  Yes        No
+   bard16.gif        *STMF       TCPIP               8192  Yes        No
+   bard2.gif         *STMF       TCPIP               8192  Yes        No
+   bard32.gif        *STMF       TCPIP               8192  Yes        No
+   bard4.gif         *STMF       TCPIP               8192  Yes        No
+   bard8.gif         *STMF       TCPIP               8192  Yes        No
+   bare1.gif         *STMF       TCPIP               8192  Yes        No
+   bare16.gif        *STMF       TCPIP               8192  Yes        No
+   bare2.gif         *STMF       TCPIP               8192  Yes        No
+   bare32.gif        *STMF       TCPIP               8192  Yes        No
+   bare4.gif         *STMF       TCPIP               8192  Yes        No
+   bare8.gif         *STMF       TCPIP               8192  Yes        No
+   barf1.gif         *STMF       TCPIP               8192  Yes        No
+   barf16.gif        *STMF       TCPIP               8192  Yes        No
+   barf2.gif         *STMF       TCPIP               8192  Yes        No
+   barf32.gif        *STMF       TCPIP               8192  Yes        No
+   barf4.gif         *STMF       TCPIP               8192  Yes        No
+   barf8.gif         *STMF       TCPIP               8192  Yes        No
+   barg1.gif         *STMF       TCPIP               8192  Yes        No
+   barg16.gif        *STMF       TCPIP               8192  Yes        No
+   barg2.gif         *STMF       TCPIP               8192  Yes        No
+   barg32.gif        *STMF       TCPIP               8192  Yes        No
+   barg4.gif         *STMF       TCPIP               8192  Yes        No
+   barg8.gif         *STMF       TCPIP               8192  Yes        No
+   barh1.gif         *STMF       TCPIP               8192  Yes        No
+   barh16.gif        *STMF       TCPIP               8192  Yes        No
+   barh2.gif         *STMF       TCPIP               8192  Yes        No
+   barh32.gif        *STMF       TCPIP               8192  Yes        No
+   barh4.gif         *STMF       TCPIP               8192  Yes        No
+   barh8.gif         *STMF       TCPIP               8192  Yes        No
+   html2.gif         *STMF       TCPIP               8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /Analog/lang
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   README.txt        *STMF       TCPIP               8192  Yes        No
+   am.lng            *STMF       TCPIP              16384  Yes        No
+   amdom.tab         *STMF       TCPIP              16384  Yes        No
+   ba.lng            *STMF       TCPIP              16384  Yes        No
+   br.lng            *STMF       TCPIP              16384  Yes        No
+   bra.lng           *STMF       TCPIP              16384  Yes        No
+   brh.lng           *STMF       TCPIP              16384  Yes        No
+   cat.lng           *STMF       TCPIP              16384  Yes        No
+   cata.lng          *STMF       TCPIP              16384  Yes        No
+   cath.lng          *STMF       TCPIP              16384  Yes        No
+   cns.lng           *STMF       TCPIP              16384  Yes        No
+                                         Display Saved Objects - Save File                                              Page     4
+5722SS1 V5R2M0  020719                                                                                XXXX      03/21/06  23:17:07
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   cnt.lng           *STMF       TCPIP              16384  Yes        No
+   cz.lng            *STMF       TCPIP              16384  Yes        No
+   cz1250.lng        *STMF       TCPIP              16384  Yes        No
+   cza.lng           *STMF       TCPIP              16384  Yes        No
+   de.lng            *STMF       TCPIP              16384  Yes        No
+   dea.lng           *STMF       TCPIP              16384  Yes        No
+   deadom.tab        *STMF       TCPIP              16384  Yes        No
+   dedom.tab         *STMF       TCPIP              16384  Yes        No
+   deform.html       *STMF       TCPIP              16384  Yes        No
+   deh.lng           *STMF       TCPIP              16384  Yes        No
+   dehdom.tab        *STMF       TCPIP              16384  Yes        No
+   dk.lng            *STMF       TCPIP              16384  Yes        No
+   dka.lng           *STMF       TCPIP              16384  Yes        No
+   dkh.lng           *STMF       TCPIP              16384  Yes        No
+   es.lng            *STMF       TCPIP              16384  Yes        No
+   esa.lng           *STMF       TCPIP              16384  Yes        No
+   esadom.tab        *STMF       TCPIP              16384  Yes        No
+   esdom.tab         *STMF       TCPIP              16384  Yes        No
+   esform.html       *STMF       TCPIP              16384  Yes        No
+   esh.lng           *STMF       TCPIP              16384  Yes        No
+   eshdom.tab        *STMF       TCPIP              16384  Yes        No
+   fi.lng            *STMF       TCPIP              16384  Yes        No
+   fia.lng           *STMF       TCPIP              16384  Yes        No
+   fih.lng           *STMF       TCPIP              16384  Yes        No
+   fr.lng            *STMF       TCPIP              16384  Yes        No
+   fra.lng           *STMF       TCPIP              16384  Yes        No
+   fradom.tab        *STMF       TCPIP              16384  Yes        No
+   frdom.tab         *STMF       TCPIP              16384  Yes        No
+   frform.html       *STMF       TCPIP              16384  Yes        No
+   frh.lng           *STMF       TCPIP              16384  Yes        No
+   frhdom.tab        *STMF       TCPIP              16384  Yes        No
+   gr.lng            *STMF       TCPIP              16384  Yes        No
+   gra.lng           *STMF       TCPIP              16384  Yes        No
+   hu.cfg            *STMF       TCPIP               8192  Yes        No
+   hu.lng            *STMF       TCPIP              16384  Yes        No
+   hua.lng           *STMF       TCPIP              16384  Yes        No
+   huadom.tab        *STMF       TCPIP              16384  Yes        No
+   hudom.tab         *STMF       TCPIP              16384  Yes        No
+   is.lng            *STMF       TCPIP              16384  Yes        No
+   isa.lng           *STMF       TCPIP              16384  Yes        No
+   ish.lng           *STMF       TCPIP              16384  Yes        No
+   it.lng            *STMF       TCPIP              16384  Yes        No
+   ita.lng           *STMF       TCPIP              16384  Yes        No
+   itadom.tab        *STMF       TCPIP              16384  Yes        No
+   itdom.tab         *STMF       TCPIP              16384  Yes        No
+   itform.html       *STMF       TCPIP              16384  Yes        No
+   ith.lng           *STMF       TCPIP              16384  Yes        No
+   ithdom.tab        *STMF       TCPIP              16384  Yes        No
+   jp.lng            *STMF       TCPIP              16384  Yes        No
+   jpform.html       *STMF       TCPIP              16384  Yes        No
+   kr.lng            *STMF       TCPIP              16384  Yes        No
+   lt.lng            *STMF       TCPIP              16384  Yes        No
+   lv.lng            *STMF       TCPIP              16384  Yes        No
+   lva.lng           *STMF       TCPIP              16384  Yes        No
+   nl.lng            *STMF       TCPIP              16384  Yes        No
+                                         Display Saved Objects - Save File                                              Page     5
+5722SS1 V5R2M0  020719                                                                                XXXX      03/21/06  23:17:07
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   nla.lng           *STMF       TCPIP              16384  Yes        No
+   no.lng            *STMF       TCPIP              16384  Yes        No
+   no2.lng           *STMF       TCPIP              16384  Yes        No
+   no2a.lng          *STMF       TCPIP              16384  Yes        No
+   no2h.lng          *STMF       TCPIP              16384  Yes        No
+   noa.lng           *STMF       TCPIP              16384  Yes        No
+   noh.lng           *STMF       TCPIP              16384  Yes        No
+   pl.lng            *STMF       TCPIP              16384  Yes        No
+   pla.lng           *STMF       TCPIP              16384  Yes        No
+   pladom.tab        *STMF       TCPIP              16384  Yes        No
+   pldom.tab         *STMF       TCPIP              16384  Yes        No
+   pt.lng            *STMF       TCPIP              16384  Yes        No
+   pta.lng           *STMF       TCPIP              16384  Yes        No
+   pth.lng           *STMF       TCPIP              16384  Yes        No
+   ro.lng            *STMF       TCPIP              16384  Yes        No
+   rodom.tab         *STMF       TCPIP              16384  Yes        No
+   ru.lng            *STMF       TCPIP              16384  Yes        No
+   rua.lng           *STMF       TCPIP              16384  Yes        No
+   rudom.tab         *STMF       TCPIP              16384  Yes        No
+   se.lng            *STMF       TCPIP              16384  Yes        No
+   sea.lng           *STMF       TCPIP              16384  Yes        No
+   seadom.tab        *STMF       TCPIP              16384  Yes        No
+   sealt.lng         *STMF       TCPIP              16384  Yes        No
+   sealta.lng        *STMF       TCPIP              16384  Yes        No
+   sealth.lng        *STMF       TCPIP              16384  Yes        No
+   sedom.tab         *STMF       TCPIP              16384  Yes        No
+   seh.lng           *STMF       TCPIP              16384  Yes        No
+   sehdom.tab        *STMF       TCPIP              16384  Yes        No
+   si.lng            *STMF       TCPIP              16384  Yes        No
+   si1250.lng        *STMF       TCPIP              16384  Yes        No
+   sk.lng            *STMF       TCPIP              16384  Yes        No
+   ska.lng           *STMF       TCPIP              16384  Yes        No
+   tr.lng            *STMF       TCPIP              16384  Yes        No
+   tra.lng           *STMF       TCPIP              16384  Yes        No
+   ua.lng            *STMF       TCPIP              16384  Yes        No
+   uk.lng            *STMF       TCPIP              16384  Yes        No
+   uka.lng           *STMF       TCPIP              16384  Yes        No
+   ukdom.tab         *STMF       TCPIP              16384  Yes        No
+   us.lng            *STMF       TCPIP              16384  Yes        No
+   usa.lng           *STMF       TCPIP              16384  Yes        No
+   usform.html       *STMF       TCPIP              16384  Yes        No
+   yu.lng            *STMF       TCPIP              16384  Yes        No
+   yua.lng           *STMF       TCPIP              16384  Yes        No
+   yudom.tab         *STMF       TCPIP              16384  Yes        No
+ Number of objects saved  . . . . . . . :   222
+                                        * * * * *   E N D   O F   L I S T I N G   * * * * *

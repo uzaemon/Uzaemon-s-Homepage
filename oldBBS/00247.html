@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00247 : Re^3: SNDM (why only 80 characters in on</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00247 [Re^3: SNDM (why only 80 characters in on] </font>(posted by uzaemon)</b><br>
+( 1)   01/09/24 01:56   comment on <a href="00245.html">00245</a> 
+<HR>
+
+<br>
+Eduard,<br>
+<br>
+> P.S.: it would be nice, if i could send more than 92 characters in one line...<br>
+<br>
+RFC 821 allows to send 1000 octets in one line. I limited the SNDM to allow only 80 bytes by following reasons.<br>
+<br>
+1. After some encodings, 80 characters would be translated to much longer string.<br>
+<br>
+2. Some mailers may unexpectedly fold the text line which exceeds about 80 characters.<br>
+<br>
+3. You can send any data as attachment file.<br>
+<br>
+On balance, 80 characters in one line is the safest value for most users in my opinion. If you really want to extend it by some reason which I cannot think of, you can modify the source code at your will.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

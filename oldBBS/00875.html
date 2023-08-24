@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00875 : SNDMで質問</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00875 [SNDMで質問] </font>(posted by TACHIBANA)</b><br>
+( 1)   05/01/26 22:01
+<HR>
+
+<br>
+uzaemon様<br>
+<br>
+SNDMを利用したいのですが、テストを行っていたところ<br>
+AS400側のデータに『№』(X'446E)が含まれていると<br>
+『Mail sent, non-JIS character(s) replaced. 』となり<br>
+受信したメールでは『№』が『〓』に変換されています<br>
+正しく変換する方法はありますでしょうか<br>
+<br>
+環境は<br>
+SMTP client for AS/400 version 1-36を<br>
+5035でコンパイル<br>
+5035で実行<br>
+実行時のパラメータは<br>
+HDRCCSID(5035)<br>
+DBFCCSID(*FILE) 『5026』<br>
+<br>
+DEBUGLISTでは<br>
+Debug mode.  1/26/2005<br>
+*** SMTP client for AS/400 version 1-36 2003-05-05 ***<br>
+<br>
+non-ascii character found at record 1, column 1.<br>
+text-[ 請求書№  12345678]<br>
+<br>
+となっております<br>
+<br>
+解決方法がございましたらご教示下さい。<br>
+以上　宜しくお願い申し上げます<br>
+<br>
+<br>
+<br>
+</body></html>

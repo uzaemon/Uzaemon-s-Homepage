@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00854 : Re^6: SPL2STMF gives error CPF24B4</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00854 [Re^6: SPL2STMF gives error CPF24B4] </font>(posted by Feliu Soler)</b><br>
+( 1)   04/11/16 18:52   comment on <a href="00708.html">00708</a> 
+<HR>
+
+<br>
+> Bob,<br>
+><br>
+> > with 300.000 same problem appears to me: CPF24B4<br>
+><br>
+> CPF24B4 indicates "Severe error while addressing parameter list." I suspect that your problem is in OS/400(HPT API). I recommend you to consider followings :<br>
+><br>
+I have got the same problems and the solution are to increase the value of hptxbuflen:<br>
+0057.00    Dhptxbuflen  S  9B 0 INZ(600000)<br>
+and also spc_size parameter:<br>
+0233.00 C  PARM  600000 spc_size<br>
+(this to avoid the CPF24B4 error).<br>
+</body></html>

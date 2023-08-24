@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00966 : Re^2: SNDM (under restricted? mode)</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00966 [Re^2: SNDM (under restricted? mode)] </font>(posted by Alan Medows)</b><br>
+( 1)   05/10/16 17:15   comment on <a href="00965.html">00965</a>   , # of comment(s) : 1
+<HR>
+
+> Alan,<br>
+><br>
+> > I have been testing SNDDST in batch and interactively and has worked OK.  However, I have tried to do this with my overnight back up and have not been receiving email from the job.  I shutdown the subsystems QSNADS, QSERVER and QSYSWRK and I don't know if this is affecting the SNDDST command.  Then I found your utility SNDM and I wondered if this would overcome this problem by writing directly to the SMTP server.  Does this utility in terms of subsystems and AS400 services running?<br>
+><br>
+> SNDM just requires TCP/IP connection between the mail srever. It does not rely on any IBM-supplied subsystems.<br>
+><br>
+> Please try and let me know the result.<br>
+><br>
+> uzaemon@Japan<br>
+I ran the test lat night and I received the folowing error message...<br>
+<br>
+Message . . . . :   Command failed. reason -201 failed to start TCP/IP<br>
+  communication (socket(), 3448:The protocol required to support the specified<br>
+  address family is not available at this time.)<br>
+<br>
+Therefore I checked the subsystems and I assume that TCP/IP runs in both QSERVER and QSYSWRK and as these were ended so would TCP/IP even though it was none as a ENDTCP command. This would be done to ensure a full save.<br>
+I guess I will have to try and find another way round this problem unless you know of one.<br>
+<br>
+Regards,<br>
+<br>
+Alan<br>
+</body></html>

@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00255 : Re^3: SNDM (error using 30 *CCs)</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00255 [Re^3: SNDM (error using 30 *CCs)] </font>(posted by uzaemon)</b><br>
+( 1)   01/10/02 18:41   comment on <a href="00252.html">00252</a> 
+<HR>
+
+<br>
+MY_KATOHさん、<br>
+<br>
+> SNDM FROM(&SENDER) TO((&TO) (&CC01 *N *CC))<br>
+> とコーディングします。<br>
+> この用意した変数に全て存在するアドレスが入る場合はメールが送信されます。<br>
+> 存在しないアドレスが入るとCPA0702でfailed. reason -301 negative response from SMTP server ( RSP[550 5.1.1 User unknown｣･] REQ[RCPT TO:<>｣･])で落ちてしまいます。<br>
+<br>
+解説有難うございます。状況は理解しました。<br>
+<br>
+これにSNDM側で対応するには、SMTP/QRPGLESRC.#GENの109行あたり、SMTP/QRPGLESRC.#SENDの86行辺り、SMTP/QRPGLESRC.#INITの107行目あたりなどの処理を見直す必要があります。宛先が全てブランクだった場合などのエラー処理も考えるとかなりの修正量になりますので、修正は難しいでしょう。<br>
+<br>
+また、このようなエラーの発生はOS/400コマンドの一般的な動作であるため、ユーザーがコーディングで回避するのが通常の対応と考えます。例えば次のようなプログラムも同様のエラー(&PARM2がブランクであるため「CPD0078 パラメーター INCREL の値 '          ' が有効な名前でない」)を起こします。<br>
+<br>
+| PGM<br>
+| DCL        VAR(&PARM1) TYPE(*CHAR) LEN(10) VALUE('TKBANG')<br>
+| DCL        VAR(&PARM2) TYPE(*CHAR) LEN(10)<br>
+| CPYF       FROMFILE(TOKMSP) TOFILE(QGPL/TOKMSP) +<br>
+|              CRTFILE(*YES) INCREL((*IF &PARM1 *EQ +<br>
+|              '01010') (*AND &PARM2 *EQ '02020'))<br>
+| ENDPGM<br>
+<br>
+この現象を回避するにはCL(?)プログラムの修正が必要と思われます。*CCの数を固定にするか、あらかじめダミーのメールアドレスを全ての変数に初期値として指定しておくか(サーバーに余分な負荷をかけるため推奨しませんが)、SNDMコマンド部分を文字列として組み立ててQCMDEXCで呼び出すなどの方法で回避されてはいかがでしょうか。<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

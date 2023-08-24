@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00644 : Re: 添付ファイル(SNDM)</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00644 [Re: 添付ファイル(SNDM)] </font>(posted by uzaemon)</b><br>
+( 1)   03/06/20 21:59   comment on <a href="00642.html">00642</a> 
+<HR>
+
+<br>
+TOMOさん、<br>
+<br>
+> sndmで添付ファイルを送る場合はライブラリーのファイルを指定しなければならないと思うのですが<br>
+> ライブラリの中に文書ファイルを作製するにはどのようにしたら良いのでしょうか？<br>
+<br>
+いいえ、添付ファイルはIFS上のストリーム・ファイルを指定します。QSYS.LIBファイルシステムのファイルは(試していませんが)送信できないと思います。コマンドのヘルプにも下記のように記載しています。<br>
+<br>
+Attachment (ATTACHMENT)<br>
+<br>
+Specifies the name of the stream file that will be sent as<br>
+attachment file.  A maximum of 5 path names can be specified. DBCS<br>
+characters are not allowed.  For more information on specifying path<br>
+names, refer to Chapter 2 of the CL Reference, SC41-5722.<br>
+<br>
+なお、bodyは任意のライブラリーのデータベースファイル(通常はソースファイル)を指定しますので、混同しないようもう一度よく使用方法をお読みください。<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

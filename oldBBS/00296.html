@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00296 : Re^3: SPL2STMF (AFP to PCL/TIFF?)</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00296 [Re^3: SPL2STMF (AFP to PCL/TIFF?)] </font>(posted by uzaemon)</b><br>
+( 1)   01/11/22 18:41   comment on <a href="00292.html">00292</a>   , # of comment(s) : 2
+<HR>
+
+Jesus,<br>
+<br>
+> Before I used SPL2STMF I created several WSCSTs where I changed some HEX codes to translate the escape code to ｬ, the following is an example of my escape codes: ｬ&l2a1o1e88f0Lｬ*p0x0Yｬ&l1e8Dｬ(12Uｬ(s0p20h6v0s1b6Tｬ&k6Hｬ&l6.4C<br>
+<br>
+So you are using customized WSCSTs based on IBM supplied PCL WSCSTs, right?<br>
+<br>
+> SPL2STMF don't converts these codes so I can see them in the image, overlapped with the data of the report.<br>
+<br>
+SPL2STMF does not perform any conversion but HPT does. If you are using exactly same PCL WSCST for SPL2STMF and LPR(or remote writer?), they should produce same result because both utilize HPT.<br>
+<br>
+> What I want to do is, using SPL2STMF, convert this formatted reports to TIFF to send them via e-mail;<br>
+<br>
+You should use QWPTIFFG4 (or QWPTIFFPB if you want) to produce TIFF file from AS/400 spooled file. In other words, you cannot produce TIFF using PCL-based WSCST.<br>
+<br>
+You may consider followings.<br>
+<br>
+- Use APFDS to format your reports. SPL2STMF can convert the spooled file to TIFF file by QWPTIFFG4.<br>
+<br>
+- Look for a software which converts PCL to TIFF. You can find some commercial products on the Web.<br>
+<br>
+Hope this helps.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00301 : Re^4: SPL2STMF (AFP to PCL/TIFF?)</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00301 [Re^4: SPL2STMF (AFP to PCL/TIFF?)] </font>(posted by Jesus Olague)</b><br>
+( 1)   01/11/30 02:07   comment on <a href="00296.html">00296</a>   , # of comment(s) : 1
+<HR>
+
+Uzaemon,<br>
+<br>
+In fact, I think these aren't PCL WSCSTs, they're HPT WSCSTs. I retrieved the sources for these WSCSTs using:<br>
+    RTVWSCST DEVTYPE(*TRANSFORM)<br>
+        MFRTYPMDL(*HP5SI)<br>
+        SRCMBR(HP5SI)<br>
+        SRCFILE(PRTFLIB/QTXTSRC)<br>
+        TEXT('Modified WSCST for HPLJ 5Si printer')<br>
+<br>
+  Then I appended a translation table for EBCDIC (CP=37) to ASCII (CP=437), in order to convert some not commonlly used character (ｬ) to <esc> (1B HEX). This way the printer knows the following report's data is PCL code, i.e.: ｬ&l2a1o1e88f0Lｬ*p0x0Yｬ&l1e8Dｬ(12Uｬ(s0p20h6v0s1b6Tｬ&k6Hｬ&l6.4C<br>
+<br>
+My printers are PC attached and AS/400 emulated with Rally! (an AS/400's device emulator like CA) or Lan printers using HP JetDirect ethernet adapters.<br>
+<br>
+I tried SPL2STMF using my WSCSTs and both QWPTIFFxx and the result is allways the same, I can read the escape codes as text, overlapped with report's data and overlay.<br>
+<br>
+I'm using AFPDS device type, with OVRPRTF .. DEVTYPE(*AFPDS) .. , to print overlays.<br>
+<br>
+Regards.<br>
+<br>
+Jesus.<br>
+</body></html>

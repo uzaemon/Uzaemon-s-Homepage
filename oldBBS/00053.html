@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00053 : Re^3: sndm: @ character in FROM string i</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00053 [Re^3: sndm: @ character in FROM string i] </font>(posted by Fabian Emmes)</b><br>
+( 1)   00/08/21 15:41   comment on <a href="00052.html">00052</a>   , # of comment(s) : 3
+<HR>
+
+hi,<br>
+<br>
+thank you for your mail!<br>
+<br>
+i tried to follow the instructions for the tcpip dump on the as400<br>
+but it didnt work out. instead i made an tcpip dump from the smtp server.<br>
+it showed that the @ character was wrong.<br>
+<br>
+to try another smtp server i used the one installed on the as400<br>
+    > SNDM FROM('fab@orlen.de' 'Fabian Emmes') TO(('fab@baumarktforschung.com')<br>
+       ('Fabian Emmes')) FILE(SMTP/H) SUBJECT('blabla') SMTPHOST('localhost') D<br>
+      EBUG(*YES)<br>
+      Command failed. reason -301 negative response from SMTP server ( RSPｬ501<br>
+        Syntax error.  Special characters only permitted with escape<br>
+        character.璢| REQｬMAIL FROM:<fab@orlen.de>璢|)<br>
+</body></html>

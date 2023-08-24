@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 8.0.0.0 for Windows">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>Addendum</TITLE>
+</HEAD>
+<BODY>
+<H2><B>Addendum</B></H2>
+<HR width="100%">
+<P><B>Compilation (MAKE procedure) error on V5R3</B></P>
+<P>It seems like IBM has changed C compiler behavior which causes compile
+errors even for V5R2-ready programs. As a quick circumvention, edit MAKE
+procedure as follows.</P>
+<BLOCKQUOTE><TT>0019.00 TGTRLS = '<B><FONT color="#ff0000">V5R2M0</FONT></B>'<BR>
+</TT></BLOCKQUOTE>
+<HR width="100%">
+<H3><B>Large</B> file support</H3>
+<P><S>If you want to zip/unzip file larger than 2GB, set SYSIFCOPT to '*IFS64IO'.
+This option should work with V5R1 (possibly V4R5 with appropriate PTF)
+or later.</S></P>
+<P>This version of zlib (to be more accurate, <A href="http://www.winimage.com/zLibDll/unzip.html">minizip/miniunz</A>) does not support large file (&gt;2GB). For more information, see <A href="http://forum.winimage.com/viewtopic.php?t=6">http://forum.winimage.com/viewtopic.php?t=6</A>.</P>
+<HR width="100%">
+<H3><B>Bug fix</B></H3>
+<P>&quot;MAKE&quot; procedure has a minor bug. You should either :</P>
+<BLOCKQUOTE><TT>modify CRTPGM command for MINIZIP400 in source member ZLIB/QREXSRC(MAKE)
+as follows<BR>
+<BR>
+</TT>
+<BLOCKQUOTE><TT>'CRTPGM PGM(&amp;OLIB/MINIZIP400) ',<BR>
+'MODULE(QTEMP/MINIZIP400 QTEMP/ZIP400 QTEMP/EBCDIC<FONT color="#ff0000"><B>400</B></FONT>) ',<BR>
+</TT></BLOCKQUOTE>
+<TT><BR>
+or <BR>
+<BR>
+run MAKE procedure twice.<BR>
+</TT></BLOCKQUOTE>
+<P><BR>
+&quot;REPLACE&quot; parameter in ZIP OS/400 command does not work properly.
+Please modify ZLIB/QCLSRC(ZIPCLP) as follows:</P>
+<BLOCKQUOTE><TT>(before)<BR>
+</TT>
+<BLOCKQUOTE><TT>0006.00 DCL VAR(&amp;REPLACE) TYPE(*CHAR) LEN(7)<BR>
+</TT></BLOCKQUOTE>
+(after)<TT><BR>
+</TT>
+<BLOCKQUOTE><TT>0006.00 DCL VAR(&amp;REPLACE) TYPE(*CHAR) LEN(<FONT color="#ff0000"><B>8</B></FONT>)</TT></BLOCKQUOTE>
+</BLOCKQUOTE>
+<HR width="100%">
+<P>[<A href="index.html">Home</A>]</P>
+</BODY>
+</HTML>

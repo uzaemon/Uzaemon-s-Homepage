@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00676 : Re^2: Problems</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00676 [Re^2: Problems] </font>(posted by Luigi Buzzi)</b><br>
+( 1)   03/07/29 18:13   comment on <a href="00675.html">00675</a>   , # of comment(s) : 2
+<HR>
+
+Thank a lot,<br>
+i did your instructions, but... :-( teh same error.<br>
+Following my set up's and errors...<br>
+<br>
+please, help me ! :-)<br>
+<br>
+<br>
+                   Mod.voce tab.sist.centr.TCP/IP (CHGTCPHTE)<br>
+<br>
+ Immettere le scelte e premere Invio.<br>
+<br>
+ Indirizzo internet . . . . . . . > '10.0.0.2'    Valore carattere<br>
+ Nomi sistema centr.:<br>
+   Nome . . . . . . . . . . . . .   'MAILER.AGOSTINISVETRO.IT'<br>
+               + per altri valori<br>
+ Testo 'descriz.' . . . . . . . .   'SMTP server su NT'<br>
+                                                              PING OK!!!<br>
+<br>
+Then ...<br>
+<br>
+SNDM FROM('giorgio.a@agostinisvetro.it') TO(('lbuzzi@seimaitaliana.it')) F<br>
+ILE(ZWORKLIB/QDDSDSPF) SUBJECT('Test mailer smtp da as400') SMTPHOST(MAILE<br>
+R.AGOSTINISVETRO.IT)<br>
+Command failed. reason -214 failed to retrieve local domain name ('.'<br>
+  missing. localhost =)<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+> > Hi, I hope I'll sove my problem.<br>
+> > My smtp server is on Nt server (10.0.0.2)<br>
+> > My as400 doesen't have smtp server.<br>
+> > What I have to do on the as400 for use sndm for directly use smtp server on nt.<br>
+> > sndm command give me always an error about smtp name.<br>
+> > Thanks in advance.<br>
+><br>
+> 1) With CFGTCP, then option 10<br>
+> You must catalog the Nt Smtp Server, with some name, eg: mailer.yourdomain.com<br>
+><br>
+> 2) ping your new entry, to check the connection.<br>
+> PING 'MAILER.YOURDOMAIN.COM'<br>
+><br>
+> 3) in the sndm command you must specify SNDM ...<br>
+> SMTPHOST(MAILER.YOURDOMAIN.COM)<br>
+><br>
+> Good luck !!<br>
+<br>
+</body></html>

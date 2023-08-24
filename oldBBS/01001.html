@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 01001 : Re^2: problem with TIFF2PDF - CPF9897</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>01001 [Re^2: problem with TIFF2PDF - CPF9897] </font>(posted by uzaemon)</b><br>
+( 1)   06/01/24 21:55   comment on <a href="00999.html">00999</a>   , # of comment(s) : 4
+<HR>
+
+One question.<br>
+<br>
+> Stream file generated. execution time 0 min 0 sec, total pages = 14<br>
+<br>
+I think "0 min 0 sec" to create TIFF file is too fast. Was the TIFF file created successfully? Try to open the file using Windows graphics software.<br>
+<br>
+If the TIFF file is broken by some reason, create new WSCST for TIFF-G4 from source shown below:<br>
+<br>
+0001.00       :WSCST DEVCLASS=TRANSFORM.<br>
+0002.00                 :TRNSFRMTBL.<br>
+0003.00                 :PRTDTASTRM<br>
+0004.00                 DATASTREAM=TIFF_G4.<br>
+0005.00                 :INITPRT<br>
+0006.00                 DATA ='4D4D002A'X.<br>
+0007.00                 :RESETPRT<br>
+0008.00                 DATA ='00000000'X.<br>
+0009.00                 :EWSCST.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00975 : Re^4: SNDM: Compile Error because of CCS</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00975 [Re^4: SNDM: Compile Error because of CCS] </font>(posted by Christian Vitrol)</b><br>
+( 1)   05/10/27 18:27   comment on <a href="00749.html">00749</a>   , # of comment(s) : 1
+<HR>
+
+Hello everyone,<br>
+<br>
+I had the same problem on our German i5, running V5R3. Could not compile due to a codepage conversion conflict (we do not have any DBCS codepages installed).<br>
+<br>
+Changing my JOB CCSID to 65535 fixed that, everything compiled fine. I am still wondering, though, where my iSeries picks up that codepage 5035? I cannot find it anywhere in/on the sourcefiles! Anyone has an idea?<br>
+</body></html>

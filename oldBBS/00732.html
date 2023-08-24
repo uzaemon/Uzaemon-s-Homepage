@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00732 : Re^2: SNDMとCRTCSVF(添付ファイルの文字・</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00732 [Re^2: SNDMとCRTCSVF(添付ファイルの文字・] </font>(posted by yy)</b><br>
+( 1)   03/11/26 08:32   comment on <a href="00731.html">00731</a>   , # of comment(s) : 3
+<HR>
+
+> CRTCSVFで作成したファイルを添付ファイルとしてSNDMで送信しようとしているのでしょうか？<br>
+<br>
+その通りです。<br>
+<br>
+> とすると、明らかに誤りと思われるのは「メールに添付されるファイル」に漢字が含まれているにもかかわらず「CRTCSVFコマンドのDatebase file CCSIDは37」とされている事です。37はUS Englishですので漢字を処理することはできません。WRKLNKで正しく表示されることがむしろ不可解なのですが、このファイル(ストリームファイル)のCCSIDはいくつになっているのでしょうか？<br>
+<br>
+コード化文字セットID：437となっています。<br>
+なぜ37で変換したかといいますと、日本側で実行している5026ではエラー(iconv_open failed. EBCDIC CCSID - 65535 / ASCII CCSID - 00437 - 3021 : 引き数に指定された値が正しくない。)になってしまい、ジョブのCCSID：37を指定したところ、エラーにならなかったためです。<br>
+<br>
+> また、日本と中国にAS/400をお持ちのようですが、日本語環境でも同様のエラーになりますか？ また、それぞれのOS/400のバージョンはいくつでしょうか？<br>
+<br>
+日本側ではDatebase file CCSIDに37を指定するとエラー(iconv_open failed. EBCDIC CCSID - 00037 / ASCII CCSID - 00942 - 3021 : 引き数に指定された値が正しくない)になりますが、5026を指定すればエラーになりません。そのときのストリームファイルのCCSIDは942になります。<br>
+また、OS/400のバージョンは日本/中国共に5.1です。<br>
+<br>
+宜しくお願い致します。<br>
+</body></html>

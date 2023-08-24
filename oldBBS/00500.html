@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00500 : Re^10: Sndm speed</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00500 [Re^10: Sndm speed] </font>(posted by uzaemon)</b><br>
+( 1)   02/11/07 21:16   comment on <a href="00499.html">00499</a> 
+<HR>
+
+<br>
+Tam疽,<br>
+<br>
+Thank you for your mail which shows the result of running the test program in your environment.<br>
+<br>
+Below is comparison of API execution time. My system is iSeries 820, 2-way, 4GB memory, V5R2.<br>
+<br>
+API name       |My System|Your System| Ratio<br>
+---------------|---------|-----------|------<br>
+socket()       |       56|        112|   2.0<br>
+gethostbyname()|      224|     184904| 825.5<br>
+connect()      |      216|      17336|  80.3<br>
+read()         |     1648|     710112| 430.9<br>
+write() HELO   |      120|         96|   0.8<br>
+read()         |       16|     105128|6570.5<br>
+write() MAIL   |       64|        352|   5.5<br>
+read()         |     8776|    2871008| 327.1<br>
+write() RCPT   |       96|        168|   1.8<br>
+read()         |    10208|    1747184| 171.2<br>
+write() QUIT   |       40|        160|   4.0<br>
+read()         |        0|         16|   N/A<br>
+close()        |       64|        384|   6.0<br>
+<br>
+I don't know the accuracy of software clock of ILE-C program, but generally, read() operations are much slower than other APIs (and my system), especially for "MAIL" and "RCPT" SMTP commands.<br>
+<br>
+Unfortunately, IBM does not support socket APIs' usage with ILE-RPG compiler which SNDM command utilizes extensively. Please contact your support channel and ask IBM if this is normal behavior.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

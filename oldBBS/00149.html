@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00149 : Re: GIF Image</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00149 [Re: GIF Image] </font>(posted by uzaemon)</b><br>
+( 1)   01/03/25 14:34   comment on <a href="00148.html">00148</a> 
+<HR>
+
+<br>
+Simon,<br>
+<br>
+> I try to convert from AFP to GIF, and Zetafax like it very much, but when my AFP document is more lenght then 1 page, SPL2STMF only create an image GIF with the first page.<br>
+<br>
+SPL2STMF is just a front-end to QwpzHostPrintTransform API. Most functionalities depend on the API which is provided from IBM. If the API cannot generate multi-page(?) GIF image, SPL2STMF has nothing to do with your problem.<br>
+<br>
+You may<br>
+<br>
+- ask IBM if API QwpzHostPrintTransform has the capability to generate multi-page(?) GIF file.<br>
+<br>
+- generate a multi-page TIFF, split the image to multiple files (one image file per page), convert them to GIF, then send them using your FAX software. See messages, '119. Re: Selecting certain pages to convert to TIFF with SPL2STMF' and '128. Re: GIF FILE QUALITY' for related information.<br>
+<br>
+> I'm also using TIFF2PDF and SNDM and both are working very well.<br>
+<br>
+Thanks for your report. I hope you have some fun using them.<br>
+<br>
+uzaemon @ Japan<br>
+<br>
+</body></html>

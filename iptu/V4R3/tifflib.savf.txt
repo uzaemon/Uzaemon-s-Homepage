@@ -1,0 +1,33 @@
+ 5722SS1 V5R2M0  020719                 Saved Object Information - Save File                     2/26/06 23:34:17        Page    1
+ Library saved  . . . :   TIFFLIB               Release level  . . . :   V4R3M0
+ ASP  . . . . . . . . :   1                     Data compressed  . . :   No
+ Save file  . . . . . :   TIFFLIB               Objects saved  . . . :   13
+   Library  . . . . . :     BACKUP43            Access paths . . . . :   0
+ Records  . . . . . . :   22904
+ Save command . . . . :   SAVLIB
+ Save active  . . . . :   *NO
+ Save date/time . . . :   03/15/06   19:17:04
+ Object             Type     Attribute     Owner         Size (K)  Data   Member      Member      Member      Member      Member
+ TIFFLIB            *LIB     TEST          QDFTOWN             88  Yes
+ TIFFCP             *PGM     CLE           QDFTOWN            376  Yes
+ TIFFDUMP           *PGM     CLE           QDFTOWN            244  Yes
+ TIFFINFO           *PGM     CLE           QDFTOWN            212  Yes
+ TIFFLIB            *SRVPGM  CLE           QDFTOWN           5676  Yes
+ TIFF2PDF           *CMD                   QDFTOWN              8  Yes
+ TIFF2PDFHL         *PNLGRP                QDFTOWN             12  Yes
+ H                  *FILE    PF            QDFTOWN            608  Yes    TIF_DIR     TIF_FAX3    TIF_PREDIC  TIFF        TIFFCOMP
+                                                                          TIFFCONF    TIFFIO      TIFFIOP     T4          VERSION
+ LICENSE            *FILE    PF            QDFTOWN             72  Yes    COPYING     COPYRIGHT   LICENSE
+ QCSRC              *FILE    PF            QDFTOWN           3316  Yes    ALPHA       AUX         CLOSE       CODEC       COMPRESS
+                                                                          DIR         DIRINFO     DIRREAD     DIRWRITE    DUMPMODE
+                                                                          ERROR       FAX3        FAX3SM      FLUSH       GETIMAGE
+                                                                          LZW         MKG3STATES  MKSPANS     MKVERSION   OPEN
+                                                                          PACKBITS    PREDICT     PRINT       READ        STRIP
+                                                                          SWAB        TILE        UNIX        VERSION     WARNING
+                                                                          WRITE
+ QREXSRC            *FILE    PF            QDFTOWN             32  Yes    MAKE
+ TIFF2PDF           *FILE    PF            QDFTOWN            404  Yes    MAKE        PARSEELEM   TIFF2PDF    TIFF2PDF.O  TIFF2PDFC
+                                                                          TIFF2PDFCL  TIFF2PDFHL
+ TOOLS              *FILE    PF            QDFTOWN            652  Yes    FLOAT       GETOPT      GETOPTTEST  TIFFCP      TIFFDUMP
+                                                                          TIFFINFO    TIFFSPRIT
+                           * * * * *   E N D   O F   L I S T I N G   * * * * *

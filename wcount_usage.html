@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+   <meta name="Author" content="Name">
+<META name="GENERATOR" content="IBM HomePage Builder 2001 V5.0.3 for Windows">
+<title>WCOUNT_usage</title>
+</head>
+<body>
+
+<h2>Using Count-2.5 for your AS/400</h2>
+<HR width="100%">
+<H3>Edit HTTP configuration</H3>
+<P>Add/edit following directives to your HTTP
+configuration using WRKHTTPCFG command or
+browser configuration:</P>
+<BLOCKQUOTE>00010 Port 12345 <I>(Port number of your HTTP instance, if any)</I><BR>
+00020 Enable GET <BR>
+00030 DefaultFsCCSID 5035 <I>(Japan only)</I><BR>
+00040 DefaultNetCCSID 942 <I>(Japan only)</I><BR>
+00050 Exec /count/* /QSYS.LIB/WCOUNT.LIB/*
+%%EBCDIC%%<BR>
+00060 Pass /wcount/* </BLOCKQUOTE>
+<P>You should stop/start your HTTP instance
+for changes to take effect.</P>
+<HR width="100%">
+<H3>Running counter</H3>
+<P>Access to count documentation page at http://<I>(your_server_name)(:port_number)</I>/wcount/Count.html . You may want to see
+'Example page for Count 2.5' at http://<I>(your_server_name)(:port_number)</I>/wcount/Count2_5-ex.html</P>
+
+<HR width="100%">
+<H2>Note</H2>
+<ul>
+<li>
+<b>Know problems/limitations</b></li>
+</ul>
+<BLOCKQUOTE>'lit=' sometimes shows extra characters.<BR>
+'auto_file_creation' in config file doesn't
+work for QSYS.LIB file system. You should
+add physical file member manually. <BR>
+I've not tested all functionalities of Count-2.5,
+for example, 'ignore IPs' and 'authorized'
+in config file are not tested.</BLOCKQUOTE>
+
+<UL>
+  <LI><B>Check out <A href="http://www.muquit.com/muquit/software/Count/Count.html">Official Count Home</A></B><B> for up to date info.</B>
+</UL>
+&nbsp;
+<HR width="100%">
+<P>[<A href="index.html">Home</A>]</P>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00921 : Re: SPLTOPDF CPF3CF2 hptopt = 30</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00921 [Re: SPLTOPDF CPF3CF2 hptopt = 30] </font>(posted by Stijn Theunis)</b><br>
+( 1)   05/07/26 18:49   comment on <a href="00920.html">00920</a>   , # of comment(s) : 2
+<HR>
+
+Logging:<br>
+Debug mode. 7/26/2005<br>
+*** SPL2STMF version 0-04 04-05-23 ***<br>
+Input Parameters<br>
+ splf : OPO401<br>
+stmf : /test.pcl7<br>
+wscst : *LIBL/LEXOPTRAN<br>
+spl_job : OPO401 ST 464944<br>
+spl_nbr : 2<br>
+replace : *YES<br>
+Create User Space QTEMP/QSPGETSP<br>
+User Space QTEMP/QSPGETSP already exists.<br>
+API QUSPTRUS successful.<br>
+Create User Space QTEMP/QWPZHPT1<br>
+User Space QTEMP/QWPZHPT1 already exists.<br>
+API QUSPTRUS successful.<br>
+Retrieve spool file.<br>
+API QSPOPNSP successful. spl_hdl = 1<br>
+API QSPGETSP successful.<br>
+generic header : level = V5R2M0 format = SPFR0200 complete = C sizeofUS = 4891139 reqbuf = -1 retbuf = 1183<br>
+API QSPCLOSP successful.<br>
+Checking output stream file.<br>
+file name = /test.pcl7<br>
+stream file not found.<br>
+Stream file opened.<br>
+<br>
+hptopt = 10<br>
+QUSBAVL = 0<br>
+hptopt = 20<br>
+QUSBAVL = 0 splbuflen = 0 hptosolena = 44 hptxbuflena = 155<br>
+Option specific input information / device = '*NONE' job = OPO401/ST/464944<br>
+spoolfile = 'OPO401' spoolNo = 2 pages = 0 WSCST = '*LIBL/LEXOPTRAN' Mmodel = '*WSCST'<br>
+Option specific output information / transform file = 1 pass data = 0<br>
+hptopt = 30  buffer info : No = 1 len = 4142 numentry = 2 offset = 236 size = 4034 / page info : LastPageCont = Y<br>
+QUSBAVL = 0 splbuflen = 4034 hptosolena = 44 hptxbuflena = 2502 pages(OSI) = 1 done(OSO) = 0<br>
+hptopt = 30<br>
+buffer info : No = 2 len = 4138 numentry = 0 offset = 4354 size = 4054 / page info : LastPageCont = Y<br>
+QUSBAVL = 0 splbuflen = 4054 hptosolena = 44 hptxbuflena = 0 pages(OSI) = 0 done(OSO) = 0<br>
+hptopt = 30 .... this go to buffer 150/151 .....<br>
+buffer info : No = 150 len = 4108 numentry = 0 offset = 616473 size = 4024 / page info : LastPageCont = N<br>
+QUSBAVL = 0 splbuflen = 4024 hptosolena = 44 hptxbuflena = 8481 pages(OSI) = 1 done(OSO) = 0<br>
+hptopt = 30<br>
+buffer info : No = 151 len = 4121 numentry = 1 offset = 620593 size = 4025 / page info : LastPageCont = Y<br>
+QUSBAVL = 27 splbuflen = 4025 hptosolena = 44 hptxbuflena = 4324 pages(OSI) = 1 done(OSO) = 0<br>
+** reset hpt - process option 50 **<br>
+<br>
+Fatal error : API QwpzHostPrintTransform failed : CPF3CF2 hptopt = 30<br>
+</body></html>

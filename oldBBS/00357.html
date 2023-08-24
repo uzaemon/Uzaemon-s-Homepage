@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00357 : Re: SNDM- Error (conversion error, No.4)</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00357 [Re: SNDM- Error (conversion error, No.4)] </font>(posted by uzaemon)</b><br>
+( 1)   02/03/23 11:55   comment on <a href="00356.html">00356</a> 
+<HR>
+
+<br>
+Nonna,<br>
+<br>
+> I am using your utility SNDM on V4R4- this is an Error msg:<br>
+> Message . . . . :   Command failed. reason -111 failed to initialize code<br>
+>    conversion API ( CCSID 0000J->00819, 3021:The value specified for the<br>
+>    argument is not correct.)<br>
+<br>
+See message "328. Re: SNDM (conversion error, No.3)" in this BBS.<br>
+<br>
+It seems like many people are using file that tagged to CCSID 65535... I may need to enhance SNDM to use default (system) EBCDIC CCSID for this situation as CRTCSVF command already has adopted this approach.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

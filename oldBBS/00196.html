@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00196 : Re^2: SNDM reason -203</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00196 [Re^2: SNDM reason -203] </font>(posted by Barry)</b><br>
+( 1)   01/06/09 05:32   comment on <a href="00195.html">00195</a> 
+<HR>
+
+<br>
+> Barry,<br>
+><br>
+> > I've got this error using SNDM. Do you have any ideas on what I can check. Message . . . . :   Command failed. reason -203 failed to connect remote server (connect(), 3425:A remote host refused an attempted connect operation.)<br>
+><br>
+><br>
+> The message indicates that the remote host (mail server) does not respond to TCP/IP socket connection request from your AS/400.<br>
+><br>
+> Try followings and let me know the result:<br>
+><br>
+> - Contact administrator of the mail server and confirm that the mail server is up and running to accept requests from TCP/IP hosts in your company.<br>
+><br>
+> - Can you send a mail using other mail servers? (If you don't have alternative mail server, you can configure your AS/400 as mail server)<br>
+><br>
+> - Can you send a mail using the same mail server from PC mailer (such as Outlook Express or Netscape Messenger)? PC and the AS/400 should reside in the same LAN segment.<br>
+><br>
+> uzaemon @ Japan<br>
+Either the gateway they had (they bought a new gateway) was blocking the request and/or they gave me the gateway's address instead of mail server's address.  Changed the mail server's address and it works great.<br>
+<br>
+Thanks,<br>
+<br>
+Barry<br>
+</body></html>

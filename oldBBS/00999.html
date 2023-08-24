@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00999 : Re: problem with TIFF2PDF - CPF9897</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00999 [Re: problem with TIFF2PDF - CPF9897] </font>(posted by uzaemon)</b><br>
+( 1)   06/01/24 21:29   comment on <a href="00998.html">00998</a>   , # of comment(s) : 5
+<HR>
+
+Giancarlo,<br>
+<br>
+> I list my problem:<br>
+> addlible hpt*last<br>
+> addlible tifflib *last<br>
+> ovrprtf file(qpsuprtf) devtype(*afpds)<br>
+> strseu srcfile(hpt/source) srcmbr(spl2stmfrp) option(6)<br>
+> spl2stmf file(qpsuprtf) tostmf('/tmp/spl2stmfrp.tif') wscst(qwptiffg4)<br>
+> Stream file generated. execution time 0 min 0 sec, total pages = 14<br>
+> tiff2pdf tiff('/tmp/spl2stmfrp.tif') pdf('/tmp/spl2stmfrp.pdf')<br>
+> CPF9897      Unable to open input TIFF file.<br>
+> My OS/400 version's V5R3 TC05102  temporary applied.<br>
+<br>
+I did exactly the same operation on V5R2 (TL04244) and V5R3 (TL05032). They worked just fine...<br>
+<br>
+Operation:<br>
+<br>
+> ADDLIBLE LIB(HPT) POSITION(*LAST)<br>
+  Library HPT added to library list.<br>
+> ADDLIBLE LIB(TIFFLIB) POSITION(*LAST)<br>
+  Library TIFFLIB added to library list.<br>
+> OVRPRTF FILE(QPSUPRTF) DEVTYPE(*AFPDS)<br>
+> STRSEU SRCFILE(HPT/SOURCE) SRCMBR(SPL2STMFRP) OPTION(6)<br>
+  Member SPL2STMFRP has been printed.<br>
+> SPL2STMF FILE(QPSUPRTF) TOSTMF('/tmp/spl2stmfrp.tif') WSCST(QWPTIFFG4)<br>
+  Stream file generated. execution time 0 min 2 sec, total pages = 14<br>
+> TIFF2PDF TIFF('/tmp/spl2stmfrp.tif') PDF('/tmp/spl2stmfrp.pdf')<br>
+  TIFF2PDF completed successfully.<br>
+<br>
+Check followings and let me know.<br>
+<br>
+- Confirm the authority of '/tmp/spl2stmfrp.tif' and '/tmp' by WRKAUT command. Also retry the operation as QSECOFR.<br>
+- If you have an access to another iSeries (or OS/400 partition, if any), try on the machine.<br>
+- Contact your support channel and try recreating the problem.<br>
+- No reason, but remove and reinstall (recompile) the distribution.<br>
+<br>
+Waiting for your reply.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

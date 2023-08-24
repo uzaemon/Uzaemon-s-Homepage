@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00718 : Re^2: SNDM, external mail</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00718 [Re^2: SNDM, external mail] </font>(posted by Olivier Waroquie)</b><br>
+( 1)   03/10/30 23:09   comment on <a href="00717.html">00717</a> 
+<HR>
+
+<br>
+Thanks for the quick answer ...<br>
+<br>
+I have define the following things via CFGTCP (option 10) :<br>
+IP-adres         My_email_server<br>
+                 My_email_server.My_companyname.BE<br>
+                 SMTPMAIL<br>
+                 My_companyname.BE<br>
+<br>
+In WRKDIRE :<br>
+<br>
+User ID/Address . . . . :   *ANY      SMTPMAIL<br>
+Description . . . . . . :   Mail server<br>
+System name/Group . . . :   TCPIP<br>
+User profile  . . . . . :<br>
+Network user ID . . . . :   *ANY     SMTPMAIL<br>
+<br>
+In CHGSMTPA :<br>
+Parameter SYSNAME(TCPIP)<br>
+MAILROUTER(My_email_server)<br>
+<br>
+Am I looking it too far, or is there something I still have to define ?<br>
+I thank you ...<br>
+</body></html>

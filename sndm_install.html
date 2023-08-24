@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=x-sjis">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>Install Analog</TITLE>
+</HEAD>
+<BODY>
+<H2>Installation</H2>
+<OL>
+  <LI>Download 'smtp???.exe' and execute it on Windows95/98/NT/2000/XP to extract 'smtp???.savf'.
+  <LI>Create save-file on your AS/400.
+  <LI>Connect to the AS/400 using any FTP client software.
+  <LI>Put the distribution (smtp???.savf) to the save-file in binary mode.
+  <LI>Create/restore object to library 'SMTP' from the save-file using RSTOBJ
+  command.
+</OL>
+<HR>
+<H2>Sample instruction</H2>
+<P>Create save-files on the target AS/400:</P>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD width="512">
+      <PRE>&gt; CRTSAVF FILE(QGPL/SMTP)
+  File SMTP created in library QGPL.</PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<P>Send save-files from Windows95/98/NT/2000/XP command prompt:</P>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD width="512">
+      <PRE>C:\&gt;<I>ftp your_as400_hostname</I>
+Connected to ????.
+220-QTCP AT ????.
+220 CONNECTION WILL CLOSE IF IDLE MORE THAN 5 MINUTES.
+User (????:(none)): <I>as400_user_id</I>
+331 ENTER PASSWORD.
+Password:<I>enter_password_for_the_user_id</I>
+230 ???? LOGGED ON.
+ftp&gt; <EM>bi</EM>
+200 REPRESENTATION TYPE IS BINARY IMAGE.
+ftp&gt; <EM>put smtp???.savf qgpl/smtp</EM>
+200 PORT SUBCOMMAND REQUEST SUCCESSFUL.
+150 SENDING FILE TO MEMBER SMTP IN FILE SMTP IN LIBRARY QGPL.
+250 FILE TRANSFER COMPLETED SUCCESSFULLY.
+ftp: 225984 bytes sent in 34.44Seconds 6.56Kbytes/sec.
+ftp&gt; <EM>quit</EM>
+221 QUIT SUBCOMMAND RECEIVED.</PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<P>Go back to the 5250 session to restore objects:</P>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD width="512">
+      <PRE>&gt; CRTLIB LIB(SMTP) TEXT('ILE-RPG SMTP client')
+  Library SMTP created.
+&gt; RSTOBJ OBJ(*ALL) SAVLIB(SMTP) DEV(*SAVF) SAVF(QGPL/SMTP)
+  5 objects restored from SMTP to SMTP.
+&gt; DLTF FILE(QGPL/SMTP)
+  Object SMTP in QGPL type *FILE deleted.
+&gt; CHGCURLIB CURLIB(SMTP)
+  Current library changed to SMTP.
+&gt; STRREXPRC SRCMBR(MAKE)</PRE>
+      <TABLE border="0">
+        <TBODY>
+          <TR>
+            <TD>
+            <DL>
+              <DD>
+              <PRE>Start SNDM compilation.
+ You must have authority to exec CRTxxx.
+ Confirm that you have IBM supplied library QSYSINC.
+ This procedure changes job's CURLIB before compilation.</PRE>
+              <PRE>* * * * * * * * * * * * * * * * * * * * * *
+
+Change current library to &quot;SMTP&quot;...
+  result-&gt; 0
+
+Start creating modules for SNDM...
+  creating module SNDM...
+  result-&gt; 0
+  creating module CDATE...
+  result-&gt; 0
+  creating module FD_...
+  result-&gt; 0
+  creating module GETERRINFO...
+  result-&gt; 0
+  creating module GETFILENAM...
+  result-&gt; 0
+<EM>...........(SNIP).............</EM>
+  creating module PREPAREUS...
+  result-&gt; 0
+  creating module SNDPM...
+  result-&gt; 0
+  Creating main program (SNDM)...
+  result-&gt; 0
+
+Start creating command ...
+  creating pnlgrp...
+  result-&gt; 0
+  creating command...
+  result-&gt; 0
+
+Compile finished. Confirm error(s) if exists.</PRE>
+            </DL>
+            </TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<HR>
+<P>[<A href="index.html">Home</A>]</P>
+</BODY>
+</HTML>

@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00231 : Re^5: *Userascii AS/400 spools.</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00231 [Re^5: *Userascii AS/400 spools.] </font>(posted by uzaemon)</b><br>
+( 1)   01/08/31 21:54   comment on <a href="00230.html">00230</a> 
+<HR>
+
+<br>
+Jordi,<br>
+<br>
+Now I understand what you mean.<br>
+<br>
+> I try to use your command, but I can't. I think that result is in EBCDIC code (into IFS file), and I should convert them to ASCII code, is it true?.<br>
+<br>
+No. You are translating from ASCII to ASCII using EBCDIC to ASCII converter.<br>
+<br>
+> Do you know how can I retrieve *Userascii spool files?<br>
+<br>
+I think of several ways.<br>
+<br>
+The easiest way is to create WSCST which does NOTHING though I don't know if this is a right way (IBM does not support customized WSCST anyway). Here's the operation I tried.<br>
+<br>
+1. Edit WSCST source file member (named "NONE" in this example) as follows.<br>
+<br>
+| 0001.00 :WSCST DEVCLASS=TRANSFORM.<br>
+| 0002.00     :TRNSFRMTBL.<br>
+| 0003.00 :EWSCST.<br>
+<br>
+2. Create WSCST.<br>
+<br>
+> CRTWSCST WSCST(HPT/NONE) SRCFILE(HPT/WSCST)<br>
+<br>
+3. Exec SPL2STMF.<br>
+<br>
+> SPL2STMF FILE(LPD0FF5) TOSTMF('/tmp/pcl2.pcl') WSCST(HPT/NONE) JOB(041573<br>
+  /?????/QPRTJOB) SPLNBR(2)<br>
+  Stream file generated. execution time 0 min 0 sec, total pages = 1<br>
+<br>
+But above method has some overhead because it calls HPT API which is not necessary. You may modify SPL2STMF (or create from scrach) not to call HPT but create stream file just using QSPGETSP API.<br>
+<br>
+Or you may use LPD software for PC or UNIX to store stream file. Some LPD softwares have capability to store the printer output as stream file instead of send it to the printer.<br>
+<br>
+<br>
+FYI, you can create *USERASCII spooled file using lpr/lpd as follow.<br>
+<br>
+> CRTOUTQ OUTQ(QGPL/EBCDIC) RMTSYS(*INTNETADR) RMTPRTQ(QGPL/ASCII) CNNTYPE(<br>
+  *IP) DESTTYPE(*OTHER) MFRTYPMDL(*HP????) INTNETADR('ipaddress_of_your_as400')<br>
+> CRTOUTQ OUTQ(QGPL/ASCII)<br>
+> STRRMTWTR OUTQ(QGPL/EBCDIC) MSGQ(*REQUESTER)<br>
+<br>
+Put your spooled file into OUTQ QGPL/EBCDIC. You'll see the file will be sent to QGPL/ASCII automatically.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

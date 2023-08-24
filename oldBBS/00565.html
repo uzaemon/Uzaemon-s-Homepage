@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00565 : Re: SPL2STMF error in API QwpzHostPrintT</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00565 [Re: SPL2STMF error in API QwpzHostPrintT] </font>(posted by Jesus Olague)</b><br>
+( 1)   03/02/15 03:57   comment on <a href="00564.html">00564</a> 
+<HR>
+
+<br>
+Here you have the debug print output I told you<br>
+________________________________________________<br>
+Debug mode.  2/14/2003<br>
+*** SPL2STMF version 0-03 00-03-18 ***<br>
+<br>
+Input Parameters<br>
+ splf     : PAGOS<br>
+ stmf     : chscob0103.tif<br>
+ wscst    : *LIBL/QWPTIFFG4<br>
+ spl_job  : DINGABRIM1INGABYM<br>
+ spl_nbr  : -1<br>
+ replace  : *YES<br>
+<br>
+Create User Space QTEMP/QSPGETSP<br>
+ API QUSCRTUS successful.<br>
+ API QUSPTRUS successful.<br>
+<br>
+Create User Space QTEMP/QWPZHPT1<br>
+ API QUSCRTUS successful.<br>
+ API QUSPTRUS successful.<br>
+<br>
+Retrieve spool file.<br>
+ API QSPOPNSP successful. spl_hdl = 2<br>
+ API QSPGETSP successful.<br>
+ generic header : level = V5R1M0 format = SPFR0200 complete = C sizeofUS = 149289 reqbuf = -1 retbuf = 37<br>
+ API QSPCLOSP successful.<br>
+<br>
+Checking output stream file.<br>
+ file name = chscob0103.tif<br>
+ stream file already exists.<br>
+ unlink() successful.<br>
+Stream file opened.<br>
+<br>
+hptopt = 10<br>
+ QUSBAVL = 0<br>
+hptopt = 20<br>
+ QUSBAVL = 0 splbuflen = 0 hptosolena = 44 hptxbuflena = 4<br>
+  Option specific input information / device = '*NONE' job = DINGABRIM1/INGABYM/<br>
+   spoolfile = 'PAGOS' spoolNo = -1 pages = 0 WSCST = '*LIBL/QWPTIFFG4' Mmodel = '*WSCST'<br>
+  Option specific output information / transform file = 1 pass data = 0<br>
+hptopt = 30<br>
+ buffer info : No = 1 len = 4136 numentry = 1 offset = 224 size = 4040 / page info : LastPageCont = Y<br>
+ QUSBAVL = 0 splbuflen = 4040 hptosolena = 44 hptxbuflena = 0 pages(OSI) = 0 done(OSO) = 0<br>
+hptopt = 30<br>
+ buffer info : No = 2 len = 4140 numentry = 1 offset = 4360 size = 4044 / page info : LastPageCont = Y<br>
+ QUSBAVL = 0 splbuflen = 4044 hptosolena = 44 hptxbuflena = 48936 pages(OSI) = 1 done(OSO) = 0<br>
+<br>
+---> Previous message repeats until No = 14 and QUSBAVL = 27<br>
+<br>
+** reset hpt - process option 50 **<br>
+<br>
+Fatal error : API QwpzHostPrintTransform failed : CPF3CF2 hptopt = 30<br>
+________________________________________________<br>
+<br>
+Regards.<br>
+<br>
+Jesus<br>
+</body></html>

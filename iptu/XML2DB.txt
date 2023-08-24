@@ -1,0 +1,183 @@
+0001.00 FITEM      O  A E             DISK
+0002.00  * Include file for XML for procedual languages definitions
+0003.00  /IF DEFINED(XML4PR310)
+0004.00  /COPY QSYSINC/QRPGLESRC,QXML4PR310
+0005.00  /ELSE
+0006.00  /COPY XML4PR351/QRPGLESRC,QXML4PR351
+0007.00  /ENDIF
+0008.00  * Procedures
+0009.00 Dget1stchildval   PR           128
+0010.00 D                                 *   VALUE
+0011.00 Datof             PR             8F   EXTPROC('atof')
+0012.00 D                                 *   VALUE
+0013.00  * Variables
+0014.00 Delementnum       C                   CONST(6)
+0015.00 Dfieldvalues      S            128    DIM(elementnum)
+0016.00 Delements         S             32    DIM(elementnum) PERRCD(1) CTDATA
+0017.00  *   For DOM parser
+0018.00 Ddomexcdta_p      S               *   INZ(%ADDR(Qxml_DOMEXCDATA))
+0019.00 Dsaxexcdta_p      S               *   INZ(%ADDR(Qxml_SAXEXCDATA))
+0020.00 Ddom_parse_p      S               *
+0021.00 Ddom_obj_p        S               *
+0022.00 Derrormsg         S             51
+0023.00  *   For nodelist/node
+0024.00 Delementname      S             32
+0025.00 Dnode_p           S               *
+0026.00 Dnodelist_p       S               *   DIM(elementnum)
+0027.00 Dnodenum          S             10I 0
+0028.00 Dindex            S             10I 0 INZ(0)
+0029.00  *   Get attribute
+0030.00 Dnamednodemap_p   S               *
+0031.00 Dattrname         S             10    INZ('itemNumber')
+0032.00  *   Write to Database
+0033.00 Ditpric_df        S              8F
+0034.00 Ditqty_df         S              8F
+0035.00  *
+0036.00  /EJECT
+0037.00  **********************************************************************
+0038.00  * Get file name as parameter
+0039.00 C     *ENTRY        PLIST
+0040.00 C                   PARM                    xmlfile          32
+0041.00  * Create DOM tree
+0042.00  *   Initialize XML environement
+0043.00 C                   CALLP     QxmlInit(domexcdta_p)
+0044.00  *   Create a DOM parser object
+0045.00 C                   EVAL      dom_parse_p = QxmlDOMPARSER_new(saxexcdta_p)
+0046.00  *   Set validation and parse option
+0047.00 C                   EVAL      xmlfile = %TRIMR(xmlfile) + X'00'
+0048.00  /IF DEFINED(XML4PR310)
+0049.00 C                   CALLP     QxmlDOMParser_setDoValidation(
+0050.00 C                               dom_parse_p : Qxml_VALIDATE)
+0051.00  /ELSE
+0052.00 C                   CALLP     QxmlDOMParser_setValidationScheme(
+0053.00 C                               dom_parse_p : Qxml_VALAL)
+0054.00  /ENDIF
+0055.00 C                   CALLP     QxmlDOMParser_parse_SystemId(
+0056.00 C                               dom_parse_p : %ADDR(xmlfile) :
+0057.00 C                               Qxml_JOBCCSID : 0)
+0058.00  *   DOM parser error?
+0059.00 C                   EXSR      #CHKPARSEERR
+0060.00  *   Create DOM object
+0061.00 C                   EVAL      dom_obj_p = QxmlDOMParser_getDocument(
+0062.00 C                               dom_parse_p)
+0063.00  ***********
+0064.00  * Get a nodelist and node (record) count
+0065.00 C                   DO        elementnum    I                 3 0
+0066.00 C                   EVAL      elementname = elements(I)
+0067.00  *   Create nodelist for each element (Database record)
+0068.00 C                   EVAL      nodelist_p(I) =
+0069.00 C                               QxmlDOM_Document_getElementsByTagName(
+0070.00 C                               dom_obj_p : %ADDR(elementname) :
+0071.00 C                               Qxml_JOBCCSID : %LEN(%TRIMR(elementname)))
+0072.00 C                   ENDDO
+0073.00  *   Retrieve number of elements
+0074.00 C                   EVAL      nodenum = QxmlDOM_NodeList_getLength(
+0075.00 C                               nodelist_p(1))
+0076.00  ***********
+0077.00  * Search for all nodelists to get value of first child of node
+0078.00 C                   DOW       index < nodenum
+0079.00  *   Create individual node object from nodelist
+0080.00 C                   DO        elementnum    I
+0081.00 C                   EVAL      node_p = QxmlDOM_NodeList_item(
+0082.00 C                               nodelist_p(I) : index)
+0083.00  *     Get attribute of first element 'item', which has no value
+0084.00 C                   IF        I = 1
+0085.00 C                   EVAL      namednodemap_p = QxmlDOM_Node_getAttributes(
+0086.00 C                               node_p)
+0087.00 C                   EVAL      fieldvalues(I) = get1stchildval(
+0088.00 C                               QxmlDOM_NamedNodeMap_getNamedItem(
+0089.00 C                               namednodemap_p : %ADDR(attrname) :
+0090.00 C                               Qxml_JOBCCSID : %LEN(%TRIMR(attrname))))
+0091.00 C                   CALLP     QxmlDOM_NamedNodeMap_delete(namednodemap_p)
+0092.00  *     Get value of the first child of other elements
+0093.00 C                   ELSE
+0094.00 C                   EVAL      fieldvalues(I) = get1stchildval(node_p)
+0095.00 C                   ENDIF
+0096.00  *     Delete node object
+0097.00 C                   CALLP     QxmlDOM_Node_delete(node_p)
+0098.00 C                   ENDDO
+0099.00  *     Write to DB
+0100.00 C                   EXSR      #WRITETODB
+0101.00  *   Process next node
+0102.00 C                   EVAL      index = index + 1
+0103.00 C                   ENDDO
+0104.00  ***********
+0105.00  *  Cleanup
+0106.00 C                   DO        elementnum    I
+0107.00 C                   CALLP     QxmlDOM_NodeList_delete(nodelist_p(I))
+0108.00 C                   ENDDO
+0109.00 C                   CALLP     QxmlDOM_Document_delete(dom_obj_p)
+0110.00 C                   CALLP     QxmlDOMParser_delete(dom_parse_p)
+0111.00 C                   CALLP     QxmlTerm
+0112.00  *
+0113.00 C                   SETON                                        LR
+0114.00 C                   RETURN
+0115.00  /EJECT
+0116.00  **********************************************************************
+0117.00  * Subroutines
+0118.00  ***********************************************************
+0119.00 C     #CHKPARSEERR  BEGSR
+0120.00  *
+0121.00 C                   IF        Qxml_ErrorType <> 0
+0122.00 C                   EVAL      errormsg = 'DOM parser error ' + %TRIM(
+0123.00 C                               %EDITC(Qxml_ErrorType : 'P')) + ' occured.'
+0124.00 C     errormsg      DSPLY
+0125.00 C                   EVAL      errormsg = '  Line ' + %TRIM(
+0126.00 C                               %EDITC(Qxml_RtnLine : 'P')) + ', Column ' +
+0127.00 C                               %TRIM(%EDITC(Qxml_RtnCol : 'P'))
+0128.00 C     errormsg      DSPLY
+0129.00 C                   EVAL      errormsg = '  Msg : ' + Qxml_ErrMsg
+0130.00 C     errormsg      DSPLY                   dummy             1
+0131.00  *
+0132.00 C                   SETON                                        LR
+0133.00 C                   RETURN
+0134.00 C                   ENDIF
+0135.00  *
+0136.00 C                   ENDSR
+0137.00  ***********************************************************
+0138.00 C     #WRITETODB    BEGSR
+0139.00  *
+0140.00 C                   EVAL      ITNO = fieldvalues(1)
+0141.00 C                   EVAL      ITCAT = fieldvalues(2)
+0142.00 C                   EVAL      ITDESC = fieldvalues(3)
+0143.00 C                   EVAL      ITPRIC = atof(%ADDR(fieldvalues(4)))
+0144.00 C                   EVAL      ITQTY = atof(%ADDR(fieldvalues(5)))
+0145.00 C                   MOVEL     fieldvalues(6)date_char        10
+0146.00 C     *ISO-         MOVE      date_char     ITDATE
+0147.00  *
+0148.00 C                   WRITE     ITEMR
+0149.00 C                   ENDSR
+0150.00  **********************************************************************
+0151.00  * Procedure
+0152.00  ***********************************************************
+0153.00  * Get value of the first child of given node
+0154.00 Pget1stchildval   B
+0155.00 Dget1stchildval   PI           128
+0156.00 D  basenode_p                     *   VALUE
+0157.00  *
+0158.00 Dfirstchild_p     S               *
+0159.00 Ddomstring_p      S               *
+0160.00 Dbytesprovided    S             10I 0 INZ(128)
+0161.00 Dbytesavailable   S             10I 0 INZ(0)
+0162.00 Dxlatedstr        S            128
+0163.00 Dxlatedstr_p      S               *   INZ(%ADDR(xlatedstr))
+0164.00  *
+0165.00 C                   EVAL      firstchild_p = QxmlDOM_Node_getFirstChild(
+0166.00 C                               basenode_p)
+0167.00 C                   EVAL      domstring_p = QxmlDOM_Node_getNodeValue(
+0168.00 C                               firstchild_p)
+0169.00 C                   CALLP     QxmlTranscode(domstring_p : Qxml_INDOMSTR :
+0170.00 C                               xlatedstr_p : %ADDR(bytesprovided) :
+0171.00 C                               %ADDR(bytesavailable) : Qxml_JOBCCSID)
+0172.00 C                   CALLP     QxmlDOMString_delete(domstring_p)
+0173.00 C                   RETURN    %STR(xlatedstr_p)
+0174.00  *
+0175.00 Pget1stchildval   E
+0176.00  *
+**CTDATA elements
+item
+itemCategory
+itemDescription
+itemPrice
+itemQuantity
+itemDate

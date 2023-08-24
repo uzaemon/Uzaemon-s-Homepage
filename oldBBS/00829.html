@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00829 : Re^2: PGM ZIPCLP not created durring REX</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00829 [Re^2: PGM ZIPCLP not created durring REX] </font>(posted by Mike Manas)</b><br>
+( 1)   04/09/14 13:16   comment on <a href="00828.html">00828</a>   , # of comment(s) : 17
+<HR>
+
+> Mike,<br>
+><br>
+> > OS/400 V5R2M0<br>
+> ><br>
+> > PGM ZIPCLP missing from Qrexsrc SRCMBR(Make)<br>
+> > Recieved error when ZIP tried to call ZIPCLP.<br>
+> > Created CL MOD for zipclp- OK.<br>
+> > I got error (*Definition not found for symbol 'QtmhGetEnv')<br>
+> > when I Tried to create PGM.<br>
+><br>
+> Confirm followings and let me know.<br>
+><br>
+> 1. Do you have 5722-DG1(IBM HTTP SERVER) on your OS/400? Use "GO LICPGM" and look for the product.<br>
+><br>
+> 2. Do you have service program QHTTPSVR/QZHBCGI on your OS/400? Exec "DSPSRVPGM SRVPGM(QHTTPSVR/QZHBCGI)" or "DSPOBJD OBJ(QHTTPSVR/QZHBCGI) OBJTYPE(*SRVPGM)".<br>
+><br>
+> Waiting for your reply.<br>
+><br>
+> uzaemon@Japan<br>
+<br>
+<br>
+Yes and Yes<br>
+<br>
+Should also note tried creating pgm using CRTBNDCL - no go. (* CPD0726 10  Variable '&FILE      ' declared but not referred to.)<br>
+<br>
+Mike<br>
+</body></html>

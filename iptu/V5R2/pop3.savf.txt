@@ -1,0 +1,22 @@
+ 5722SS1 V5R2M0  020719                 Saved Object Information - Save File                     2/26/06 23:17:10        Page    1
+ Library saved  . . . :   POP3                  Release level  . . . :   V5R2M0
+ ASP  . . . . . . . . :   1                     Data compressed  . . :   No
+ Save file  . . . . . :   POP3                  Objects saved  . . . :   10
+   Library  . . . . . :     BACKUP              Access paths . . . . :   0
+ Records  . . . . . . :   856
+ Save command . . . . :   SAVLIB
+ Save active  . . . . :   *NO
+ Save date/time . . . :   03/19/06   22:12:07
+ Object             Type     Attribute     Owner         Size (K)  Data   Member      Member      Member      Member      Member
+ POP3               *LIB     TEST          TCPIP               72  Yes
+ RCVMJRN            *JRN                   TCPIP                8  Yes
+ RCVMAIL            *PGM     CLP           TCPIP               56  Yes
+ RCVM               *CMD                   TCPIP                8  Yes
+ RCVMHLP            *PNLGRP                TCPIP               20  Yes
+ LICENSE            *FILE    PF            TCPIP               56  Yes    COPYING     LICENSE
+ RCVMLOG            *FILE    PF            TCPIP               28  Yes    RCVMLOG
+ RCVMLOGL           *FILE    LF            TCPIP               64  Yes    RCVMLOGL
+ SOURCE             *FILE    PF            QUSER              156  Yes    MAKE        RCVM        RCVMAIL     RCVMHLP     RCVMLOG
+                                                                          RCVMLOGL
+ RCVMJRNRCV         *JRNRCV                TCPIP              156  Yes
+                           * * * * *   E N D   O F   L I S T I N G   * * * * *

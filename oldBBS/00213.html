@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00213 : Re^2: SNDM (Date header Timezone)</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00213 [Re^2: SNDM (Date header Timezone)] </font>(posted by uzaemon)</b><br>
+( 1)   01/08/15 17:17   comment on <a href="00212.html">00212</a> 
+<HR>
+
+<br>
+Johannes,<br>
+<br>
+> here ar the parameters in our case:<br>
+> QUTCOFFSET   +01:00<br>
+> QTIME        09:15:11   HH:MM:SS<br>
+> now i start the programm.<br>
+> the date header is generated as follows:<br>
+> 15.08.2001 10:16<br>
+> right were:<br>
+> 15.08.2001 09:16<br>
+> you see, the time is moved by an hour.<br>
+> why?<br>
+<br>
+Uuum... What "time" do you mean? Is that the "time" your mailer shows or are you looking at actual (raw) mail header? Does your mailer convert the "Data:" header to GMT?<br>
+<br>
+SNDM command generates a following header as I stated in message "207.  Re: SNDM".<br>
+<br>
+ Date: Sat, 11 Aug 2001 00:15:56 +0900<br>
+<br>
+You should see "day of week", "day", "month", "year", "local time" and "timezone". In line 80 of source member SMTP/QRPGLESRC(CDATE),  the "Date" header is composed as follows.<br>
+<br>
+| EVAL      datestring =<br>
+|           dow(dtout_dow + 1) + ', ' +<br>
+|           %TRIM(%EDITC(dtout_day :'4')) + ' ' +<br>
+|           moy(dtout_month) + ' ' +<br>
+|           %TRIM(%EDITC(dtout_year :'4')) +<br>
+|           %EDITW(hms :'0  :  :  ') + ' ' +<br>
+|           tzone_c<br>
+<br>
+Please try followings and let me know.<br>
+<br>
+- Run SNDM with DEBUG(*YES) and check the "Data" header, then examine the "Date" header. Here's an example.<br>
+<br>
+17:30:09.708|S->[From: "=?ISO-2022-JP?B?GyhKQVM0MDAbJEIlRyViJTUlJCVIGyhC?="｣･ <webmaster@xxx.com>｣･To:]<br>
+17:30:09.708|   [ "=?ISO-2022-JP?B?GyRCJCpMPkEwTU0bKEI=?=" <user1@xxx.com>｣･Subject: =?ISO-2022-JP?B?G]<br>
+17:30:09.708|   [yRCRkAwVUBoJV4lOSU/ITw+SDJxN2syTBsoQg==?=｣･Date: Tue, 3 Jul 2001 17:30:09 +0900 ｣･MIME-Version: 1.0｣]<br>
+17:30:09.708|   [･Content-Type: multipart/mixed; boundary = "--=_Next_Part_03_Jul_2001_17.30.09"｣･X-Mailer: SMTP Clie]<br>
+<br>
+- Let me know the mailer you are using, and try other mailer such as Outlook Express or Netscape Messenger.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+<br>
+P.S.<br>
+For our convenience, please use "reply" function of this BBS to follow up this thread.<br>
+<br>
+</body></html>

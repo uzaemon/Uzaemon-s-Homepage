@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00154 : Re: sndm メール本文の漢字変換エラー</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00154 [Re: sndm メール本文の漢字変換エラー] </font>(posted by uzaemon)</b><br>
+( 1)   01/04/07 12:39   comment on <a href="00150.html">00150</a>   , # of comment(s) : 1
+<HR>
+
+kkohnoさん、<br>
+<br>
+> メール本文中にJIS句点番号06706の'礒'の字が入っていると<br>
+> non-JIS character の変換エラーになります。<br>
+<br>
+SNDMのバグでした。修正版を1-33としてアップしますのでそちらでお試しの上結果をお知らせください。<br>
+<br>
+> 変換の仕様、制限等お教えいただければ幸いです。<br>
+<br>
+ご紹介のコード表はISO-2022-JP以外の文字も含まれています。下記のようなサイトも参照されると良いでしょう。<br>
+<br>
+Japanese Character Encoding for Internet Messages<br>
+<a href="http://www.faqs.org/rfcs/rfc1468.html" rel = "nofollow" target = "_blank">http://www.faqs.org/rfcs/rfc1468.html</a><br>
+<br>
+情報交換用漢字符号系 JIS X 0208<br>
+<a href="http://www.koba.tv/network/mail/JIS-X-0208.html" rel = "nofollow" target = "_blank">http://www.koba.tv/network/mail/JIS-X-0208.html</a><br>
+<br>
+ソースを見れば分かりますが、下記のロジックでJIS外文字を検出しています。<br>
+<br>
+EBCDIC漢字コードではJIS外文字の検出が困難であるため、まずはCCSID932に変換します。この時点でNEC選定文字などMS932(CCSID943)の独自コードがあれば変換不能文字として除外されるはずです。<br>
+<br>
+CCSID932のキャラクターセットを下記のように分類しており、X'F0'以降の漢字をJIS外字として除外しています。<br>
+<br>
+X'00' - X'1F'          control character<br>
+X'20' - X'7F'          SBCS ASCII (alphabet/numeric/symbol)<br>
+X'81' - X'9F'          first byte of DBCS - 1<br>
+  X'8140' - X'84BE'      non-kanji DBCS<br>
+  X'889F' - X'9872'      JIS level1<br>
+  X'989F' - X'9FFC'      JIS level2 - 1<br>
+X'A1' - X'DF'          SBCS katakana<br>
+X'E0' - X'FC'          first byte of DBCS - 2<br>
+  X'E040' - X'EAA4'      JIS level2 - 2<br>
+  X'F0' - X'F9'          user defined character area (IBM)<br>
+  X'FA40' - X'FC4B'      IBM selected character<br>
+<br>
+uzaemon @ Japan<br>
+<br>
+</body></html>

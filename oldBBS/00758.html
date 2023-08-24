@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00758 : Re^3: CPF333B - SPL2STMF</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00758 [Re^3: CPF333B - SPL2STMF] </font>(posted by Trevor)</b><br>
+( 1)   03/12/16 22:59   comment on <a href="00754.html">00754</a>   , # of comment(s) : 4
+<HR>
+
+Thanks for the reply Uzaemon,<br>
+My error is CPF333B Job system name is not valid. No value is returned in the message. The version compiled @ V4R4 (7/27/00) works fine, but not compiling it now. The spool file is *AFPDS, and *SCS doesn稚 convert either.<br>
+=========<br>
+I've found the problem: the new parameter values: job system name QWPJSN; Splf Create date QWPSCD; Splf create time QWPSCT are not set, so blank values produce the CPF333* messages.<br>
+Trevor<br>
+</body></html>

@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00908 : Re^2: small PDF file</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00908 [Re^2: small PDF file] </font>(posted by uzaemon)</b><br>
+( 1)   05/06/26 17:25   comment on <a href="00907.html">00907</a>   , # of comment(s) : 3
+<HR>
+
+Ermanno、<br>
+<br>
+Thank you for your mail. I looked into the TIF file "FATT5.TIF" and I think TIFF2PDF is working as expected.<br>
+<br>
+Size of "FATT5.TIF" is Width: 3968, Length: 3298 in pixel and there is "white space" area in right part of the file. You may use TIFFINFO program to confirm the information of the file.<br>
+<br>
+> ADDLIBLE LIB(TIFFLIB)<br>
+  Library TIFFLIB added to library list.<br>
+> CALL PGM(TIFFINFO) PARM('/tmp/fatt5.tif')<br>
+<br>
+  TIFF Directory at offset 0x1841e<br>
+    Subfile Type: (0 = 0x0)<br>
+    Image Width: 3968 Image Length: 3298<br>
+    Resolution: 300, 300 pixels/inch<br>
+    Bits/Sample: 1<br>
+    Compression Scheme: CCITT Group 4<br>
+    Photometric Interpretation: min-is-white<br>
+    Orientation: row 0 top, col 0 lhs<br>
+    Samples/Pixel: 1<br>
+    Rows/Strip: 3298<br>
+    Planar Configuration: single image plane<br>
+  Press ENTER to end terminal session.<br>
+<br>
+TIFF2PDF scales the TIFF includeing the "white space", thus, you see small image in generated PDF file. See <a href="http://homepage1.nifty.com/uzaemon/tiff2pdf_scale.gif" rel = "nofollow" target = "_blank">http://homepage1.nifty.com/uzaemon/tiff2pdf_scale.gif</a> for detail.<br>
+<br>
+Please confirm followings:<br>
+<br>
+- Why the "white space" exists? Is that what you specified by overlay, DDS keyword or printer file definition?<br>
+<br>
+- Try generating other image format, for example using QWPGIF. Does that also have same "white space" area?<br>
+<br>
+Waiting for your reply.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00084 : Re: SNDM Attachment-File</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00084 [Re: SNDM Attachment-File] </font>(posted by uzaemon)</b><br>
+( 1)   00/10/27 08:56   comment on <a href="00082.html">00082</a>   , # of comment(s) : 1
+<HR>
+
+Michael,<br>
+<br>
+>you have to do is to comment out several statements in >source-File #INIT.<br>
+><br>
+> The statements are 243.00 - 247.00 (after "path must be a stream file")<br>
+<br>
+Thank you very much for your suggestion. I recommend to modify like followings if you want to send documents under QDLS:<br>
+<br>
+0242.00  *   path must be stream file or doc<br>
+0243.00 C                   IF        (%SUBST(st_objtype : 1 : 10)  <> '*STMF') AND<br>
+0244.00 C                             (%SUBST(st_objtype : 1 : 10)  <> '*DOC')<br>
+0245.00 C                   CALLP     em(em1(17) : 'PATH-' + %TRIM(at_elem(I)) +<br>
+0246.00 C                             ', TYPE-' + %SUBST(st_objtype : 1 : 10))<br>
+0247.00 C                   EXSR      #ABORT<br>
+0248.00 C                   ENDIF<br>
+<br>
+uzaemon @ Japan<br>
+<br>
+</body></html>

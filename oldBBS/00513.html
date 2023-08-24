@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00513 : Re: 変換テーブルについて (CRTCSVF)</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00513 [Re: 変換テーブルについて (CRTCSVF)] </font>(posted by uzaemon)</b><br>
+( 1)   02/11/21 21:00   comment on <a href="00512.html">00512</a>   , # of comment(s) : 3
+<HR>
+
+tomoさん、<br>
+<br>
+> CRTCSVFを使用して、CSVへの書き出しを行うと「槙」という文字が、「槇」になって書き出されてしまいます。<br>
+> CSVへの書き出しをする際の変換テーブルの文字コードを修正すれば正常に書き出しが行われると思うのですが・・・<br>
+> CRTCSVFを使用する時に使用される変換テーブルを教えて下さい。<br>
+<br>
+CRTCSVFは文字コード変換にiconv()というAPIを使用していますが、このAPIが使用するDBCS変換テーブルはユーザーが見たり変更したりできない内部的なものと思われます。次の点を確認の上お知らせください。<br>
+<br>
+- 変換元DBの「槙」の内部コード(DSPPFMやCPYFの16進表示で確認)<br>
+- 変換元DBのCCSID(DSPFDで確認)<br>
+- CRTCSVFの実行時のパラメーター<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

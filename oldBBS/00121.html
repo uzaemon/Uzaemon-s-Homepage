@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00121 : Re: ＡＰＷをつかった印刷物</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00121 [Re: ＡＰＷをつかった印刷物] </font>(posted by uzaemon)</b><br>
+( 1)   01/02/12 10:23   comment on <a href="00120.html">00120</a>   , # of comment(s) : 2
+<HR>
+
+taroさん、<br>
+<br>
+> ＡＰＷをつかった印刷スプールを、ＴＩＦＦファイルまたはＰＤＦにはそもそも変換できるのでしょうか？<br>
+<br>
+APSU(5769AP1)のオプション1(APSU-IPDSプリンター・サポート)が導入されていればできるような気がします。<br>
+<br>
+試してみたところ一般的なCPI、横倍角、罫線はSPL2STMFでTIFFに変換されました。縦倍角やLPI、記号セットなどは試していません。<br>
+<br>
+○APWソースファイル<br>
+<br>
+| ADDAPW LINE(1)<br>
+|  ＡＰＷのテスト<br>
+| ADDAPW LINE(3) CPI((20 15 10))<br>
+| CPI10   ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890<br>
+| ADDAPW LINE(5) CPI((20 15 12))<br>
+| CPI12   ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890<br>
+| ADDAPW LINE(7) CPI((20 15 13.4))<br>
+| CPI13.4 ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890<br>
+| ADDAPW LINE(9) CPI((20 15 15))<br>
+| CPI15   ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890<br>
+| ADDAPW LINE(11) IGCCPI((30 15 5))<br>
+|  ＩＧＣＣＰＩ５　　　亜居卯絵尾可気区毛小差詩酢背粗<br>
+| ADDAPW LINE(13) IGCCPI((30 15 6))<br>
+|  ＩＧＣＣＰＩ６　　　亜居卯絵尾可気区毛小差詩酢背粗<br>
+| ADDAPW LINE(15) IGCCPI((30 15 6.7))<br>
+|  ＩＧＣＣＰＩ６．７　亜居卯絵尾可気区毛小差詩酢背粗<br>
+| ADDAPW LINE(17) IGCCPI((30 15 7.5))<br>
+|  ＩＧＣＣＰＩ７．５　亜居卯絵尾可気区毛小差詩酢背粗<br>
+| ADDAPW LINE(19) MAGNIFY((1 18))<br>
+|  倍角文字 ﾊﾞｲｶｸﾓｼﾞ<br>
+| ADDAPW LINE(21)<br>
+|  細線    太線    二重線    点線<br>
+| DRAW(1 20  1 21  7)<br>
+| DRAW(2 20  9 21 15)<br>
+| DRAW(3 20 17 21 25)<br>
+| DRAW(4 20 27 21 33)<br>
+<br>
+○手順<br>
+<br>
+> CRTAPW FORMD(APWTEST) FILE(QAPWOBJ) SRCFILE(QAPWSRC)<br>
+   書式ファイル QAPWOBJ がライブラリー XXXXXX に作成された。<br>
+   書式 APWTEST が書式ファイル XXXXXX/QAPWOBJ に作成された。<br>
+> MRGAPW FORMD(APWTEST) FILE(QAPWOBJ) DEVTYPE(*AFPDS)<br>
+   書式合成が終了した。<br>
+> ADDLIBLE LIB(HPT) POSITION(*LAST)<br>
+   ライブラリー HPT がライブラリー・リストに追加された。<br>
+> SPL2STMF FILE(APWTEST) TOSTMF('/tmp/apwtest.tif') WSCST(QWPTIFFG4)<br>
+  Stream file generated. execution time 0 min 1 sec, total pages = 1<br>
+<br>
+○変換結果<br>
+<br>
+<a href="http://homepage1.nifty.com/uzaemon/apwtest.tif" rel = "nofollow" target = "_blank">http://homepage1.nifty.com/uzaemon/apwtest.tif</a> をご覧ください。(半角カナが化けていますが原因は調べていません)<br>
+<br>
+> ＡＦＰフォントなどないと無理でしょうか？<br>
+<br>
+テストしたAS/400にAFPフォントは導入済みであり、これが無くても出力できるかはテストしていません。<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

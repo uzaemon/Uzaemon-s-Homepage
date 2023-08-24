@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00516 : Re^3: 変換テーブルについて (CRTCSVF)</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00516 [Re^3: 変換テーブルについて (CRTCSVF)] </font>(posted by uzaemon)</b><br>
+( 1)   02/11/25 21:24   comment on <a href="00514.html">00514</a>   , # of comment(s) : 1
+<HR>
+
+tomoさん、<br>
+<br>
+> (1)「槙」の字の１６進コードは「6881」です。<br>
+><br>
+> (2)変換元ＤＢは５０３５です。<br>
+><br>
+> (3)パラメーター部分<br>
+> CRTCSVF FILE(QTEMP/SHHPTF) TOSTMF(#STRMFNM)<br>
+<br>
+STMFCCSIDパラメーターに943を指定してお試しください。<br>
+<br>
+- - - - - - - - - - - - - - - - - - - - - - -<br>
+<br>
+以下説明ですが、興味があればご一読ください。<br>
+<br>
+JISコードは不変ではなく、83年には「従来の字形を変更し、従来の字形を第２水準末尾に追加」するという変更(暴挙?)が行われました(詳細はGoogleなどで検索してみてください)。これらの文字(あるいは丸数字などのNEC拡張文字)を正しく変換するためには、対応したASCII-CCSIDを明示的に指定する必要があります。<br>
+<br>
+CRTCSVFは変換先のASCII-CCSIDはSTMFCCSIDパラメーターで決定します。デフォルトではQLGRLNGIというAPIによってシステムの一次言語に対応するASCII-CCSIDを使用します。V5R2では一次言語が2962(日本語)の場合、システムの省略時のASCII-CCSIDは942となりました。932/942は旧JIS、943は新JIS(Javaで言うところのMS932エンコーダー)になります。<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 01022 : Re^6: ZLIB/MiniZip (zlib 1.2.3 test vers</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>01022 [Re^6: ZLIB/MiniZip (zlib 1.2.3 test vers] </font>(posted by James Lampert)</b><br>
+( 1)   06/02/21 04:36   comment on <a href="01021.html">01021</a>   , # of comment(s) : 3
+<HR>
+
+Something weird I just noticed, recompiling:<br>
+<br>
+It seems that on V4R2, the QZHBCGI *SRVPGM is in QTCP, whereas the QHTTPSRV library doesn't exist, and so the REXX script has to be altered accordingly.<br>
+<br>
+On V4R4 and later, the *SRVPGM is in QHTTPSRV, and NOT in QTCP.<br>
+<br>
+Yet the CL programs compiled under V4R2, and bound to the *SRVPGM in QTCP are somehow finding it in QHTTPSRV. Not being all that familiar with service program binding, I'm not entirely sure what to make of this.<br>
+<br>
+I'm also posting this query to MIDRANGE-L.<br>
+</body></html>

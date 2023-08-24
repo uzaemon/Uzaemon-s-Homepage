@@ -1,0 +1,35 @@
+ 5722SS1 V5R2M0  020719                 Saved Object Information - Save File                     2/26/06 23:40:26        Page    1
+ Library saved  . . . :   WCOUNT                Release level  . . . :   V3R2M0
+ ASP  . . . . . . . . :   1                     Data compressed  . . :   No
+ Save file  . . . . . :   WCOUNT                Objects saved  . . . :   16
+   Library  . . . . . :     BACKUP32            Access paths . . . . :   0
+ Records  . . . . . . :   23417
+ Save command . . . . :   SAVLIB
+ Save active  . . . . :   *NO
+ Save date/time . . . :   03/15/06   19:43:12
+ Object             Type     Attribute     Owner         Size (K)  Data   Member      Member      Member      Member      Member
+ WCOUNT             *LIB     TEST          QDFTOWN             88  Yes
+ COUNT              *PGM     CLE           QDFTOWN           3700  Yes
+ MKSTRIP            *PGM     CLE           QDFTOWN           3596  Yes
+ BIGPLUS            *FILE    PF            QDFTOWN             88  Yes    BIGPLUS
+ COMBINE            *FILE    PF            QDFTOWN           2012  Yes    ALLOCIM     ALPHAIM     COMPCMAP    COMPIMG     CRBASEI
+                                                                          CROPIM      DSTRAIMG    DUPLICIM    FLATTEN     FRAMEIM
+                                                                          GDFONTS     GETFINFO    GETSIZE     IMGSTR      LSBFWRS
+                                                                          LZWDEC      LZWENC      MODULATE    NEGATE      OPAQIM
+                                                                          QUANTIZE    RDDATA      READBLK     READGIF     READIM
+                                                                          RGBTRAN     ROTATE      SETPIXEL    SIGNATURE   SYNCIMG
+                                                                          TRANRGB     UNCMPIMG    UTILS_      WRITEGIF
+ CONFIG             *FILE    PF            QDFTOWN             24  Yes    COUNT.CFG
+ CONFIG_BAK         *FILE    PF            QDFTOWN             48  Yes    COUNT.CFG   COUNT.CFG2
+ DATA               *FILE    PF            QDFTOWN             32  Yes    EX.DAT      SAMPLE.DAT
+ H                  *FILE    PF            QDFTOWN            420  Yes    BIGPLUS     CDEBUG      COMBINE     CONFIG      COUNT
+                                                                          DEFINES     ERRCDS      GDFONTS     MCFG        NUMBER
+ LICENSE            *FILE    PF            QDFTOWN             32  Yes    COPYRIGHT   LICENSE
+ LOGS               *FILE    PF            QDFTOWN             16  Yes    LOG
+ MCFG               *FILE    PF            QDFTOWN            160  Yes    MCFG
+ QCLSRC             *FILE    PF            QDFTOWN             16  Yes    DEBUG
+ QREXSRC            *FILE    PF            QDFTOWN             56  Yes    MAKE        STRDUP
+ RGB                *FILE    PF            QDFTOWN             52  Yes    RGB
+ WCOUNT             *FILE    PF            QDFTOWN           1568  Yes    CFG         IMAGE       LLIST       MAIN        MKSTRIP
+                                                                          PARSE       RWDATA      SETGET      UTILS
+                           * * * * *   E N D   O F   L I S T I N G   * * * * *

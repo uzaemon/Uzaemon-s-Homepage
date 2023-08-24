@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00928 : Re^3: Compile Error (zlib)</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00928 [Re^3: Compile Error (zlib)] </font>(posted by Lado)</b><br>
+( 1)   05/08/02 11:44   comment on <a href="00927.html">00927</a>   , # of comment(s) : 3
+<HR>
+
+Uzaemonさん、こんにちは。<br>
+<br>
+HTTPサーバー(5722DG1)を導入してからすべて正常にできました。ありがとうございます。ついでに会社のもう一台As400（V4R5M0）でもzlibを使いたいと思いまして、ZLIB/QREXSRC(MAKE)のTGTRLS='V4R5M0'にしてCompile（V5R2M0で）したところいくつのオブジェクトができませんでした。<br>
+<br>
+Start creating modules for ZLIB...<br>
+   creating module adler32...<br>
+から<br>
+creating module zutil...<br>
+まで<br>
+result-> CZM0613<br>
+<br>
+ Creating service program ZLIB...<br>
+   result-> CPF5D05<br>
+他はresult-> 0でした。<br>
+<br>
+いろいろ調べまして、 5722SS1のオプション9を導入しました。<br>
+V4R5M0のマシンではCコンパイラーの環境を導入することができないようになっていますのでV5R2M0でV4R5M0用にコンパイルしたいと思っていますが、何か足りない手順がありますでしょうか？<br>
+<br>
+UzaemonさんはV5R2M0以前では動作が分かりませんとはっきり書いてありましたが何かのヒントをいただけないでしょうと思って。。。宜しくお願いします。<br>
+<br>
+<br>
+> ご返事ありがとうございます。<br>
+><br>
+> ライセンスプログラムを調べて見ました。HTTPサーバー(5722DG1)は導入されていませんでした。来週ぐらいにライセンスプログラムを導入してからその後の結果またご報告します。<br>
+> お忙しいところありがとうございます。<br>
+><br>
+> ラド<br>
+><br>
+> > ラドさん、<br>
+> ><br>
+> > > 日本で働いている外国のラドと申します。As400 V5R2（日本語のOS）でzlib121を使いたいと思います。<br>
+> > > zlib121をDLして説明とおりしました。また、追加で”Addendum”の修正もしました。<br>
+> > > STRREXPRC SRCMBR....を実行したとき以下の３件以外全部正常にできました。<br>
+> > ><br>
+> > > できなかったオブジェクトは<br>
+> > > UNZIPCLP、ZIPCLP、DSPZIPCLP　３つもResult->CPF3C50でした。<br>
+> ><br>
+> > CLだけコンパイルができないようですので、HTTPサーバー(5722DG1)<br>
+> > がインストールされている事をGO LICPGMコマンドのオプション10<br>
+> > で確認してください。<br>
+> ><br>
+> > CPF3C50は"Program &1 not created."とコンパイル時にエラーが<br>
+> > 発生したことを示しています。WRKSPLFコマンドなどで<br>
+> > コンパイル・リストを調べ、エラーの原因をお知らせください。<br>
+> ><br>
+> > もしコンパイル・リストが見つからない場合はDSPJOBLOGコマンド<br>
+> > でMAKE実行時にエラーが発生していないか調べてください。<br>
+> ><br>
+> > uzaemon@Japan<br>
+<br>
+</body></html>

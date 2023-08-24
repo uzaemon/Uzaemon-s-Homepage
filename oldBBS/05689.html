@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 05689 : Re: SPL2STMF doesn't work in V5R4</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>05689 [Re: SPL2STMF doesn't work in V5R4] </font>(posted by uzaemon)</b><br>
+( 1)   07/05/06 01:37   comment on <a href="04972.html">04972</a> 
+<HR>
+
+<br>
+Paco,<br>
+<br>
+> Do you know if the spl2stmf utility work in V5R4. I tried to use it, and when i crete it, show me this error:<br>
+><br>
+>  creating pnlgrp...<br>
+>  result-> CPF5A02<br>
+><br>
+><br>
+> Do you know why?<br>
+<br>
+I did the same thing on a V5R4 machine and it worked just fine.<br>
+<br>
+<br>
+i5/OS -------------<br>
+<br>
+> CRTSAVF FILE(QGPL/HPT)<br>
+  File HPT created in library QGPL.<br>
+<br>
+Windows PC --------<br>
+<br>
+(download hpt_520.exe and run it to extract htp.savf.)<br>
+<br>
+E:\>ftp xxx.xxx.xxx.xxx<br>
+Connected to xxx.xxx.xxx.xxx.<br>
+220-QTCP AT XXX.XXX.COM.<br>
+220 CONNECTION WILL CLOSE IF IDLE MORE THAN 5 MINUTES.<br>
+User (xxx.xxx.xxx.xxx:(none)): (user_name)<br>
+331 ENTER PASSWORD.(user_password)<br>
+Password:<br>
+230 XXXXXXXX LOGGED ON.<br>
+ftp> bi<br>
+200 REPRESENTATION TYPE IS BINARY IMAGE.<br>
+ftp> put hpt.savf qgpl/hpt<br>
+200 PORT SUBCOMMAND REQUEST SUCCESSFUL.<br>
+150 SENDING FILE TO MEMBER HPT IN FILE HPT IN LIBRARY QGPL.<br>
+226 FILE TRANSFER COMPLETED SUCCESSFULLY.<br>
+ftp: 147312 bytes sent in 0.16Seconds 920.70Kbytes/sec.<br>
+ftp> quit<br>
+221 QUIT SUBCOMMAND RECEIVED.<br>
+<br>
+i5/OS -------------<br>
+<br>
+> RSTLIB SAVLIB(HPT) DEV(*SAVF) SAVF(QGPL/HPT)<br>
+  10 security or data format changes occurred.<br>
+  10 objects restored. 0 not restored to HPT.<br>
+> CHGJOB CCSID(37)<br>
+> STRREXPRC SRCMBR(MAKE) SRCFILE(HPT/SOURCE)<br>
+<br>
+   Start SPL2STMF compilation.<br>
+    You must have authority to exec CRTxxx.<br>
+<br>
+       * * * * * * * * * * * * * * * * * * * * * *<br>
+<br>
+<br>
+   Start creating SPL2STMF command...<br>
+     creating main program module SPL2STMFRP...<br>
+     result-> 0<br>
+     creating main program SPL2STMFRP...<br>
+     result-> 0<br>
+     creating pnlgrp...<br>
+     result-> 0<br>
+     creating command...<br>
+     result-> 0<br>
+<br>
+   Compile finished. Confirm error(s) if exists.<br>
+<br>
+   Press ENTER to end terminal session.<br>
+<br>
+Confirm the procedure and try again.<br>
+If you still got a problem, please investigate compile list of the PNLGRP.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

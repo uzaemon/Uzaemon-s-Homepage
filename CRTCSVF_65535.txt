@@ -1,0 +1,39 @@
+   ----+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+                                                                                    MAT=   18
+I -     D*version          C                   '2-14 2001-12-09'                    INS=    2 0000019
+I -     Dversion          C                   '2-141 2005-09-26'                              0000020
+D -     Dversion          C                   '2-14 2001-12-09'                     DEL=    1         0000019
+                                                                                    MAT=   93
+I -     Drtvbuf           S          65535    BASED(spc_ptr)                        RPL=    1 0000114 0000113
+D -     Drtvbuf           S          32767    BASED(spc_ptr)
+                                                                                    MAT=   10
+I -     Ddbfflde          S                   LIKE(QDBFFLDE) DIM(200)               RPL=    8 0000125 0000124
+D -     Ddbfflde          S                   LIKE(QDBFFLDE) DIM(100)
+I -     Ddbfftyp          S                   LIKE(QDBFFTYP) DIM(200)                         0000126 0000125
+D -     Ddbfftyp          S                   LIKE(QDBFFTYP) DIM(100)
+I -     Ddbffobo          S              5P 0 DIM(200)                                        0000127 0000126
+D -     Ddbffobo          S              5P 0 DIM(100)
+I -     Ddbffldb          S              5P 0 DIM(200)                                        0000128 0000127
+D -     Ddbffldb          S              5P 0 DIM(100)
+I -     Ddbffldd          S              5P 0 DIM(200)                                        0000129 0000128
+D -     Ddbffldd          S              5P 0 DIM(100)
+I -     Ddbffldp          S              5P 0 DIM(200)                                        0000130 0000129
+D -     Ddbffldp          S              5P 0 DIM(100)
+I -     Ddbfcsid          S                   LIKE(QDBFCSID) DIM(200)                         0000131 0000130
+D -     Ddbfcsid          S                   LIKE(QDBFCSID) DIM(100)
+I -     Ddbfch            S             60    DIM(200)                                        0000132 0000131
+D -     Ddbfch            S             60    DIM(100)
+                                                                                    MAT=  224
+I -     C                   PARM      65535         spc_size                   I    RPL=    1 0000357 0000356
+D -     C                   PARM      32767         spc_size                   I
+                                                                                    MAT=  127
+I -     C                   IF        offset > 65000                                RPL=    1 0000485 0000484
+D -     C                   IF        offset > 32000
+                                                                                    MAT=    6
+I -      *   Only first 200 fields will be processed                                RPL=    3 0000492 0000491
+D -      *   Only first 100 fields will be processed
+I -     C                   IF        fld_num >= 200                                          0000493 0000492
+D -     C                   IF        fld_num >= 100
+I -     C                   EVAL      msg_data = 'IField count exceeded 200. ' +              0000494 0000493
+D -     C                   EVAL      msg_data = 'IField count exceeded 100. ' +
+                                                                                    MAT=  606

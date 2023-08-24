@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<META name="GENERATOR" content="IBM HomePage Builder 2001 V5.0.3 for Windows">
+<TITLE></TITLE>
+</head>
+<body>
+
+<h2>
+Installation</h2>
+
+<ol>
+<li>
+Download <A href="wcount25.exe">wcount25.exe</A> and execute it on Windows95/98/NT to extract
+  'wcount25.savf' and 'wcount25i.savf'.</li>
+<li>Create save-files on your AS/400.</li>
+
+<li>
+Connect to the AS/400 using any FTP client software.</li>
+
+<li>Put the distribution (wcount*.savf) to the
+  save-files by binary mode.</li>
+
+<li>Restore library 'wcount' and directory 'wcount'
+  from the save-files using RSTLIB and RST
+  commands.</li>
+</ol>
+<H2>Sample instruction</H2>
+<P>Create save-files on the target AS/400:</P>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD width="512">
+      <PRE>&gt; CRTSAVF FILE(QGPL/WCOUNT25)            
+  File WCOUNT25 created in library QGPL. 
+&gt; CRTSAVF FILE(QGPL/WCOUNT25I)           
+  File WCOUNT25I created in library QGPL.</PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<P>Send save-files from Windows95/98/NT/2000
+command prompt:</P>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD width="512">
+      <PRE>E:\&gt;<I>ftp </I><I>your_as400_hostname</I><BR>Connected to ????.<BR>220-QTCP AT ????.<BR>220 CONNECTION WILL CLOSE IF IDLE MORE THAN 5 MINUTES.<BR>User (????:(none)): <I>as400_user_id</I><BR>331 ENTER PASSWORD.<BR>Password:<I>enter_password_for_the_user_id</I><BR>230 ???? LOGGED ON.<BR>ftp&gt; <I>bi</I><BR>200 REPRESENTATION TYPE IS BINARY IMAGE.
+ftp&gt; <I>put wcount25.savf qgpl/wcount25 (replace</I>
+200 PORT SUBCOMMAND REQUEST SUCCESSFUL.
+150 SENDING FILE TO MEMBER WCOUNT25 IN FILE WCOUNT25 IN LIBRARY QGPL.
+250 FILE TRANSFER COMPLETED SUCCESSFULLY.
+3024384 bytes sent in 8.00 seconds (377.95 Kbytes/sec)
+ftp&gt; <I>put wcount25i.savf qgpl/wcount25i (replace</I>
+200 PORT SUBCOMMAND REQUEST SUCCESSFUL.
+150 SENDING FILE TO MEMBER WCOUNT25I IN FILE WCOUNT25I IN LIBRARY QGPL.
+250 FILE TRANSFER COMPLETED SUCCESSFULLY.
+933504 bytes sent in 2.66 seconds (350.41 Kbytes/sec)<BR>ftp&gt; <I>quit</I><BR>221 QUIT SUBCOMMAND RECEIVED.</PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<P>Go back to the 5250 session to restore objects:</P>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD width="512">
+      <PRE>&gt; RSTLIB SAVLIB(WCOUNT) DEV(*SAVF) SAVF(QGPL/WCOUNT25)
+  14 objects restored from WCOUNT to WCOUNT. <BR>&gt; MD DIR('/wcount') 
+  Directory created.
+&gt; RST DEV('/qsys.lib/qgpl.lib/wcount25i.file') OBJ(('/*') ('/qsys.lib' *OMI
+  T) ('/qdls' *OMIT)) 
+  55 objects restored.
+&gt; DLTF FILE(QGPL/WCOUNT25)                    
+  Object WCOUNT25 in QGPL type *FILE deleted. 
+&gt; DLTF FILE(QGPL/WCOUNT25I)                   
+  Object WCOUNT25I in QGPL type *FILE deleted.</PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<BR>
+<HR width="100%">
+<h2>
+You should recompile the distribution!</h2>
+<P>Directories, configuration files are defined
+at WCOUNT/H(CONFIG). Edit the header file
+when you want to change them.</P>
+<BLOCKQUOTE><TT>0020.00 #define CONFIG_DIR &quot;/QSYS.LIB/WCOUNT.LIB/CONFIG.FILE&quot;<BR>
+0021.00 #define CONFIG_FILE &quot;COUNT.CFG.MBR&quot;
+<BR>
+0022.00 #define DATA_DIR &quot;/QSYS.LIB/WCOUNT.LIB/DATA.FILE&quot;
+<BR>
+0023.00 #define DIGIT_DIR &quot;/wcount/digits&quot;
+<BR>
+0024.00 #define LOG_DIR &quot;WCOUNT/LOGS&quot;
+<BR>
+0025.00 #define LOG_FILE &quot;(LOG)&quot;
+<BR>
+</TT></BLOCKQUOTE>
+Program 'wcount' was compiled on V4R4 specifying
+V4R2 as TGTRLS. To recompile the package,
+edit WCOUNT/QREXSRC(MAKE) as you like.
+<blockquote><tt>0010.00 OLIB = 'WCOUNT'<BR>
+0011.00 SAY &quot; &quot; <BR>
+0012.00 OUT = '*NONE' <BR>
+0013.00 OPT = '*IFSIO' <BR>
+0014.00 DEB = '*ALL' <BR>
+0015.00 TGT = 'V4R2M0' <BR></tt></blockquote>
+Run the rexx procedure to recompile.
+<blockquote>Start Count 2.5 compilation. <BR>
+You must have authority to exec CRTCMOD and
+CRTPGM.<BR>
+<BR>
+* * * * * * * * * * * * * * * * * * * * *
+* <BR>
+<BR>
+<BR>
+Start creating modules for COMBINE... <BR>
+creating module allocim... <BR>
+result-&gt; 0 <BR>
+creating module alphaim... <BR>
+result-&gt; 0 <br>
+<P><I>. . . . . . . . (SNIP) . . . . . . . .</I><BR>
+</P><p><tt>creating module utils... <BR>
+result-&gt; 0 <BR>
+<BR>
+Creating main program (COUNT)...<BR>
+result-&gt; 0 <BR>
+</tt><p><tt>Compile finished. Confirm error(s) if exists.</tt>
+<br><tt></tt>&nbsp;</blockquote>
+<HR width="100%">
+<P>[<A href="index.html">Home</A>]</P>
+</body>
+</html>

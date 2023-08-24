@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00046 : Re: Wcount problem</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00046 [Re: Wcount problem] </font>(posted by uzaemon)</b><br>
+( 1)   00/07/29 14:29   comment on <a href="00042.html">00042</a>   , # of comment(s) : 1
+<HR>
+
+Doug,<br>
+<br>
+> Is this refering to the http config file?<br>
+<br>
+No, the message implies something wrong with wcount configuration (database physical) file 'WCOUNT/CONFIG', member 'COUNT.CFG'. Please check followings:<br>
+<br>
+- the library/file/member exists.<br>
+- the file is program-described file and the CCSID is tagged to 65535.<br>
+- invalid characters are not included in the file. First character of each line should be ' ' or '#' or ';' or '['. See count documentation for details.<br>
+- header file correctly points to the configuration file. Count configuration is defined in WCOUNT/H.CONFIG as follows:<br>
+<br>
+0020.00 #define CONFIG_DIR "/QSYS.LIB/WCOUNT.LIB/CONFIG.FILE"<br>
+0021.00 #define CONFIG_FILE "COUNT.CFG.MBR"<br>
+<br>
+<br>
+If you can debug the program, set break point to module MCFG line 326 and examine why function Parse() returns -1.<br>
+<br>
+Function paramProcess() returns '-3' if Parse() fails, then wcount send message "parse error in config file" to browser.<br>
+<br>
+uzaemon @ Japan<br>
+<br>
+<br>
+<br>
+</body></html>

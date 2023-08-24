@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 01153 : Re^3: SNDM - Account authentication?</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>01153 [Re^3: SNDM - Account authentication?] </font>(posted by uzaemon)</b><br>
+( 1)   06/06/14 22:24   comment on <a href="01149.html">01149</a>   , # of comment(s) : 6
+<HR>
+
+Boris,<br>
+<br>
+> When you say in reply 979:<br>
+> My mail server does not require authentication<br>
+><br>
+> Does it mean that you your SMTP server is set to Allow mail relay = *ALL?<br>
+<br>
+No. As I use only one SMTP server in closed network, there are no need to relay mail.<br>
+<br>
+> Changing this option seems to be the only way to allow SNDM work.<br>
+><br>
+> If I only plan to use the iSeries SMTP server, how dificult is it to implement authentication? In your opinion, do I still need to implement all the quote/ (AUTH-LOGIN, AUTH PLAIN, AUTH CRAM-MD5, etc) /unquote or there could be some shortcut by using the os/400 user profile. I'm just thinking about SNDDST that acutally doesn't require any Account Authentication settings it also works with Allow mail relay = *NONE. So I suppose there is a way to allow some kind of "os/400 authentication"<br>
+><br>
+> I just want to know what I'm getting myself into before I start.<br>
+<br>
+I don't fully understand your mail environment.<br>
+<br>
+If you use only OS/400 SMTP server with default configuration, I think you don't care about authentication.<br>
+<br>
+If you want to forward your mail from OS/400 SMTP server to, say, external SMTP server, you may need to allow relay to OS/400 SMTP server and allow external SMTP server to forward mail which comes from OS/400 SMTP server.<br>
+<br>
+If you want to send mail from external SMTP server (no OS/400 SMTP server), you should contact mail administrator and ask to allow relaying and disable authentication for your OS/400.<br>
+<br>
+Hope this helps.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00049 : Re: SMTP</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00049 [Re: SMTP] </font>(posted by uzaemon)</b><br>
+( 1)   00/08/11 22:43   comment on <a href="00048.html">00048</a>   , # of comment(s) : 1
+<HR>
+
+Erwin,<br>
+<br>
+> However, I can not succesfully run the 'MAKE' procedure, because the RPGLE sources contain '/COPY' lines, and the members in the '/COPY' are not available on my system. Can you help me?<br>
+<br>
+I'm not sure why PRG compiler cannot find source member. Please check followings:<br>
+<br>
+- Confirm that all source file/members specified at /COPY statements exist.<br>
+- Exec CHGCURLIB CURLIB(SMTP) before running make.<br>
+- If you have edited make procedure and changed source and/or object library, discard all changes and try make again.<br>
+<br>
+Let me know the result.<br>
+<br>
+uzaemon @ Japan<br>
+<br>
+</body></html>

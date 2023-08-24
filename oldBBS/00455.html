@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00455 : Re^6: minizip in batch mode</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00455 [Re^6: minizip in batch mode] </font>(posted by Rod Orr)</b><br>
+( 1)   02/08/05 08:55   comment on <a href="00451.html">00451</a> 
+<HR>
+
+<br>
+Hi Uzaemon,<br>
+<br>
+FYI - re possible error:<br>
+<br>
+Member zlib/qcsrc minizip<br>
+<br>
+0248.00  zi.tmz_date.tm_sec  = zi.tmz_date.tm_min<br>
+                             = zi.tmz_date.tm_hour =<br>
+0249.00  zi.tmz_date.tm_mday = zi.tmz_date.tm_min<br>
+                             = zi.tmz_date.tm_year = 0;<br>
+<br>
+I think the second zi.tmz_date.tm_min on stmt 0249.00<br>
+should be          zi.tmz_date.tm_mon ??<br>
+<br>
+I have also being talking to Simon Coulter and he has a port of zlib which has been converted into a service program and wrappered into an os400 command and CPP. He has offered me a copy so I wont be proceeding with modifying minizip.<br>
+<br>
+Regards Rod Orr<br>
+<br>
+> Rod,<br>
+><br>
+> > ... Anyway, before I make any mods I thought it best to discuss and clear up these possible errors with you.<br>
+><br>
+> Sorry but I'm so busy on my regular job that cannot spare my time to discuss about your specific project. Also, I need to upgrade zlib for OS/400 to 1.1.4  firstly if I had time.<br>
+><br>
+> > I don't know your email address.<br>
+><br>
+> My mail address is open at the subject line of each post of this BBS...<br>
+><br>
+> uzaemon@Japan<br>
+<br>
+</body></html>

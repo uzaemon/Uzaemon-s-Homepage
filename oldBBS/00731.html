@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00731 : Re: SNDMとCRTCSVF(添付ファイルの文字化・</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00731 [Re: SNDMとCRTCSVF(添付ファイルの文字化・] </font>(posted by uzaemon)</b><br>
+( 1)   03/11/26 00:03   comment on <a href="00730.html">00730</a>   , # of comment(s) : 4
+<HR>
+
+yyさん、<br>
+<br>
+> 添付ファイルの内容が文字化けしてしまいました。<br>
+> AS／400上(WRKLNKコマンド)では正しく表示されるのですが、<br>
+> メールに添付されるファイルを見ると、漢字が化けています。<br>
+> お手数ですが、解決方法をご教示ください。<br>
+><br>
+> 尚、このAS／400は中国にあり、日本のAS／400からパススルーで<br>
+> 接続しており、コード化文字セット識別コードは65535、省略時の<br>
+> コード化文字セット識別コードは37となっています。<br>
+> また、CRTCSVFコマンドのDatebase file CCSIDは37、SNDMコマンド<br>
+> のMessage header CCSIDとDatabase file CCSIDはともに<br>
+> *DFTJOBCCSIDで実行しています。<br>
+<br>
+CRTCSVFで作成したファイルを添付ファイルとしてSNDMで送信しようとしているのでしょうか？<br>
+<br>
+とすると、明らかに誤りと思われるのは「メールに添付されるファイル」に漢字が含まれているにもかかわらず「CRTCSVFコマンドのDatebase file CCSIDは37」とされている事です。37はUS Englishですので漢字を処理することはできません。WRKLNKで正しく表示されることがむしろ不可解なのですが、このファイル(ストリームファイル)のCCSIDはいくつになっているのでしょうか？<br>
+<br>
+また、日本と中国にAS/400をお持ちのようですが、日本語環境でも同様のエラーになりますか？ また、それぞれのOS/400のバージョンはいくつでしょうか？<br>
+<br>
+ご返答お待ちしています。<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

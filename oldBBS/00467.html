@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00467 : Re: CRTCSVFのソースについて</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00467 [Re: CRTCSVFのソースについて] </font>(posted by uzaemon)</b><br>
+( 1)   02/08/18 00:02   comment on <a href="00464.html">00464</a>   , # of comment(s) : 1
+<HR>
+
+Masafumiさん、<br>
+<br>
+> ...CRTCSVFコマンドのソースを調べています。この中に出てくる'open'や'write'はどのマニュアルにのっていますでしょうか？...<br>
+<br>
+各APIの最新情報はInformation Center(<a href="http://publib.boulder.ibm.com/html/as400/infocenter.html" rel = "nofollow" target = "_blank">http://publib.boulder.ibm.com/html/as400/infocenter.html</a>)で検索すれば見つかると思います。<br>
+<br>
+CRTCSVFを作った頃(V3R7)は、以下のマニュアルを参照しました。<br>
+<br>
+- OS/400 UNIX-Type APIs V4R3 (SC41-5875-02)<br>
+<a href="http://publib.boulder.ibm.com/cgi-bin/bookmgr/BOOKS/QB3AM402/CCONTENTS?SHELF=QB3AYC02&DN=SC41-5875-02&DT=19980903152644" rel = "nofollow" target = "_blank">http://publib.boulder.ibm.com/cgi-bin/bookmgr/BOOKS/QB3AM402/CCONTENTS?SHELF=QB3AYC02&DN=SC41-5875-02&DT=19980903152644</a><br>
+<br>
+- C/C++ Run-Time Library Reference (SC09-2715-00)<br>
+<a href="http://publib.boulder.ibm.com/cgi-bin/bookmgr/BOOKS/QB3AT800/CCONTENTS?SHELF=QB3AYC02&DN=SC09-2715-00&DT=19980629163934" rel = "nofollow" target = "_blank">http://publib.boulder.ibm.com/cgi-bin/bookmgr/BOOKS/QB3AT800/CCONTENTS?SHELF=QB3AYC02&DN=SC09-2715-00&DT=19980629163934</a><br>
+<br>
+当時はほとんどサンプルが存在せず、下記のマニュアルが唯一RPGのサンプルを掲載していました。<br>
+<br>
+- System API Programming V4R1 (SC41-5800-00)<br>
+<a href="http://publib.boulder.ibm.com/cgi-bin/bookmgr/BOOKS/QB3AVC00/CCONTENTS?SHELF=QB3AYC02&DN=SC41-5800-00&DT=19970312110239" rel = "nofollow" target = "_blank">http://publib.boulder.ibm.com/cgi-bin/bookmgr/BOOKS/QB3AVC00/CCONTENTS?SHELF=QB3AYC02&DN=SC41-5800-00&DT=19970312110239</a><br>
+<br>
+いずれも昔(V4R3くらいまで)のCD-ROM(BookMgr)に入っていますが、英語版のマニュアルをWeb(<a href="http://publib.boulder.ibm.com/pubs/html/as400/online/homeeng1.htm" rel = "nofollow" target = "_blank">http://publib.boulder.ibm.com/pubs/html/as400/online/homeeng1.htm</a>)で見る事ができます。日本語に翻訳されているものもあるかもしれませんので、どうしても日本語が必要な場合は探してみてください。<br>
+<br>
+また、私自身はほとんど既知の内容だったため使っていませんが、次のRedBookも参考になるかもしれません。<br>
+<br>
+- Who Knew You Could Do That with RPG IV? A Sorcerer's Guide to System Access and More<br>
+<a href="http://publib-b.boulder.ibm.com/Redbooks.nsf/RedbookAbstracts/sg245402.html?OpenDocument" rel = "nofollow" target = "_blank">http://publib-b.boulder.ibm.com/Redbooks.nsf/RedbookAbstracts/sg245402.html?OpenDocument</a><br>
+<br>
+なお、こちらのBBSではプログラミングのQ&Aはしていませんが、日本語でSTMFを扱う場合はいくつか考慮すべき点があるので十分配慮/テストすることをお勧めします。(例えばSTMF生成時のCHRID(V5R1から?はCCSID)の設定、テキストモードでのread/writeの制限、EBCDIC<->ASCII変換時の文字列長の変化など...)<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

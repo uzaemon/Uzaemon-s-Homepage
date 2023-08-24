@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00802 : Re^5: TIFF2PDF "file is damaged but is b</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00802 [Re^5: TIFF2PDF "file is damaged but is b] </font>(posted by uzaemon)</b><br>
+( 1)   04/05/23 15:42   comment on <a href="00799.html">00799</a>   , # of comment(s) : 4
+<HR>
+
+Beppe,<br>
+<br>
+I managed my time, modified hpt and tifflib, followed your procedure, and created PDF file.<br>
+<br>
+> addlible hpt<br>
+  Library HPT added to library list.<br>
+> call hpt/testprt<br>
+> SPL2STMF FILE(QSYSPRT) TOSTMF('/tmp/testprt.tif') WSCST(QWPTIFFG4)<br>
+  Stream file generated. execution time 0 min 0 sec, total pages = 1<br>
+> addlible tifflib<br>
+  Library TIFFLIB added to library list.<br>
+> TIFF2PDF TIFF('/tmp/testprt.tif') PDF('/tmp/testprt.pdf')<br>
+  TIFF2PDF completed successfully.<br>
+<br>
+Everything worked fine. You can compare<br>
+<a href="http://homepage1.nifty.com/uzaemon/testprt.tif" rel = "nofollow" target = "_blank">http://homepage1.nifty.com/uzaemon/testprt.tif</a> and <a href="http://homepage1.nifty.com/uzaemon/testprt.pdf" rel = "nofollow" target = "_blank">http://homepage1.nifty.com/uzaemon/testprt.pdf</a> with your files and check if there any differences.<br>
+<br>
+My environment is OS/400 V5R2(TL03364  Temporarily applied), Windows XP SP1, Adobe Acrobat 5.0.5(JA).<br>
+<br>
+Please let me know the result of your investigation.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

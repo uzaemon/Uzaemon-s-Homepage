@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00933 : Re^6: Compile Error (zlib V5R2->V4R5)</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00933 [Re^6: Compile Error (zlib V5R2->V4R5)] </font>(posted by uzaemon)</b><br>
+( 1)   05/08/04 09:31   comment on <a href="00931.html">00931</a> 
+<HR>
+
+<br>
+Ladoさん、<br>
+<br>
+> V4R5M0用に正常にコンパイルできました。ありがとうございます。<br>
+> ただ、SAVLIB LIB(ZLIB) DEV(*SAVF)...を実行したとき<br>
+> ”ライブラリー ZLIB から 20 個のオブジェクトが保管された。0 個のオブジェクトは含まれていませ。”と出ました。SavfファイルをV4R5M0に入れてRSTLIB後ZIP、UNZIPのテストをしました。正常に動きました。DSPSAVFでSavfファイルを見たとき以下のオブジェクトが入っています。何か足りないオブジェクトがありますでしょうか？<br>
+<br>
+判りにくいメッセージですが、これは正常終了を示しています。<br>
+実行に必要なオブジェクトは <a href="http://homepage1.nifty.com/uzaemon/zlib_install.html" rel = "nofollow" target = "_blank">http://homepage1.nifty.com/uzaemon/zlib_install.html</a> の<br>
+最下部に一覧があります(ソースを除く)のでご確認ください。<br>
+<br>
+なお、QSHELLからzipを使用する場合はMAKEプロシージャーの<br>
+内容を確認してリンクを作成してください。<br>
+(QSH CMD('ln -s /qsys.lib/zlib.lib/minizip.pgm /usr/bin/minizip')など)<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

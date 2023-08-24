@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00849 : Re^4: unzip extracts gabage?</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00849 [Re^4: unzip extracts gabage?] </font>(posted by uzaemon)</b><br>
+( 1)   04/09/29 21:52   comment on <a href="00848.html">00848</a> 
+<HR>
+
+<br>
+Mike,<br>
+<br>
+> CPYSPLF    FILE(&SPLFILE) TOFILE(MMANAS/INVOICE98) +<br>
+>        JOB(&JOBN/&USER/&JOB) SPLNBR(&SPLNO) +<br>
+>            CTLCHAR(*NONE)<br>
+<br>
+> ZIP        +<br>
+>              ZIPFILE('/QSYS.LIB/MMANAS.LIB/INVOICE.FILE/+<br>
+>              ZIP.MBR') +<br>
+>              FILES('/QSYS.LIB/MMANAS.LIB/INVOICE98.FILE/+<br>
+>              INVOICE98.MBR') REPLACE(*REPLACE) COMPLVL(6)<br>
+<br>
+> OVRDBF     FILE(INPUT) TOFILE(MMANAS/FTPINV98Z) +<br>
+>              MBR(FTPINV98Z)<br>
+> OVRDBF     FILE(OUTPUT) TOFILE(FTPLOG) MBR(FTPLOG)<br>
+><br>
+> FTP        RMTSYS('...<br>
+><br>
+>   FTPINV98Z contains remote server ID, PASSWORD, BIN and<br>
+>   PUT command<br>
+><br>
+> I used to use PKZIP in the same manner and didn't have a problem<br>
+> with EBCDIC to ASCII translation and BIN transfer.<br>
+<br>
+Most ZIP utilities (including zlib) don't have character code conversion function. You need to convert from EBCDIC to ASCII by yourself. Refer to sample operation below.<br>
+<br>
+(create ZIP file on AS/400)<br>
+<br>
+> wrkactjob *print<br>
+> crtpf qtemp/wrkactjob rcdlen(133)<br>
+  File WRKACTJOB created in library QTEMP.<br>
+  Member WRKACTJOB added to file WRKACTJOB in QTEMP.<br>
+> cpysplf qpdspajb qtemp/wrkactjob<br>
+  197 records copied to file WRKACTJOB in QTEMP.<br>
+> qsh cmd('touch -C 819 /tmp/wrkactjob.txt')<br>
+  Command ended normally with exit status 0.<br>
+> CPYTOSTMF FROMMBR('/qsys.lib/qtemp.lib/wrkactjob.file/wrkactjob.mbr') TOS<br>
+  TMF('/tmp/wrkactjob.txt') STMFOPT(*REPLACE)<br>
+  Object copied.<br>
+> addlible zlib<br>
+  Library ZLIB added to library list.<br>
+> ZIP ZIPFILE('/tmp/wrkactjob.zip') FILES('/tmp/wrkactjob.txt')<br>
+  Command completed.<br>
+<br>
+(ftp from AS/400 to Windows in binary mode)<br>
+<br>
+(Unzip using WinZip or other zip utility on Windows.)<br>
+<br>
+If you have PKZIP for iSeries, I recommend to use whichever fits to your objective.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

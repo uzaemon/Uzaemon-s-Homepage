@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00876 : Re: SNDMで質問(JIS外字)</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00876 [Re: SNDMで質問(JIS外字)] </font>(posted by uzaemon)</b><br>
+( 1)   05/01/27 12:55   comment on <a href="00875.html">00875</a>   , # of comment(s) : 1
+<HR>
+
+TACHIBANAさん,<br>
+<br>
+> SNDMを利用したいのですが、テストを行っていたところ<br>
+> AS400側のデータに『№』(X'446E)が含まれていると<br>
+> 『Mail sent, non-JIS character(s) replaced. 』となり<br>
+> 受信したメールでは『№』が『〓』に変換されています<br>
+<br>
+漢字一文字の「No.」(ナンバー)や「(株)」(カッコ株)を<br>
+インターネットで使用する事は規約に違反しています。<br>
+このため、SNDM内部でチェックをしてこれらの文字を<br>
+「〓」に置き換えています。<br>
+詳細はGoogleで「メール 使ってはいけない 文字」などの<br>
+キーワードで検索してみてください。<br>
+<br>
+> 正しく変換する方法はありますでしょうか<br>
+<br>
+SNDMは設計通りに正しく動作しており、当方でこれを<br>
+変更する(規約違反を助長する)ことは考えておりません。<br>
+<br>
+上記を了解の上でJIS外字を送信したいという要求が<br>
+あるのであれば、SNDMを変更してチェック<br>
+(SMTP/QRPGLESRC.#PROCの567行あたり)を外すことは<br>
+可能ですが、上記理由により推奨しません。<br>
+<br>
+JIS外字を含むメッセージは、別途添付ファイルとして<br>
+送信することをお勧めします。<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00298 : Re: CRTCSVF Error (iconv_open error)</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00298 [Re: CRTCSVF Error (iconv_open error)] </font>(posted by uzaemon)</b><br>
+( 1)   01/11/22 21:09   comment on <a href="00297.html">00297</a> 
+<HR>
+
+<br>
+Laurent,<br>
+<br>
+> I have this error when i use CRTCSVF with *FILE and *SYSTEM<br>
+> PROGRAM ABORTED 0/7199 records processed, 0 errors<br>
+> iconv_open failed. EBCDIC CCSID - 0000J / ASCII CCSID 00850 - 3021 the value specified for the argument is not correct<br>
+> In my file the CCSID is 65535, is this the problem ?<br>
+<br>
+Yes. CCSID 65535 indicates "no conversion", hence CRTCSVF cannot open code conversion routine.<br>
+<br>
+> Is it possible to change this value ?<br>
+<br>
+Yes, but I don't recommend it unless you are familiar to CCSID related matters.<br>
+<br>
+Just specify valid EBCDIC CCSID for DBFCCSID parameter of CRTCSVF command.<br>
+<br>
+Try out and let me know the result.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00475 : Re: spool not rotating when necessary</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00475 [Re: spool not rotating when necessary] </font>(posted by uzaemon)</b><br>
+( 1)   02/09/13 18:30   comment on <a href="00474.html">00474</a> 
+<HR>
+
+<br>
+David,<br>
+<br>
+> i'm generating pdf's from as400 spools with spl2stmf (creating a .tif) and tiff2pdf. When the spool is 198 columns it should rotate and print in landscape but it isn't... the text is reduced to fit a vertical page...<br>
+<br>
+TIFF2PDF sets page width and height at line 107 and 108 of TIFFLIB/TIFF2PDF(TIFF2PDFC). Swapping these values would make landscape output, I guess.<br>
+<br>
+0107.00 #define A4W 595.0<br>
+0108.00 #define A4H 842.0<br>
+<br>
+Try it and let me know the result.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

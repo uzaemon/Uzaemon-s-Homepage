@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00931 : Re^5: Compile Error (zlib V5R2->V4R5)</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00931 [Re^5: Compile Error (zlib V5R2->V4R5)] </font>(posted by Lado)</b><br>
+( 1)   05/08/03 18:37   comment on <a href="00929.html">00929</a>   , # of comment(s) : 1
+<HR>
+
+Uzaemonさん、<br>
+<br>
+V4R5M0用に正常にコンパイルできました。ありがとうございます。<br>
+ただ、SAVLIB LIB(ZLIB) DEV(*SAVF)...を実行したとき<br>
+”ライブラリー ZLIB から 20 個のオブジェクトが保管された。0 個のオブジェクトは含まれていませ。”と出ました。SavfファイルをV4R5M0に入れてRSTLIB後ZIP、UNZIPのテストをしました。正常に動きました。DSPSAVFでSavfファイルを見たとき以下のオブジェクトが入っています。何か足りないオブジェクトがありますでしょうか？<br>
+<br>
+ｵﾌﾞｼﾞｪｸﾄ           ﾀｲﾌﾟ<br>
+ZLIB               *LIB<br>
+DSPZIPCLP          *PGM<br>
+MINIUNZ            *PGM<br>
+MINIUNZ400         *PGM<br>
+MINIZIP            *PGM<br>
+MINIZIP400         *PGM<br>
+UNZIPCLP           *PGM<br>
+ZIPCLP             *PGM<br>
+ZLIB               *SRVPGM<br>
+DSPZIP             *CMD<br>
+UNZIP              *CMD<br>
+ZIP                *CMD<br>
+DSPZIPHLP          *PNLGRP<br>
+UNZIPHLP           *PNLGRP<br>
+ZIPHLP             *PNLGRP<br>
+H                  *FILE<br>
+QCLSRC             *FILE<br>
+QCMDSRC            *FILE<br>
+QCSRC              *FILE<br>
+QREXSRC            *FILE<br>
+<br>
+宜しくお願いします。<br>
+Lado<br>
+<br>
+> こちらのV5R2で試してみました。下記手順で試してみてください。<br>
+><br>
+> ソースファイルZLIB/QREXSRCのメンバーMAKEを下記のように<br>
+> 変更してから実行してください。<br>
+><br>
+> (変更前)<br>
+><br>
+>  0020.00 TGTRLS = '*CURRENT'<br>
+>  ～～～～～～～～～～～～～～<br>
+>  0026.00 D4 = '__OS400__'<br>
+><br>
+> (変更後)<br>
+><br>
+>  0020.00 TGTRLS = 'V4R5M0'<br>
+>  ～～～～～～～～～～～～～～<br>
+>  0026.00 /* D4 = '__OS400__' */<br>
+><br>
+> コンパイルが正常に終了したらV4R5用に保管します。<br>
+><br>
+> > SAVLIB LIB(ZLIB) DEV(*SAVF) SAVF(QTEMP/SAVF) TGTRLS(V4R5M0)<br>
+>   21 objects saved from library ZLIB; 0 objects not included.<br>
+><br>
+> > UzaemonさんはV5R2M0以前では動作が分かりませんとはっきり書いてありましたが何かのヒントをいただけないでしょうと思って。。。宜しくお願いします。<br>
+><br>
+> こちらにV4R5のiSeriesが無いため復元および稼動確認までは<br>
+> できません。結果のご連絡をお待ちしています。<br>
+><br>
+> uzaemon@Japan<br>
+<br>
+</body></html>

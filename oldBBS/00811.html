@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00811 : Re: SNDM command (message-id)</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00811 [Re: SNDM command (message-id)] </font>(posted by uzaemon)</b><br>
+( 1)   04/06/08 23:00   comment on <a href="00810.html">00810</a> 
+<HR>
+
+<br>
+Lars,<br>
+<br>
+> I have a problem using the SNDM command. Some firewalls reject our mails because the SNDM does not make a message-id. Is that correct? How can I solve the problem?<br>
+<br>
+I don't know why those firewalls reject your mail. You may configure your MTA (mail server) to append message-id header to the mail. As far as I know, sendmail automatically append message-id (if not exist) and qmail has setting for that purpose.<br>
+<br>
+Having that said, message-id header should be set by MUA (mail client, in this case, SNDM) according to RFC. You may modify SNDM to generate unique message-id.<br>
+<br>
+I'll modify SNDM when I have time but I'm currently so busy on my regular job...<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

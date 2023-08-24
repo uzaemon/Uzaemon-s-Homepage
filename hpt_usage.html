@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+   <meta name="Author" content="Name">
+<title>HPT_usage</title>
+</head>
+<body>
+
+<h2>Usage</h2>
+<HR width="100%">
+<H3>SPL2STMF</H3>
+<UL>
+  <LI><FONT size="+1">Syntax</FONT>
+  <TABLE border="1">
+    <TBODY>
+      <TR>
+        <TD width="567" height="131">
+        <PRE>                     CONVERT SPOOLED FILE TO STMF (SPL2STMF)
+
+ TYPE CHOICES, PRESS ENTER.
+
+ SPOOLED FILE NAME  . . . . . . . FILE           <U>          </U>
+ STREAM FILE NAME . . . . . . . . TOSTMF         <U>
+                   </U>
+ WORKSTATION CUSTOMIZING OBJECT   WSCST          <U>          </U>
+   LIBRARY  . . . . . . . . . . .                  <U>*LIBL     </U>
+ JOB NAME . . . . . . . . . . . . JOB            <U>*         </U>
+   USER NAME  . . . . . . . . . .                  <U>          </U>
+   JOB NUMBER . . . . . . . . . .                  <U>      </U>
+ SPOOLED FILE NUMBER  . . . . . . SPLNBR         <U>*LAST </U>
+ REPLACE STREAM FILE  . . . . . . REPLACE        <U>*YES</U>
+
+                            ADDITIONAL PARAMETERS
+
+ ENABLE DEBUG PRINT OUT . . . . . DEBUG          <U>*NO </U></PRE>
+        </TD>
+      </TR>
+    </TBODY>
+  </TABLE>
+
+</UL>
+<UL>
+  <LI><FONT size="+1">Operation (SCS spooled file to text stream
+  file)</FONT>
+  <TABLE border="1">
+    <TBODY>
+      <TR>
+        <TD width="570" height="118">
+        <PRE>&gt; ADDLIBLE LIB(HPT) POSITION(*LAST)
+  LIBRARY HPT ADDED TO LIBRARY LIST.
+&gt; OVRPRTF FILE(QPSUPRTF) CHRID(*JOBCCSID)
+&gt; STRSEU SRCFILE(HPT/SOURCE) SRCMBR(SPL2STMFRP) OPTION(6)
+  MEMBER SPL2STMFRP HAS BEEN PRINTED.
+&gt; SPL2STMF FILE(QPSUPRTF) TOSTMF('/tmp/spl2stmfrp.txt') WSCST(TEXTJ)
+  Stream file generated sucessfully. execution time 0 min 2 sec, total
+    pages = 14
+&gt; DLTOVR FILE(QPSUPRTF) </PRE>
+        </TD>
+      </TR>
+    </TBODY>
+  </TABLE>
+
+</UL>
+<HR width="100%">
+<H3>TIFF2PDF</H3>
+<UL>
+  <LI><FONT size="+1">Syntax</FONT>
+  <TABLE border="1">
+    <TBODY>
+      <TR>
+        <TD width="567" height="131">
+        <PRE>                         Convert TIFF to PDF (TIFF2PDF)
+
+ TYPE CHOICES, PRESS ENTER.
+
+ TIFF path name . . . . . . . . . TIFF           <U>
+                   </U>
+ PDF path name  . . . . . . . . . PDF            <U>
+                   </U> </PRE>
+        </TD>
+      </TR>
+    </TBODY>
+  </TABLE>
+
+</UL>
+<UL>
+  <LI><FONT size="+1">Operation (AFP spooled file to PDF)</FONT>
+  <TABLE border="1">
+    <TBODY>
+      <TR>
+        <TD width="570" height="118">
+        <PRE>&gt; ADDLIBLE LIB(HPT) POSITION(*LAST)
+  LIBRARY HPT ADDED TO LIBRARY LIST.
+&gt; ADDLIBLE LIB(TIFFLIB) POSITION(*LAST)
+  LIBRARY TIFFLIB ADDED TO LIBRARY LIST.
+&gt; OVRPRTF FILE(QPSUPRTF) DEVTYPE(*AFPDS) CDEFNT(QFNT61/X0N13N) IGCCDEFNT(QF
+  NT61/X0M26F)
+&gt; STRSEU SRCFILE(HPT/SOURCE) SRCMBR(SPL2STMFRP) OPTION(6)
+  MEMBER SPL2STMFRP HAS BEEN PRINTED.
+&gt; SPL2STMF FILE(QPSUPRTF) TOSTMF('/tmp/spl2stmfrp.tif') WSCST(QWPTIFFG4)
+  Stream file generated sucessfully. execution time 0 min 2 sec, total
+    pages = 14
+&gt; TIFF2PDF TIFF('/tmp/spl2stmfrp.tif') PDF('/tmp/spl2stmfrp.pdf')
+  TIFF2PDF completed successfully.
+&gt; DLTOVR FILE(QPSUPRTF)                                            </PRE>
+        </TD>
+      </TR>
+    </TBODY>
+  </TABLE>
+
+</UL>
+<HR width="100%">
+<H2>Note</H2>
+<ul>
+  <LI><B>Major limitations</B>
+  </ul>
+<BLOCKQUOTE>SPL2STMF cannot convert spooled file larger
+than 16MB.<BR>
+TIFF2PDF supports only A4 paper size.</BLOCKQUOTE>
+<UL>
+  <li><b>Before you start</b></li>
+</UL>
+<BLOCKQUOTE>Add library 'HPT' and/or 'TIFFLIB' (or library
+which contains necessary objects) to your
+library list.&nbsp;</BLOCKQUOTE>
+<UL>
+  <li>
+<b>Make your own WSCST</b></li>
+</UL>
+<BLOCKQUOTE>SPL2STMF requires WSCST object name. You
+may exec 'WRKOBJ OBJ(QSYS/*ALL) OBJTYPE(*WSCST)'
+to determine which WSCST to use. You can
+create your own WSCST for special purpose.
+For example, to convert DBCS(Japanese) SCS
+spooled file to plain Shift-JIS text file,
+use following WSCST source file.</BLOCKQUOTE>
+<BLOCKQUOTE>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD>
+      <PRE>        *************** BEGINNING OF DATA ******************************************
+0001.00 :WSCST DEVCLASS=TRANSFORM.
+0002.00
+0003.00     :TRNSFRMTBL.
+0004.00     :PRTDTASTRM
+0005.00       DATASTREAM=IBMNONPAGES.   /* printer datastream IBM 5577 (SHIFT-JIS) */
+0051.00     :SPACE
+0052.00       DATA ='20'X.
+0055.00 /*  :CARRTN         */
+0056.00 /*    DATA ='0D'X.  */
+0057.00     :FORMFEED
+0058.00       DATA ='0C'X.
+0059.00     :LINEFEED
+0060.00       DATA ='0D0A'X.
+0417.00 :EWSCST.
+        ****************** END OF DATA *********************************************</PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<HR width="100%">
+<P>[<A href="index.html">Home</A>]</P>
+</body>
+</html>

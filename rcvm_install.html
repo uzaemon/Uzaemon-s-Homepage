@@ -1,0 +1,292 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<META http-equiv="Content-Style-Type" content="text/css">
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 7.0.0.0 for Windows">
+<TITLE>Install RCVM</TITLE>
+</HEAD>
+<BODY>
+<H2>Installation Overview</H2>
+<H4>OS/400 Objects</H4>
+<OL>
+  <LI>Download '<A href="pop3.exe">pop3.exe</A>' and execute it on Windows95/98/NT/2000/XP to extract 'pop3.savf' and
+  &quot;Rcvmail.java&quot;.
+  <LI>Create save-file on your OS/400.
+  <LI>Connect to the OS/400 using any FTP client software.
+  <LI>Put the distribution (pop3.savf) to the save-file in binary mode.
+  <LI>Create/restore object to library &quot;POP3&quot; from the save-file using
+  RSTOBJ or RSTLIB command.
+  <LI>Run the REXX procedure.
+</OL>
+<H4>Stream files</H4>
+<DIV align="left">
+<OL>
+  <LI> Download <A href="http://java.sun.com/products/javamail/index.html">JavaMail</A> and <A href="http://java.sun.com/products/javabeans/glasgow/jaf.html">JAF</A> (JavaBeans Activation Framework) and unzip downloaded files.
+  <LI>Create directory &quot;/JavaMail&quot; on your OS/400.
+  <LI>Connect to the OS/400 using any FTP client software.
+  <LI>Put the Java source file &quot;Rcvmail.java&quot; to the directory &quot;/JavaMail&quot;
+  in binary mode.
+  <LI>Put Sun's .jar files, &quot;mail.jar&quot;, &quot;activation.jar&quot;
+  and &quot;mailapi.jar&quot; (this file is not necessary for JDK 1.2 or
+  later) to the directory &quot;/JavaMail&quot; in binary mode.
+  <LI>CPY or put &quot;jt400.jar&quot; to the directory &quot;/JavaMail&quot;
+  in binary mode.
+  <LI>Compile the Java program.
+</OL>
+</DIV>
+<H4>Note</H4>
+<P>&quot;jt400.jar&quot; can be obtained many places, e.g. if your are using
+V5R2 and Access for Wndows, you may find &quot;jt400.jar&quot; at :</P>
+<UL>
+  <LI><I>Access_for_Windows_install_directory</I>\jt400\lib
+  <LI><A href="http://www-1.ibm.com/servers/eserver/iseries/toolbox/downloads.htm">http://www-1.ibm.com/servers/eserver/iseries/toolbox/downloads.htm</A> (registration required)
+  <LI>\QIBM\ProdData\HTTP\Public\jt400\lib
+  <LI>\QIBM\ProdData\Access\Web2\lib
+  <LI> If newer version of WebSphere Application Server has been installed on
+  your OS/400, mail.jar and activation.jar may be found at &quot;/QIBM/ProdData/WebASxxx/java/ext&quot;
+  directory.
+</UL>
+<P>To copy from PC to AS/400, use FTP, NetServer, etc. To copy inside OS/400,
+use CPY command, for example :</P>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD width="512">
+      <PRE>&gt; CPY OBJ('/QIBM/ProdData/HTTP/Public/jt400/lib/jt400.jar') TOOBJ('/JavaMai
+  l/jt400.jar')</PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<P>In this senario, &quot;jt400.jar&quot; is copoied to directory &quot;/Javamail&quot;
+but it is absolutely possible to use existing &quot;jt400.jar&quot; if
+you specify the CLASSPATH environment variable when compile and run the
+Java program.</P>
+<P>In either case, run CRTJVAPGM to achive the best performance.</P>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD width="512">
+      <PRE>&gt; SBMJOB CMD(CRTJVAPGM CLSF('/JavaMail/*') OPTIMIZE(40))
+  Job 081009/XXXXX/QDFTJOBD submitted to job queue QBATCH in library QGPL.</PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<P>As CRTJVAPGM takes long time and enormous CPU time, I recommned to run
+the commnad when the system is idle.</P>
+<HR>
+<H2>Sample instruction</H2>
+<P>Create save-file on the target AS/400:</P>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD width="512">
+      <PRE>&gt; CRTSAVF FILE(QGPL/POP3)
+  File POP3 created in library QGPL.</PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<P>Send save-file and stream files from Windows95/98/NT/2000/XP command prompt:</P>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD width="553">
+      <PRE>C:\&gt;<I>ftp your_as400_hostname</I>
+Connected to ????.
+220-QTCP AT ????.
+220 CONNECTION WILL CLOSE IF IDLE MORE THAN 5 MINUTES.
+User (????:(none)): <I>as400_user_id</I>
+331 ENTER PASSWORD.
+Password:<I>enter_password_for_the_user_id</I>
+230 ???? LOGGED ON.
+ftp&gt; <EM>bi</EM>
+200 REPRESENTATION TYPE IS BINARY IMAGE.
+ftp&gt; <I>quote site namefmt 0</I>
+250  NOW USING NAMING FORMAT &quot;0&quot;.
+ftp&gt; <I>put pop3.savf qgpl/pop3</I>
+200 PORT SUBCOMMAND REQUEST SUCCESSFUL.
+150 SENDING FILE TO MEMBER POP3 IN FILE POP3 IN LIBRARY QGPL.
+250 FILE TRANSFER COMPLETED SUCCESSFULLY.
+ftp: 101904 bytes sent in 4.33Seconds 23.56Kbytes/sec.
+
+<I>(Put stream files)</I>
+
+ftp&gt; <I>quote site namefmt 1</I>
+250  NOW USING NAMING FORMAT &quot;1&quot;.
+ftp&gt; <I>cd /JavaMail</I>
+250 &quot;/JavaMail&quot; IS CURRENT DIRECTORY.
+ftp&gt; <I>put activation.jar</I>
+200 PORT SUBCOMMAND REQUEST SUCCESSFUL.
+150 SENDING FILE TO /JavaMail/activation.jar
+250 FILE TRANSFER COMPLETED SUCCESSFULLY.
+ftp: 54665 bytes sent in 0.00Seconds 54665000.00Kbytes/sec.
+ftp&gt; <I>put jt400.jar</I>
+200 PORT SUBCOMMAND REQUEST SUCCESSFUL.
+150 SENDING FILE TO /JavaMail/jt400.jar
+250 FILE TRANSFER COMPLETED SUCCESSFULLY.
+ftp: 3436558 bytes sent in 1091.23Seconds 3.15Kbytes/sec.
+ftp&gt; <I>put mail.jar</I>
+200 PORT SUBCOMMAND REQUEST SUCCESSFUL.
+150 SENDING FILE TO /JavaMail/mail.jar
+250 FILE TRANSFER COMPLETED SUCCESSFULLY.
+ftp: 305434 bytes sent in 49.86Seconds 6.13Kbytes/sec.
+ftp&gt; <I>put Rcvmail.java</I>
+200 PORT SUBCOMMAND REQUEST SUCCESSFUL.
+150 SENDING FILE TO /JavaMail/Rcvmail.java
+250 FILE TRANSFER COMPLETED SUCCESSFULLY.
+ftp: 20659 bytes sent in 0.00Seconds 20659000.00Kbytes/sec.
+
+<I>(Optionally, you may put &quot;mailapi.jar&quot; also.)</I>
+
+ftp&gt; <I>dir</I>
+200 PORT SUBCOMMAND REQUEST SUCCESSFUL.
+125 LIST STARTED.
+XXXXX           54665 03/05/18 01:06:11 *STMF      activation.jar
+XXXXX         3436558 03/05/18 01:39:50 *STMF      jt400.jar
+XXXXX          305434 03/05/18 01:40:55 *STMF      mail.jar
+XXXXX           20659 03/05/18 01:41:24 *STMF      Rcvmail.java
+250 LIST COMPLETED.
+ftp: 255 bytes received in 0.00Seconds 255000.00Kbytes/sec.
+ftp&gt; <EM>quit</EM>
+221 QUIT SUBCOMMAND RECEIVED.</PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<P>Go back to the 5250 session to restore and make objects. You should examine
+source file POP3/SOURCE.MAKE to appropriately complie object. For example,
+if you are using V5R2, new OUTPUT paramter can be specified to RUNJVA command.
+</P>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD width="512">
+      <PRE>&gt; RSTLIB SAVLIB(POP3) DEV(*SAVF) SAVF(QGPL/POP3)
+  2 objects restored from POP3 to POP3.
+&gt; CHGCURLIB CURLIB(POP3)
+  Current library changed to POP3.
+&gt; STRREXPRC SRCMBR(MAKE) SRCFILE(POP3/SOURCE)</PRE>
+      <TABLE border="0">
+        <TBODY>
+          <TR>
+            <TD>
+            <DL>
+              <DD>
+              <PRE>  Start RCVM compilation.
+   You must have authority to create objects.
+
+      * * * * * * * * * * * * * * * * * * * * * *
+
+  creating CL program ...
+    result-&gt; 0
+  creating CMD definition ...
+    result-&gt; 0
+  creating database files ...
+    result-&gt; 0
+    result-&gt; 0
+
+  Compile finished. Confirm error(s) if exists.
+
+  Press ENTER to end terminal session.</PRE>
+            </DL>
+            </TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      <PRE>&gt; DLTF FILE(QGPL/POP3) Object POP3 in QGPL type *FILE deleted.</PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<H4>Start Qshell session to compile the Java program :</H4>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD width="512">
+      <PRE>&gt; QSH</PRE>
+      <TABLE border="0">
+        <TBODY>
+          <TR>
+            <TD>
+            <DL>
+              <DD>
+              <PRE>&gt; cd /JavaMail
+  $
+&gt; ls -la
+  total: 3.776 megabytes
+  drwxrwxrwx   2 XXXXX   0                 86016 May 12 11:40 .
+  drwxrwxrwx  42 QSYS    0                208896 May 11 12:55 ..
+  -rwxrwxrwx   1 XXXXX   0                 54665 May 12 11:14 activation.jar
+  -rwxrwxr-x   1 XXXXX   0               2749457 Aug  3  2001 jt400.jar
+  -rwxrwxrwx   1 XXXXX   0                305434 May 12 11:14 mail.jar
+  -rwxrwxrwx   1 XXXXX   0                172919 May 12 11:18 mailapi.jar
+  -rwxrwxrwx   1 XXXXX   0                 20659 May 11 12:59 Rcvmail.java
+  $</PRE>
+            </DL>
+            </TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<P>Cmpile the Java program &quot;Rcvmail&quot; in accordance with JDK enviroment
+of your AS/400. You may, of course, compile the program on you PC which
+has JDK or Java development environment and send compled &quot;Rcvmail.class&quot;
+to &quot;/JavaMail&quot; directory of AS/400.<BR>
+<BR>
+Here's how I compiled the program using OS/400 V4R5 and V5R2 as a test.
+Earlier version of OS/400 JDKs can compile the program but I have no test
+environment (as always, everything's at your own risk).</P>
+<H4>- Compile under V4R5 (Default JDK 1.1.8)</H4>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD width="512">
+      <PRE>&gt; <B>javac -classpath .:./mail.jar:./mailapi.jar:./activation.jar:./jt400.jar:/QIB
+  M/ProdData/Java400/jdk118/lib/classes.zip -deprecation Rcvmail.java</B>
+  Rcvmail.java:58: Note: The constructor java.io.PrintStream(java.io.OutputStre
+  am) has been deprecated.
+          PrintStream consoleout = new PrintStream(new FileOutputStream(debugfi
+  le, true));
+                                   ^
+  Note: Rcvmail.java uses a deprecated API.  Please consult the documentation f
+  or a better alternative.
+  2 warnings
+  $</PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<H4>- Compile under V4R5 (JDK 1.3)</H4>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD width="512">
+      <PRE>&gt; <B>/QIBM/ProdData/Java400/jdk13/bin/javac -classpath .:./mail.jar:./activation.j
+  ar:./jt400.jar:/QIBM/ProdData/Java400/jdk13/lib/rt.jar Rcvmail.java</B>
+  $</PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<H4>- Compile under V5R2 (Default JDK 1.3.1)</H4>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD width="512">
+      <PRE>&gt; <B>javac -classpath .:./mail.jar:./activation.jar:./jt400.jar Rcvmail.java</B><BR>$</PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<P><BR>
+</P>
+<HR>
+<P>[<A href="index.html">Home</A>]</P>
+</BODY>
+</HTML>

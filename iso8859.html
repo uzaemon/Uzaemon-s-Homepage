@@ -1,0 +1,195 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE></TITLE>
+</HEAD>
+<BODY>
+<H1>SNDM ISO-8859-1 support</H1>
+<H2>What is ISO-8859-1?</H2>
+<P>ISO-8859-1 is 8bit ASCII character set which supports Western Europe and
+Americas languages, they are Afrikaans, Basque, Catalan, Danish, Dutch,
+English, Faeroese, Finnish, French, Galician, German, Icelandic, Irish,
+Italian, Norwegian, Portuguese, Spanish and Swedish. For more information,
+see <A href="http://rfc.net/rfc1345.html">RFC1345</A>.</P>
+<H2>What is CCSID ?</H2>
+<P>See <A href="http://www-106.ibm.com/developerworks/unicode/library/codepages.html?dwzone=unicode">&quot;A brief introduction to code pages and Unicode&quot;</A> at <A href="http://www-306.ibm.com/software/globalization/topics/unicode/index.jsp">&quot;Globalize your On Demand Business&quot</A><BR>
+<BR>
+You can find list of some IBM-defined code pages at IBM <A href="http://www-1.ibm.com/servers/eserver/iseries/software/globalization/codepages.html">Code Pages</A> site.</P>
+<H2>How SNDM deal with ISO-8859-1?</H2>
+<P>SNDM utility states that it supports ISO-8859-1 (CCSID <A href="http://www-1.ibm.com/servers/eserver/iseries/software/globalization/pdf/cp00819z.pdf">819</A>). That means SNDM should convert specific Latin-1 EBCDIC &quot;default
+CCSID&quot;s listed below to ASCII CCSID 819 precisely and sends a mail
+with corresponding charset header.</P>
+<BLOCKQUOTE><B>Note:</B> ISO has created ISO-8859-15 to suuport euro currency symbol and several
+other characters to ISO-8859-1. AS/400 (iSeries) supports ISO-8859-15 (CCSID
+<A href="http://www-1.ibm.com/servers/eserver/iseries/software/globalization/pdf/cp00923z.pdf">923</A>, see <A href="http://www-1.ibm.com/servers/eserver/iseries/euro/roadmap.htm">AS/400 Roadmap to Euro Support Updated Edition (January 22, 1999)</A> for details) but SNDM does not support it. If you are using &quot;ECECP's
+CCSID&quot;s listed below, SNDM will not correctly convert newly added
+characters and sends the mail with incorrect header (charset) information.</BLOCKQUOTE>
+<H3>EBCDIC CCSIDs which have associated ASCII CCSID 819 (encoding scheme 4100
+- <B>ISO 8, single-byte, No code extension is allowed</B> <B>Number of States = 1.</B>)</H3>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD bgcolor="#00cccc">Default<BR>
+      CCSID</TD>
+      <TD bgcolor="#00cccc">ECECP's<BR>
+      CCSID</TD>
+      <TD bgcolor="#00cccc">Language<BR>
+      Identifier</TD>
+      <TD bgcolor="#00cccc">Country</TD>
+      <TD bgcolor="#00cccc">Language</TD>
+    </TR>
+    <TR>
+      <TD rowspan="7"><A href="http://www-1.ibm.com/servers/eserver/iseries/software/globalization/pdf/cp00037z.pdf">037</A></TD>
+      <TD rowspan="7"><A href="http://www-1.ibm.com/servers/eserver/iseries/software/globalization/pdf/cp01140z.pdf">1140</A></TD>
+      <TD>AFR</TD>
+      <TD>-</TD>
+      <TD>Afrikaans</TD>
+    </TR>
+    <TR>
+      <TD>ENA</TD>
+      <TD>Australia</TD>
+      <TD>Australian English</TD>
+    </TR>
+    <TR>
+      <TD>ENP</TD>
+      <TD>-</TD>
+      <TD>Uppercase English</TD>
+    </TR>
+    <TR>
+      <TD>ENU</TD>
+      <TD>United States/Canada</TD>
+      <TD>US English</TD>
+    </TR>
+    <TR>
+      <TD>NLD</TD>
+      <TD>Netherlands</TD>
+      <TD>Dutch</TD>
+    </TR>
+    <TR>
+      <TD>PTB</TD>
+      <TD>Brazil</TD>
+      <TD>Brazilian Portuguese</TD>
+    </TR>
+    <TR>
+      <TD>PTG</TD>
+      <TD>Portugal</TD>
+      <TD>Portugese</TD>
+    </TR>
+    <TR>
+      <TD><A href="http://www-1.ibm.com/servers/eserver/iseries/software/globalization/pdf/cp00273z.pdf">273</A></TD>
+      <TD><A href="http://www-1.ibm.com/servers/eserver/iseries/software/globalization/pdf/cp01141z.pdf">1141</A></TD>
+      <TD>DEU</TD>
+      <TD>Austria/Germany</TD>
+      <TD>German</TD>
+    </TR>
+    <TR>
+      <TD rowspan="3"><A href="http://www-1.ibm.com/servers/eserver/iseries/software/globalization/pdf/cp00277z.pdf">277</A></TD>
+      <TD rowspan="3"><A href="http://www-1.ibm.com/servers/eserver/iseries/software/globalization/pdf/cp01142z.pdf">1142</A></TD>
+      <TD>DAN</TD>
+      <TD>Denmark</TD>
+      <TD>Danish</TD>
+    </TR>
+    <TR>
+      <TD>NON</TD>
+      <TD rowspan="2">Norway</TD>
+      <TD>Norwegian Nynorsk</TD>
+    </TR>
+    <TR>
+      <TD>NOR</TD>
+      <TD>Norwegian Bokmal</TD>
+    </TR>
+    <TR>
+      <TD rowspan="2"><A href="http://www-1.ibm.com/servers/eserver/iseries/software/globalization/pdf/cp00278z.pdf">278</A></TD>
+      <TD rowspan="2"><A href="http://www-1.ibm.com/servers/eserver/iseries/software/globalization/pdf/cp01143z.pdf">1143</A></TD>
+      <TD>FIN</TD>
+      <TD>Finland</TD>
+      <TD>Finnish</TD>
+    </TR>
+    <TR>
+      <TD>SVE</TD>
+      <TD>Sweden</TD>
+      <TD>Swedish</TD>
+    </TR>
+    <TR>
+      <TD><A href="http://www-1.ibm.com/servers/eserver/iseries/software/globalization/pdf/cp00280z.pdf">280</A></TD>
+      <TD><A href="http://www-1.ibm.com/servers/eserver/iseries/software/globalization/pdf/cp01144z.pdf">1144</A></TD>
+      <TD>ITA</TD>
+      <TD>Italy</TD>
+      <TD>Italian</TD>
+    </TR>
+    <TR>
+      <TD rowspan="2"><A href="http://www-1.ibm.com/servers/eserver/iseries/software/globalization/pdf/cp00284z.pdf">284</A></TD>
+      <TD rowspan="2"><A href="http://www-1.ibm.com/servers/eserver/iseries/software/globalization/pdf/cp01145z.pdf">1145</A></TD>
+      <TD>CAT</TD>
+      <TD>-</TD>
+      <TD>Catalan</TD>
+    </TR>
+    <TR>
+      <TD>ESP</TD>
+      <TD>Spain</TD>
+      <TD>Spanish</TD>
+    </TR>
+    <TR>
+      <TD rowspan="2"><A href="http://www-1.ibm.com/servers/eserver/iseries/software/globalization/pdf/cp00285z.pdf">285</A></TD>
+      <TD rowspan="2"><A href="http://www-1.ibm.com/servers/eserver/iseries/software/globalization/pdf/cp01146z.pdf">1146</A></TD>
+      <TD>ENG</TD>
+      <TD>United Kingdom</TD>
+      <TD>United Kingdom English</TD>
+    </TR>
+    <TR>
+      <TD>GAE</TD>
+      <TD>Ireland</TD>
+      <TD>Irish Gaelic</TD>
+    </TR>
+    <TR>
+      <TD><A href="http://www-1.ibm.com/servers/eserver/iseries/software/globalization/pdf/cp00297z.pdf">297</A></TD>
+      <TD><A href="http://www-1.ibm.com/servers/eserver/iseries/software/globalization/pdf/cp01147z.pdf">1147</A></TD>
+      <TD>FRA</TD>
+      <TD>France</TD>
+      <TD>French</TD>
+    </TR>
+    <TR>
+      <TD rowspan="7"><A href="http://www-1.ibm.com/servers/eserver/iseries/software/globalization/pdf/cp00500z.pdf">500</A></TD>
+      <TD rowspan="7"><A href="http://www-1.ibm.com/servers/eserver/iseries/software/globalization/pdf/cp01148z.pdf">1148</A></TD>
+      <TD>DES</TD>
+      <TD rowspan="3">Switzerland</TD>
+      <TD>Swiss German</TD>
+    </TR>
+    <TR>
+      <TD>FRS</TD>
+      <TD>Swiss French</TD>
+    </TR>
+    <TR>
+      <TD>ITS</TD>
+      <TD>Swiss Italian</TD>
+    </TR>
+    <TR>
+      <TD>FRB</TD>
+      <TD rowspan="2">Belgium</TD>
+      <TD>Belgian French</TD>
+    </TR>
+    <TR>
+      <TD>NLB</TD>
+      <TD>Belgian Dutch</TD>
+    </TR>
+    <TR>
+      <TD>FRC</TD>
+      <TD>Canada</TD>
+      <TD>Canadian French</TD>
+    </TR>
+    <TR>
+      <TD>SQI</TD>
+      <TD>Albania</TD>
+      <TD>Albanian</TD>
+    </TR>
+    <TR>
+      <TD><A href="http://www-1.ibm.com/servers/eserver/iseries/software/globalization/pdf/cp00871z.pdf">871</A></TD>
+      <TD><A href="http://www-1.ibm.com/servers/eserver/iseries/software/globalization/pdf/cp01149z.pdf">1149</A></TD>
+      <TD>ISL</TD>
+      <TD>Iceland</TD>
+      <TD>Icelandic</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BODY>
+</HTML>

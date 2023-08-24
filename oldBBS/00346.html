@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00346 : Re^3: SNDM attachment not readable</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00346 [Re^3: SNDM attachment not readable] </font>(posted by uzaemon)</b><br>
+( 1)   02/03/09 12:10   comment on <a href="00345.html">00345</a>   , # of comment(s) : 1
+<HR>
+
+David,<br>
+<br>
+> I am using outlook express as a client. Documents created on my PC and uploaded to IFS vis FTP work OK.<br>
+(SNIP)<br>
+> ... upload that document to the IFS, that new document works.<br>
+<br>
+So your problem was solved, right?<br>
+<br>
+> I must be doing something wrong with the CPYTOSTMF. For it I use:<br>
+> CPYTOSTMF FROMMBR('qsys.lib/mylib.lib/myfile.file/txt.mbr')<br>
+>  TOSTMF('/eml/abc.txt')<br>
+>  STMFOPT(*REPLACE) CVTDTA(*NONE)<br>
+><br>
+> I have also tried CVTDTA(*AUTO)<br>
+<br>
+If you want to create ASCII data usng CPYTOSTMF, you should perform either of followings.<br>
+<br>
+- create a stream file with ASCII CCSID before exec CPYTOSTMF with CVTDATA(*AUTO) option.<br>
+<br>
+| > QSH CMD('touch -C 819 /tmp/testfile.txt')<br>
+| > CPYTOSTMF FROMMBR('/qsys.lib/yourlib.lib/yoursrc.file/test.mbr') TOSTMF(<br>
+|   '/tmp/testfile.txt') STMFOPT(*REPLACE)<br>
+<br>
+- explicitly specify DBFCCSID and STMFCODPAG<br>
+<br>
+| > CPYTOSTMF FROMMBR('/qsys.lib/yourlib.lib/yoursrc.file/test.mbr') TOSTMF(<br>
+|   '/tmp/testfile2.txt') STMFOPT(*REPLACE) DBFCCSID(37) STMFCODPAG(819)<br>
+<br>
+Use WRKLNK->option8 or EDTF(or DSPF)->F15 to confirm the CCSID of the stream file is tagged to ASCII CCSID (819 in this example).<br>
+<br>
+> I don't know if it is important to note but I am using:<br>
+><br>
+> Datebase file CCSID  . . . . . . > *DFTJOBCCSID<br>
+<br>
+The parameter has nothing to do with attachment files. SNDM always reads stream files in binary mode (no code conversion). ...ahh...I found misspelling..."Datebase"...<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

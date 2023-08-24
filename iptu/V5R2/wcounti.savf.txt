@@ -1,0 +1,131 @@
+                                         Display Saved Objects - Save File                                              Page     1
+5722SS1 V5R2M0  020719                                                                                XXXX      03/21/06  23:17:12
+ System serial number . . . . . . . . :    65A949B
+ Save release level . . . . . . . . . :   V5R2M0
+ Target release level . . . . . . . . :   V5R2M0
+ Save command . . . . . . . . . . . . :   SAV
+ Save date/time . . . . . . . . . . . :   03/19/06  22:12:08
+ Save changed period:
+   Start date . . . . . . . . . . . . :   *ALL
+   Start time . . . . . . . . . . . . :   *ALL
+   End date . . . . . . . . . . . . . :   *ALL
+   End time . . . . . . . . . . . . . :   *ALL
+ Save while active  . . . . . . . . . :   *NO
+ Data compressed  . . . . . . . . . . :   No
+ Save file  . . . . . . . . . . . . . :   WCOUNTI
+   Library  . . . . . . . . . . . . . :     BACKUP
+   Records  . . . . . . . . . . . . . :     2240
+ Directory  . . . . . . . . . . . . . . . . . . . :   /wcount
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   Count.html        *STMF       TCPIP             131072  Yes        No
+   Count2.5          *DIR        TCPIP               8192  Yes        No
+   Count2_5-ex.ht >  *STMF       TCPIP              32768  Yes        No
+   Count_Changelo >  *STMF       TCPIP              32768  Yes        No
+   Count_FAQ.html    *STMF       TCPIP              32768  Yes        No
+   Count_download >  *STMF       TCPIP               8192  Yes        No
+   Count_mirrors. >  *STMF       TCPIP              32768  Yes        No
+   README            *STMF       TCPIP               8192  Yes        No
+   digits            *DIR        TCPIP               8192  Yes        No
+   mah.html          *STMF       TCPIP               8192  Yes        No
+   mkstrip           *SYMLNK     TCPIP               4096  Yes        No
+   Object
+   Count2_5-ex.html
+   Count_Changelog.html
+   Count_download.html
+   Count_mirrors.html
+ Directory  . . . . . . . . . . . . . . . . . . . :   /wcount/Count2.5
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   images            *DIR        TCPIP              24576  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /wcount/Count2.5/images
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   Image1.gif        *STMF       TCPIP              16384  Yes        No
+   c24latr.gif       *STMF       TCPIP               8192  Yes        No
+   c24rel.gif        *STMF       TCPIP               8192  Yes        No
+   c24upd.gif        *STMF       TCPIP               8192  Yes        No
+   cal.gif           *STMF       TCPIP              16384  Yes        No
+                                         Display Saved Objects - Save File                                              Page     2
+5722SS1 V5R2M0  020719                                                                                XXXX      03/21/06  23:17:12
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   count24dst.gif    *STMF       TCPIP              16384  Yes        No
+   countdst.fig      *STMF       TCPIP              16384  Yes        No
+   initr.gif         *STMF       TCPIP               8192  Yes        No
+   latest.gif        *STMF       TCPIP               8192  Yes        No
+   latr.gif          *STMF       TCPIP               8192  Yes        No
+   new.gif           *STMF       TCPIP               8192  Yes        No
+   styleA.gif        *STMF       TCPIP               8192  Yes        No
+   styleB.gif        *STMF       TCPIP               8192  Yes        No
+   styleC.gif        *STMF       TCPIP               8192  Yes        No
+   styleD.gif        *STMF       TCPIP               8192  Yes        No
+   styleE.gif        *STMF       TCPIP               8192  Yes        No
+   styleET.gif       *STMF       TCPIP               8192  Yes        No
+   stylebang.gif     *STMF       TCPIP               8192  Yes        No
+   stylecd.gif       *STMF       TCPIP               8192  Yes        No
+   stylecdd.gif      *STMF       TCPIP               8192  Yes        No
+   stylecdr.gif      *STMF       TCPIP               8192  Yes        No
+   transfer.gif      *STMF       TCPIP               8192  Yes        No
+   yeehaw.gif        *STMF       TCPIP               8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /wcount/digits
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   A                 *DIR        TCPIP               8192  Yes        No
+   B                 *DIR        TCPIP               8192  Yes        No
+   C                 *DIR        TCPIP               8192  Yes        No
+   D                 *DIR        TCPIP               8192  Yes        No
+   E                 *DIR        TCPIP               8192  Yes        No
+   bang              *DIR        TCPIP               8192  Yes        No
+   cd                *DIR        TCPIP               8192  Yes        No
+   cdd               *DIR        TCPIP               8192  Yes        No
+   cdr               *DIR        TCPIP               8192  Yes        No
+   mah               *DIR        TCPIP              24576  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /wcount/digits/A
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   peng.gif          *STMF       TCPIP              16384  Yes        No
+   strip.gif         *STMF       TCPIP               8192  Yes        No
+   yeehaw.gif        *STMF       TCPIP               8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /wcount/digits/B
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   strip.gif         *STMF       TCPIP               8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /wcount/digits/C
+                                         Display Saved Objects - Save File                                              Page     3
+5722SS1 V5R2M0  020719                                                                                XXXX      03/21/06  23:17:12
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   strip.gif         *STMF       TCPIP               8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /wcount/digits/D
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   lenna.gif         *STMF       TCPIP              32768  Yes        No
+   strip.gif         *STMF       TCPIP               8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /wcount/digits/E
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   foo.gif           *STMF       TCPIP               8192  Yes        No
+   strip.gif         *STMF       TCPIP               8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /wcount/digits/bang
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   strip.gif         *STMF       TCPIP               8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /wcount/digits/cd
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   strip.gif         *STMF       TCPIP               8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /wcount/digits/cdd
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   strip.gif         *STMF       TCPIP               8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /wcount/digits/cdr
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   strip.gif         *STMF       TCPIP               8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /wcount/digits/mah
+                                         Display Saved Objects - Save File                                              Page     4
+5722SS1 V5R2M0  020719                                                                                XXXX      03/21/06  23:17:12
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   MAHJONG.GIF       *STMF       TCPIP               8192  Yes        No
+   SIVB9.tmp         *STMF       TCPIP               8192  Yes        No
+   eight.gif         *STMF       TCPIP               8192  Yes        No
+   five.gif          *STMF       TCPIP               8192  Yes        No
+   four.gif          *STMF       TCPIP               8192  Yes        No
+   mahjong.zip       *STMF       TCPIP              32768  Yes        No
+   nine.gif          *STMF       TCPIP               8192  Yes        No
+   one.gif           *STMF       TCPIP               8192  Yes        No
+   seven.gif         *STMF       TCPIP               8192  Yes        No
+   six.gif           *STMF       TCPIP               8192  Yes        No
+   strip.gif         *STMF       TCPIP              32768  Yes        No
+   three.gif         *STMF       TCPIP               8192  Yes        No
+   two.gif           *STMF       TCPIP               8192  Yes        No
+   zero.gif          *STMF       TCPIP               8192  Yes        No
+ Number of objects saved  . . . . . . . :   72
+                                        * * * * *   E N D   O F   L I S T I N G   * * * * *

@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=x-sjis">
+<META name="GENERATOR" content="IBM HomePage Builder 2001 V5.0.3 for Windows">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE></TITLE>
+</HEAD>
+<BODY>
+<H2>Perl for AS/400 Installation</H2>
+<BLOCKQUOTE>(If you don't use DBI, you can skip to download and install source code,
+p500502.savf)</BLOCKQUOTE>
+<OL>
+  <LI>Access <A href="http://www.cpan.org/ports/as400/">http://www.cpan.org/ports/as400/</A> or <A href="ftp://ftp.plig.org/pub/CPAN/ports/as400/">ftp://ftp.plig.org/pub/CPAN/ports/as400/</A> and download &quot;perlpgm.savf.gz&quot; (6.3M) and &quot;p500502.savf.gz&quot;
+  (7.0M).<BR>
+  <LI>Uncompress files using, for example, WinZip to obtain &quot;perlpgm.savf&quot;
+  (17.7M) and &quot;p500502.savf&quot; (18.7M).<BR>
+  <BR>
+  <IMG src="perl_install.jpg" width="504" height="234" border="0"><BR>
+  <LI>Create save-file on your AS/400.
+  <TABLE border="1">
+    <TBODY>
+      <TR>
+        <TD width="512">
+        <PRE>&gt; CRTLIB LIB(PERLDIST) TEXT('Perl 5 Distribution Library')
+  Library PERLDIST created.
+&gt; CRTSAVF FILE(PERLDIST/PERLPGM) TEXT('AS/400 Perl Binaries')
+  File PERLPGM created in library PERLDIST.
+&gt; CRTSAVF FILE(PERLDIST/P500502) TEXT('AS/400 Perl Sources')
+  File P500502 created in library PERLDIST.                 </PRE>
+        </TD>
+      </TR>
+    </TBODY>
+  </TABLE>
+  <BR>
+  <LI>Connect to the AS/400 using FTP client (i.e. from Windows command prompt).
+  Put(send) the distribution (.savf) to the save-file by binary mode.
+  <TABLE border="1">
+    <TBODY>
+      <TR>
+        <TD width="512">
+        <PRE>C:\&gt;<I>ftp your_as400_hostname</I>
+Connected to ????
+220-QTCP AT ????.
+220 CONNECTION WILL CLOSE IF IDLE MORE THAN 5 MINUTES.
+User (????:(none)): <I>as400_user_id</I>
+331 ENTER PASSWORD.
+Password:<I>enter_password_for_the_user_id</I>
+230 ???? LOGGED ON.
+ftp&gt; <I>bi</I>
+200 REPRESENTATION TYPE IS BINARY IMAGE.
+ftp&gt;<I> put perlpgm.savf perldist/perlpgm</I>
+200 PORT SUBCOMMAND REQUEST SUCCESSFUL.
+150 SENDING FILE TO MEMBER PERLPGM IN FILE PERLPGM IN LIBRARY PERLDIST.
+250 FILE TRANSFER COMPLETED SUCCESSFULLY.
+17750832 bytes sent in 50.34 seconds (352.60 Kbytes/sec)
+ftp&gt; <I>put p500502.savf perldist/p500502</I>
+200 PORT SUBCOMMAND REQUEST SUCCESSFUL.
+150 SENDING FILE TO MEMBER P500502 IN FILE P500502 IN LIBRARY PERLDIST.
+250 FILE TRANSFER COMPLETED SUCCESSFULLY.
+ftp: 18777792 bytes sent in 16.10Seconds 1166.11Kbytes/sec.
+ftp&gt;<I> quit</I>
+221 QUIT SUBCOMMAND RECEIVED.</PRE>
+        </TD>
+      </TR>
+    </TBODY>
+  </TABLE>
+  <BR>
+  <LI>Restore objects to library 'PERLDIST' and directory '/usr/local' from the
+  save-files using RSTLIB and RST commands.
+  <TABLE border="1">
+    <TBODY>
+      <TR>
+        <TD width="512">
+        <PRE>&gt; RSTOBJ OBJ(*ALL) SAVLIB(PERLDIST) DEV(*SAVF) SAVF(PERLDIST/PERLPGM)
+  3 objects restored from PERLDIST to PERLDIST.
+&gt; QSH CMD('ln -s /qsys.lib/perldist.lib/perl.pgm /usr/bin/perl')
+&gt; MD DIR('/usr/local')
+  Directory created.
+&gt; MD DIR('/usr/local/lib')
+  Directory created.
+&gt; RST DEV('/QSYS.LIB/PERLDIST.LIB/PERLLIB.FILE') OBJ(('/usr/local/lib/*'))
+  Security changes occurred for 409 objects.
+  409 objects restored. 0 objects not restored.
+&gt; MD DIR('/usr/local/src')
+  Directory created.
+&gt; RSTOBJ OBJ(PERLSRC) SAVLIB(PERLDIST) DEV(*SAVF) SAVF(PERLDIST/P500502)  
+  1 objects restored from PERLDIST to PERLDIST.                           
+&gt; RST DEV('/QSYS.LIB/PERLDIST.LIB/PERLSRC.FILE') OBJ(('/usr/local/src/*'))
+  Security changes occurred for 1280 objects.                             
+  1280 objects restored. 0 objects not restored.                          </PRE>
+        </TD>
+      </TR>
+    </TBODY>
+  </TABLE>
+</OL>
+<HR>
+<H2>Apply (unauthorized, untested) patch to DBI</H2>
+<P>Unfortunately, DBI (standard database access scheme for Perl) returns blank
+value for character fields from OS/400 V4R5. It is required to modify a
+source file &quot;/usr/local/src/perldist/DBD-DB2-0.71/dbdimp.c&quot; to
+circumvent this problem.</P>
+<P>Below is a quick-and-dirty patch I am using. <B>This patch has not been tested thoroughly and nobody supports it.</B></P>
+<BLOCKQUOTE>(Before)
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD width="512">
+      <PRE><BR>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SNIP ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 995         if (fbh-&gt;rlen &gt; -1) {    /* normal case - column is not null */
+ 996 #ifdef AS400
+ 997        if (fbh-&gt;ftype == SQL_C_CHAR &amp;&amp; fbh-&gt;rlen == 0)
+ 998             fbh-&gt;rlen = strlen(fbh-&gt;buf);
+ 999 #endif /* AS400 */
+1000        if (fbh-&gt;ftype == SQL_C_CHAR)
+1001             SvCUR(fbh-&gt;sv) = fbh-&gt;rlen;
+1002             sv_setsv(sv,fbh-&gt;sv);
+1003         } else {                /*  column contains a null value */
+1004                fbh-&gt;indp = fbh-&gt;rlen;
+1005             fbh-&gt;rlen = 0; 
+1006             (void)SvOK_off(sv);
+1007         }
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SNIP ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>(After)
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD width="512">
+      <PRE>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SNIP ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 995 #ifdef AS400
+ 996           /*  if (fbh-&gt;ftype == SQL_C_CHAR &amp;&amp; fbh-&gt;rlen == 0)  */
+ 997             if (fbh-&gt;ftype == SQL_C_CHAR &amp;&amp; fbh-&gt;rlen &lt;= 0)
+ 998                  fbh-&gt;rlen = strlen(fbh-&gt;buf);
+ 999 #endif /* AS400 */
+1000 /* H.Yahagi 2002-01-20 */
+1001         if (fbh-&gt;rlen &gt; -1) {    /* normal case - column is not null */
+1002             if (fbh-&gt;ftype == SQL_C_CHAR)
+1003                  SvCUR(fbh-&gt;sv) = fbh-&gt;rlen;
+1004             sv_setsv(sv,fbh-&gt;sv);
+1005         } else {                /*  column contains a null value */
+1006                fbh-&gt;indp = fbh-&gt;rlen;
+1007             fbh-&gt;rlen = 0;
+1008             (void)SvOK_off(sv);
+1009         }
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SNIP ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>Compile and update the module as follows.
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD width="512">
+      <PRE>&gt; CHGJOB CCSID(37)
+&gt; CRTCMOD MODULE(QTEMP/DBDIMP) SRCSTMF('/usr/local/src/perldist/DBD-DB2-0.7
+  1/dbdimp.c') OUTPUT(*print) OPTIMIZE(40) DBGVIEW(*ALL) DEFINE(HAVE_DBI HA
+  VE_DB2 AS400 'STANDARD_C=1' DEBUGGING YYDYNAMIC 'YYDEBUG=1' STRANGE_MALLO
+  C EBCDIC) INCDIR('/usr/local/src/perldist/perl5.005_02' '/usr/local/src/p
+  erldist/DBI-1.06')                                                       
+  Module DBDIMP was created in library QTEMP on 02/02/02 at 14:11:49.      
+&gt; UPDPGM PGM(PERLDIST/PERL) MODULE(QTEMP/DBDIMP)                           
+  Program PERL in PERLDIST updated.                                        </PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BLOCKQUOTE>
+<HR>
+<P>[<A href="index.html">Home</A>]</P>
+</BODY>
+</HTML>

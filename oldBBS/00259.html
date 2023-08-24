@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00259 : Re: SPL2STMF (cannot find output file)</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00259 [Re: SPL2STMF (cannot find output file)] </font>(posted by uzaemon)</b><br>
+( 1)   01/10/05 21:12   comment on <a href="00257.html">00257</a>   , # of comment(s) : 3
+<HR>
+
+Chris,<br>
+<br>
+> After using the program I don't know where the output is placed...<br>
+<br>
+The output file will be placed at the directory you specified in TOSTMF parameter. For instance, if you run the command as follows, you'll find the file "qpdspajb.txt" at directory "/tmp" on OS/400. Notice that the directory should present before you run SPL2STMF command.<br>
+<br>
+| > WRKACTJOB OUTPUT(*PRINT)<br>
+| > SPL2STMF FILE(QPDSPAJB) TOSTMF('/tmp/qpdspajb.txt') WSCST(TEXTJ)<br>
+|   Stream file generated. execution time 0 min 1 sec, total pages = 4<br>
+<br>
+Use WRKLNK OBJ('/tmp/*') or EDTF command to look for the output file.<br>
+<br>
+> Where do I look for the PDF file after I issue the command...<br>
+<br>
+SPL2STMF does not directly generate PDF file. Please read the "usage" section of the utility again.<br>
+<br>
+> If the program comes back to say the it took 0 min and 0 seconds.  Does this mean that it did not work???<br>
+<br>
+You can specify DEBUG(*YES) for SPL2STMF and examine spooled file QPRINT to confirm the process of the command,<br>
+<br>
+Try above and let me know what you find.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

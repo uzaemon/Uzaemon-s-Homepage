@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00583 : Re: TIFFの解像度変更</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00583 [Re: TIFFの解像度変更] </font>(posted by uzaemon)</b><br>
+( 1)   03/03/12 00:29   comment on <a href="00582.html">00582</a>   , # of comment(s) : 1
+<HR>
+
+bigmoonさん、<br>
+<br>
+> SPL2STMFを使用して解像度２００ｘ２００のTIFF形式ファイルを作成したいのですが、<br>
+> そのまま作成すると、３００ｘ３００で作成されます。<br>
+> （TIFFINFOプログラムで確認）<br>
+> WSCSTはQWPTIFFG4を使用しています。<br>
+> このWSCSTが参考になるかと、RTVWSCSTコマンドでソースを見ようと<br>
+> 思いましたが、それらしいパラメーター値が見つからず、<br>
+> 暗礁に乗り上げてしまいました。<br>
+> なにか心当たりかヒントをいただけるとありがたいのですが。<br>
+<br>
+libtiffだけでは無理そうでしたので、調べればもっと見つかると<br>
+思いますが、Googleでざっとそれらしきものを検索しました。<br>
+バッチでなければいくつかUNIXのX Windowベース?のツールがあり<br>
+そうです。<br>
+<br>
+- <a href="http://www.experts-exchange.com/Programming/Programming_Languages/C/Q_10158147.html" rel = "nofollow" target = "_blank">http://www.experts-exchange.com/Programming/Programming_Languages/C/Q_10158147.html</a><br>
+- <a href="http://www.linuxquestions.org/questions/history/43059" rel = "nofollow" target = "_blank">http://www.linuxquestions.org/questions/history/43059</a><br>
+- <a href="http://www.astro.caltech.edu/cgi-bin/man.cgi?section=1&topic=convert" rel = "nofollow" target = "_blank">http://www.astro.caltech.edu/cgi-bin/man.cgi?section=1&topic=convert</a><br>
+<br>
+最後のconvertコマンドを移植すれば何となくできそうなのですが、<br>
+試した(移植した)わけではないので確証は全くありません。<br>
+<br>
+解像度を低くしたいだけであればQWPGIF(うろ覚え)でGIFにすると<br>
+かなりDPI(≒画像品質)が落ちます。後はIBMさんにWSCSTの機能<br>
+拡張を製品改善要望として伝えるくらいでしょうか...<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

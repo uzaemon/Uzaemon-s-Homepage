@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00573 : Re: Using SNDM on AS400 (French users go</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00573 [Re: Using SNDM on AS400 (French users go] </font>(posted by uzaemon)</b><br>
+( 1)   03/02/23 02:01   comment on <a href="00572.html">00572</a>   , # of comment(s) : 1
+<HR>
+
+Dave.<br>
+<br>
+> Hello, I currently have an AS400 V5R1M0 and I have loaded the SNDM command, this command works great most of the time, but I do have a problem that I hope you can help me with, We have a few french users who see OS/400 in French (we have Secondary Language 2928 French Loaded).<br>
+> But this always gives us the following error.<br>
+>  Command failed. reason -301 negative response from SMTP server ( RSPｰ501 Syntax error.  Special characters only permitted with escape character.｢#ｧ REQｰMAIL FROM:<DAVE.PAYN@TRIUMPH.CO.UK>｢#ｧ) can you help please.<br>
+> The system value QCCSID is set to 65535. We have no problems with English users who do not use the Secondary Language, they only use the base OS/400 2924<br>
+<br>
+I have some questions :<br>
+<br>
+- Is "DAVE.PAYN@TRIUMPH.CO.UK" French user? Or just using SNDM with the mail address under French environment?<br>
+<br>
+- How did you set up French environment? Just putting QSYSxxxx on the top of system library list is not enough, e.g. use 5250 emulator with French codepage, set French CCSID for those users, French CHRID for French 5250 devices, etc...<br>
+<br>
+- What parameters did you specify when you ran SNDM command? Please describe exactly what you did.<br>
+<br>
+- What version of SNDM are you using. You can specify DEGUB(*YES) and check it.<br>
+<br>
+- What is CCSID of the job? (both CCSID and DFTCCSID in DSPJOB command)<br>
+<br>
+- What kind of mail server are you using?<br>
+<br>
+Waiting for your reply.<br>
+<br>
+uzaemon@japan<br>
+<br>
+</body></html>

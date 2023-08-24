@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 01698 : Re^4: HPT/TIFF2PDF ON OS 5.4 JVM 1.3 OR</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>01698 [Re^4: HPT/TIFF2PDF ON OS 5.4 JVM 1.3 OR] </font>(posted by uzaemon)</b><br>
+( 1)   06/12/23 00:28   comment on <a href="01690.html">01690</a>   , # of comment(s) : 2
+<HR>
+
+Giampaolo,<br>
+<br>
+> I FIND THE ERROR, IF I READ WHIT WORDPAD THE PDF FILE I FIND THAT IN PROGRAM TIFF2PDF "  sprintf( buff, "q \n%f 0 0 %f %f %f cm /%s%d Do \nQ \n" , x_bounding,<br>
+>     y_bounding, x_translate, y_translate, img_name, img_nr ) ;"         x_bounding, y_bounding, x_translate, y_traslate are numer whit ',' exemple 543,5555 instead 543.555<br>
+><br>
+> WHAT I DO in CL LE TO CHANGE "," ON "." ?<br>
+<br>
+Currently, I do not have access to V5R4 and have not been able to recreate your problem.<br>
+<br>
+- Do you mean all periods in PDF file become comma?<br>
+- If you have V5R2 binary, can you try it?<br>
+- What language environment (Primary language, System value QLOCALE, JOB CCSID, LANGID, etc.) are you using?<br>
+- If you run code snippet below, which ("," or ".") do you see?<br>
+<br>
+0001.00 #include <stdio.h><br>
+0002.00 char buffer[10];<br>
+0003.00<br>
+0004.00 int main(void)<br>
+0005.00 {<br>
+0006.00   sprintf(buffer, "%f\n", 123.45678);<br>
+0007.00   printf("value = %s\n", buffer);<br>
+0008.00 }<br>
+<br>
+Waiting for your reply.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

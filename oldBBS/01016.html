@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 01016 : ZLIB/MiniZip</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>01016 [ZLIB/MiniZip] </font>(posted by James Lampert)</b><br>
+( 1)   06/02/18 08:35
+<HR>
+
+<br>
+We've been using your ZLIB port for some time now, and while it's generally quite stable, we've recently found a problem.<br>
+<br>
+It seems that if MiniZIP gets called too many times within a single batch job (turning a large number of IFS directories into ZIP archives of their contents), it stops working, and (since the batch job in question keeps trying to apply it to the remaining subdirectories of the directory it's working in) just sits there producing a few hundred pages of the same error message. Any idea why this would happen?<br>
+<br>
+--<br>
+James H. H. Lampert<br>
+Touchtone Corporation<br>
+</body></html>

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00835 : Re^8: PGM ZIPCLP not created durring REX</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00835 [Re^8: PGM ZIPCLP not created durring REX] </font>(posted by uzaemon)</b><br>
+( 1)   04/09/16 16:54   comment on <a href="00834.html">00834</a>   , # of comment(s) : 11
+<HR>
+
+Mike,<br>
+<br>
+>Should I also modify to BNDSRVPGM(QHTTPSVR/QZHBCGI)considering problem encountered previously?<br>
+<br>
+At your will. It is not necssary as long as I know.<br>
+<br>
+> Also there are no statments in 'MAKE' asto the creation of modules or PGMs for MINIZIP400, ZIP400, EBCDIC400.<br>
+<br>
+Are you using zlib 1.2.1 downloaded from my site without modification? If so, lines below do the task (line number may vary).<br>
+<br>
+0048.00 /* minizip */<br>
+0049.00 MO.16 = 'miniunz'<br>
+0050.00 MO.17 = 'minizip'<br>
+0051.00 MO.18 = 'zip'<br>
+0052.00 MO.19 = 'unzip'<br>
+0053.00 MO.20 = 'ebcdic'<br>
+............................<br>
+0082.00 SAY 'Start creating program and modules miniunz/minizip for OS/400...'<br>
+0083.00 DO I = 16 TO 20<br>
+0084.00   SAY '  creating module 'MO.I'400...'<br>
+0085.00   'CRTCMOD MODULE(QTEMP/'MO.I'400) SRCFILE(&OLIB/QCSRC) SRCMBR('MO.I') ',<br>
+0086.00   'OUTPUT(&OUTPUT) OPTIMIZE(&OPTIMIZE) DBGVIEW(&DEBUG) ',<br>
+0087.00   'DEFINE(&D1 &D3 &D5 &D6 &D7) ',<br>
+0088.00   'SYSIFCOPT(&SYSIFCOPT) TGTRLS(&TGTRLS)'<br>
+0089.00   SAY "  result->" RC<br>
+0090.00 END<br>
+0091.00   SAY '  creating program MINIUNZ400...'<br>
+0092.00   'CRTPGM PGM(&OLIB/MINIUNZ400) ',<br>
+0093.00   'MODULE(QTEMP/MINIUNZ400 QTEMP/UNZIP400 QTEMP/EBCDIC400) ',<br>
+0094.00   'BNDSRVPGM(&OLIB/ZLIB) DETAIL(*BASIC) TGTRLS(&TGTRLS) ',<br>
+0095.00   "TEXT('miniunz for OS/400')"<br>
+0096.00   SAY "  result->" RC<br>
+0097.00   SAY '  creating program MINIZIP400...'<br>
+0098.00   'CRTPGM PGM(&OLIB/MINIZIP400) ',<br>
+0099.00   'MODULE(QTEMP/MINIZIP400 QTEMP/ZIP400 QTEMP/EBCDIC) ',<br>
+0100.00   'BNDSRVPGM(&OLIB/ZLIB) DETAIL(*BASIC) TGTRLS(&TGTRLS) ',<br>
+0101.00   "TEXT('minizip for OS/400')"<br>
+0102.00   SAY "  result->" RC<br>
+<br>
+If the MAKE procedure doesn't work well and you are using European CCSID, try to exec "CHGJOB CCSID(65535)" or CHGJOB CCSID(037) before you run the procedure.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

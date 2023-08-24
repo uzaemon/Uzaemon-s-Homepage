@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00105 : Re: SPL2STMFでのエラー</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00105 [Re: SPL2STMFでのエラー] </font>(posted by uzaemon)</b><br>
+( 1)   00/11/24 08:59   comment on <a href="00104.html">00104</a> 
+<HR>
+
+<br>
+Miyasakaさん、こん○○わ。<br>
+<br>
+>   Command failed. reason - API QwpzHostPrintTransform failed : CPF3CF2  hptopt=30<br>
+<br>
+OS/400ではDSPMSGDというコマンドでメッセージの詳細を表示することができます。CPF3CF2は下記のような意味になります。<br>
+<br>
+|メッセージＩＤ . . . . . . . :   CPF3CF2<br>
+|メッセージ・ファイル . . . . :   QCPFMSG<br>
+|  ライブラリー . . . . . . . :     QSYS<br>
+|<br>
+|  メッセージ . . :   &1 API の実行中にエラーが起こった。<br>
+| 原因－－貴社担当のサービス会社に連絡して，問題を報告してください。問題といっ<br>
+|   しょに渡す資料は次の通りです。<br>
+|    -- 正常に実行されなかった API のジョブ・ログ。<br>
+|    -- API で指定した実際のパラメーター。<br>
+<br>
+つまり、API(QwpzHostPrintTransform)内部で問題が起こっているのでサービスに連絡を取る必要があるといっています。API側の問題である以上ユーザー・プログラム(SPL2STMF)側では対処が困難です。<br>
+<br>
+通常のIBM製品の障害の場合と同様に、下記のような問題判別の手順を実施して結果をお知らせください。<br>
+<br>
+- HPT関連の最新のPTFを適用しているか<br>
+- (可能であれば)他のリリースのOS/400でも発生するか<br>
+- 他のHPT機能(LPR/RMTOUTQなど)を利用した場合でも同様の現象が発生するか<br>
+- 発生する場合/しない場合の差異(具体的な再現の条件)は何か<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

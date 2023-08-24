@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 01588 : Re: SNDM: Reason -301: special character</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>01588 [Re: SNDM: Reason -301: special character] </font>(posted by uzaemon)</b><br>
+( 1)   06/12/03 01:55   comment on <a href="01576.html">01576</a> 
+<HR>
+
+<br>
+Zvi,<br>
+<br>
+> I have something that seems CCSID error:<br>
+> When working from Israel on computer in sweden I got the error:<br>
+><br>
+> SNDM FROM('qsecofr@localhost)<br>
+> TO(('zvi_kave@yahoo.com'))<br>
+> FILE(SMTP/BODY) SUBJECT('test1')<br>
+> SMTPHOST(S720)                                  Command failed. reason -301 negative response from SMTP server ( RSP 501  Syntax error.  Special characters only permitted with escape            character.肄､ REQ RCPT TO:<zvi_kave@yahoo.com>肄､)             Please help if you can.<br>
+><br>
+> Regards,<br>
+><br>
+> Zvi<br>
+><br>
+<br>
+I recommend you to specify DEBUG(*YES) and check out followings:<br>
+<br>
+- CCSIDs you are using.<br>
+- At where (mail address, description, mail body, attachment, etc.) and what "Special characters" are used.<br>
+- See <a href="http://homepage1.nifty.com/uzaemon/iso8859.html" rel = "nofollow" target = "_blank">http://homepage1.nifty.com/uzaemon/iso8859.html</a> for supported CCSIDs.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

@@ -1,0 +1,25 @@
+ 5722SS1 V5R2M0  020719                 Saved Object Information - Save File                     2/26/06 23:34:13        Page    1
+ Library saved  . . . :   ANALOG                Release level  . . . :   V4R3M0
+ ASP  . . . . . . . . :   1                     Data compressed  . . :   No
+ Save file  . . . . . :   ANALOG                Objects saved  . . . :   10
+   Library  . . . . . :     BACKUP43            Access paths . . . . :   0
+ Records  . . . . . . :   20272
+ Save command . . . . :   SAVLIB
+ Save active  . . . . :   *NO
+ Save date/time . . . :   03/15/06   19:17:12
+ Object             Type     Attribute     Owner         Size (K)  Data   Member      Member      Member      Member      Member
+ ANALOG             *LIB     TEST          QDFTOWN             72  Yes
+ ANACGI             *PGM     CLP           QDFTOWN             32  Yes
+ ANALOG             *PGM     CLE           QDFTOWN           5752  Yes
+ H                  *FILE    PF            QDFTOWN            588  Yes    ANLGHEAD    ANLGHEA2    ANLGHEA3    ANLGHEA4    PCRE
+                                                                          PCRECHAR    PCREINTL
+ LICENCE            *FILE    PF            QDFTOWN             24  Yes    LICENCE
+ PARMS              *FILE    PF            QDFTOWN             16  Yes    PARMS
+ QCLSRC             *FILE    PF            QDFTOWN             16  Yes    ANACGI
+ QCSRC              *FILE    PF            QDFTOWN           3836  Yes    ALIAS       ANALOG      CACHE       DATES       GLOBALS
+                                                                          HASH        INIT        INIT2       INPUT       OUTPUT
+                                                                          OUTPUT2     PCRE        PROCESS     SETTINGS    SORT
+                                                                          TREE        UTILS
+ QREXSRC            *FILE    PF            QDFTOWN             24  Yes    MAKE
+ REPORT             *FILE    PF            QDFTOWN              4  Yes
+                           * * * * *   E N D   O F   L I S T I N G   * * * * *

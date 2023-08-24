@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00484 : SPL2STMF Error CPF6DF8</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00484 [SPL2STMF Error CPF6DF8] </font>(posted by Kornee Sterrenbu)</b><br>
+( 1)   02/10/05 00:53
+<HR>
+
+<br>
+When I try to SPL2STMF on a IPDS spoolfile containg barcodes, I get a CPF6DF8 error.<br>
+I'm running on OS-400 5.1<br>
+The debug option gives the following<br>
+<br>
+<br>
+| QUSBAVL = 0 splbuflen = 0 hptosolena = 44 hptxbuflena = 0<br>
+|  Option specific input information / device = '*NONE' job = QPADEV003Q/LOGAS<br>
+|   spoolfile = 'PROCOP1$' spoolNo = -1 pages = 0 WSCST = '*LIBL/QWPTIFFPB' Mm<br>
+|  Option specific output information / transform file = 0 pass data = 0<br>
+|hptopt = 30<br>
+| buffer info : No = 1 len = 1389 numentry = 1 offset = 224 size = 1293 / page<br>
+| QUSBAVL = 66 splbuflen = 1293 hptosolena = 44 hptxbuflena = 0 pages(OSI) = 1<br>
+|** reset hpt - process option 50 **<br>
+|<br>
+|Fatal error : API QwpzHostPrintTransform failed : CPF6DF8 hptopt = 30<br>
+<br>
+Perhaps you know what I'm missing<br>
+</body></html>

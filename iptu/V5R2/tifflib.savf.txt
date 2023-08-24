@@ -1,0 +1,35 @@
+ 5722SS1 V5R2M0  020719                 Saved Object Information - Save File                     2/26/06 23:17:11        Page    1
+ Library saved  . . . :   TIFFLIB               Release level  . . . :   V5R2M0
+ ASP  . . . . . . . . :   1                     Data compressed  . . :   No
+ Save file  . . . . . :   TIFFLIB               Objects saved  . . . :   15
+   Library  . . . . . :     BACKUP              Access paths . . . . :   0
+ Records  . . . . . . :   23960
+ Save command . . . . :   SAVLIB
+ Save active  . . . . :   *NO
+ Save date/time . . . :   03/19/06   22:12:06
+ Object             Type     Attribute     Owner         Size (K)  Data   Member      Member      Member      Member      Member
+ TIFFLIB            *LIB     TEST          TCPIP               88  Yes
+ TIFFCP             *PGM     CLE           TCPIP              376  Yes
+ TIFFDUMP           *PGM     CLE           TCPIP              248  Yes
+ TIFFINFO           *PGM     CLE           TCPIP              204  Yes
+ TIFF2PDF           *PGM     CLLE          TCPIP              444  Yes
+ TIFFLIB            *SRVPGM  CLE           TCPIP             5692  Yes
+ ELEM2DEC           *MODULE  RPGLE         TCPIP               64  Yes
+ TIFF2PDF           *CMD                   TCPIP                8  Yes
+ TIFF2PDFHL         *PNLGRP                TCPIP               12  Yes
+ H                  *FILE    PF            TCPIP              648  Yes    TIF_DIR     TIF_FAX3    TIF_PREDIC  TIFF        TIFFCOMP
+                                                                          TIFFCONF    TIFFIO      TIFFIOP     T4          VERSION
+ LICENSE            *FILE    PF            TCPIP               84  Yes    COPYING     COPYRIGHT   LICENSE
+ QCSRC              *FILE    PF            TCPIP             3440  Yes    ALPHA       AUX         CLOSE       CODEC       COMPRESS
+                                                                          DIR         DIRINFO     DIRREAD     DIRWRITE    DUMPMODE
+                                                                          ERROR       FAX3        FAX3SM      FLUSH       GETIMAGE
+                                                                          LZW         MKG3STATES  MKSPANS     MKVERSION   OPEN
+                                                                          PACKBITS    PREDICT     PRINT       READ        STRIP
+                                                                          SWAB        TILE        UNIX        VERSION     WARNING
+                                                                          WRITE
+ QREXSRC            *FILE    PF            TCPIP               36  Yes    MAKE
+ TIFF2PDF           *FILE    PF            TCPIP              428  Yes    MAKE        PARSEELEM   TIFF2PDF    TIFF2PDF.O  TIFF2PDFC
+                                                                          TIFF2PDFCL  TIFF2PDFHL
+ TOOLS              *FILE    PF            TCPIP              680  Yes    FLOAT       GETOPT      GETOPTTEST  TIFFCP      TIFFDUMP
+                                                                          TIFFINFO    TIFFSPRIT
+                           * * * * *   E N D   O F   L I S T I N G   * * * * *

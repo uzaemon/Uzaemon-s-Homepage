@@ -1,0 +1,93 @@
+0001.00        PROCESS NOMONOPRC.
+0002.00        IDENTIFICATION DIVISION.
+0003.00        PROGRAM-ID. CBLCGI.
+0004.00
+0005.00        ENVIRONMENT DIVISION.
+0006.00        CONFIGURATION SECTION.
+0007.00          SOURCE-COMPUTER. IBM-AS400.
+0008.00          OBJECT-COMPUTER. IBM-AS400.
+0009.00        INPUT-OUTPUT SECTION.
+0010.00        FILE-CONTROL.
+0011.00            SELECT FILE1 ASSIGN TO DATABASE-ITEM
+0012.00                ORGANIZATION IS INDEXED
+0013.00                ACCESS IS DYNAMIC
+0014.00                RECORD KEY IS EXTERNALLY-DESCRIBED-KEY WITH DUPLICATES
+0015.00                FILE STATUS IS FILE1-STATUS.
+0016.00
+0017.00        DATA DIVISION.
+0018.00        FILE SECTION.
+0019.00        FD  FILE1.
+0020.00        01  RECORD-DESCRIPTION.
+0021.00            COPY DDS-ITEMR OF ITEM.
+0022.00        WORKING-STORAGE SECTION.
+0023.00       * for QtmhGetEnv API
+0024.00        77  RECEIVER-VARIABLE         PIC X(100).
+0025.00        77  RECEIVER-VARIABLE-LEN     PIC S9(0009) BINARY VALUE 100.
+0026.00        77  RESPONSE-LEN              PIC S9(0009) BINARY.
+0027.00        77  REQUEST-VARIABLE          PIC X(20) VALUE IS "QUERY_STRING".
+0028.00        77  REQUEST-VARIABLE-LEN      PIC S9(0009) BINARY VALUE 12.
+0029.00        COPY QUSEC OF QSYSINC-QCBLLESRC.
+0030.00       * for QUERY_STRING value
+0031.00        01  FORM-INPUT-VALUE.
+0032.00            05  FORM-KEY              PIC X(3).
+0033.00            05  EQUAL-SIGN            PIC X(1).
+0034.00            05  FORM-VALUE            PIC X(5).
+0035.00       * Misc
+0036.00        77  NL                        PIC X VALUE X"15".
+0037.00        77  ITPRIC-COMMA              PIC Z,ZZZ,ZZZ.99+.
+0038.00        77  FILE1-STATUS              PIC XX.
+0039.00
+0040.00        PROCEDURE DIVISION.
+0041.00        MAIN-LINE.
+0042.00
+0043.00       * Send HTTP/HTML header
+0044.00            DISPLAY "Content-type: text/html" NL UPON DISPLAY.
+0045.00            DISPLAY "<HTML><HEAD><TITLE>Query Result (COBOL CGI)"
+0046.00                    "</TITLE></HEAD><BODY>" UPON DISPLAY.
+0047.00            DISPLAY "<CENTER><H1>Query Result (COBOL CGI) </H1>"
+0048.00                    "<HR></CENTER>" UPON DISPLAY.
+0049.00
+0050.00       * Read the Environment variable, QUERY_STRING.
+0051.00            CALL PROCEDURE "QtmhGetEnv" USING RECEIVER-VARIABLE,
+0052.00                RECEIVER-VARIABLE-LEN, RESPONSE-LEN, REQUEST-VARIABLE,
+0053.00                REQUEST-VARIABLE-LEN, QUS-EC.
+0054.00       * Display error if environment variable is invalid
+0055.00            IF BYTES-AVAILABLE > 0
+0056.00                DISPLAY "<P><B><I><FONT SIZE=+2>Failed to get envvar."
+0057.00                        "</FONT></I></B></P>" UPON DISPLAY,
+0058.00                PERFORM TRAILER.
+0059.00            IF RESPONSE-LEN < 1
+0060.00                DISPLAY "<P><B><I><FONT SIZE=+2>Invalid response"
+0061.00                        " length. (<1)</FONT></I></B></P>"
+0062.00                        "</BODY></HTML>" UPON DISPLAY,
+0063.00                PERFORM TRAILER.
+0064.00            STRING RECEIVER-VARIABLE DELIMITED BY SIZE
+0065.00                INTO FORM-INPUT-VALUE.
+0066.00
+0067.00       * Search database using key value
+0068.00            OPEN INPUT FILE1.
+0069.00            MOVE FORM-VALUE TO ITNO
+0070.00            READ FILE1 RECORD
+0071.00       * Key not found
+0072.00                INVALID KEY
+0073.00                    DISPLAY "<P><B><I><FONT SIZE=+2>Item not found."
+0074.00                            " (KEY=" FORM-VALUE
+0075.00                            ")</FONT></I></B></P>" UPON DISPLAY
+0076.00       * Display search result
+0077.00                NOT INVALID KEY
+0078.00                    MOVE ITPRIC TO ITPRIC-COMMA
+0079.00                    DISPLAY "<PRE>"                        UPON DISPLAY
+0080.00                    DISPLAY "Item number  : " ITNO         UPON DISPLAY
+0081.00                    DISPLAY "category     : " ITCAT        UPON DISPLAY
+0082.00                    DISPLAY "description  : " ITDESC       UPON DISPLAY
+0083.00                    DISPLAY "unit price   : " ITPRIC-COMMA UPON DISPLAY
+0084.00                    DISPLAY "date         : " ITDATE       UPON DISPLAY
+0085.00                    DISPLAY "</PRE>"                       UPON DISPLAY
+0086.00            END-READ.
+0087.00            CLOSE FILE1.
+0088.00
+0089.00       * HTML trailer
+0090.00        TRAILER.
+0091.00            DISPLAY "<A HREF=" QUOTE "/iptu/chapter2/simplequery.html"
+0092.00                    QUOTE ">Return</A>" NL "</BODY></HTML>" UPON DISPLAY.
+0093.00            STOP RUN.

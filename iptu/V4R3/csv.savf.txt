@@ -1,0 +1,15 @@
+ 5722SS1 V5R2M0  020719                 Saved Object Information - Save File                     2/26/06 23:34:15        Page    1
+ Library saved  . . . :   CSV                   Release level  . . . :   V4R3M0
+ ASP  . . . . . . . . :   1                     Data compressed  . . :   No
+ Save file  . . . . . :   CSV                   Objects saved  . . . :   3
+   Library  . . . . . :     BACKUP43            Access paths . . . . :   0
+ Records  . . . . . . :   568
+ Save command . . . . :   SAVLIB
+ Save active  . . . . :   *NO
+ Save date/time . . . :   03/15/06   19:17:02
+ Object             Type     Attribute     Owner         Size (K)  Data   Member      Member      Member      Member      Member
+ CSV                *LIB     PROD          QDFTOWN             72  Yes
+ LICENSE            *FILE    PF            QDFTOWN             48  Yes    COPYING     LICENSE
+ SOURCE             *FILE    PF            QDFTOWN            228  Yes    BENCH       CRTCSVF     CRTCSVFCLP  CRTCSVFHLP  CRTCSVFRPG
+                                                                          MAKE
+                           * * * * *   E N D   O F   L I S T I N G   * * * * *

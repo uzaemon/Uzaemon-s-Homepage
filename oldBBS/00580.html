@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00580 : Re^2: 当方では再現しません</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00580 [Re^2: 当方では再現しません] </font>(posted by uzaemon)</b><br>
+( 1)   03/03/09 23:31   comment on <a href="00576.html">00576</a>   , # of comment(s) : 1
+<HR>
+
+Akihiroさん、<br>
+<br>
+> > すべてのPDFファイルで発生するわけではないのですが、<br>
+> > SNDMコマンドを使用して、一部のPDFファイルを添付ファイルとして、<br>
+> > 送付した際、「ファイルが壊れています」というエラーが出て、<br>
+> > ファイルを開くことができません。<br>
+> ><br>
+> > ネットサーバー経由などで、そのPDFファイルを開いた場合（ローカルのPCにコピーした場合）は、問題なく開けていることから、<br>
+> > どうやらSNDM転送した際に、壊れてしまうようです。<br>
+><br>
+> こちらで再現するか試してみますので、該当のPDFファイルを<br>
+> メールしていただけますか？<br>
+<br>
+メール受け取りました。こちらで下記手順により試してみまし<br>
+たが、問題なく添付ファイルを開くことができました。<br>
+<br>
+1. SNDMで送信、OS/400はV5R2<br>
+　> SNDM FROM(FOO@BAR 'test file corruption') TO((XXXXX@XXXXXXX.YYYYYYYY.ZZZZ<br>
+　　Z.QQQ.COM)) FILE(QDDSSRC) SUBJECT('Test file corruption') ATTACHMENT('/tm<br>
+　　p/94702414557.PDF') DEBUG(*YES)<br>
+　　Mail sent.<br>
+2. Outlook Express 6で受信<br>
+3. 添付ファイルを開く→Acrobat 5で問題なく表示される<br>
+<br>
+念のため、他のソフト(Wincode 261)でbase64エンコードした<br>
+ものとSNDMのデバッグ出力の添付ファイル部分を比較しました<br>
+が、ファイル比較ツール(DF)で全く同一であることが確認でき<br>
+ました。<br>
+<br>
+SNDMの添付ファイル部分(抜粋)→<a href="http://homepage1.nifty.com/uzaemon/SNDM_ATTACHMENT/base64.txt" rel = "nofollow" target = "_blank">http://homepage1.nifty.com/uzaemon/SNDM_ATTACHMENT/base64.txt</a><br>
+Wincodeのbase64出力部分(抜粋)→<a href="http://homepage1.nifty.com/uzaemon/SNDM_ATTACHMENT/94702414557.b64" rel = "nofollow" target = "_blank">http://homepage1.nifty.com/uzaemon/SNDM_ATTACHMENT/94702414557.b64</a><br>
+<br>
+可能であれば常にDEBUF(*YES)を指定しておき、現象が再現<br>
+した場合にbase64(あるいはMIME)のどの部分に問題(差異)があるかを<br>
+上記でご紹介したツールなどによって判別してください。<br>
+その上で発生条件が特定できましたら再度お知らせください。<br>
+<br>
+よろしくお願いいたします。<br>
+<br>
+<br>
+uzaemon@Japan<br>
+</body></html>

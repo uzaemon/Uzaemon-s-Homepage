@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00209 : Re: Greek fonts in SPL2STMF command</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00209 [Re: Greek fonts in SPL2STMF command] </font>(posted by uzaemon)</b><br>
+( 1)   01/08/11 01:10   comment on <a href="00201.html">00201</a>   , # of comment(s) : 1
+<HR>
+
+Jordi,<br>
+<br>
+SPL2STMF has nothing to do with character sets and data conversions. It just calls HPT and write the transformed data to stream file.<br>
+<br>
+If you want to use SPL2STMF for Greek, Turkish, Chinese and Japanese spooled files, you should be able to generate the spooled files to pass to HPT. Also, you may need to create your own WSCST to generate appropriate stream file.<br>
+<br>
+For example, if you want to generate Japanese text file from SCS spooled file, you need to customize WSCST to use IBMNONPAGES data stream. Or You should specify Japanese-capable CDEFNT and IGCCDTFNT to generate Japanese AFP spooled file.<br>
+<br>
+Frankly, it is not an easy task. If you are not familiar to them, I recommend to consult your support channel.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

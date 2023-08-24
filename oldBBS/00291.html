@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00291 : Re^3: SPL2STMF について(カナ文字化け)</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00291 [Re^3: SPL2STMF について(カナ文字化け)] </font>(posted by uzaemon)</b><br>
+( 1)   01/11/21 19:43   comment on <a href="00290.html">00290</a>   , # of comment(s) : 1
+<HR>
+
+Yamadaさん、<br>
+<br>
+当方のiSeries(V4R5およびV5R1)で試したのですが、特別な指定をしなくても正常に半角カタカナに変換されました。<br>
+<br>
+> addlible hpt<br>
+   ライブラリー HPT がライブラリー・リストに追加された。<br>
+> wrksyssts *print<br>
+> SPL2STMF FILE(QPDSPSTS) TOSTMF('/tmp/dspsts.txt') WSCST(TEXTJ)<br>
+  Stream file generated. execution time 0 min 0 sec, total pages = 1<br>
+<br>
+ジョブのCCSIDは5035、印刷装置ファイルQPDSPSTSの文字識別コード(CHRID)は*CHRIDCTLです。<br>
+<br>
+Yamadaさんの実行環境(OS/400のバージョン、JOBのCCSID、印刷装置ファイルのCHRID)はどのように設定されていますか? また、印刷出力の作成前にCHGJOB CCSID(5026) および、OVRPRTF 印刷装置ファイル名 CHRID(*JOBCCSID or *CHRIDCTL)を実行しても化けますか?<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

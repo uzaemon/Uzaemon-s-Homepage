@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00619 : Re^2: Cirilic Body and Attachment</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00619 [Re^2: Cirilic Body and Attachment] </font>(posted by Nicolas Machado)</b><br>
+( 1)   03/05/28 21:40   comment on <a href="00610.html">00610</a>   , # of comment(s) : 1
+<HR>
+
+Hi again, maybe my mistake was that after reading the RFC1345, I thought that SNDM use Ciryllic.<br>
+<br>
+Where canI read more of these RFC, and how can I implement that on your SNDM utility??<br>
+<br>
+Onother about CRTCSVF, do you plan to add a Command Parameter called "DECIMAL SEPARATOR", in some windows box Excel uses coma(,) as decimal separator, but in other it can use dot(.), it depends on the languaje of windows, in our case could be English, or Spanish.<br>
+<br>
+Best regards<br>
+<br>
+> Nicolas,<br>
+><br>
+> > Hi, I just want to know, if SNDM support Cyrillic (Russian) in the Body and the Attach.<br>
+> > The problem we have is that some characters are coverted to a Cyrillic letter but it doesen't make a readable Word.<br>
+> > And also invert tha case of the leters, I mean lower case to upper and viceversa.<br>
+> ><br>
+> > Do I have to use 1025 as a CCSID?? in Header and Body??<br>
+> > If I create the STMF for the attachment, wich CCSID do I have to use? NOw I'm using 819.<br>
+><br>
+> As stated at "usage" section (<a href="http://homepage1.nifty.com/uzaemon/sndm_usage.html" rel = "nofollow" target = "_blank">http://homepage1.nifty.com/uzaemon/sndm_usage.html</a>), SNDM supports plain ASCII, Japanese (ISO-2022-JP) and ISO-8859-1 as mail header and body. Languages supported by ISO-8859-1 are listed at <a href="http://homepage1.nifty.com/uzaemon/iso8859.html" rel = "nofollow" target = "_blank">http://homepage1.nifty.com/uzaemon/iso8859.html</a> and I don't think Cyrillic is on the list.<br>
+><br>
+> On the other hand, you can use any language in attachment file regardless of CCSID of the stream file because SNDM treats it as a binary stream.<br>
+><br>
+> Hope this helps.<br>
+><br>
+> uzaemon@Japan<br>
+<br>
+</body></html>

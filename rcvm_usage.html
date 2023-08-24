@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<META name="Author" content="Name">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>RCVM_usage</TITLE>
+</HEAD>
+<BODY>
+<H2>RCVM - Usage </H2>
+<P>There are two ways to use this mail (POP3) client program. Primary interface
+is OS/400 command interface, &quot;RCVM&quot; which make it easier to run
+the program by providing default values and validate input fields. Java
+program &quot;Rcvmail.class&quot; runs by itself on OS/400 and even other
+Java execution environments.</P>
+<H3>OS/400 command interface</H3>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD>
+      <PRE>                            Receive POP3 Mail (RCVM)
+
+ Type choices, press Enter.
+
+ Mail account . . . . . . . . . . ACCOUNT      &gt; <U>          </U>
+ Password for the mail account  . PASSWORD     &gt;
+
+
+ POP3 server name . . . . . . . . MAILSERVER     <U>*LOCALHOST
+                                                 </U>
+ Communication timeout (sec)  . . TIMEOUT        <U>30   </U>
+ Directory to store mail  . . . . HOMEDIR        <U>*HOME
+                   </U>
+ Leave mail after received  . . . LEAVEMAIL      <U>*NO </U>
+ Replace cid in HTML part . . . . REPLACECID     <U>*YES</U>
+ Receive mail log file  . . . . . RCVLOGTYPE     <U>*RDB </U>
+ Mail recieve log file name . . . RCVLOGFILE     <U>'rcvmlog'
+                   </U>
+ RDB directory entry  . . . . . . RDBDIRE        <U>*SYSNAME                   </U>
+ UserID for RDB . . . . . . . . . RDBUSERID      <U>*ACCOUNT  </U>
+ Password for RDB . . . . . . . . RDBPASS
+
+
+
+                   追加のパラメーター
+
+ Debug output type  . . . . . . . DEBUG          <U>*NO      </U>
+ Debug output stream file . . . . DEBUGFILE      <U>'rcvmdebug.txt'
+                   </U>                                                             <BR></PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<P>Most keywords are self-describing and you will find it easy to use.</P>
+<H3>Sample operation</H3>
+<P>Assuming that :</P>
+<UL>
+  <LI>Local RDBDIRE is &quot;ISERIES&quot;
+  <LI>Directory &quot;/home/xxxxx&quot; already exists.
+  <LI>The OS/400 (localhost) is working as mail server.
+  <LI>User &quot;xxxxx&quot; has a mail account on the OS/400.
+  <LI>HTML mail with attachment and embedded image for use &quot;xxxxx&quot;
+  is waiting .
+</UL>
+<P>To receive a mail for user &quot;xxxxx&quot;, run RCVM command as follows</P>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD>
+      <PRE>&gt; RCVM ACCOUNT(XXXXX) PASSWORD() TIMEOUT(10) RCVLOGFILE(pop3.rcvmlog) RDBDI
+  RE(ISERIES) RDBPASS() DEBUG(*BOTH)
+  Mail received.                                                                </PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<P>If you had not edited SOURCE(MAKE) and specified OUTPUT(*PRINT), you'll
+see annoying screen after execution, so just press enter to exit to 5250
+screen. When successful, the received mails (and debug output if directory
+not specified) are stored in user home directory &quot;/home/xxxxx&quot;.
+</P>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD>
+      <PRE>                             Work with Object Links
+
+ Directory  . . . . :   /home/xxxxx
+
+ Type options, press Enter.
+   2=Edit   3=Copy   4=Remove   5=Display   7=Rename   8=Display attributes
+   11=Change current directory ...
+
+ Opt   Object link            Type             Attribute    Text
+ <U>  </U>    .                      DIR
+ <U>  </U>    ..                     DIR
+ <U>  </U>    rcvmdebug.txt          STMF
+ <U>  </U>    JW370113.NOT           DIR
+
+
+
+
+
+ Parameters or command
+ ===&gt;
+ F3=Exit   F4=Prompt   F5=Refresh   F9=Retrieve   F12=Cancel   F17=Position to
+ F22=Display entire field           F23=More options
+                                                                                </PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<P>A mail may have multiple parts and all parts are store in the same directory,
+in this example, &quot;JW370113.NOT&quot;. In this case, the directory
+contains four files.</P>
+<UL>
+  <LI>body.htm
+  <LI>body.txt
+  <LI>desktop.ini
+  <LI>/home/xxxxx/JW370113.NOT/000901c31d3a$659cf640$0201a8c0@user-----Blue
+  hills.jpg
+</UL>
+<P>&quot;body.htm&quot; and &quot;body.txt&quot; are mail body and the names
+are fixed by the program. &quot;desktop.ini&quot; is am attachment file.
+The last image file is inline image file which is reffered by the &quot;body.htm&quot;.</P>
+<P>When RCVM received mail(s) without problem, it writes mail receive log
+to log file specified by RCVLOGFILE paramter. As it is not possible to
+what character code people use, the log file &quot;POP3/RCVMLOG&quot; contains
+character data as UNICODE.. Run Query and see what has received.</P>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD>
+      <PRE>&gt; RUNQRY QRY(*NONE) QRYFILE((POP3/RCVMLOG))</PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<P>If you want to use the log file from legacy languages and you want only
+single charset, access the log file via logical file which converts CCSID
+13488(UTF-16 big endien) to other CCSID, such as 37 (US English).</P>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD>
+      <PRE>&gt; RUNQRY QRY(*NONE) QRYFILE((POP3/RCVMLOG))
+
+
+ WORK WITH DATA IN A FILE                       Mode . . . . :   CHANGE
+ Format . . . . :   RCVMLR                      File . . . . :   RCVMLOGL
+
+ Received time (UTC):  <U>2003-05-18-12.43.53.815000</U>
+ POP3 server hostname: <U>localhost
+       </U>
+ POP3 mail account:    <U>XXXXX     </U>
+ Mail store home dir:  <U>/home/XXXXX
+                                                                       </U>
+ Leave mail on server: <U>false</U>
+ Replace HTML CID:     <U>true</U>
+ Debug option:         <U>both   </U>
+ Debug output file:    <U>/home/XXXXX/rcvmdebug.txt
+                                                                       </U>
+ 'From' header:        <U>Somebody &lt;foo@abc.com&gt;
+       </U>
+ 'To' header:          <U>&quot;XXXXX@as400&quot; &lt;XXXXX@as400.bar.com&gt;
+       </U>
+ 'Subject' header:     This is a test mail
+<U>                                                                       </U>
+ F3=Exit                 F5=Refresh               F6=Select format
+ F9=Insert               F10=Entry                F11=Change      </PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<HR>
+<H3>Evoke from command line (Qshell or CMD.exe) interface</H3>
+<P>The RCVM command is just a from-end to simple Java program &quot;Rcvmail&quot;.
+You can use Java program Rcvmail directly even without AS/400. As the main
+purpose of creating this program is batch B2B or B2C data transfer, so
+I don't explain about this issue in detail. But if your AS/400 is out of
+service by some reason, it is worth to know how to run the program on Windows.</P>
+<P>Install JRE or JDK to your Windows PC and run Rcvmail Java program without
+parameter.</P>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD>
+      <PRE>E:\JavaMail&gt;&quot;D:\Program Files\IBM\Client Access\JRE\Bin\java&quot; -cp .;mail.jar;act
+ivation.jar;jt400.jar Rcvmail
+Required parameter(s) missing.
+usage: java rcvmail account password [mailserver] [timeout] [homedir] [leavemail
+] [replacehtmlcid] [rcvlogtype] [rcvlogfile] [rdbdire] [rdbuserid] [rdbpassword]
+ [debug] [debugfile]</PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<P>To receive mails whitout AS/400 (DB2/400) connection, call the Java program
+as follows.</P>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD>
+      <PRE>E:\JavaMail&gt;&quot;D:\Program Files\IBM\Client Access\JRE\Bin\java&quot; -cp .;mail.jar;act
+ivation.jar;jt400.jar Rcvmail <I>mail_account</I> <I>mail_password</I> <I>mail_server</I> 10 . false
+ true <B>file</B> rcvlogfile.txt xx xx xx both rcvmdebug.txt</PRE>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<P>Notify that &quot;file&quot; is specified as rcvlogtype. In this case,
+Rcvmail does not try to connect to OS/400 and store mail receive log to
+specified file (&quot;rcvlogfile.txt&quot; in this example). Encoding of
+this file is also UNICODE (UTF-16 little endien), so you can open the log
+file using UNICODE enabled softwares, such as Notepad.exe on Windows XP
+or Excel 2002 (each field is tab-separated) for later use.</P>
+<HR>
+<P>[<A href="index.html">Home</A>]</P>
+</BODY>
+</HTML>

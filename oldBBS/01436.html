@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 01436 : Re^2: SNDM MONMSG CPF9898メッセージ監視</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>01436 [Re^2: SNDM MONMSG CPF9898メッセージ監視] </font>(posted by HIRO)</b><br>
+( 1)   06/11/06 16:56   comment on <a href="01421.html">01421</a> 
+<HR>
+
+<br>
+uzaemonさん<br>
+ご回答ありがとうございます。<br>
+途中経過を報告します。<br>
+RPG  ->  CL  ->  SNDM<br>
+を実行しています。<br>
+<br>
+いろいろと確認したところ、(というよりIBMのテクニカルサポートに相談)したところ、RPG0202でダウンするのは、プログラム状況コードに00,01以外で終了した場合のようです。<br>
+<br>
+そこで、RPGで下記のフィルドを定義し、ダウンしたときの<br>
+ダンプをとると<br>
+<br>
+ FMT *  . *   . 2  4 ...+... 5 ...+... 6<br>
+0013.00  I*=  ==== ================================<br>
+0014.00  I    SDS<br>
+0015.00  I              11  150AAA<br>
+<br>
+AAA      0011A6  ZONED(5,0)    202<br>
+<br>
+プログラム状況コードに202がセットされているようです。<br>
+RPG内のCALLでLOに標識を設定するとエラーを無視できるようなのでその方法で回避しようと考えております。<br>
+<br>
+問題解決できましたら、また、ご報告します。<br>
+またよろしくお願いします。<br>
+</body></html>

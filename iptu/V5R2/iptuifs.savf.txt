@@ -1,0 +1,253 @@
+                                         Display Saved Objects - Save File                                              Page     1
+5722SS1 V5R2M0  020719                                                                                XXXX      03/21/06  23:26:05
+ System serial number . . . . . . . . :    65A949B
+ Save release level . . . . . . . . . :   V5R2M0
+ Target release level . . . . . . . . :   V5R2M0
+ Save command . . . . . . . . . . . . :   SAV
+ Save date/time . . . . . . . . . . . :   03/05/06  17:28:08
+ Save changed period:
+   Start date . . . . . . . . . . . . :   *ALL
+   Start time . . . . . . . . . . . . :   *ALL
+   End date . . . . . . . . . . . . . :   *ALL
+   End time . . . . . . . . . . . . . :   *ALL
+ Save while active  . . . . . . . . . :   *NO
+ Data compressed  . . . . . . . . . . :   No
+ Save file  . . . . . . . . . . . . . :   IPTUIFS
+   Library  . . . . . . . . . . . . . :     BACKUP
+   Records  . . . . . . . . . . . . . :     2264
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   Apache.html       *STMF       TCPIP               8192  Yes        No
+   Chapter1          *DIR        TCPIP               8192  Yes        No
+   Chapter2          *DIR        TCPIP              12288  Yes        No
+   Chapter3          *DIR        TCPIP               8192  Yes        No
+   Chapter4          *DIR        TCPIP               8192  Yes        No
+   Chapter5          *DIR        TCPIP               4096  Yes        No
+   Chapter6          *DIR        TCPIP               8192  Yes        No
+   Chapter7          *DIR        TCPIP              28672  Yes        No
+   Original.html     *STMF       TCPIP               8192  Yes        No
+   www               *DIR        TCPIP               8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/Chapter1
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   hello.html        *STMF       TCPIP               8192  Yes        No
+   hello2.html       *STMF       TCPIP               8192  Yes        No
+   index.html        *STMF       TCPIP               8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/Chapter2
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   complex_CGIDEV >  *STMF       TCPIP               8192  Yes        No
+   complex_QzhbCg >  *STMF       TCPIP               8192  Yes        No
+   complex_QzhbCg >  *STMF       TCPIP               8192  Yes        No
+   complex_selfpa >  *STMF       TCPIP               8192  Yes        No
+   simplequery.ht >  *STMF       TCPIP               8192  Yes        No
+   test_multi_occ >  *STMF       TCPIP               8192  Yes        No
+                                         Display Saved Objects - Save File                                              Page     2
+5722SS1 V5R2M0  020719                                                                                XXXX      03/21/06  23:26:05
+   Object
+   complex_CGIDEV2.html
+   complex_QzhbCgiParse.html
+   complex_QzhbCgiParse2.html
+   complex_selfparse.html
+   simplequery.html
+   test_multi_occurrence.html
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/Chapter3
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   Net.Data          *DIR        TCPIP               8192  Yes        No
+   NetData.html      *STMF       TCPIP               8192  Yes        No
+   Tomcat            *DIR        TCPIP              12288  Yes        No
+   perl              *DIR        TCPIP              24576  Yes        No
+   perl.html         *STMF       TCPIP               8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/Chapter3/Net.Data
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   HelloWorld        *STMF       TCPIP               8192  Yes        No
+   iteminq           *STMF       TCPIP               8192  Yes        No
+   itemreport        *STMF       TCPIP               8192  Yes        No
+   rexx              *STMF       TCPIP               8192  Yes        No
+   sql               *STMF       TCPIP               8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/Chapter3/Tomcat
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   Hello.html        *STMF       TCPIP               8192  Yes        No
+   HelloJSP.jsp      *STMF       TCPIP               8192  Yes        No
+   HelloWorld.cla >  *STMF       TCPIP               8192  Yes        No
+   HelloWorld.jav >  *STMF       TCPIP               8192  Yes        No
+   JDBCJSP.jsp       *STMF       TCPIP               8192  Yes        No
+   WEB-INF           *DIR        TCPIP               8192  Yes        No
+   index.html        *STMF       TCPIP               8192  Yes        No
+   usr_local_apac >  *STMF       TCPIP               8192  Yes        No
+   usr_local_apac >  *STMF       TCPIP               8192  Yes        No
+   Object
+   HelloWorld.class
+   HelloWorld.java
+   usr_local_apache-tomcat-5.5.12_conf_Catalina_localhost_Tomcat.xml
+   usr_local_apache-tomcat-5.5.12_conf_tomcat-users.xml
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/Chapter3/Tomcat/WEB-INF
+                                         Display Saved Objects - Save File                                              Page     3
+5722SS1 V5R2M0  020719                                                                                XXXX      03/21/06  23:26:05
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   classes           *DIR        TCPIP               8192  Yes        No
+   lib               *DIR        TCPIP               4096  Yes        No
+   web.xml           *STMF       TCPIP               8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/Chapter3/Tomcat/WEB-INF/classes
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   HelloServlet.c >  *STMF       TCPIP               8192  Yes        No
+   HelloServlet.j >  *STMF       TCPIP               8192  Yes        No
+   JDBCServlet.cl >  *STMF       TCPIP               8192  Yes        No
+   JDBCServlet.ja >  *STMF       TCPIP               8192  Yes        No
+   Object
+   HelloServlet.class
+   HelloServlet.java
+   JDBCServlet.class
+   JDBCServlet.java
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/Chapter3/perl
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   DBI.cfg           *STMF       TCPIP               8192  Yes        No
+   Hello.pl          *STMF       TCPIP               8192  Yes        No
+   HelloCGI.pl       *STMF       TCPIP               8192  Yes        No
+   HelloCGIpm_fo. >  *STMF       TCPIP               8192  Yes        No
+   HelloCGIpm_oo. >  *STMF       TCPIP               8192  Yes        No
+   allenv.pl         *STMF       TCPIP               8192  Yes        No
+   counter.dat       *STMF       TCPIP               8192  Yes        No
+   counter.pl        *STMF       TCPIP               8192  Yes        No
+   dbq.pl            *STMF       TCPIP               8192  Yes        No
+   dbtable.pl        *STMF       TCPIP               8192  Yes        No
+   dbtableCGIpm.p >  *STMF       TCPIP               8192  Yes        No
+   dbtest.pl         *STMF       TCPIP               8192  Yes        No
+   dbtext.pl         *STMF       TCPIP               8192  Yes        No
+   Object
+   HelloCGIpm_fo.pl
+   HelloCGIpm_oo.pl
+   dbtableCGIpm.pl
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/Chapter4
+                                         Display Saved Objects - Save File                                              Page     4
+5722SS1 V5R2M0  020719                                                                                XXXX      03/21/06  23:26:05
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   item.dtd          *STMF       TCPIP               8192  Yes        No
+   item.xml          *STMF       TCPIP               8192  Yes        No
+   rpgcgi2.html      *STMF       TCPIP               8192  Yes        No
+   sockclient.cla >  *STMF       TCPIP              24576  Yes        No
+   sockclient.jav >  *STMF       TCPIP               8192  Yes        No
+   Object
+   sockclient.class
+   sockclient.java
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/Chapter6
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   httpReq.class     *STMF       TCPIP              24576  Yes        No
+   httpReq.java      *STMF       TCPIP               8192  Yes        No
+   reportmail.htm >  *STMF       TCPIP               8192  Yes        No
+   sendmail          *STMF       TCPIP               8192  Yes        No
+   Object
+   reportmail.html
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/Chapter7
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   applet_counter >  *STMF       TCPIP               8192  Yes        No
+   cookie.html       *STMF       TCPIP               8192  Yes        No
+   counter.class     *STMF       TCPIP               8192  Yes        No
+   counter.java      *STMF       TCPIP               8192  Yes        No
+   iq                *STMF       TCPIP               8192  Yes        No
+   iq1               *STMF       TCPIP               8192  Yes        No
+   iq2               *STMF       TCPIP               8192  Yes        No
+   iq3               *STMF       TCPIP               8192  Yes        No
+   itemqry.iqy       *STMF       TCPIP               8192  Yes        No
+   office.html       *STMF       TCPIP               8192  Yes        No
+   retrieval.html    *STMF       TCPIP               8192  Yes        No
+   ssi.shtml         *STMF       TCPIP              16384  Yes        No
+   ssi_counter.sh >  *STMF       TCPIP               8192  Yes        No
+   ssi_include.tx >  *STMF       TCPIP               8192  Yes        No
+   Object
+   applet_counter.html
+   ssi_counter.shtml
+   ssi_include.txt
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www
+                                         Display Saved Objects - Save File                                              Page     5
+5722SS1 V5R2M0  020719                                                                                XXXX      03/21/06  23:26:05
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   iptu_a1           *DIR        TCPIP               8192  Yes        No
+   iptu_a2           *DIR        TCPIP               8192  Yes        No
+   iptu_a21          *DIR        TCPIP               8192  Yes        No
+   iptu_a31          *DIR        TCPIP               8192  Yes        No
+   iptu_a32          *DIR        TCPIP               8192  Yes        No
+   iptu_a33          *DIR        TCPIP               8192  Yes        No
+   iptu_a4           *DIR        TCPIP               8192  Yes        No
+   iptu_a5           *DIR        TCPIP               8192  Yes        No
+   iptu_a6           *DIR        TCPIP               8192  Yes        No
+   iptu_a7           *DIR        TCPIP               8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a1
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   conf              *DIR        TCPIP               8192  Yes        No
+   logs              *DIR        TCPIP              24576  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a1/conf
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   httpd.conf        *STMF       TCPIP               8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a2
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   conf              *DIR        TCPIP               8192  Yes        No
+   logs              *DIR        TCPIP              24576  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a2/conf
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   httpd.conf        *STMF       TCPIP               8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a21
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   conf              *DIR        TCPIP               8192  Yes        No
+   logs              *DIR        TCPIP              24576  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a21/conf
+                                         Display Saved Objects - Save File                                              Page     6
+5722SS1 V5R2M0  020719                                                                                XXXX      03/21/06  23:26:05
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   httpd.conf        *STMF       TCPIP              16384  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a31
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   conf              *DIR        TCPIP               8192  Yes        No
+   logs              *DIR        TCPIP               8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a31/conf
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   httpd.conf        *STMF       TCPIP               8192  Yes        No
+   workers.proper >  *STMF       TCPIP               8192  Yes        No
+   Object
+   workers.properties
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a32
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   conf              *DIR        TCPIP               8192  Yes        No
+   logs              *DIR        TCPIP              24576  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a32/conf
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   httpd.conf        *STMF       TCPIP               8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a33
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   conf              *DIR        TCPIP               8192  Yes        No
+   logs              *DIR        TCPIP              24576  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a33/conf
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   httpd.conf        *STMF       TCPIP               8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a4
+                                         Display Saved Objects - Save File                                              Page     7
+5722SS1 V5R2M0  020719                                                                                XXXX      03/21/06  23:26:05
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   conf              *DIR        TCPIP               8192  Yes        No
+   logs              *DIR        TCPIP              24576  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a4/conf
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   httpd.conf        *STMF       TCPIP               8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a5
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   conf              *DIR        TCPIP               8192  Yes        No
+   logs              *DIR        TCPIP              24576  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a5/conf
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   httpd.conf        *STMF       TCPIP               8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a6
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   conf              *DIR        TCPIP               8192  Yes        No
+   logs              *DIR        TCPIP              24576  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a6/conf
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   httpd.conf        *STMF       TCPIP               8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a7
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   conf              *DIR        TCPIP               8192  Yes        No
+   logs              *DIR        TCPIP              24576  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a7/conf
+                                         Display Saved Objects - Save File                                              Page     8
+5722SS1 V5R2M0  020719                                                                                XXXX      03/21/06  23:26:05
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   httpd.conf        *STMF       TCPIP               8192  Yes        No
+ Number of objects saved  . . . . . . . :   122
+                                        * * * * *   E N D   O F   L I S T I N G   * * * * *

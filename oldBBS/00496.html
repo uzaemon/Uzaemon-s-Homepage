@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00496 : Re^6: Sndm speed</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00496 [Re^6: Sndm speed] </font>(posted by Tam疽 Endrey)</b><br>
+( 1)   02/10/30 21:48   comment on <a href="00495.html">00495</a>   , # of comment(s) : 4
+<HR>
+
+> Tam疽,<br>
+><br>
+> According to your investigation, only combination of SNDM and "Local SMTP server" has problem.<br>
+>  SNDM -> Local SMTP server ...slow<br>
+>  SNDM -> Remote SMTP server ...fast<br>
+>  Other mailer -> Local SMTP server ...fast<br>
+>  SNDDST -> Local SMTP server ...fast<br>
+><br>
+> Assumptions:<br>
+> - "Local SMTP server" is your AS/400.<br>
+> - You are running SNDM and SNDDST on the same AS/400 (Local SMTP server).<br>
+> - "Remote SMTP Server" is something else, may be UNIX or Windows or OS/400.<br>
+> - You are always specifying the same recipient.<br>
+><br>
+> >... but I don't understand, why it works slowly with SmtpHosT(*LocalHost) parameter.<br>
+><br>
+> I also don't know why... Please answer to questions below:<br>
+><br>
+> - Are above assumptions correct?<br>
+I think they are correct. But I have a question. If I use AS/400 as SMTP gateway (no mail server, only gateway to route an e-mail to mail server) is the same that AS/400 is the local SMTP server? Maybe I use SndM wrongly?<br>
+Remote SMTP server is Windows (Microsoft Exchange).<br>
+<br>
+> - What is the version and PTF level of your OS/400?<br>
+V4R5M0 MF27767<br>
+<br>
+> - What happens if you change line 16 of SMTP/QREXSRC.MAKE from "OPTION = 0" to "OPTION = 1" and recompile the distribution.<br>
+The situation is the same.<br>
+A question: why I don't compile source with ccsid(870). Before compiling, I need change job ccsid to 65535.<br>
+<br>
+> - If you have another AS/400, do you encounter the same slow-down?<br>
+Yes.<br>
+<br>
+> - Does the slow-down occurs always, or occasionally?<br>
+Always.<br>
+<br>
+> - If the slow-down always happens, please run the SNDM twice and send two debug logs to my mail address.<br>
+I sent logs.<br>
+<br>
+><br>
+> I'm not sure but I believe most AS/400 shops use SNDM without such phenomenon, so this problem may be specific to your AS/400 system.<br>
+I think so, that problem is specific for me. I have not enough knowledge about tpc/ip, smtp, e-mail, so I'm not sure, that my use of Sndm is correct.<br>
+<br>
+><br>
+> Waiting for your reply.<br>
+><br>
+> uzaemon@Japan<br>
+<br>
+</body></html>

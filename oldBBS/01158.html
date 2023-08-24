@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 01158 : Re^7: SNDM - Account authentication?</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>01158 [Re^7: SNDM - Account authentication?] </font>(posted by uzaemon)</b><br>
+( 1)   06/06/16 11:52   comment on <a href="01157.html">01157</a> 
+<HR>
+
+<br>
+Boris,<br>
+<br>
+> yes I'm using the iSeries SMTP server to send emails to internet recepients.<br>
+><br>
+> I changed ALWRLY to *LIST and did:<br>
+> ADDSMTPLE TYPE(*ACCEPT) INTNETADR('127.0.0.1')<br>
+><br>
+> Now SNDM is working.<br>
+<br>
+Thank you very much for your feedback.<br>
+<br>
+> I'm just wondering, is this the correct practice?<br>
+<br>
+I think so. Relaying all mail should be avoided.<br>
+<br>
+> Does it mean that the iSeries SMTP server doesn't support authentication? (using external POP server is not an option for me).<br>
+<br>
+As I mentioned in previous post, you may use "POP before SMTP". You just bring up "OS/400" (not external) POP3 server and run POP3 client on the same "OS/400" for authentication. See <a href="http://www-912.ibm.com/a_dir/as4ptf.nsf/ALLPTFS/SI19288" rel = "nofollow" target = "_blank">http://www-912.ibm.com/a_dir/as4ptf.nsf/ALLPTFS/SI19288</a> for detail.<br>
+<br>
+Hope this answers to your questions.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

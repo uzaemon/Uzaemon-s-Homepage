@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00269 : Re: Tiff2 (Not a TIFF file, bad magic nu</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00269 [Re: Tiff2 (Not a TIFF file, bad magic nu] </font>(posted by uzaemon)</b><br>
+( 1)   01/10/19 22:15   comment on <a href="00267.html">00267</a> 
+<HR>
+
+<br>
+Wolfgang,<br>
+<br>
+> SPL2STMF FILES(QPSUPRTF) TOSTMF('tmp/stmf.tif')<br>
+> WSCST(DEFAULT)<br>
+> TIFF2PDF TIFF('/tmp/stmf.tif'<br>
+>                     PDF('/tmp/stmf.pdf')<br>
+> i got a error message:<br>
+> /tmp/stmf.tif: Not a TIFF file, bad magic number 32 (0x20).<br>
+<br>
+As the name implies, TIFF2PDF converts TIFF (more precise, TIFF, G4 compression, multipage image format) file to PDF. Clearly, the file (/tmp/stmf.tif) is not valid TIFF file.<br>
+<br>
+To generate a TIFF-G4 file using SPL2STMF, you should :<br>
+<br>
+1. Create *AFPDS spooled file.<br>
+2. Specify WSCST(QWPTIFFG4) for SPL2STMF command. (What is "WSCST(DEFAULT)"?)<br>
+<br>
+See <a href="http://homepage1.nifty.com/uzaemon/hpt_usage.html" rel = "nofollow" target = "_blank">http://homepage1.nifty.com/uzaemon/hpt_usage.html</a> for sample operation (remember to specify correct font for CDEFNT parameter).<br>
+<br>
+Waiting for your feedback.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

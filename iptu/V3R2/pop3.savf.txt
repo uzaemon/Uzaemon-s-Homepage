@@ -1,0 +1,15 @@
+ 5722SS1 V5R2M0  020719                 Saved Object Information - Save File                     2/26/06 23:40:25        Page    1
+ Library saved  . . . :   POP3                  Release level  . . . :   V3R2M0
+ ASP  . . . . . . . . :   1                     Data compressed  . . :   No
+ Save file  . . . . . :   POP3                  Objects saved  . . . :   3
+   Library  . . . . . :     BACKUP32            Access paths . . . . :   0
+ Records  . . . . . . :   369
+ Save command . . . . :   SAVLIB
+ Save active  . . . . :   *NO
+ Save date/time . . . :   03/15/06   19:43:11
+ Object             Type     Attribute     Owner         Size (K)  Data   Member      Member      Member      Member      Member
+ POP3               *LIB     TEST          QDFTOWN             72  Yes
+ LICENSE            *FILE    PF            QDFTOWN             48  Yes    COPYING     LICENSE
+ SOURCE             *FILE    PF            QUSER              136  Yes    MAKE        RCVM        RCVMAIL     RCVMHLP     RCVMLOG
+                                                                          RCVMLOGL
+                           * * * * *   E N D   O F   L I S T I N G   * * * * *

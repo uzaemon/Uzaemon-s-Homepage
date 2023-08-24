@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00531 : Re: SPL2STMF (Table QA3TBF437 not found)</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00531 [Re: SPL2STMF (Table QA3TBF437 not found)] </font>(posted by uzaemon)</b><br>
+( 1)   02/12/12 21:46   comment on <a href="00528.html">00528</a> 
+<HR>
+
+<br>
+GANさん、<br>
+<br>
+> データの移行はできるようになったのですが起動途中で<br>
+> プログラムエラーが出ます。<br>
+> このため文字化けが発生してしまいます。<br>
+> エラーは「テーブルファイルが見つからない」と言うもので<br>
+> 「QA3TBF437」と言うテーブルファイルがAS/400に存在しません｡<br>
+> どこかで入手できるのでしょうか？<br>
+<br>
+このエラーはDBCSでCS1172/CP1027環境の印刷をする場合に出るようです。原因はIBM(OS/400)の提供するHPT機能の障害であり、(HPTの単なるフロントエンドである)SPL2STMFの問題ではありません。<br>
+<br>
+お使いのOS/400のバージョンがV3R2～V4R3であればPTFが出ているはずです。詳細はAS/400の購入元、あるいは貴社の契約しているサポート窓口にお問い合わせされることをお勧めします。<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

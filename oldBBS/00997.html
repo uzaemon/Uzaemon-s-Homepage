@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00997 : Re: SNDM Command failed reason -107</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00997 [Re: SNDM Command failed reason -107] </font>(posted by uzaemon)</b><br>
+( 1)   06/01/20 22:09   comment on <a href="00995.html">00995</a> 
+<HR>
+
+<br>
+Paolo<br>
+<br>
+> during tests i receive this:<br>
+><br>
+> failed to retrieve attachment-file information (PATH-/MAIL/POSTA.TXT, 3025: This path don't exist.<br>
+><br>
+> With WRKFLR i see that the file named POSTA.TXT is in path /MAIL<br>
+><br>
+> Where is my error ?<br>
+<br>
+Instead of good old WRKFLR command, use WRKLNK command to access to stream file in IFS. You may try specifying "/QDLS/MAIL/POSTA.TXT".<br>
+<br>
+Hope this helps.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

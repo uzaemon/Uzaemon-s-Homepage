@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00499 : Re^9: Sndm speed</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00499 [Re^9: Sndm speed] </font>(posted by uzaemon)</b><br>
+( 1)   02/11/04 21:50   comment on <a href="00498.html">00498</a>   , # of comment(s) : 1
+<HR>
+
+Tam疽,<br>
+<br>
+> > OK... one more question. Do you have ILE-C compiler?<br>
+> Yes, we have ILE-C compiler.<br>
+<br>
+Good! Could you compile and run small ILE-C test program at <a href="http://homepage1.nifty.com/uzaemon/testsmtp.c" rel = "nofollow" target = "_blank">http://homepage1.nifty.com/uzaemon/testsmtp.c</a> as follows?<br>
+<br>
+First, put the source code (by FTP, copy&paste, file transfer, etc.) to SMTP/QCSRC.TESTSMTP, compile the program using CRTBNDC command.<br>
+<br>
+> CRTBNDC PGM(SMTP/TESTSMTP) SRCFILE(SMTP/QCSRC) OUTPUT(*print) DBGVIEW(*AL<br>
+  L)<br>
+<br>
+Then, run the test program as follows. The first parameter is your SMTP server name and latter parameters are SMTP commnads.<br>
+<br>
+> CALL PGM(SMTP/TESTSMTP) PARM(ISERIES 'HELO FOO.COM' 'MAIL FROM:<BAR@NOWHE<br>
+  RE.COM>' 'RCPT TO:<SOMEBODY@ELSEWHERE.COM>' QUIT)<br>
+<br>
+The test program prints its activities to 5250 screen.<br>
+<br>
+  socket() opened. [56 microsec]<br>
+  gethostbyname() successful. [224 microsec]<br>
+  connection established. [216 microsec]<br>
+  R<-220 ISERIES.XXX.COM running IBM OS/400 SMTP V05R02M00 on Fri,  1 Nov 2002 22:33:38 +0900. [1648 microsec]<br>
+  S->HELO FOO.COM [120 microsec]<br>
+  R<-250 ISERIES.XXX.COM. [16 microsec]<br>
+  S->MAIL FROM:<BAR@NOWHERE.COM> [64 microsec]<br>
+  R<-250 OK. [8776 microsec]<br>
+  S->RCPT TO:<SOMEBODY@ELSEWHERE.COM> [96 microsec]<br>
+  R<-250 OK. [10208 microsec]<br>
+  S->QUIT [40 microsec]<br>
+  R<-221 ISERIES.XXX.COM running IBM OS/400 SMTP V05R02M00.  Connection closing. [0 microsec]<br>
+  socket() closed. [64 microsec]<br>
+  Press ENTER to end terminal session.<br>
+<br>
+Please let me know above output from the test program in your environment.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

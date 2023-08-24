@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00622 : Re: Supporting Cirilic...</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00622 [Re: Supporting Cirilic...] </font>(posted by uzaemon)</b><br>
+( 1)   03/05/31 22:31   comment on <a href="00621.html">00621</a>   , # of comment(s) : 2
+<HR>
+
+Nicolas,<br>
+<br>
+> Hy I'm trying to change your source for supporting cirilic, all the secret is to translate from ccsid 1025 Or Job Ccsid, to the CCSID 1251.<br>
+> The question is : can i use iconv_index ?? I think you use it for handle many iconv() instances, because of the Open, convert,close sequence of this treatment.<br>
+<br>
+Just try. If iconv() does not support 1025 to 1251 conversion, SNDM (iconv_open()) will report error.<br>
+<br>
+> Another procedure that I must read carefully is QEncode, I think that I can use it without any change, I only need that the source string be a 1025 CCSID hexas stream.<br>
+<br>
+I don't know if Q-encoding is appropriate for Cirilic because it depends on language you use, in other words, common sense works here.<br>
+<br>
+To handle Japanese (DBCS), B-encoding is used for header, and ISO-2022-JP charset without special encoding is used for body part. To handle ASCII and ISO-8859-1 languages (SBCS), Q-encoding is used for header, and quoted-printable is used for body part when necessary.<br>
+<br>
+> i'm mistaking something??<br>
+<br>
+One suggestion. You should investigate and change header information from "ISO-8859-1" to another charset which supports Cirilic.<br>
+<br>
+Hope this helps.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

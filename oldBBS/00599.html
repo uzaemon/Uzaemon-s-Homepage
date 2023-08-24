@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00599 : Re^2: CRTCSVFのエラーについて教えて下さ</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00599 [Re^2: CRTCSVFのエラーについて教えて下さ] </font>(posted by yy)</b><br>
+( 1)   03/05/18 13:54   comment on <a href="00597.html">00597</a> 
+<HR>
+
+<br>
+> yyさん、<br>
+><br>
+> > CRTCSVFを実行したところ、次のようなエラーになりました。<br>
+> > 申し訳ありませんが、対応策をご教授願います。<br>
+> > Program aborted. 0/1 records processed, 0 error(s) found.<br>
+> > reason - iconv_open failed. EBCDIC CCSID - 65535 / ASCII CCSID - 00942 - 3021 :  引き数に指定された値が正しくない。<br>
+><br>
+> CCSID 65535は無変換(特定の文字コードにタグ付けされていない)を表しているため、どのようにコード変換をしたら良いのかプログラムが判断できません。おそらくDSPJOBで見たジョブCCSIDおよびDSPFDで見たCCSIDのいずれも65535になっているのでは無いでしょうか。<br>
+><br>
+> 対応としてはDBFCCSIDパラメーターにデータベースの中に入っている文字フィールドのCCSID(日本語環境であれば通常5026)を明示的に指定するか、CHGJOB CCSID(5026)を実行後にCRTCSVFを実行してください。<br>
+><br>
+> uzaemon@Japan<br>
+<br>
+yyです。回答ありがとうございました。<br>
+CCSID:65535はそういう意味だったんですね。<br>
+IBMがセットアップしたまま運用しているもので、何も知りませんでした。<br>
+教えていただいたように、CRTCSVF実行時に5026を指定したところ、うまくいきました。<br>
+<br>
+今後とも宜しくお願いします。<br>
+</body></html>

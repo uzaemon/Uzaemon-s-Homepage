@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+   <META name="GENERATOR" content="IBM HomePage Builder 2000 V4.0.5  for Windows">
+</head>
+<body>
+
+<h2>
+zlib README</h2>
+
+<p><br>zlib 1.1.3 is a general purpose data compression library.&nbsp;
+All the code
+<br>is thread safe.&nbsp; The data format used by the zlib library
+<br>is described by RFCs (Request for Comments) 1950 to 1952 in the files
+<br>ftp://ds.internic.net/rfc/rfc1950.txt (zlib format), rfc1951.txt (deflate
+<br>format) and rfc1952.txt (gzip format). These documents are also available
+in
+<br>other formats from ftp://ftp.uu.net/graphics/png/documents/zlib/zdoc-index.html
+<p>All functions of the compression library are documented in the file
+zlib.h
+<br>(volunteer to write man pages welcome, contact jloup@gzip.org). A usage
+<br>example of the library is given in the file example.c which also tests
+that
+<br>the library is working correctly. Another example is given in the file
+<br>minigzip.c. The compression library itself is composed of all source
+files
+<br>except example.c and minigzip.c.
+<p>To compile all files and run the test program, follow the instructions
+<br>given at the top of Makefile. In short "make test; make install"
+<br>should work for most machines. For Unix: "configure; make test; make
+install"
+<br>For MSDOS, use one of the special makefiles such as Makefile.msc.
+<br>For VMS, use Make_vms.com or descrip.mms.
+<p>Questions about zlib should be sent to &lt;zlib@quest.jpl.nasa.gov>,
+or to
+<br>Gilles Vollant &lt;info@winimage.com> for the Windows DLL version.
+<br>The zlib home page is http://www.cdrom.com/pub/infozip/zlib/
+<br>The official zlib ftp site is ftp://ftp.cdrom.com/pub/infozip/zlib/
+<br>Before reporting a problem, please check those sites to verify that
+<br>you have the latest version of zlib; otherwise get the latest version
+and
+<br>check whether the problem still exists or not.
+<p>Mark Nelson &lt;markn@tiny.com> wrote an article about zlib for the
+Jan. 1997
+<br>issue of&nbsp; Dr. Dobb's Journal; a copy of the article is available
+in
+<br>http://web2.airmail.net/markn/articles/zlibtool/zlibtool.htm
+<p>The changes made in version 1.1.3 are documented in the file ChangeLog.
+<br>The main changes since 1.1.2 are:
+<p>- fix "an inflate input buffer bug that shows up on rare but persistent
+<br>&nbsp; occasions" (Mark)
+<br>- fix gzread and gztell for concatenated .gz files (Didier Le Botlan)
+<br>- fix gzseek(..., SEEK_SET) in write mode
+<br>- fix crc check after a gzeek (Frank Faubert)
+<br>- fix miniunzip when the last entry in a zip file is itself a zip file
+<br>&nbsp; (J Lillge)
+<br>- add contrib/asm586 and contrib/asm686 (Brian Raiter)
+<br>&nbsp; See http://www.muppetlabs.com/~breadbox/software/assembly.html
+<br>- add support for Delphi 3 in contrib/delphi (Bob Dellaca)
+<br>- add support for C++Builder 3 and Delphi 3 in contrib/delphi2 (Davide
+Moretti)
+<br>- do not exit prematurely in untgz if 0 at start of block (Magnus Holmgren)
+<br>- use macro EXTERN instead of extern to support DLL for BeOS (Sander
+Stoks)
+<br>- added a FAQ file
+<p>plus many changes for portability.
+<p>Unsupported third party contributions are provided in directory "contrib".
+<p>A Java implementation of zlib is available in the Java Development Kit
+1.1
+<br>http://www.javasoft.com/products/JDK/1.1/docs/api/Package-java.util.zip.html
+<br>See the zlib home page http://www.cdrom.com/pub/infozip/zlib/ for details.
+<p>A Perl interface to zlib written by Paul Marquess &lt;pmarquess@bfsec.bt.co.uk>
+<br>is in the CPAN (Comprehensive Perl Archive Network) sites, such as:
+<br>ftp://ftp.cis.ufl.edu/pub/perl/CPAN/modules/by-module/Compress/Compress-Zlib*
+<p>A Python interface to zlib written by A.M. Kuchling &lt;amk@magnet.com>
+<br>is available in Python 1.5 and later versions, see
+<br>http://www.python.org/doc/lib/module-zlib.html
+<p>A zlib binding for TCL written by Andreas Kupries &lt;a.kupries@westend.com>
+<br>is availlable at http://www.westend.com/~kupries/doc/trf/man/man.html
+<p>An experimental package to read and write files in .zip format,
+<br>written on top of zlib by Gilles Vollant &lt;info@winimage.com>, is
+<br>available at http://www.winimage.com/zLibDll/unzip.html
+<br>and also in the contrib/minizip directory of zlib.
+<br>&nbsp;
+<p>Notes for some targets:
+<p>- To build a Windows DLL version, include in a DLL project zlib.def,
+zlib.rc
+<br>&nbsp; and all .c files except example.c and minigzip.c; compile with
+-DZLIB_DLL
+<br>&nbsp; The zlib DLL support was initially done by Alessandro Iacopetti
+and is
+<br>&nbsp; now maintained by Gilles Vollant &lt;info@winimage.com>. Check
+the zlib DLL
+<br>&nbsp; home page at http://www.winimage.com/zLibDll
+<p>&nbsp; From Visual Basic, you can call the DLL functions which do not
+take
+<br>&nbsp; a structure as argument: compress, uncompress and all gz* functions.
+<br>&nbsp; See contrib/visual-basic.txt for more information, or get
+<br>&nbsp; http://www.tcfb.com/dowseware/cmp-z-it.zip
+<p>- For 64-bit Irix, deflate.c must be compiled without any optimization.
+<br>&nbsp; With -O, one libpng test fails. The test works in 32 bit mode
+(with
+<br>&nbsp; the -n32 compiler flag). The compiler bug has been reported
+to SGI.
+<p>- zlib doesn't work with gcc 2.6.3 on a DEC 3000/300LX under OSF/1 2.1
+<br>&nbsp; it works when compiled with cc.
+<p>- on Digital Unix 4.0D (formely OSF/1) on AlphaServer, the cc option
+-std1
+<br>&nbsp; is necessary to get gzprintf working correctly. This is done
+by configure.
+<p>- zlib doesn't work on HP-UX 9.05 with some versions of /bin/cc. It
+works
+<br>&nbsp; with other compilers. Use "make test" to check your compiler.
+<p>- gzdopen is not supported on RISCOS, BEOS and by some Mac compilers.
+<p>- For Turbo C the small model is supported only with reduced performance
+to
+<br>&nbsp; avoid any far allocation; it was tested with -DMAX_WBITS=11
+-DMAX_MEM_LEVEL=3
+<p>- For PalmOs, see http://www.cs.uit.no/~perm/PASTA/pilot/software.html
+<br>&nbsp; Per Harald Myrvang &lt;perm@stud.cs.uit.no>
+<br>&nbsp;
+<p>Acknowledgments:
+<p>&nbsp; The deflate format used by zlib was defined by Phil Katz. The
+deflate
+<br>&nbsp; and zlib specifications were written by L. Peter Deutsch. Thanks
+to all the
+<br>&nbsp; people who reported problems and suggested various improvements
+in zlib;
+<br>&nbsp; they are too numerous to cite here.
+<p>Copyright notice:
+<p>&nbsp;(C) 1995-1998 Jean-loup Gailly and Mark Adler
+<p>&nbsp; This software is provided 'as-is', without any express or implied
+<br>&nbsp; warranty.&nbsp; In no event will the authors be held liable
+for any damages
+<br>&nbsp; arising from the use of this software.
+<p>&nbsp; Permission is granted to anyone to use this software for any
+purpose,
+<br>&nbsp; including commercial applications, and to alter it and redistribute
+it
+<br>&nbsp; freely, subject to the following restrictions:
+<p>&nbsp; 1. The origin of this software must not be misrepresented; you
+must not
+<br>&nbsp;&nbsp;&nbsp;&nbsp; claim that you wrote the original software.
+If you use this software
+<br>&nbsp;&nbsp;&nbsp;&nbsp; in a product, an acknowledgment in the product
+documentation would be
+<br>&nbsp;&nbsp;&nbsp;&nbsp; appreciated but is not required.
+<br>&nbsp; 2. Altered source versions must be plainly marked as such, and
+must not be
+<br>&nbsp;&nbsp;&nbsp;&nbsp; misrepresented as being the original software.
+<br>&nbsp; 3. This notice may not be removed or altered from any source
+distribution.
+<p>&nbsp; Jean-loup Gailly&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mark
+Adler
+<br>&nbsp; jloup@gzip.org&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+madler@alumni.caltech.edu
+<p>If you use the zlib library in a product, we would appreciate *not*
+<br>receiving lengthy legal documents to sign. The sources are provided
+<br>for free but without warranty of any kind.&nbsp; The library has been
+<br>entirely written by Jean-loup Gailly and Mark Adler; it does not
+<br>include third-party code.
+<p>If you redistribute modified sources, we would appreciate that you include
+<br>in the file ChangeLog history information documenting your changes.
+<br>&nbsp;
+<h2>
+minizip/miniunz unzip.h</h2>
+&nbsp;&nbsp; unzip.h -- IO for uncompress .zip files using zlib
+<br>&nbsp;&nbsp; Version 0.15 beta, Mar 19th, 1998,
+<p>&nbsp;&nbsp; Copyright (C) 1998 Gilles Vollant
+<p>&nbsp;&nbsp; This unzip package allow extract file from .ZIP file, compatible
+with PKZip 2.04g
+<br>&nbsp;&nbsp;&nbsp;&nbsp; WinZip, InfoZip tools and compatible.
+<br>&nbsp;&nbsp; Encryption and multi volume ZipFile (span) are not supported.
+<br>&nbsp;&nbsp; Old compressions used by old PKZip 1.x are not supported
+<p>&nbsp;&nbsp; THIS IS AN ALPHA VERSION. AT THIS STAGE OF DEVELOPPEMENT,
+SOMES API OR STRUCTURE
+<br>&nbsp;&nbsp; CAN CHANGE IN FUTURE VERSION !!
+<br>&nbsp;&nbsp; I WAIT FEEDBACK at mail info@winimage.com
+<br>&nbsp;&nbsp; Visit also http://www.winimage.com/zLibDll/unzip.htm for
+evolution
+<p>&nbsp;&nbsp; Condition of use and distribution are the same than zlib
+:
+<p>&nbsp; This software is provided 'as-is', without any express or implied
+<br>&nbsp; warranty.&nbsp; In no event will the authors be held liable
+for any damages
+<br>&nbsp; arising from the use of this software.
+<p>&nbsp; Permission is granted to anyone to use this software for any
+purpose,
+<br>&nbsp; including commercial applications, and to alter it and redistribute
+it
+<br>&nbsp; freely, subject to the following restrictions:
+<p>&nbsp; 1. The origin of this software must not be misrepresented; you
+must not
+<br>&nbsp;&nbsp;&nbsp;&nbsp; claim that you wrote the original software.
+If you use this software
+<br>&nbsp;&nbsp;&nbsp;&nbsp; in a product, an acknowledgment in the product
+documentation would be
+<br>&nbsp;&nbsp;&nbsp;&nbsp; appreciated but is not required.
+<br>&nbsp; 2. Altered source versions must be plainly marked as such, and
+must not be
+<br>&nbsp;&nbsp;&nbsp;&nbsp; misrepresented as being the original software.
+<br>&nbsp; 3. This notice may not be removed or altered from any source
+distribution.
+<br>
+&nbsp; &nbsp;
+<HR width="100%">
+<P>[<A href="index.html">Home</A>]</P>
+</body>
+</html>

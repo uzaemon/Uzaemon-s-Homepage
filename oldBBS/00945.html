@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 00945 : Re^5: Compile error (zlib)</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>00945 [Re^5: Compile error (zlib)] </font>(posted by uzaemon)</b><br>
+( 1)   05/08/23 08:54   comment on <a href="00944.html">00944</a>   , # of comment(s) : 1
+<HR>
+
+Loz,<br>
+<br>
+> I have done as you asked, without sucess. I can confirm the following:<br>
+><br>
+> > - Are you using zlib "1.2.1" downloaded from my HP?<br>
+><br>
+> Yes<br>
+><br>
+> > - Delete library "ZLIB" and start over from scratch.<br>
+><br>
+> Done (deleted lib and all save and pc files).<br>
+><br>
+> > - Did you make any modification? (other than "__OS400__" macro)<br>
+><br>
+> Only the changes detailed by yourself:<br>
+> line 99 'MODULE(QTEMP/MINIZIP400 QTEMP/ZIP400 QTEMP/EBCDIC400) ',<br>
+> size of REPLACE from 7 to 8 in ZIPCLP<br>
+><br>
+> > - If you have another iSeries or i5, try compiling on the machine.<br>
+><br>
+> Will try. will take a little longer to arrange.<br>
+><br>
+> > - Before start "MAKE" REXX procedure, exec "CHGJOB CCSID(37)".<br>
+><br>
+> Done.  I did the following;<br>
+><br>
+> CHGJOB CCSID(37)<br>
+> CHGCURLIB CURLIB(ZLIB)<br>
+> STRREXPRC SRCMBR(MAKE) SRCFILE(ZLIB/QREXSRC)<br>
+><br>
+> Run under a profile with *allobj authority.<br>
+><br>
+> Still get the same errors e.g.<br>
+><br>
+> CRC32<br>
+> CZM0213  Macro name BYFOUR cannot be redefined.<br>
+<br>
+As a quick circumvention, edit MAKE procedure as follows. It worked on V5R3 machine (not mine).<br>
+<br>
+ 0019.00 /* TGTRLS = '*CURRENT' */<br>
+ 0020.00 TGTRLS = 'V5R2M0'<br>
+<br>
+Or you may try Karl's circumvention described at message 904 in this BBS.<br>
+<br>
+> A V5R3 compatability issue?<br>
+<br>
+Maybe... It seems like a bug or undocumented spec change.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>

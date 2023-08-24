@@ -1,0 +1,250 @@
+                                         Display Saved Objects - Save File                                              Page     1
+5722SS1 V5R2M0  020719                                                                                XXXX      03/21/06  23:40:24
+ System serial number . . . . . . . . :    1038GGM
+ Save release level . . . . . . . . . :   V4R5M0
+ Target release level . . . . . . . . :   V3R2M0
+ Save command . . . . . . . . . . . . :   SAV
+ Save date/time . . . . . . . . . . . :   03/15/06  19:43:03
+ Save changed period:
+   Start date . . . . . . . . . . . . :   *ALL
+   Start time . . . . . . . . . . . . :   *ALL
+   End date . . . . . . . . . . . . . :   *ALL
+   End time . . . . . . . . . . . . . :   *ALL
+ Save while active  . . . . . . . . . :   *NO
+ Data compressed  . . . . . . . . . . :   No
+ Save file  . . . . . . . . . . . . . :   IPTUIFS
+   Library  . . . . . . . . . . . . . :     BACKUP32
+   Records  . . . . . . . . . . . . . :     1961
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   Apache.html       *STMF       QDFTOWN             8192  Yes        No
+   Chapter1          *DIR        QDFTOWN            53248  Yes        No
+   Chapter2          *DIR        QDFTOWN            57344  Yes        No
+   Chapter3          *DIR        QDFTOWN            61440  Yes        No
+   Chapter4          *DIR        QDFTOWN            45056  Yes        No
+   Chapter5          *DIR        QDFTOWN            45056  Yes        No
+   Chapter6          *DIR        QDFTOWN            45056  Yes        No
+   Chapter7          *DIR        QDFTOWN            57344  Yes        No
+   Original.html     *STMF       QDFTOWN             8192  Yes        No
+   www               *DIR        QDFTOWN            69632  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/Chapter1
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   hello.html        *STMF       QDFTOWN             8192  Yes        No
+   hello2.html       *STMF       QDFTOWN             8192  Yes        No
+   index.html        *STMF       QDFTOWN             8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/Chapter2
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   complex_CGIDEV >  *STMF       QDFTOWN             8192  Yes        No
+   complex_QzhbCg >  *STMF       QDFTOWN             8192  Yes        No
+   complex_QzhbCg >  *STMF       QDFTOWN             8192  Yes        No
+   complex_selfpa >  *STMF       QDFTOWN             8192  Yes        No
+   simplequery.ht >  *STMF       QDFTOWN             8192  Yes        No
+   test_multi_occ >  *STMF       QDFTOWN             8192  Yes        No
+                                         Display Saved Objects - Save File                                              Page     2
+5722SS1 V5R2M0  020719                                                                                XXXX      03/21/06  23:40:24
+   Object
+   complex_CGIDEV2.html
+   complex_QzhbCgiParse.html
+   complex_QzhbCgiParse2.html
+   complex_selfparse.html
+   simplequery.html
+   test_multi_occurrence.html
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/Chapter3
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   Net.Data          *DIR        QDFTOWN            45056  Yes        No
+   NetData.html      *STMF       QDFTOWN             8192  Yes        No
+   Tomcat            *DIR        QDFTOWN            65536  Yes        No
+   perl              *DIR        QDFTOWN            61440  Yes        No
+   perl.html         *STMF       QDFTOWN             8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/Chapter3/Net.Data
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   HelloWorld        *STMF       QDFTOWN             8192  Yes        No
+   iteminq           *STMF       QDFTOWN             8192  Yes        No
+   itemreport        *STMF       QDFTOWN             8192  Yes        No
+   rexx              *STMF       QDFTOWN             8192  Yes        No
+   sql               *STMF       QDFTOWN             8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/Chapter3/Tomcat
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   Hello.html        *STMF       QDFTOWN             8192  Yes        No
+   HelloJSP.jsp      *STMF       QDFTOWN             8192  Yes        No
+   HelloWorld.cla >  *STMF       QDFTOWN             8192  Yes        No
+   HelloWorld.jav >  *STMF       QDFTOWN             8192  Yes        No
+   JDBCJSP.jsp       *STMF       QDFTOWN             8192  Yes        No
+   WEB-INF           *DIR        QDFTOWN            53248  Yes        No
+   index.html        *STMF       QDFTOWN             8192  Yes        No
+   usr_local_apac >  *STMF       QDFTOWN             8192  Yes        No
+   usr_local_apac >  *STMF       QDFTOWN             8192  Yes        No
+   Object
+   HelloWorld.class
+   HelloWorld.java
+   usr_local_apache-tomcat-5.5.12_conf_Catalina_localhost_Tomcat.xml
+   usr_local_apache-tomcat-5.5.12_conf_tomcat-users.xml
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/Chapter3/Tomcat/WEB-INF
+                                         Display Saved Objects - Save File                                              Page     3
+5722SS1 V5R2M0  020719                                                                                XXXX      03/21/06  23:40:24
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   classes           *DIR        QDFTOWN            53248  Yes        No
+   lib               *DIR        QDFTOWN            53248  Yes        No
+   web.xml           *STMF       QDFTOWN             8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/Chapter3/Tomcat/WEB-INF/classes
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   HelloServlet.c >  *STMF       QDFTOWN             8192  Yes        No
+   HelloServlet.j >  *STMF       QDFTOWN             8192  Yes        No
+   JDBCServlet.cl >  *STMF       QDFTOWN             8192  Yes        No
+   JDBCServlet.ja >  *STMF       QDFTOWN             8192  Yes        No
+   Object
+   HelloServlet.class
+   HelloServlet.java
+   JDBCServlet.class
+   JDBCServlet.java
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/Chapter3/perl
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   DBI.cfg           *STMF       QDFTOWN             8192  Yes        No
+   Hello.pl          *STMF       QDFTOWN             8192  Yes        No
+   HelloCGI.pl       *STMF       QDFTOWN             8192  Yes        No
+   HelloCGIpm_fo. >  *STMF       QDFTOWN             8192  Yes        No
+   HelloCGIpm_oo. >  *STMF       QDFTOWN             8192  Yes        No
+   allenv.pl         *STMF       QDFTOWN             8192  Yes        No
+   counter.dat       *STMF       QDFTOWN             8192  Yes        No
+   counter.pl        *STMF       QDFTOWN             8192  Yes        No
+   dbq.pl            *STMF       QDFTOWN             8192  Yes        No
+   dbtable.pl        *STMF       QDFTOWN             8192  Yes        No
+   dbtableCGIpm.p >  *STMF       QDFTOWN             8192  Yes        No
+   dbtest.pl         *STMF       QDFTOWN             8192  Yes        No
+   dbtext.pl         *STMF       QDFTOWN             8192  Yes        No
+   Object
+   HelloCGIpm_fo.pl
+   HelloCGIpm_oo.pl
+   dbtableCGIpm.pl
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/Chapter4
+                                         Display Saved Objects - Save File                                              Page     4
+5722SS1 V5R2M0  020719                                                                                XXXX      03/21/06  23:40:24
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   item.dtd          *STMF       QDFTOWN             8192  Yes        No
+   item.xml          *STMF       QDFTOWN             8192  Yes        No
+   rpgcgi2.html      *STMF       QDFTOWN             8192  Yes        No
+   sockclient.jav >  *STMF       QDFTOWN             8192  Yes        No
+   Object
+   sockclient.java
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/Chapter6
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   httpReq.java      *STMF       QDFTOWN             8192  Yes        No
+   reportmail.htm >  *STMF       QDFTOWN             8192  Yes        No
+   sendmail          *STMF       QDFTOWN             8192  Yes        No
+   Object
+   reportmail.html
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/Chapter7
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   applet_counter >  *STMF       QDFTOWN             8192  Yes        No
+   cookie.html       *STMF       QDFTOWN             8192  Yes        No
+   counter.class     *STMF       QDFTOWN             8192  Yes        No
+   counter.java      *STMF       QDFTOWN             8192  Yes        No
+   iq                *STMF       QDFTOWN             8192  Yes        No
+   iq1               *STMF       QDFTOWN             8192  Yes        No
+   iq2               *STMF       QDFTOWN             8192  Yes        No
+   iq3               *STMF       QDFTOWN             8192  Yes        No
+   itemqry.iqy       *STMF       QDFTOWN             8192  Yes        No
+   office.html       *STMF       QDFTOWN             8192  Yes        No
+   retrieval.html    *STMF       QDFTOWN             8192  Yes        No
+   ssi.shtml         *STMF       QDFTOWN            16384  Yes        No
+   ssi_counter.sh >  *STMF       QDFTOWN             8192  Yes        No
+   ssi_include.tx >  *STMF       QDFTOWN             8192  Yes        No
+   Object
+   applet_counter.html
+   ssi_counter.shtml
+   ssi_include.txt
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www
+                                         Display Saved Objects - Save File                                              Page     5
+5722SS1 V5R2M0  020719                                                                                XXXX      03/21/06  23:40:24
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   iptu_a1           *DIR        QDFTOWN            53248  Yes        No
+   iptu_a2           *DIR        QDFTOWN            53248  Yes        No
+   iptu_a21          *DIR        QDFTOWN            53248  Yes        No
+   iptu_a31          *DIR        QDFTOWN            53248  Yes        No
+   iptu_a32          *DIR        QDFTOWN            53248  Yes        No
+   iptu_a33          *DIR        QDFTOWN            53248  Yes        No
+   iptu_a4           *DIR        QDFTOWN            53248  Yes        No
+   iptu_a5           *DIR        QDFTOWN            53248  Yes        No
+   iptu_a6           *DIR        QDFTOWN            53248  Yes        No
+   iptu_a7           *DIR        QDFTOWN            53248  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a1
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   conf              *DIR        QDFTOWN            53248  Yes        No
+   logs              *DIR        QDFTOWN            53248  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a1/conf
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   httpd.conf        *STMF       QDFTOWN             8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a2
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   conf              *DIR        QDFTOWN            53248  Yes        No
+   logs              *DIR        QDFTOWN            53248  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a2/conf
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   httpd.conf        *STMF       QDFTOWN             8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a21
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   conf              *DIR        QDFTOWN            45056  Yes        No
+   logs              *DIR        QDFTOWN            53248  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a21/conf
+                                         Display Saved Objects - Save File                                              Page     6
+5722SS1 V5R2M0  020719                                                                                XXXX      03/21/06  23:40:24
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   httpd.conf        *STMF       QDFTOWN            16384  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a31
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   conf              *DIR        QDFTOWN            53248  Yes        No
+   logs              *DIR        QDFTOWN            53248  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a31/conf
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   httpd.conf        *STMF       QDFTOWN             8192  Yes        No
+   workers.proper >  *STMF       QDFTOWN             8192  Yes        No
+   Object
+   workers.properties
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a32
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   conf              *DIR        QDFTOWN            53248  Yes        No
+   logs              *DIR        QDFTOWN            53248  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a32/conf
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   httpd.conf        *STMF       QDFTOWN             8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a33
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   conf              *DIR        QDFTOWN            53248  Yes        No
+   logs              *DIR        QDFTOWN            53248  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a33/conf
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   httpd.conf        *STMF       QDFTOWN             8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a4
+                                         Display Saved Objects - Save File                                              Page     7
+5722SS1 V5R2M0  020719                                                                                XXXX      03/21/06  23:40:24
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   conf              *DIR        QDFTOWN            53248  Yes        No
+   logs              *DIR        QDFTOWN            53248  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a4/conf
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   httpd.conf        *STMF       QDFTOWN             8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a5
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   conf              *DIR        QDFTOWN            53248  Yes        No
+   logs              *DIR        QDFTOWN            53248  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a5/conf
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   httpd.conf        *STMF       QDFTOWN             8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a6
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   conf              *DIR        QDFTOWN            53248  Yes        No
+   logs              *DIR        QDFTOWN            53248  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a6/conf
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   httpd.conf        *STMF       QDFTOWN             8192  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a7
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   conf              *DIR        QDFTOWN            53248  Yes        No
+   logs              *DIR        QDFTOWN            53248  Yes        No
+ Directory  . . . . . . . . . . . . . . . . . . . :   /iptu/www/iptu_a7/conf
+                                         Display Saved Objects - Save File                                              Page     8
+5722SS1 V5R2M0  020719                                                                                XXXX      03/21/06  23:40:24
+   Object            Type        Owner               Size  Data      *ALWCKPWRT  Text
+   httpd.conf        *STMF       QDFTOWN             8192  Yes        No
+ Number of objects saved  . . . . . . . :   120
+                                        * * * * *   E N D   O F   L I S T I N G   * * * * *

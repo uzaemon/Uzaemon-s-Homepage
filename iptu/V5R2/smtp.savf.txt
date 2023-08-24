@@ -1,0 +1,24 @@
+ 5722SS1 V5R2M0  020719                 Saved Object Information - Save File                     2/26/06 23:17:10        Page    1
+ Library saved  . . . :   SMTP                  Release level  . . . :   V5R2M0
+ ASP  . . . . . . . . :   1                     Data compressed  . . :   No
+ Save file  . . . . . :   SMTP                  Objects saved  . . . :   11
+   Library  . . . . . :     BACKUP              Access paths . . . . :   0
+ Records  . . . . . . :   4960
+ Save command . . . . :   SAVLIB
+ Save active  . . . . :   *NO
+ Save date/time . . . :   03/19/06   22:12:05
+ Object             Type     Attribute     Owner         Size (K)  Data   Member      Member      Member      Member      Member
+ SMTP               *LIB     PROD          TCPIP               72  Yes
+ SNDM               *PGM     RPGLE         TCPIP             1592  Yes
+ TESTSMTP           *PGM     CLE           TCPIP              156  Yes
+ SNDM               *CMD                   TCPIP                4  Yes
+ SNDMHLP            *PNLGRP                TCPIP               20  Yes
+ H                  *FILE    PF            TCPIP               80  Yes    UNIX        USER
+ LICENSE            *FILE    PF            TCPIP               56  Yes    COPYING     LICENSE
+ QCMDSRC            *FILE    PF            TCPIP               76  Yes    SNDM        SNDMHLP
+ QCSRC              *FILE    PF            TCPIP               40  Yes    TESTSMTP
+ QREXSRC            *FILE    PF            TCPIP               32  Yes    MAKE
+ QRPGLESRC          *FILE    PF            TCPIP              524  Yes    #CTDATA     #GEN        #INIT       #PROC       #SEND
+                                                                          CDATE       FD_         GETERRINFO  GETFILENAM  GETJOBINFO
+                                                                          GETPFINFO   PREPAREUS   SNDM        SNDPM
+                           * * * * *   E N D   O F   L I S T I N G   * * * * *

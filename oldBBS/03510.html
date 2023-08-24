@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>Message 03510 : Re: TIFFLIB/CVTSPLFPDF size limitations</title>
+</head>
+<BODY bgcolor="#99CCFF">
+<b><font size = +1>03510 [Re: TIFFLIB/CVTSPLFPDF size limitations] </font>(posted by uzaemon)</b><br>
+( 1)   07/03/02 20:30   comment on <a href="03482.html">03482</a>   , # of comment(s) : 3
+<HR>
+
+Enrico,<br>
+<br>
+> Command CVTSPLFPDF is based on libtiff (and TIFF2PDF) free utility.<br>
+> We have experienced problems using this command. The problem appears to be a spool file size issue.<br>
+> How to solve the problem ?<br>
+> Do you have an update of TIFFLIB ?<br>
+> Our OS/400 release is V5R2M0.<br>
+> Enrico<br>
+<br>
+What kind of "size" error you've encountered?<br>
+Without knowing detail of the error, it's impossible to guide you to solve the problem...<br>
+<br>
+I don't know anything about CVTSPLFPDF.<br>
+Is that a command you created? If not, have you contacted the author for solution?<br>
+<br>
+-----------<br>
+<br>
+There are size limitations in my utilities.<br>
+<br>
+- SPL2STMF (though you didn't mention) has 16MB limitation for now. I designed the program to use single USRSPC. If you want to convert large spool file, you may need to modify the program to cope with multiple USRSPCs.<br>
+<br>
+- The maximum file size of tifflib and TIFF2PDF depends on the type of file system you are using and type of variables used in C functions. Usually, 2GB is the maximum size in traditional 16 bit implementation.<br>
+<br>
+uzaemon@Japan<br>
+<br>
+</body></html>
