@@ -153,8 +153,7 @@ applications in detail.
 
 <br>
 
-**Hideyuki Yahagi**
-is an IBM Certified IT Specialist, mainly responsible for System
+(The author) is an IBM Certified IT Specialist, mainly responsible for System
 Infrastructure, OS/Server/Cross System. He joined IBM in 1984 and has
 been working for S/38, AS/400, System i5 customers for more than 20
 years. His current assignment is to provide advanced IT service to the
