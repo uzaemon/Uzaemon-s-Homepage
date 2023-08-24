@@ -26,9 +26,9 @@ UZAEMONのホームページへ。
 ## [What's new](#whats-new)  
 <font color="green">2023/08/24</font>
 
-@niftyのWebサーバーからGitHubのPagesに移行中です。
+@niftyのWebサーバーからGitHubのPagesに移行しました。
 
-とりあえず内容はそのままで、html⇒markdownに書き換えていますが、結構手間ですね...
+内容はそのままですが、主要ページをhtml⇒markdownに書き換えたり、htmlの文字コードをシフトJIS⇒UTF-8に変換したりと、結構手間ですね...
 
 [[過去の投稿]](history.html)
 
