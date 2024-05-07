@@ -1,0 +1,243 @@
+.**********************************************************************
+.* SPL2STMF command help panel
+.*****************************************************************
+.*
+:PNLGRP.
+:HELP NAME='SPL2STMF'.
+Convert Spooled File to Stream File (SPL2STMF) - Help
+:P.
+The Convert Spooled File to Stream File (SPL2STMF) generates stream
+file from OS/400 spooled file.
+This command is simple front end to "host print transform" (HPT) function.
+:P.
+:HP2.Restrictions::EHP2.
+:UL.
+:LI.
+SPL2STMF cannot convert spooled file larger than 16MB.
+:LI.
+The program calls HPT (QWPZHPTR, QwpzHostPrintTransform) API, thus, its
+capability depends on the API.
+If you encounter conversion problem, reproduce the problem using other
+functions which use HPT (e.g. LPR, RMTOUTQ, Access for Web) and contact
+your cupport channel.
+See "iSeries Information Center" at
+http://publib.boulder.ibm.com/html/as400/infocenter.html for detail.
+:EUL.
+.*****************************
+:IMHELP NAME='COM/ASTERISK'.
+.*****************************
+.* Error messages
+:XH3.Error messages for SPL2STMF
+:P.
+:HP3.*ESCAPE Messages:EHP3.
+:DL COMPACT.
+:DT.CPF9897
+:DD.Command failed.
+:EDL.
+:EHELP.
+.*****************************************************************
+.* Parameters Help
+.*
+.*****************************
+:HELP NAME='SPL2STMF/FILE'.
+Spooled file name (FILE) - HELP
+:XH3.Spooled file name (FILE)
+:P.
+Specifies the spooled file name to be converted.
+:IMHELP NAME='COM/REQPARM'.
+:EHELP.
+.*****************************
+:HELP NAME='SPL2STMF/TOSTMF'.
+Stream file path name (TOSTMF) - HELP
+:XH3.Stream file path name (TOSTMF)
+:P.
+Specifies the path name of the output stream file to which data is
+placed. All directories in the path name must exist. New directories
+are not created. If the stream file does not exist, it will be created.
+
+For more information on specifying path names, refer to Chapter 2 of
+the CL Reference, SC41-5722.
+:IMHELP NAME='COM/REQPARM'.
+:P.
+:EHELP.
+.*****************************
+:HELP NAME='SPL2STMF/WSCST'.
+Workstation Customizing Object (WSCST) - Help
+:XH3.Workstation Customizing Object (WSCST)
+:P.
+Specifies the qualified name of the Workstation Customizing Object (WSCST)
+which contains the printer stream conversion definitions.
+:P.
+It is possible to use IBM supplied WSCST or user defined WSCST. To create
+original WSCST, see "iSeries Information Center" at
+http://publib.boulder.ibm.com/html/as400/infocenter.html or manual
+"Workstation Customization Programming" at
+http://publib.boulder.ibm.com/iseries/v5r2/ic2924/books/c4156050.pdf
+:P.
+On V5R2, library QSYS contains following IBM supplied WSCSTs.
+Detail description and function are not available.
+:P.
+QWPCPQPM20, QWPDEFAULT, QWPEAP2250, QWPEAP3250, QWPEAP5500, QWPEFX1170,
+QWPEFX5000, QWPEFX850, QWPELQ1070, QWPELQ1170, QWPELQ2550, QWPELQ510,
+QWPELQ860, QWPELX810, QWPEPLPCL4, QWPEPLPCL5, QWPESCP, QWPESQ1170,
+QWPGIF, QWPHPCOLOR, QWPHPDBCS, QWPHPDSKJT, QWPHPEURO, QWPHPLSRE,
+QWPHPLSR2, QWPHPLSR2D, QWPHPLSR3, QWPHPLSR3D, QWPHPLSR4, QWPHPLSR5,
+QWPHPLSR6, QWPHPXL300, QWPHP5SI, QWPHP550C, QWPIBMEURO, QWPIBMIP2K,
+QWPIBM2380, QWPIBM2390, QWPIBM2412, QWPIBM2705, QWPIBM2770, QWPIBM3130,
+QWPIBM3812, QWPIBM3816, QWPIBM4019, QWPIBM4029, QWPIBM4070, QWPIBM4072,
+QWPIBM4202, QWPIBM4208, QWPIBM4212, QWPIBM4226, QWPIBM4232, QWPIBM424D,
+QWPIBM424M, QWPIBM424X, QWPIBM4308, QWPIBM4312, QWPIBM4320, QWPIBM4321,
+QWPIBM4324, QWPIBM4332, QWPIBM4770, QWPIBM4912, QWPIBM5152, QWPIBM5201,
+QWPIBM5202, QWPIBM5204, QWPIBM5216, QWPIBM64EP, QWPIBM64XX, QWPIOCANC,
+QWPIPCOLOR, QWPIP1116, QWPIP1200, QWPLEXOP, QWPLEXOPC, QWPLEXOPN,
+QWPLEXOPS, QWPLEXOPSC, QWPLEXOPT, QWPLEX2380, QWPLEX2390, QWPLEX4227,
+QWPLIPS3, QWPLIPS3NP, QWPNECP2, QWPNEC201, QWPNEC2200, QWPNEC5300,
+QWPNEC6300, QWPOKI184, QWPOKI320, QWPOKI3410, QWPOKI390, QWPOKI393,
+QWPOKI400, QWPOKI590, QWPOKI800, QWPOKI810, QWPPAGES, QWPPAGESNP,
+QWPPAGE3NP, QWPPAGE300, QWPPANDP, QWPPANLBP4, QWPPANLBP5, QWPPAN1123,
+QWPPAN1124, QWPPAN1180, QWPPAN1695, QWPPAN2123, QWPPAN2124, QWPPAN2180,
+QWPPAN2624, QWPTIFFG4, QWPTIFFPB, QWPXRX4219, QWPXRX4220, QWPXRX4235,
+QWPXRX4700, QWP4070EP
+:P.
+.*
+:IMHELP NAME='COM/REQPARM'.
+.*
+:P.
+The name can be qualified by one of the following library
+values:
+:PARML.
+.*
+:PT.:PK DEF.*LIBL:EPK.
+:PD.
+All libraries in the job's library list are searched until the
+first match is found.
+.*
+:PT.:PV.*CURLIB:EPV.
+:PD.
+The current library for the job is searched.  If no library is
+specified as the current library for the job, the QGPL library
+is used.
+:PT.:PV.library-name:EPV.
+:PD.
+Specify the name of the library to be searched.
+.*
+:PT.:PV.file-name:EPV.
+:PD.
+Specify the name of the file that contains the records to be
+copied.
+:EPARML.
+:EHELP.
+.*****************************
+:HELP NAME='SPL2STMF/JOB'.
+Job name (JOB) - HELP
+:XH3.Job name (JOB)
+:P.
+Specifies the name of the job that created the spooled file.
+.*
+:PARML.
+.*
+:PT.:PK DEF.*:EPK.
+:PD.
+The job that created the spooled file issued this command.
+.*
+:PT.:PV.job_name:EPV.
+:PD.
+Specify the name of the job that contains the spooled file.
+:PT.:PV.user-name:EPV.
+:PD.
+Specify the user name that identifies the user profile
+under which the job is run.
+.*
+:PT.:PV.job-number:EPV.
+:PD.
+Specify the system-assigned job number.
+:EPARML.
+:EHELP.
+.*****************************
+:HELP NAME='SPL2STMF/SPLNBR'.
+Spooled file number (SPLNBR) - HELP
+:XH3.Spooled file number (SPLNBR)
+:P.
+Specifies the unique number of the spooled file in the job
+whose attributes are being changed.
+.*
+:PARML.
+.*
+:PT.:PK DEF.*LAST:EPK.
+:PD.
+If there is more than one spooled file with the
+specified file name the one with the highest number is
+the file whose attributes are changed.
+.*
+:PT.:PV.*ONLY:EPV.
+:PD.
+Only one spooled file in the job has the specified
+file name; therefore, the number of the spooled file
+is not necessary.
+.*
+:PT.:PV.spooled-file-number:EPV.
+:PD.
+Specify the number of the spooled file that matches
+the file name whose attributes you wish to change.
+.*
+:EPARML.
+:EHELP.
+.*****************************
+:HELP NAME='SPL2STMF/REPLACE'.
+Replace stream file (REPLACE) - HELP
+:XH3.Replace stream file (REPLACE)
+:P.
+The specified stream file is first deleted and newly created.
+:IMHELP NAME='COM/LISTVAL'.
+:PARML.
+:PT.:PK DEF.*YES:EPK.
+:PD.
+The output stream file replaces an existing stream file with
+the same name in the path specified.
+If no stream file with the same path name exists, a new file is created.
+:PT.:PV.*NO:EPV.
+:PD.
+The output stream file is a new file create at the path.
+If a stream file with the same path name exists, no stream file is made.
+:EPARML.
+:EHELP.
+.*****************************
+:HELP NAME='SPL2STMF/DEBUG'.
+Enable debug print out (DEBUG) - HELP
+:XH3.Enable debug print out (DEBUG)
+:P.
+Specify if you want QPRINT spooled file to examine how the command works.
+The purpose of this parameter is problem determination and
+you should use DEBUG(*NO) in normal operation to avoid performance
+degradation.
+:IMHELP NAME='COM/LISTVAL'.
+:PARML.
+:PT.:PK DEF.*NO:EPK.
+:PD.
+No spooled file is generated.
+:PT.:PV.*YES:EPV.
+:PD.
+Record activity to spooled file, QPRINT.
+:EPARML.
+:EHELP.
+.*****************************************************************
+.* Common help entries
+:HELP NAME='COM/ASTERISK'.
+:NT.
+Do not precede an entry with an asterisk unless that
+entry is a "special value" that is shown (on the display or in
+the help information) with an asterisk.
+:ENT.
+:EHELP.
+.*
+:HELP NAME='COM/REQPARM'.
+:P.
+This is a required parameter.
+:EHELP.
+.*
+:HELP NAME='COM/LISTVAL'.
+:P.
+The possible values are:
+:EHELP.
+.********************************************************************
+:EPNLGRP.

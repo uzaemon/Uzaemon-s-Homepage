@@ -1,0 +1,5 @@
+     FQSYSPRT O   F      80            PRINTER
+     C                     EXCPT
+     C                     SETON                     LR
+     OQSYSPRT E
+     O                                      'TEST HPT'

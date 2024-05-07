@@ -1,0 +1,16 @@
+     A          R RCVMLR                    PFILE(RCVMLOG)
+     A            MAILSERVER
+     A            ACCOUNT
+     A            HOMEDIR         A         CCSID(37)
+     A            LEAVEMAIL
+     A            REPLACECID
+     A            DEBUG
+     A            DEBUGFILE       A         CCSID(37)
+     A            FROMADDR        A         CCSID(37)
+     A            TOADDR          A         CCSID(37)
+     A            SUBJECT         A         CCSID(37)
+     A            SENTDATE
+     A            MAILSIZE
+     A            UID
+     A            RECEIVETS
+     A          K RECEIVETS                 DESCEND

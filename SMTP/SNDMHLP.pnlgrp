@@ -1,0 +1,382 @@
+.**********************************************************************
+.* SNDM command help panel
+.* Ref :Application Display Programming V4 (SC41-5715-00)
+.*      QSURTOOL/QATTUIM(T0011CHL) Command help for an example
+.*****************************************************************
+.*
+:PNLGRP.
+:HELP NAME='SNDM'.
+Send SMTP Mail (SNDM) - Help
+:P.
+The Send SMTP Mail (SNDM) command allows you to send a Internet
+compliant mail from AS/400 command line.
+:P.
+Some of the specific functions that can be performed by the
+SNDM command include the following:
+:UL.
+:LI.
+US-ASCII, Latin-1 (German, French, etc.) or Japanese can be used as mail
+header and mail body text.
+:LI.
+SNDM command talks with SMTP (mail) server directly by TCP/IP socket
+interface. You should enable TCP/IP and configure domain/host name
+on the AS/400 before running SNDM command.
+Also you should configure your AS/400 to use DNS (Domain Name System) server
+or 'hosts' file for SNDM command to resolve IP address from TCP/IP host name.
+:LI.
+In default, SNDM command assumes the same AS/400 running the command as SMTP
+server. In this case, you should configure the AS/400 as mail (SMTP) server.
+If you already have SMTP server running on other host, you can use it by
+specifying the server at SMTPHOST parameter.
+:LI.
+System date/time is referred when generating date filed in mail header.
+Make sure that QDATE, QTIME, QUTCOFFSET system values are set correctly.
+:LI.
+SNDM command creates temporary stream file in directory specified at TMPDIR
+parameter.
+The path name will be:
+'/(tmpdir)/SNDM_(job number)-(user name)-(job name)_(date).(time).TXT'
+For example:
+'/tmp/SNDM_90605-TCPIP-QPADEV0006_1999-01-20-17.33.19.215.TXT'
+:P.
+The temporary file reamins if you specify DEBUG(*YES).
+Even you specify DEBUG(*NO), the temporary file might not be removerd
+by SNDM command automaically if SNDM command ends abnormally.
+Use WRKLNK command or any other IFS-accessible function to delete the file
+when you don't need the temporary file.
+:LI.
+See low level message or joblog when error occured.
+SNDM command creates spooled file QPRINT which records all activities in the
+command when you specify DEBUG(*YES).
+:LI.
+Wait time (time out interval) depends on the socket communication phase.
+Usually, SNDM command times out in 1 to 3 minutes
+when SMTP server doesn't respond.
+If you are sending small mail but
+SNDM doesn't finish for several minutes, cancel the command manually.
+:LI.
+Refer to RFC 821, 822, 1468, 2045, 2046, 2047, 2048, 2049
+:EUL.
+:P.
+:HP2.Restrictions::EHP2.
+:OL.
+:LI.
+Mail body text (physical file member specified at FILE parameter) and
+attachment files (stream file(s) specified at ATTACHMENT parameter) can be
+sent. Attachment files cannot be objects in QSYS.LIB file system.
+:LI.
+Maximum number of recipients ('to' and 'cc' and 'bcc') is 30 due to the
+restiriction of AS/400 CPP (maximum length of command string = 6000 bytes).
+Maximum field length of mail addr, description, subject are 64 bytes
+respectively.
+:LI.
+'Content-type' of mail body will be set to 'text/plain'.
+Other text formats such as HTML or RTF are not supported.
+For attachment files,
+'Contents-type' will be set to 'application/octet-stream'.
+:LI.
+For (safe) US-ASCII characters, no encoding will take place.
+For unsafe ASCII and 8bit ISO-8859-1 characters,
+Q-encoding will be used to encode mail header and
+quoted-printable encoding will be used for mail body.
+For Japanese characters,
+B-encoding will be used to encode mail header. Body text will be converted
+to ISO-2022-JP.
+For attachment files, Base64 encoding is always used.
+Other MIME encodings such as nesting are not supported.
+:LI.
+EBCDIC Japanese CCSIDs (5026/5035/1390/1399) will be converted to ISO-2022-JP.
+You cannot send a mail by other Japanese codes such as Shift-JIS(x-sjis) or EUC.
+SBCS katakana will be replaced by DBCS katakana.
+Non-JIS defined DBCS characters will be replace by thick '=' character or
+SNDM terminates in error depending on NONJISDBCS parameter.
+:EOL.
+:IMHELP NAME='COM/ASTERISK'.
+.* Error messages
+:XH3.Error messages for SNDM
+:P.
+:HP3.*ESCAPE Messages:EHP3.
+:DL COMPACT.
+:DT.CPF9897
+:DD.Command failed.
+:DT.CPF9898
+:DD.Mail sent, non-JIS character(s) replaced
+:EDL.
+:EHELP.
+.*****************************************************************
+.* Parameters Help
+.*
+:HELP NAME='SNDM/FROM'.
+Sender (FROM) - HELP
+:XH3.Sender (FROM)
+:P.
+Specifies sender.
+:IMHELP NAME='COM/REQPARM'.
+:IMHELP NAME='COM/MAILADDR'.
+:EHELP.
+.*****************************
+:HELP NAME='SNDM/TO'.
+Recipient (To/Cc/Bcc) (TO) - HELP
+:XH3.Recipient (To/Cc/Bcc) (TO)
+:P.
+Specifies recipients. Maximum number of recipients is 30.
+:IMHELP NAME='COM/REQPARM'.
+:IMHELP NAME='COM/MAILADDR'.
+:P.
+The possible Recipient Type values are:
+:PARML.
+:PT.:PK DEF.*TO:EPK.
+:PD.
+The user is the primary recipient of the mail.
+.*:P.
+:PT.:PV.*CC:EPV.
+:PD.
+The user is receiving a copy of the
+mail sent to the primary recipient.  However, this copy
+recipient is not identified on the distribution as a receiver on
+the distribution.
+.*:P.
+:PT.:PV.*BCC:EPV.
+:PD.
+The user is receiving a copy of the
+mail sent to the primary recipient.
+However, this copy recipient is not identified on
+the distribution as a receiver on the distribution.
+.*:P.
+:EPARML.
+:IMHELP NAME='COM/MULTI'.
+:EHELP.
+.*****************************
+:HELP NAME='SNDM/FILE'.
+Mail body file (FILE) - HELP
+:XH3.Mail body file (FILE)
+:P.
+Specify database file and library name which contains mail body text.
+Database file should be source physical file with record length 92 or
+data physical file with record length 80.
+:IMHELP NAME='COM/REQPARM'.
+:P.
+The possible library values are:
+:PARML.
+:PT.:PK DEF.*LIBL:EPK.
+:PD.
+All libraries in the user and system portions of the job's library
+list are searched until the first match is found.
+.*:P.
+:PT.:PV.*CURLIB:EPV.
+:PD.
+The current library for the job is used to locate the database file
+or device file.  If no library is specified as the current library
+for the job, the QGPL library is used.
+:PT.:PV.library-name:EPV.
+:PD.
+Specify the name of the library to be searched.
+:PT.:PV.file-name:EPV.
+:PD.
+Specify the name of the database or device file that contains the
+mail body text.
+:EPARML.
+:EHELP.
+.*****************************
+:HELP NAME='SNDM/MBR'.
+Member (MBR) - HELP
+:XH3.Member (MBR)
+:P.
+Specifies the database file member name which contains the mail body text to be
+sent.
+:IMHELP NAME='COM/LISTVAL'.
+:PARML.
+:PT.:PK DEF.*FIRST:EPK.
+:PD.
+The first member in the database file is used as mail body text.
+:PT.:PV.member-name:EPV.
+:PD.
+Specify the name of the database file member.
+:EPARML.
+:EHELP.
+.*****************************
+:HELP NAME='SNDM/SUBJECT'.
+Subject (SUBJECT) - HELP
+:XH3.Subject (SUBJECT)
+:P.
+Specify mail subjet (title). This is a optional parameter but
+it is recommended to specify mail subject.
+A maximum of 64 characters can be specified and any characters are allowed.
+:EHELP.
+.*****************************
+:HELP NAME='SNDM/ATTACHMENT'.
+Attachment (ATTACHMENT) - HELP
+:XH3.Attachment (ATTACHMENT)
+:P.
+Specifies the name of the stream file that will be sent as attachment file.
+A maximum of 5 path names can be specified. DBCS characters are not allowed.
+
+For more information on specifying path names, refer to
+Chapter 2 of the CL Reference, SC41-5722.
+:IMHELP NAME='COM/MULTI'.
+:EHELP.
+.*****************************
+:HELP NAME='SNDM/REPLYTO'.
+Reply-to (REPLYTO) - HELP
+:XH3.Reply-to (REPLYTO)
+:P.
+Specify reply mail address. If this parameter is specified,
+most mail clients will send reply to this mail address, not to
+sender.
+:IMHELP NAME='COM/MAILADDR'.
+:EHELP.
+.*****************************
+:HELP NAME='SNDM/SMTPHOST'.
+Mail (SMTP) server name (SMTPHOST) - HELP
+:XH3.Mail (SMTP) server name (SMTPHOST)
+:P.
+Specify mail (SMTP) server with which SNDM command will communicate.
+:IMHELP NAME='COM/LISTVAL'.
+:PARML.
+:PT.:PK DEF.*LOCALHOST:EPK.
+:PD.
+Assume the AS/400 running SNDM command as SMTP server. The AS/400
+must be configured and running as SMTP server.
+:PT.:PV.host-name:EPV.
+:PD.
+Specify mail (SMTP) server TCP/IP host name.
+:EPARML.
+:EHELP.
+.*****************************
+:HELP NAME='SNDM/NONJISDBCS'.
+Non-JIS character action (NONJISDBCS) - HELP
+:XH3.Non-JIS character action (NONJISDBCS)
+:P.
+Specify how SNDM command should act when it detects
+undefined JIS character in mail header or mail body text.
+This applies only to Japanese (CCSID 5026/5035/1390/1399) environment.
+:IMHELP NAME='COM/LISTVAL'.
+:PARML.
+:PT.:PK DEF.*ABORT:EPK.
+:PD.
+Command aborts, mail not sent.
+:PT.:PV.*REPLACE:EPV.
+:PD.
+Replace undefined JIS character(s) to thick DBCS '=' and send mail.
+:EPARML.
+:EHELP.
+.*****************************
+:HELP NAME='SNDM/HDRCCSID'.
+Message header CCSID (HDRCCSID) - HELP
+:XH3.Message header CCSID (HDRCCSID)
+:P.
+Specifies the method of obtaining the job CCSID to encode mail header.
+:IMHELP NAME='COM/LISTVAL'.
+:PARML.
+:PT.:PK DEF.*DFTJOBCCSID:EPK.
+:PD.
+The default job CCSID is used.
+:PT.:PV.coded-character-set-identifier:EPV.
+:PD.
+Specify valid EBCDIC CCSID.
+:EPARML.
+:EHELP.
+.*****************************
+:HELP NAME='SNDM/DBFCCSID'.
+Database file CCSID (DBFCCSID) - HELP
+:XH3.Database file CCSID (DBFCCSID)
+:P.
+Specifies the method of obtaining the mail body text file CCSID.
+:IMHELP NAME='COM/LISTVAL'.
+:PARML.
+:PT.:PK DEF.*DFTJOBCCSID:EPK.
+:PD.
+The default job CCSID is used.
+:PT.:PV.*FILE:EPV.
+:PD.
+The database file CCSID is used, unless it is 65535.
+:PT.:PV.coded-character-set-identifier:EPV.
+:PD.
+Specify valid EBCDIC CCSID.
+:EPARML.
+:EHELP.
+.*****************************
+:HELP NAME='SNDM/TMPDIR'.
+Work directory (TMPDIR) - HELP
+:XH3.Work directory (TMPDIR)
+:P.
+Specify directory in which the command creates temporary file.
+Root ('/') directory cannot be specified.
+:IMHELP NAME='COM/LISTVAL'.
+:PARML.
+:PT.:PK DEF.'/TMP':EPK.
+:PD.
+Directory '/TMP' is used as working directory.
+:PT.:PV.directory-name:EPV.
+:PD.
+Specifies the path name of the directory being used.
+:EPARML.
+:EHELP.
+.*****************************
+:HELP NAME='SNDM/DEBUG'.
+Debug print out (DEBUG) - HELP
+:XH3.Debug print out (DEBUG)
+:P.
+Specify if you want QPRINT spooled file to examine how the command works.
+The purpose of this parameter is problem determination and
+you should use DEBUG(*NO) in normal operation to avoid performance
+degradation.
+:IMHELP NAME='COM/LISTVAL'.
+:PARML.
+:PT.:PK DEF.*NO:EPK.
+:PD.
+No spooled file is generated.
+:PT.:PV.*YES:EPV.
+:PD.
+Record activity to spooled file, QPRINT.
+:EPARML.
+:EHELP.
+.*****************************************************************
+.* Common help entries
+:HELP NAME='COM/ASTERISK'.
+:NT.
+Do not precede an entry with an asterisk unless that
+entry is a "special value" that is shown (on the display or in
+the help information) with an asterisk.
+:ENT.
+:EHELP.
+.*
+:HELP NAME='COM/REQPARM'.
+:P.
+This is a required parameter.
+:EHELP.
+.*
+:HELP NAME='COM/LISTVAL'.
+:P.
+The possible values are:
+:EHELP.
+.*
+:HELP NAME='COM/MAILADDR'.
+The possible Mail Address or Description values are:
+:PARML.
+:PT.:PV.Mail Address:EPV.
+:PD.
+Specify the internet mail address of a person or organization.
+Up to 64 characters can be specified.
+Quote by single-quotateion (') to enter lower case character.
+DBCS characters are not allowed.
+.*:P.
+:PT.:PV.Description:EPV.
+:PD.
+Specify mail user information such as sender name or organization name.
+.* 2002-05-06 allow especial characters ***
+.* DBCS and special characters are allowed except following SBCS characters.
+.* ( ) < > @ , ; : " / Ý ¨ ? . =
+Japanese (DBCS) and special characters are allowed.
+:EPARML.
+:EHELP.
+.*
+:HELP NAME='COM/MULTI'.
+:P.
+You can enter multiple values for this parameter. If you are on an
+entry display and you need additional entry fields to enter these
+multiple values, type a plus sign (+) in the entry field opposite
+the phrase "+ for more" and press the Enter key.
+:EHELP.
+.********************************************************************
+:EPNLGRP.
