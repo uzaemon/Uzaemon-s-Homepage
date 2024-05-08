@@ -1,16 +1,23 @@
-Installation
-Download hpt.exe and execute it on Windows95/98/NT to extract hpt.savf.
-Create save-file on your AS/400.
-Connect to the AS/400 using any FTP client software.
-Put the distribution (hpt.savf) to the save-file in binary mode.
-Restore objects from the save-file using RSTOBJ command.
-Sample instruction
+# Installation
+
+1. Download hpt.exe and execute it on Windows95/98/NT to extract hpt.savf.
+1. Create save-file on your AS/400.
+1. Connect to the AS/400 using any FTP client software.
+1. Put the distribution (hpt.savf) to the save-file in binary mode.
+1. Restore objects from the save-file using RSTOBJ command.
+
+## Sample instruction
+
 Create save-file on the target AS/400:
 
+<code>
 > CRTSAVF FILE(QGPL/HPT)
   File HPT created in library QGPL.
+</code>
+
 Send save-file from Windows95/98/NT/2000 command prompt:
 
+<code>
 E:\>ftp your_as400_hostname
 Connected to ????.
 220-QTCP AT ????.
@@ -28,19 +35,31 @@ ftp> put hpt.savf qgpl/hpt (replace
 287232 bytes sent in 1.10 seconds (260.88 Kbytes/sec)
 ftp> quit
 221 QUIT SUBCOMMAND RECEIVED.
+</code>
+
 Go back to the 5250 session:
 
+<code>
 > DSPSAVF FILE(QGPL/HPT)
 > CRTLIB LIB(HPT)
   Library HPT created.
 > RSTOBJ OBJ(*ALL) SAVLIB(HPT) DEV(*SAVF) SAVF(QGPL/HPT)
   2 objects restored from HPT to HPT.
 > STRREXPRC SRCMBR(MAKE) SRCFILE(HPT/SOURCE)
+</code>
 
+<p></p>
+<br>
 
-Usage
-SPL2STMF
-Syntax
+---
+
+# Usage
+
+## SPL2STMF
+
+**Syntax**
+
+<code>
                      CONVERT SPOOLED FILE TO STMF (SPL2STMF)
 
  TYPE CHOICES, PRESS ENTER.
@@ -59,7 +78,11 @@ Syntax
                             ADDITIONAL PARAMETERS
 
  ENABLE DEBUG PRINT OUT . . . . . DEBUG          *NO 
-Operation (SCS spooled file to text stream file)
+</code>
+
+**Operation (SCS spooled file to text stream file)**
+
+<code>
 > ADDLIBLE LIB(HPT) POSITION(*LAST)
   LIBRARY HPT ADDED TO LIBRARY LIST.
 > OVRPRTF FILE(QPSUPRTF) CHRID(*JOBCCSID)
@@ -69,8 +92,13 @@ Operation (SCS spooled file to text stream file)
   Stream file generated sucessfully. execution time 0 min 2 sec, total
     pages = 14
 > DLTOVR FILE(QPSUPRTF) 
-TIFF2PDF
-Syntax
+</code>
+
+## TIFF2PDF
+
+**Syntax**
+
+<code>
                          Convert TIFF to PDF (TIFF2PDF)
 
  TYPE CHOICES, PRESS ENTER.
@@ -78,8 +106,11 @@ Syntax
  TIFF path name . . . . . . . . . TIFF           
                    
  PDF path name  . . . . . . . . . PDF            
+</code>
                     
-Operation (AFP spooled file to PDF)
+**Operation (AFP spooled file to PDF)**
+
+<code>
 > ADDLIBLE LIB(HPT) POSITION(*LAST)
   LIBRARY HPT ADDED TO LIBRARY LIST.
 > ADDLIBLE LIB(TIFFLIB) POSITION(*LAST)
@@ -94,14 +125,24 @@ Operation (AFP spooled file to PDF)
 > TIFF2PDF TIFF('/tmp/spl2stmfrp.tif') PDF('/tmp/spl2stmfrp.pdf')
   TIFF2PDF completed successfully.
 > DLTOVR FILE(QPSUPRTF)                                            
-Note
-Major limitations
-SPL2STMF cannot convert spooled file larger than 16MB.
-TIFF2PDF supports only A4 paper size.
-Before you start
-Add library 'HPT' and/or 'TIFFLIB' (or library which contains necessary objects) to your library list. 
-Make your own WSCST
-SPL2STMF requires WSCST object name. You may exec 'WRKOBJ OBJ(QSYS/*ALL) OBJTYPE(*WSCST)' to determine which WSCST to use. You can create your own WSCST for special purpose. For example, to convert DBCS(Japanese) SCS spooled file to plain Shift-JIS text file, use following WSCST source file.
+</code>
+
+## Note
+
+- Major limitations
+
+  - SPL2STMF cannot convert spooled file larger than 16MB.
+  - TIFF2PDF supports only A4 paper size.
+
+- Before you start
+
+  - Add library 'HPT' and/or 'TIFFLIB' (or library which contains necessary objects) to your library list. 
+
+- Make your own WSCST
+
+  - SPL2STMF requires WSCST object name. You may exec 'WRKOBJ OBJ(QSYS/*ALL) OBJTYPE(*WSCST)' to determine which WSCST to use. You can create your own WSCST for special purpose. For example, to convert DBCS(Japanese) SCS spooled file to plain Shift-JIS text file, use following WSCST source file.
+
+<code>
         *************** BEGINNING OF DATA ******************************************
 0001.00 :WSCST DEVCLASS=TRANSFORM.
 0002.00
@@ -118,3 +159,4 @@ SPL2STMF requires WSCST object name. You may exec 'WRKOBJ OBJ(QSYS/*ALL) OBJTYPE
 0060.00       DATA ='0D0A'X.
 0417.00 :EWSCST.
         ****************** END OF DATA *********************************************
+</code>
