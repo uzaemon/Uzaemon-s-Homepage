@@ -10,10 +10,10 @@
 
 Create save-file on the target AS/400:
 
-<code>
+---
 > CRTSAVF FILE(QGPL/HPT)
   File HPT created in library QGPL.
-</code>
+---
 
 Send save-file from Windows95/98/NT/2000 command prompt:
 
