@@ -4,6 +4,14 @@ title: History
 description: This is just another page
 ---
 
+<font color="green">2023/08/24</font>
+
+@niftyのWebサーバーからGitHubのPagesに移行しました。
+
+内容はそのままですが、主要ページをhtml⇒markdownに書き換えたり、htmlの文字コードをシフトJIS⇒UTF-8に変換したりと、結構手間ですね...
+
+---
+
 <font color="green">2016/09/28</font>
 
 @niftyのWebサーバーサービス移行に伴い、ホームページを移動しました。
