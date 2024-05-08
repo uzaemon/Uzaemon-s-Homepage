@@ -76,9 +76,9 @@ ftp> put pop3.savf qgpl/pop3
 150 SENDING FILE TO MEMBER POP3 IN FILE POP3 IN LIBRARY QGPL.
 250 FILE TRANSFER COMPLETED SUCCESSFULLY.
 ftp: 101904 bytes sent in 4.33Seconds 23.56Kbytes/sec.
-
+```
 (Put stream files)
-
+```
 ftp> quote site namefmt 1
 250  NOW USING NAMING FORMAT "1".
 ftp> cd /JavaMail
@@ -103,9 +103,9 @@ ftp> put Rcvmail.java
 150 SENDING FILE TO /JavaMail/Rcvmail.java
 250 FILE TRANSFER COMPLETED SUCCESSFULLY.
 ftp: 20659 bytes sent in 0.00Seconds 20659000.00Kbytes/sec.
-
-(Optionally, you may put "mailapi.jar" also.)
-
+```
+Optionally, you may put "mailapi.jar" also.
+```
 ftp> dir
 200 PORT SUBCOMMAND REQUEST SUCCESSFUL.
 125 LIST STARTED.
