@@ -33,10 +33,7 @@ UZAEMONのホームページへ。
   - iMagazine 2016 Spring 「iのスゴ技ウラ技 第4回」より、[ILE RPGプログラムによる文字列の暗号化](https://github.com/uzaemon/homepage/tree/main/CRYPTO)
 
 - 自作プログラム(Analogやzlibなど移植系以外)のソースコードをGitHubで直接見られるようにしました。
-  - CRTCSVF：https://github.com/uzaemon/homepage/tree/main/CSV
-  - SPL2STMF：https://github.com/uzaemon/homepage/tree/main/HPT
-  - RCVM：https://github.com/uzaemon/homepage/tree/main/POP3
-  - SNDM：https://github.com/uzaemon/homepage/tree/main/SMTP
+  - [CRTCSVF](https://github.com/uzaemon/homepage/tree/main/CSV), [SPL2STMF](https://github.com/uzaemon/homepage/tree/main/HPT), [RCVM](https://github.com/uzaemon/homepage/tree/main/POP3), [SNDM](https://github.com/uzaemon/homepage/tree/main/SMTP)
 
 SNDMの最終版1-36は2003-05-05作成なので、20年以上たっているのですね...しみじみ。
 
