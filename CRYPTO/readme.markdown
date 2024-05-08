@@ -1,16 +1,124 @@
-Installation
-Download hpt.exe and execute it on Windows95/98/NT to extract hpt.savf.
-Create save-file on your AS/400.
-Connect to the AS/400 using any FTP client software.
-Put the distribution (hpt.savf) to the save-file in binary mode.
-Restore objects from the save-file using RSTOBJ command.
-Sample instruction
-Create save-file on the target AS/400:
+# 【利用方法】
 
-> CRTSAVF FILE(QGPL/HPT)
-  File HPT created in library QGPL.
+zipファイルには下記2ファイルが含まれています。
+
+```
+2016/02/21  22:17           122,496 crypto.savf
+2016/02/21  22:44             3,495 readme.txt
+               2 個のファイル             125,991 バイト
+```
+
+オブジェクトの作成と利用方法についてはiMagazineの該当記事を参照ください。
+
+# 【SAVFの内容】
+
+ソースファイル QGPL/CRYPTO が保管されており、下記5メンバーが含まれています。
+
+```
+ﾒﾝﾊﾞｰ       ﾀｲﾌﾟ        ﾃｷｽﾄ
+CRYPTO      RPGLE       Sample AES encrypt/decrypt ILE-RPG module
+CRYPTOCLP   CLP         CL program for crypto
+CRYPTOCMD   CMD         CRYPTO fromt-end command
+CRYPTOPROT  RPGLE       Prototype for CRYPTO procedure
+CRYPTOWRAP  RPGLE       Wrapper for CRYPTO procedure
+```
+
+# 【ソースの転送と復元】
+
+下記手順の要領でソースファイル QGPL/CRYPTO の転送・復元を行います。
+
+**○ IBM i 側での受信用オンライン保管ファイルの作成**
+
+```
+> CRTSAVF FILE(QGPL/CRYPTOSAVF)
+   ライブラリー QGPL にファイル CRYPTOSAVF が作成された。
+```
+
+**○ PC(Windows 7)からIBM i へFTP転送**
+
+```
+C:\Users\User\Desktop>ftp xxx.xxx.xxx.xxx
+xxx.xxx.xxx.xxx に接続しました。
+220-FTP Server (user 'xxxxxxx@xxx.ibm.com')
+220
+ユーザー (xxx.xxx.xxx.xxx:(none)): ユーザーID
+331-Password:
+331
+パスワード:パスワード
+230-220-QTCP AT サーバー名.
+230-ユーザーID LOGGED ON.
+230
+ftp> bi
+200 REPRESENTATION TYPE IS BINARY IMAGE.
+ftp> put crypto.savf qgpl/cryptosavf
+200 PORT SUBCOMMAND REQUEST SUCCESSFUL.
+150 SENDING FILE TO MEMBER CRYPTOSAVF IN FILE CRYPTOSAVF IN LIBRARY QGPL.
+226 File transfer completed successfully.
+ftp: 122496 バイトが送信されました 0.19秒 655.06KB/秒。
+ftp> quit
+221 QUIT SUBCOMMAND RECEIVED.
+
+C:\Users\User\Desktop>
+```
+
+**○ オンライン保管ファイルの内容確認**
+
+```
+> DSPSAVF FILE(QGPL/CRYPTOSAVF)
+
+                         保管されたオブジェクトの表示
+
+ 保管されたライブラリー  . . :   QGPL
+
+ オプションを入力して，実行キーを押してください。
+   5= 表示
+
+ OPT  ｵﾌﾞｼﾞｪｸﾄ     タイプ    属性        所有者        ｻｲｽﾞ (K)   データ
+      CRYPTO      *FILE     PF          XXXXXXX             148  YES
+```
+
+**○ ソースの復元**
+
+```
+> RSTOBJ OBJ(*ALL) SAVLIB(QGPL) DEV(*SAVF) SAVF(QGPL/CRYPTOSAVF) RSTLIB(QTE
+  MP)
+  1 個のオブジェクトを QGPL から QTEMP へ復元した。
+> WRKMBRPDM FILE(QTEMP/CRYPTO)
+
+                           PDM を使用したメンバーの処理                XXXXXX
+
+  ファイル . . . .   CRYPTO
+    ライブラリー .     QTEMP                 位置指定  . . . . . .
+
+  オプションを入力して，実行キーを押してください。
+  2= 編集     3=ｺﾋﾟｰ     4= 削除     5= 表示      6= 印刷      7= 名前の変更
+  8= 記述の表示    9= 保管    13=ﾃｷｽﾄ の変更     14=ｺﾝﾊﾟｲﾙ    15=ﾓｼﾞｭｰﾙ 作成 ...
+
+ OPT  ﾒﾝﾊﾞｰ       ﾀｲﾌﾟ        ﾃｷｽﾄ
+      CRYPTO      RPGLE       Sample AES encrypt/decrypt ILE-RPG module
+      CRYPTOCLP   CLP         CL program for crypto
+      CRYPTOCMD   CMD         CRYPTO fromt-end command
+      CRYPTOPROT  RPGLE       Prototype for CRYPTO procedure
+      CRYPTOWRAP  RPGLE       Wrapper for CRYPTO procedure
+```
+
+# 【特記事項】
+
+当配布物および記事は、2016年1月現在の情報に基づいて作成されております。
+
+この資料に含まれる情報は可能な限り正確を期しておりますが、日本アイ・ビー・エム株式会社による正式なレビューは受けておらず、当資料に記載された内容に関して日本アイ・ビー・エム株式会社および筆者が何ら保証をするものではありません。
+
+したがって、この情報の利用またはこれらの技法の実施はひとえに使用者の責任においてなされるものであり、当資料の内容によって受けたいかなる被害に関しても一切の保証をするものではありませんのでご了承ください。
+
+2016/2/21
+
+
+
+
+
 Send save-file from Windows95/98/NT/2000 command prompt:
 
+```
 E:\>ftp your_as400_hostname
 Connected to ????.
 220-QTCP AT ????.
@@ -21,100 +129,350 @@ Password:enter_password_for_the_user_id
 230 ???? LOGGED ON.
 ftp> bi
 200 REPRESENTATION TYPE IS BINARY IMAGE.
-ftp> put hpt.savf qgpl/hpt (replace
+ftp> put csv.savf qgpl/csv (replace
 200 PORT SUBCOMMAND REQUEST SUCCESSFUL.
-150 SENDING FILE TO MEMBER HPT IN FILE HPT IN LIBRARY QGPL.
+150 SENDING FILE TO MEMBER CSV IN FILE CSV IN LIBRARY QGPL.
 250 FILE TRANSFER COMPLETED SUCCESSFULLY.
 287232 bytes sent in 1.10 seconds (260.88 Kbytes/sec)
 ftp> quit
 221 QUIT SUBCOMMAND RECEIVED.
-Go back to the 5250 session:
+```
 
-> DSPSAVF FILE(QGPL/HPT)
-> CRTLIB LIB(HPT)
-  Library HPT created.
-> RSTOBJ OBJ(*ALL) SAVLIB(HPT) DEV(*SAVF) SAVF(QGPL/HPT)
-  2 objects restored from HPT to HPT.
-> STRREXPRC SRCMBR(MAKE) SRCFILE(HPT/SOURCE)
+Go back to the 5250 session to restore objects:
 
+```
+> DSPSAVF FILE(QGPL/CSV)
+> CRTLIB LIB(CSV)
+  Library CSV created.
+> RSTOBJ OBJ(SOURCE LICENSE) SAVLIB(CSV) DEV(*SAVF) SAVF(QGPL/CSV)
+  2 objects restored from CSV to CSV.
+> STRREXPRC SRCMBR(MAKE) SRCFILE(CSV/SOURCE)
 
-Usage
-SPL2STMF
-Syntax
-                     CONVERT SPOOLED FILE TO STMF (SPL2STMF)
+  Start CRTCSVF compilation.
+    You must have authority to exec CRTxxx.
 
- TYPE CHOICES, PRESS ENTER.
+            
+       * * * * * * * * * * * * * * * * * * * * * *
+            
+  Start creating CRTCSVF command...
+    creating CL program CRTCSVFCLP...
+    result-> 0
+    creating main program module CRTCSVFRPG...
+    result-> 0
+    creating main program CRTCSVFRPG...
+    result-> 0
+    creating pnlgrp...
+    result-> 0
+    creating command...
+    result-> 0
 
- SPOOLED FILE NAME  . . . . . . . FILE                     
- STREAM FILE NAME . . . . . . . . TOSTMF         
-                   
- WORKSTATION CUSTOMIZING OBJECT   WSCST                    
-   LIBRARY  . . . . . . . . . . .                  *LIBL     
- JOB NAME . . . . . . . . . . . . JOB            *         
-   USER NAME  . . . . . . . . . .                            
-   JOB NUMBER . . . . . . . . . .                        
- SPOOLED FILE NUMBER  . . . . . . SPLNBR         *LAST 
- REPLACE STREAM FILE  . . . . . . REPLACE        *YES
+            
+  Compile finished. Confirm error(s) if exists.
 
-                            ADDITIONAL PARAMETERS
+            
+  Press ENTER to end terminal session.
+```
 
- ENABLE DEBUG PRINT OUT . . . . . DEBUG          *NO 
-Operation (SCS spooled file to text stream file)
-> ADDLIBLE LIB(HPT) POSITION(*LAST)
-  LIBRARY HPT ADDED TO LIBRARY LIST.
-> OVRPRTF FILE(QPSUPRTF) CHRID(*JOBCCSID)
-> STRSEU SRCFILE(HPT/SOURCE) SRCMBR(SPL2STMFRP) OPTION(6)
-  MEMBER SPL2STMFRP HAS BEEN PRINTED.
-> SPL2STMF FILE(QPSUPRTF) TOSTMF('/tmp/spl2stmfrp.txt') WSCST(TEXTJ)
-  Stream file generated sucessfully. execution time 0 min 2 sec, total
-    pages = 14
-> DLTOVR FILE(QPSUPRTF) 
-TIFF2PDF
-Syntax
-                         Convert TIFF to PDF (TIFF2PDF)
+<p></p>
+<br>
 
- TYPE CHOICES, PRESS ENTER.
+---
 
- TIFF path name . . . . . . . . . TIFF           
-                   
- PDF path name  . . . . . . . . . PDF            
-                    
-Operation (AFP spooled file to PDF)
-> ADDLIBLE LIB(HPT) POSITION(*LAST)
-  LIBRARY HPT ADDED TO LIBRARY LIST.
-> ADDLIBLE LIB(TIFFLIB) POSITION(*LAST)
-  LIBRARY TIFFLIB ADDED TO LIBRARY LIST.
-> OVRPRTF FILE(QPSUPRTF) DEVTYPE(*AFPDS) CDEFNT(QFNT61/X0N13N) IGCCDEFNT(QF
-  NT61/X0M26F)
-> STRSEU SRCFILE(HPT/SOURCE) SRCMBR(SPL2STMFRP) OPTION(6)
-  MEMBER SPL2STMFRP HAS BEEN PRINTED.
-> SPL2STMF FILE(QPSUPRTF) TOSTMF('/tmp/spl2stmfrp.tif') WSCST(QWPTIFFG4)
-  Stream file generated sucessfully. execution time 0 min 2 sec, total
-    pages = 14
-> TIFF2PDF TIFF('/tmp/spl2stmfrp.tif') PDF('/tmp/spl2stmfrp.pdf')
-  TIFF2PDF completed successfully.
-> DLTOVR FILE(QPSUPRTF)                                            
-Note
-Major limitations
-SPL2STMF cannot convert spooled file larger than 16MB.
-TIFF2PDF supports only A4 paper size.
-Before you start
-Add library 'HPT' and/or 'TIFFLIB' (or library which contains necessary objects) to your library list. 
-Make your own WSCST
-SPL2STMF requires WSCST object name. You may exec 'WRKOBJ OBJ(QSYS/*ALL) OBJTYPE(*WSCST)' to determine which WSCST to use. You can create your own WSCST for special purpose. For example, to convert DBCS(Japanese) SCS spooled file to plain Shift-JIS text file, use following WSCST source file.
-        *************** BEGINNING OF DATA ******************************************
-0001.00 :WSCST DEVCLASS=TRANSFORM.
-0002.00
-0003.00     :TRNSFRMTBL.
-0004.00     :PRTDTASTRM
-0005.00       DATASTREAM=IBMNONPAGES.   /* printer datastream IBM 5577 (SHIFT-JIS) */
-0051.00     :SPACE
-0052.00       DATA ='20'X.
-0055.00 /*  :CARRTN         */
-0056.00 /*    DATA ='0D'X.  */
-0057.00     :FORMFEED
-0058.00       DATA ='0C'X.
-0059.00     :LINEFEED
-0060.00       DATA ='0D0A'X.
-0417.00 :EWSCST.
-        ****************** END OF DATA *********************************************
+# Usage
+
+```
+                    Create CSV format Stream File - Help
+
+      The Create CSV format Stream File (CRTCSVF) command copies an
+      externally described database file to a CSV format stream file on
+      IFS.  The term CSV stands for Comma Separated Value(s) and used for
+      purposes of exchanging data between heterogenous databases.
+
+       O  Read data from database file, convert format to CSV and write to
+          stream file directly.  The CSV format file (TOSTMF parameter)
+          will be called the STMF for this command.
+
+       O  For string field, trailing blanks are removed. If last byte of
+          string field is shift-in (X'0e', used to represent end of DBCS
+          character), DBCS trailing blanks are also removed. This is very
+          effective when using J/E fields.
+
+       O  For numeric (PACK or ZONE) field, preceeding and trailing '0's
+          are supressed. (e.g. '0001.00' -> '1.0') If the field has no
+          decimal fraction, period ('.') will not be displayed.
+
+       O  Decimal data errors are ignored and numeric value is set to '0'
+          or '0.0' when you specify RCDERR(*IGNORE) or RCDERR(value).
+
+              Note:  Specifying RCDERR(*IGNORE) in conjunction with
+              RCDERRMSG(*SECLVL) may generate a lot of low level messages
+              in joblog. Specifying RCDERR(*ABORT) or RCDERR(value) is
+              recommended when converting large database file.
+
+      Restrictions:
+
+        1.  If the database file contains more than 100 fields, only first
+            100 fields are converted.  If the database file contains
+            fields with complex definition, less than 100 fields may be
+            converted.
+
+        2.  Cannot process database file if record length of the database
+            file is greater than 9999.
+
+        3.  Unexpected condition may occur when CSV record (one line)
+            exceeds 32767 byte.
+
+                Note:  This restriction applies only to encoding schemes
+                (CCSID) which require escape sequences. Usually you won't
+                encounter this restriction because maximum record / string
+                field length is 32766.
+
+        4.  Only ZONE, PACK, CHAR (except GRAPHIC and VARYING length),
+            DATE, TIME, TIMESTAMP fields are converted.  Other field types
+            such as BINARY are ignored.
+
+          Note:  Do not precede an entry with an asterisk unless that
+          entry is a "special value" that is shown (on the display or in
+          the help information) with an asterisk.
+
+  Error messages for CRTCSVF
+
+      *ESCAPE Messages
+      CPF9897     Program aborted. &1/&2 records processed, &3 error(s)
+                  found.
+
+      *STATUS Messages During the running of the CRTCSVF command, message
+      is sent as a status message in every 1,000 records informing the
+
+      interactive user that a copy is occurring.
+
+  File (FILE)
+
+      Specifies the qualified name of the FILE that contains the records
+      to be copied. The database file can be a single-format logical,
+      physical file.
+
+      This is a required parameter.
+
+      The File Name can be qualified by one of the following library
+      values:
+
+      *LIBL
+          All libraries in the job's library list are searched until the
+          first match is found.
+
+      *CURLIB
+          The current library for the job is searched.  If no library is
+          specified as the current library for the job, the QGPL library
+          is used.
+
+      library-name
+          Specify the name of the library to be searched.
+
+      file-name
+          Specify the name of the file that contains the records to be
+          copied.
+
+  To stream file (TOSTMF)
+
+      Specifies the path name of the output stream file to which data is
+      copied. All directories in the path name must exist. New directories
+      are not created. If the stream file does not exist, it will be
+      created.  For more information on specifying path names, refer to
+      Chapter 2 of the CL Reference, SC41-5722.
+
+      This is a required parameter.
+
+  Member name (MBR)
+
+      The File Member Name specifies the FILE member name that is copied.
+
+      The possible values are:
+
+      *FIRST
+          The first member (in order of creation date) in the FILE is
+          copied.
+
+      member-name
+          Specify the name of the FILE member to be copied.
+
+  Overwrite existing stream file (OVRWRT)
+
+      Specifies if a new STMF is created when a STMF of the same name
+      already exists in the specified IFS path.
+
+      The possible values are:
+
+      *YES
+          A new STMF is created in the specified path. If a STMF of the
+          same name already exists in the specified IFS path, CRTCSVF
+          deletes it before conversion. Even error occured during
+          conversion, original (deleted) stream file will not be
+          recovered.
+
+      *NO
+          A new STMF is not created if a STMF of the same name already
+          exists in the path.  The existing STMF is not replaced, a
+          message is displayed, and command aborts.
+
+  Database file CCSID (DBFCCSID)
+
+      Specifies the method of obtaining the database file CCSID (EBCDIC).
+
+      The possible values are:
+
+      *JOB
+          The default job  CCSID is used, unless it is 65535.  If the
+          default job CCSID is 65535, an error condition is created.
+
+      *FILE
+          The database file CCSID is used, unless it is 65535.  If the
+          database file CCSID is 65535, default job CCSID is used. If the
+          default JOB CCSID is 65535, an error condition is created.
+
+      coded-character-set-identifier
+          Specify the database file CCSID.  The values 0, 65534, and 65535
+          are not valid.
+
+  Stream file code page (STMFCODPAG)
+
+      Specifies the method of obtaining the stream file code page and the
+      CCSID equivalent of the code page that is used for data conversion.
+
+      The possible values are:
+
+      *SYSTEM
+          Determine the correct NLV directory (PC ASCII CCSID of selected
+          NLV) to be used to locate translation information.
+
+      code-page
+          Specify the ASCII code page (CCSID) used. The specified code
+          page is associated with the stream file when it is created.
+
+  Additional information (ADDINF)
+
+      Specifies additional information to be written to the STMF.
+
+      The possible values are:
+
+      *NONE
+          No additional information will be written.
+
+      *FLDNAM
+          Put Field names are inserted in the first row of the STMF.
+
+      *COLHDG
+          Column-headings are inserted in the first row of the STMF.
+
+      *BOTH
+          Column-headings are inserted in the first row and field names
+          are inserted in the second row of the STMF.
+
+  Allow record error (RCDERR)
+
+      Specifies how much record errors can be ignored.
+
+          Note:  Possible record error types are :
+
+          - Character conversion (iconv() function) error.
+
+          - Decimal data error.
+
+          - Double quotation (") in string field replaced by different
+          character.
+
+      The possible values are:
+
+      *ABORT
+          Record error is not permitted. Program will abort if any record
+          error is detected.
+
+      *IGNORE
+          Continue processing in case of recoverable error. Record errors
+          will be recoverd.
+
+      record-errors
+          Specify the maximum number of record error. Program aborts when
+          error count exceeds this value. Valid values range from 1
+          through 9999.
+
+  Record error message (RCDERRMSG)
+
+      Specifies whether record error messages are sent to joblog or/and
+      STMF.  Fatal internal program error or completion message is always
+      sent to the program message queue.
+
+      The possible values are:
+
+      *BOTH
+          Record error messages are written to the STMF and sent to joblog
+          as low level message.
+
+      *STMF
+          Record error messages are written to the STMF.
+
+      *SECLVL
+          Record error messages are sent to joblog as low level message.
+
+      *NONE
+          No record error messages are sent.
+
+  String delimiter replace char (RPLCHR)
+
+      Replaces double quote character (") in string field by specified
+      character.
+
+          Note:  If you specify RPLCHR(*DOUBLEQUOTE) or RPLCHR('"'),
+          double quotation in string field is not considered to be record
+          error.
+
+      The possible values are:
+
+      *DOUBLEQUOTE
+          The double quote character (") in string field will be replaced
+          by two double quote characters (""). This is equivalent to
+          specifying double quote character as character-value.
+
+              Note:  This encoding is same as CA/400 express file transfer
+              function.  Microsoft Excel 97 and Lotus 1-2-3 98 convert two
+              double quote characters ("") to single double quote
+              character (") when they read the CSV file. Other software
+              may not interpret this.
+
+      *SPACE
+          The double quote character in string field will be replaced by
+          space character (X'20').
+
+      'character-value'
+          Specify a character to replace double quote character (") in
+          string field.
+
+  Field delimiter (FLDDLM)
+
+      Specifies the field delimiter for the record. This value is placed
+      between fields.
+
+      The possible values are:
+
+      *COMMA
+          The comma (,) character is used as the field delimiter.
+
+      *SPACE
+          The space (X'20') character is used as the field delimiter.
+
+      'character-value'
+          Specify a character to be used as the field delimiter.
+
+  Debug print out (DEBUG)
+
+      Specifies whether the debug output from the command is printed with
+      the job's spooled output.
+
+      The possible values are:
+
+      *NO
+          The debug output is disabled.
+
+      *YES
+          The debug output is printed with the job's spooled output.
+```
