@@ -77,7 +77,7 @@ ftp> put pop3.savf qgpl/pop3
 250 FILE TRANSFER COMPLETED SUCCESSFULLY.
 ftp: 101904 bytes sent in 4.33Seconds 23.56Kbytes/sec.
 ```
-(Put stream files)
+Put stream files.
 ```
 ftp> quote site namefmt 1
 250  NOW USING NAMING FORMAT "1".
