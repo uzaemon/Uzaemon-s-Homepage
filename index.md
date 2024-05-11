@@ -28,7 +28,7 @@ UZAEMONのホームページへ。
 
 2点更新しました。
 
-- アイマガジン掲載記事のコードを公開しました。記事そのものはバックナンバー(まだあれば...)をご覧ください。
+- 10年くらい前にアイマガジンに掲載された下記記事のソースコードを公開しました。リンクは[[Documents]](#documents)セクションにあります。記事そのものはバックナンバー(まだあれば...)をご覧ください。
   - iMagazine 2015.05 「iのスゴ技ウラ技 第2回」より、[スプールファイルの簡易なExcel取り込み](https://github.com/uzaemon/homepage/tree/main/SPL2EXCEL)
   - iMagazine 2016 Spring 「iのスゴ技ウラ技 第4回」より、[ILE RPGプログラムによる文字列の暗号化](https://github.com/uzaemon/homepage/tree/main/CRYPTO)
 
@@ -93,8 +93,8 @@ WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.</FONT>**
 
 - [全ての始まり](HowItAllBeganJ.html) 'How It All Began' by Wayne O. Evans
 - [AFP印刷アプリケーションのサンプル](afpprt.html) AFP list application example
-- iMagazine 2015.05 「iのスゴ技ウラ技 第2回」より[「スプールファイルの簡易なExcel取り込み」のコード](https://github.com/uzaemon/homepage/tree/main/SPL2EXCEL)
-- iMagazine 2016 Spring 「iのスゴ技ウラ技 第4回」より[「ILE RPGプログラムによる文字列の暗号化」のコード](https://github.com/uzaemon/homepage/tree/main/CRYPTO)
+- [「スプールファイルの簡易なExcel取り込み」](https://github.com/uzaemon/homepage/tree/main/SPL2EXCEL)：iMagazine 2015.05 「iのスゴ技ウラ技 第2回」掲載記事のコード (Excel import of spool files with VBA)
+- [「ILE RPGプログラムによる文字列の暗号化」](https://github.com/uzaemon/homepage/tree/main/CRYPTO)：iMagazine 2016 Spring 「iのスゴ技ウラ技 第4回」掲載記事のコード (String encryption with ILE RPG program)
 
 ---
 
