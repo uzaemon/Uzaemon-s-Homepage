@@ -93,6 +93,8 @@ WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.</FONT>**
 
 - [全ての始まり](HowItAllBeganJ.html) 'How It All Began' by Wayne O. Evans
 - [AFP印刷アプリケーションのサンプル](afpprt.html) AFP list application example
+- iMagazine 2015.05 「iのスゴ技ウラ技 第2回」より[「スプールファイルの簡易なExcel取り込み」のコード](https://github.com/uzaemon/homepage/tree/main/SPL2EXCEL)
+- iMagazine 2016 Spring 「iのスゴ技ウラ技 第4回」より[「ILE RPGプログラムによる文字列の暗号化」のコード](https://github.com/uzaemon/homepage/tree/main/CRYPTO)
 
 ---
 
